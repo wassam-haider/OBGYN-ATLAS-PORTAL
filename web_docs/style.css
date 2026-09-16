@@ -61,3 +61,27 @@ body {
     transition: background-color 0.25s, color 0.25s;
 }
 /* Additional CSS omitted for brevity */
+@media (max-width: 640px) {
+  .app-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 16px;
+  }
+  .brand-block, .nav-mode-tabs, .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .nav-mode-tabs {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+  .btn-header {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
