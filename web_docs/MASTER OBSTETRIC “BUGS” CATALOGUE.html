@@ -1,0 +1,3262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER OBSTETRIC “BUGS” CATALOGUE — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+    --bg-primary: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-light: #64748b;
+    --brand-navy: #0f172a;
+    --brand-blue: #1d4ed8;
+    --brand-cobalt: #2563eb;
+    --brand-teal: #0d9488;
+    --brand-rose: #e11d48;
+    --brand-amber: #d97706;
+    --border-subtle: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --highlight-bg: #fef08a;
+    --badge-bg: #eff6ff;
+    --badge-text: #1d4ed8;
+    --badge-border: #bfdbfe;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-head: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #090d16;
+    --bg-surface: #0f172a;
+    --bg-card: #131d31;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-light: #64748b;
+    --brand-navy: #020617;
+    --brand-blue: #3b82f6;
+    --brand-cobalt: #60a5fa;
+    --brand-teal: #14b8a6;
+    --brand-rose: #f43f5e;
+    --brand-amber: #f59e0b;
+    --border-subtle: #1e293b;
+    --border-strong: #334155;
+    --highlight-bg: #854d0e;
+    --badge-bg: #1e3a8a33;
+    --badge-text: #93c5fd;
+    --badge-border: #1e40af;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/* APP TOP NAVBAR */
+.app-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--brand-cobalt), var(--brand-teal));
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+}
+
+.brand-title-text {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.brand-subtitle-text {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.nav-mode-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 7px 15px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    background: var(--brand-cobalt);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(37,99,235,0.35);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-header {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+.btn-header:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* PROGRESS & SEARCH SUBNAV */
+.progress-subnav {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 57px;
+    z-index: 999;
+    box-shadow: var(--shadow-sm);
+}
+
+.progress-track-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    max-width: 420px;
+}
+
+.progress-count-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand-cobalt);
+    min-width: 140px;
+}
+
+.progress-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: var(--border-subtle);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--brand-teal), var(--brand-cobalt));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input-box {
+    position: relative;
+    width: 280px;
+}
+
+.search-input-box input {
+    width: 100%;
+    padding: 6px 12px 6px 32px;
+    font-size: 12.5px;
+    border-radius: 6px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-primary);
+    color: var(--text-main);
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-input-box input:focus {
+    border-color: var(--brand-cobalt);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* APP MAIN LAYOUT */
+.app-container {
+    display: flex;
+    min-height: calc(100vh - 110px);
+}
+
+/* SIDEBAR SYLLABUS */
+.app-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    padding: 18px 16px;
+    position: sticky;
+    top: 108px;
+    height: calc(100vh - 108px);
+    overflow-y: auto;
+}
+
+.sidebar-heading {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    padding-left: 6px;
+}
+
+.part-nav-list {
+    list-style: none;
+}
+
+.part-nav-link {
+    display: block;
+    padding: 7px 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-left: 2px solid transparent;
+}
+
+.part-nav-link:hover {
+    color: var(--brand-cobalt);
+    background: var(--bg-primary);
+    border-left-color: var(--brand-cobalt);
+}
+
+/* MAIN VIEW AREA */
+.main-view-area {
+    flex: 1;
+    padding: 24px 36px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* READER HERO */
+.reader-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .reader-hero {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    border: 1px solid var(--border-subtle);
+}
+
+.reader-hero-title {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.reader-hero-sub {
+    font-size: 13.5px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.reader-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* SECTION PART CARD */
+.part-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    overflow: hidden;
+}
+
+.part-card.section-mastered {
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.part-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+}
+
+.part-top-bar {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.part-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.part-pill {
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--badge-border);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+}
+
+.part-title {
+    font-family: var(--font-head);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.part-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-icon {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-icon:hover {
+    background: var(--brand-cobalt);
+    color: #ffffff;
+    border-color: var(--brand-cobalt);
+}
+
+.part-body {
+    padding: 20px 24px;
+}
+
+/* TOPIC ROW & CHECKPOINT */
+.topic-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 12px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    background: var(--bg-primary);
+    border-left: 3px solid var(--brand-cobalt);
+    border-radius: 0 6px 6px 0;
+    transition: background-color 0.2s ease;
+}
+
+.topic-row.mastered-badge-active {
+    background: rgba(16, 185, 129, 0.08);
+    border-left-color: #10b981;
+}
+
+.topic-title-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topic-badge {
+    background: var(--brand-cobalt);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.topic-row.mastered-badge-active .topic-badge {
+    background: #10b981;
+}
+
+.topic-heading {
+    font-family: var(--font-head);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.mastery-check-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.topic-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #10b981;
+}
+
+/* LISTS & BULLETS */
+.core-list {
+    list-style: none;
+    margin: 8px 0 12px 6px;
+}
+
+.core-bullet {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13.5px;
+    margin-bottom: 6px;
+    line-height: 1.55;
+}
+
+.bullet-icon {
+    color: var(--brand-cobalt);
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+.sub-list {
+    list-style: none;
+    margin: 4px 0 8px 24px;
+}
+
+.sub-bullet {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+.sub-bullet-icon {
+    color: var(--brand-teal);
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+.bullet-text {
+    flex: 1;
+}
+
+/* STYLED TABLES */
+.table-wrap {
+    margin: 14px 0;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.styled-table thead tr {
+    background: var(--bg-primary);
+    border-bottom: 2px solid var(--border-strong);
+}
+
+.styled-table th {
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 12.5px;
+}
+
+.styled-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    vertical-align: top;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background: rgba(0,0,0,0.015);
+}
+
+[data-theme="dark"] .styled-table tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.02);
+}
+
+.styled-table tr:hover {
+    background: rgba(37,99,235,0.04);
+}
+
+.val-pill {
+    display: inline-block;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--badge-border);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* CALLOUTS */
+.atlas-callout {
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-left: 4px solid;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.callout-highyield {
+    background: rgba(217, 119, 6, 0.08);
+    border-left-color: var(--brand-amber);
+}
+
+.callout-highyield .callout-tag {
+    color: var(--brand-amber);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.callout-info {
+    background: rgba(13, 148, 136, 0.08);
+    border-left-color: var(--brand-teal);
+}
+
+.callout-info .callout-tag {
+    color: var(--brand-teal);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.callout-body {
+    margin-top: 4px;
+    color: var(--text-main);
+}
+
+/* SEQUENCE PILL */
+.sequence-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    margin: 6px 0;
+}
+
+.flow-arrow {
+    color: var(--brand-cobalt);
+    font-weight: 800;
+}
+
+.sub-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin: 14px 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.standard-p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 6px 0;
+    color: var(--text-main);
+}
+
+/* FLASHCARDS VIEW */
+.flashcard-arena {
+    display: none;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-perspective {
+    perspective: 1200px;
+    min-height: 320px;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.fcard-inner {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.fcard-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.fcard-front, .fcard-back {
+    position: absolute;
+    width: 100%;
+    min-height: 320px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-card);
+}
+
+.fcard-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, var(--bg-card) 0%, rgba(37,99,235,0.05) 100%);
+    border-color: var(--brand-cobalt);
+}
+
+.fcard-category {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--brand-cobalt);
+}
+
+.fcard-question {
+    font-family: var(--font-head);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin: 20px 0;
+    color: var(--text-main);
+}
+
+.fcard-answer {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: var(--text-main);
+}
+
+.fcard-hint {
+    font-size: 11.5px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.flashcard-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-fc {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-main);
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-fc:hover {
+    border-color: var(--brand-cobalt);
+    color: var(--brand-cobalt);
+    box-shadow: var(--shadow-sm);
+}
+
+/* QUIZ VIEW */
+.quiz-arena {
+    display: none;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.quiz-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-progress-bar {
+    height: 6px;
+    background: var(--border-subtle);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--brand-cobalt);
+    transition: width 0.3s ease;
+}
+
+.quiz-q-num {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--brand-cobalt);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.quiz-q-text {
+    font-family: var(--font-head);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 24px;
+}
+
+.quiz-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quiz-opt-btn {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    text-align: left;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quiz-opt-btn:hover:not(:disabled) {
+    border-color: var(--brand-cobalt);
+    background: rgba(37,99,235,0.04);
+}
+
+.quiz-opt-btn.correct {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: #10b981;
+    color: #065f46;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .quiz-opt-btn.correct {
+    color: #34d399;
+}
+
+.quiz-opt-btn.wrong {
+    background: rgba(225, 29, 72, 0.12);
+    border-color: #e11d48;
+    color: #9f1239;
+}
+
+[data-theme="dark"] .quiz-opt-btn.wrong {
+    color: #fb7185;
+}
+
+.quiz-feedback-box {
+    display: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    background: var(--bg-primary);
+    border-left: 4px solid var(--brand-cobalt);
+    line-height: 1.5;
+}
+
+/* HIGH-YIELD SUMMARY / DRILL TAB */
+.surgical-drill-arena {
+    display: none;
+}
+
+.surgical-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: #ffffff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.grid-surgical {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 18px;
+}
+
+.surg-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+.surg-box-title {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--brand-cobalt);
+}
+
+.surg-items-list {
+    list-style: none;
+}
+
+.surg-item {
+    font-size: 13px;
+    padding: 4px 0;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* PRINT MEDIA */
+@media print {
+    .app-nav, .progress-subnav, .app-sidebar, .part-actions, .nav-mode-tabs {
+        display: none !important;
+    }
+    .app-container {
+        display: block !important;
+    }
+    .main-view-area {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .part-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+        margin-bottom: 16px !important;
+    }
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 900px) {
+    .app-sidebar {
+        display: none;
+    }
+    .main-view-area {
+        padding: 16px;
+    }
+    .search-input-box {
+        width: 180px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MASTER OBSTETRIC “BUGS” CATALOGUE</div>
+                <div class="brand-subtitle-text">All important organisms → maternal disease → fetal</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ Bug Catalog Matrix</button>
+        </div>
+
+        <div class="nav-actions">
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 53 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 14 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (14 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. 🧫 BACTERIAL PATHOGENS">1. 🧫 BACTERIAL PATHOGENS</a></li><li><a href="#part-3" class="part-nav-link" title="3. 🧫 BACTERIAL VAGINOSIS ORGANISMS">3. 🧫 BACTERIAL VAGINOSIS ORGANISMS</a></li><li><a href="#part-4" class="part-nav-link" title="4. 🧬 SPIROCHETES">4. 🧬 SPIROCHETES</a></li><li><a href="#part-5" class="part-nav-link" title="5. 🧬 CHLAMYDIA / MYCOPLASMA / UREAPLASMA">5. 🧬 CHLAMYDIA / MYCOPLASMA / UREAPLASMA</a></li><li><a href="#part-6" class="part-nav-link" title="6. 🦠 CONGENITAL VIRAL PATHOGENS">6. 🦠 CONGENITAL VIRAL PATHOGENS</a></li><li><a href="#part-7" class="part-nav-link" title="1. SEM">1. SEM</a></li><li><a href="#part-8" class="part-nav-link" title="2. CNS">2. CNS</a></li><li><a href="#part-9" class="part-nav-link" title="8. 🦠 OTHER IMPORTANT VIRUSES">8. 🦠 OTHER IMPORTANT VIRUSES</a></li><li><a href="#part-10" class="part-nav-link" title="9. 🪱 PARASITIC PATHOGENS">9. 🪱 PARASITIC PATHOGENS</a></li><li><a href="#part-11" class="part-nav-link" title="10. 🦟 MALARIA">10. 🦟 MALARIA</a></li><li><a href="#part-12" class="part-nav-link" title="11. 🍄 FUNGAL PATHOGENS">11. 🍄 FUNGAL PATHOGENS</a></li><li><a href="#part-13" class="part-nav-link" title="12. 🦠 MYCOBACTERIAL INFECTION">12. 🦠 MYCOBACTERIAL INFECTION</a></li><li><a href="#part-14" class="part-nav-link" title="13. ⭐ MASTER TORCH TABLE">13. ⭐ MASTER TORCH TABLE</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MASTER OBSTETRIC “BUGS” CATALOGUE</h1>
+                    <div class="reader-hero-sub">⭐ All important organisms → maternal disease → fetal/neonatal disease → classic exam association</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is the single consolidated version of the previous two lists, arranged by bacteria, viruses, parasites, fungi and other important pathogens, with the major obstetric diseases and high-yield associations.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. 🧫 BACTERIAL PATHOGENS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Gram-positive bacteria</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Streptococcus agalactiae — Group B Streptococcus (GBS)</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Vaginal/rectal colonisation</h4>
+<h4 class="sub-label">Asymptomatic bacteriuria</h4>
+<h4 class="sub-label">Cystitis</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">Intra-amniotic infection</h4>
+<h4 class="sub-label">Postpartum endometritis</h4>
+<h4 class="sub-label">Puerperal infection</h4>
+<h4 class="sub-label">Fetal/neonatal</h4>
+<h4 class="sub-label">Early-onset neonatal sepsis</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Meningitis</h4>
+<h4 class="sub-label">Bacteraemia</h4>
+<h4 class="sub-label">Fetal infection</h4>
+<h4 class="sub-label">Stillbirth</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">GBS → early neonatal sepsis + pneumonia + meningitis</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Streptococcus pyogenes — Group A Streptococcus (GAS)</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Puerperal sepsis</h4>
+<h4 class="sub-label">Postpartum endometritis</h4>
+<h4 class="sub-label">Wound infection</h4>
+<h4 class="sub-label">Necrotising fasciitis</h4>
+<h4 class="sub-label">Streptococcal toxic shock syndrome</h4>
+<h4 class="sub-label">Septic shock</h4>
+<h4 class="sub-label">Maternal death</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">GAS → rapidly progressive severe puerperal sepsis</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Staphylococcus aureus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Including MRSA</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Lactational mastitis</h4>
+<h4 class="sub-label">Breast abscess</h4>
+<h4 class="sub-label">Caesarean wound infection</h4>
+<h4 class="sub-label">Perineal wound infection</h4>
+<h4 class="sub-label">Postoperative wound infection</h4>
+<h4 class="sub-label">Bacteraemia</h4>
+<h4 class="sub-label">Toxic shock syndrome</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Skin/soft-tissue infection</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Sepsis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">S. aureus → mastitis + breast abscess + wound infection</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Listeria monocytogenes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-5" onchange="toggleMastery('t-2-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Febrile gastroenteritis</h4>
+<h4 class="sub-label">Flu-like illness</h4>
+<h4 class="sub-label">Bacteraemia</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<h4 class="sub-label">IUFD/stillbirth</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">Preterm labour</h4>
+<h4 class="sub-label">Fetal infection</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Neonatal sepsis</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Meningitis</h4>
+<h4 class="sub-label">Granulomatosis infantiseptica</h4>
+<h4 class="sub-label">Transmission</h4>
+<h4 class="sub-label">Unpasteurised milk</h4>
+<h4 class="sub-label">Soft cheeses</h4>
+<h4 class="sub-label">Deli meats</h4>
+<h4 class="sub-label">Contaminated ready-to-eat foods</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Pregnancy + fever + food exposure → Listeria</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Enterococcus faecalis / Enterococcus faecium</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-6" onchange="toggleMastery('t-2-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">Cystitis</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Urosepsis</h4>
+<h4 class="sub-label">Postpartum endometritis</h4>
+<h4 class="sub-label">Postoperative pelvic infection</h4>
+<h4 class="sub-label">Pelvic abscess</h4>
+<h4 class="sub-label">Intra-abdominal infection</h4>
+<h4 class="sub-label">Bacteraemia</h4>
+
+                <div class="topic-row" id="topic-t-2-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Clostridium perfringens</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-7" onchange="toggleMastery('t-2-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Severe puerperal sepsis</h4>
+<h4 class="sub-label">Post-abortion infection</h4>
+<h4 class="sub-label">Uterine infection</h4>
+<h4 class="sub-label">Gas-forming infection</h4>
+<h4 class="sub-label">Gas gangrene</h4>
+<h4 class="sub-label">Massive intravascular haemolysis</h4>
+<h4 class="sub-label">Septic shock</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">C. perfringens → severe sepsis + haemolysis</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Clostridium tetani</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-8" onchange="toggleMastery('t-2-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Maternal tetanus</h4>
+<h4 class="sub-label">Neonatal tetanus</h4>
+<p class="standard-p">Particularly associated with unsafe delivery and umbilical cord practices.</p>
+
+                <div class="topic-row" id="topic-t-2-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Clostridium sordellii</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-9" onchange="toggleMastery('t-2-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Rare but potentially fatal postpartum infection.</p>
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Postpartum sepsis</h4>
+<h4 class="sub-label">Capillary leak syndrome</h4>
+<h4 class="sub-label">Severe hypotension</h4>
+<h4 class="sub-label">Haemoconcentration</h4>
+<h4 class="sub-label">Massive leukocytosis</h4>
+<h4 class="sub-label">Multiorgan failure</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Postpartum shock + extreme leukocytosis + little/no fever → C. sordellii</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">🦠 GRAM-NEGATIVE BACTERIA</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-10" onchange="toggleMastery('t-2-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-2-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Escherichia coli</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-11" onchange="toggleMastery('t-2-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Asymptomatic bacteriuria</div>
+            </div>
+            
+<h4 class="sub-label">Cystitis</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Urosepsis</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">Intra-amniotic infection</h4>
+<h4 class="sub-label">Septic abortion</h4>
+<h4 class="sub-label">Postpartum endometritis</h4>
+<h4 class="sub-label">Postoperative infection</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Early-onset sepsis</h4>
+<h4 class="sub-label">Late-onset sepsis</h4>
+<h4 class="sub-label">Meningitis</h4>
+<h4 class="sub-label">Pneumonia</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">E. coli → major/common UTI pathogen</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Klebsiella pneumoniae</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-12" onchange="toggleMastery('t-2-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Asymptomatic bacteriuria</h4>
+<h4 class="sub-label">Cystitis</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Urosepsis</h4>
+<h4 class="sub-label">Hospital-acquired infection</h4>
+<h4 class="sub-label">Postoperative wound infection</h4>
+<h4 class="sub-label">Neonatal sepsis</h4>
+
+                <div class="topic-row" id="topic-t-2-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Proteus mirabilis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-13" onchange="toggleMastery('t-2-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">Recurrent UTI</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Urease-positive → alkaline urine → struvite stones</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Pseudomonas aeruginosa</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-14" onchange="toggleMastery('t-2-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Catheter-associated UTI</h4>
+<h4 class="sub-label">Hospital-acquired UTI</h4>
+<h4 class="sub-label">Caesarean wound infection</h4>
+<h4 class="sub-label">Postpartum wound infection</h4>
+<h4 class="sub-label">Maternal sepsis</h4>
+<h4 class="sub-label">Nosocomial neonatal sepsis</h4>
+
+                <div class="topic-row" id="topic-t-2-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Neisseria gonorrhoeae</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-15" onchange="toggleMastery('t-2-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Gonococcal cervicitis</div>
+            </div>
+            
+<h4 class="sub-label">Urethritis</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Endometritis</h4>
+<h4 class="sub-label">Disseminated gonococcal infection</h4>
+<h4 class="sub-label">Septic abortion</h4>
+<h4 class="sub-label">PPROM association</h4>
+<h4 class="sub-label">Preterm birth association</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Gonococcal ophthalmia neonatorum</h4>
+<h4 class="sub-label">Severe conjunctivitis</h4>
+<h4 class="sub-label">Keratitis</h4>
+<h4 class="sub-label">Corneal ulceration</h4>
+<h4 class="sub-label">Blindness</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Gonococcus → neonatal ophthalmia</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">3. 🧫 BACTERIAL VAGINOSIS ORGANISMS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Gardnerella vaginalis + polymicrobial anaerobic flora</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important organisms include</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Gardnerella vaginalis</h4>
+<h4 class="sub-label">Prevotella</h4>
+<h4 class="sub-label">Mobiluncus</h4>
+<h4 class="sub-label">Bacteroides</h4>
+<h4 class="sub-label">Atopobium vaginae</h4>
+<h4 class="sub-label">Other anaerobes</h4>
+<h4 class="sub-label">Disease</h4>
+<h4 class="sub-label">Bacterial vaginosis</h4>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">Thin homogeneous grey/white discharge</h4>
+<h4 class="sub-label">Fishy odour</h4>
+<h4 class="sub-label">Clue cells</h4>
+<h4 class="sub-label">Vaginal pH &gt;4.5</h4>
+<h4 class="sub-label">Obstetric associations:</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Postpartum endometritis</h4>
+<h4 class="sub-label">Postoperative pelvic infection</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">BV → clue cells + fishy odour + raised pH</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">4. 🧬 SPIROCHETES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-4-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">Treponema pallidum</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-1" onchange="toggleMastery('t-4-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Maternal disease</h4>
+<h4 class="sub-label">Syphilis</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Stages</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Primary</h4>
+<h4 class="sub-label">Secondary</h4>
+<h4 class="sub-label">Latent</h4>
+<h4 class="sub-label">Tertiary</h4>
+<h4 class="sub-label">Pregnancy complications</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<h4 class="sub-label">Stillbirth</h4>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<h4 class="sub-label">Hydrops</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Placental abnormalities</h4>
+<h4 class="sub-label">Fetal infection</h4>
+<h4 class="sub-label">Congenital syphilis</h4>
+<h4 class="sub-label">Hepatosplenomegaly</h4>
+<h4 class="sub-label">Jaundice</h4>
+<h4 class="sub-label">Rash</h4>
+<h4 class="sub-label">Anaemia</h4>
+<h4 class="sub-label">Osteochondritis</h4>
+<h4 class="sub-label">Periostitis</h4>
+<h4 class="sub-label">Snuffles</h4>
+<h4 class="sub-label">Saddle nose</h4>
+<h4 class="sub-label">Hutchinson teeth</h4>
+<h4 class="sub-label">Saber shins</h4>
+<h4 class="sub-label">Sensorineural deafness</h4>
+<h4 class="sub-label">Neurological disease</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Treponema → congenital syphilis</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">5. 🧬 CHLAMYDIA / MYCOPLASMA / UREAPLASMA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">Chlamydia trachomatis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Cervicitis</div>
+            </div>
+            
+<h4 class="sub-label">Urethritis</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Endometritis</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Increased ectopic pregnancy risk</h4>
+<h4 class="sub-label">PPROM association</h4>
+<h4 class="sub-label">Preterm birth association</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Inclusion conjunctivitis</h4>
+<h4 class="sub-label">Neonatal pneumonia</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Chlamydia → neonatal conjunctivitis + afebrile pneumonia</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-5-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">Mycoplasma hominis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-2" onchange="toggleMastery('t-5-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Associated with:</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">Intra-amniotic infection</h4>
+<h4 class="sub-label">Postpartum fever</h4>
+<h4 class="sub-label">Postpartum endometritis</h4>
+<h4 class="sub-label">Pelvic infection</h4>
+<h4 class="sub-label">Preterm birth</h4>
+
+                <div class="topic-row" id="topic-t-5-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">Mycoplasma genitalium</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-3" onchange="toggleMastery('t-5-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Causes/associated with:</h4>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Reproductive tract infection</h4>
+<h4 class="sub-label">Adverse reproductive outcomes</h4>
+<h4 class="sub-label">Preterm birth association</h4>
+
+                <div class="topic-row" id="topic-t-5-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">19</span>
+                        <h3 class="topic-heading">Ureaplasma urealyticum / Ureaplasma spp.</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-4" onchange="toggleMastery('t-5-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Associated with:</h4>
+<h4 class="sub-label">Genital tract colonisation</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Low birth weight</h4>
+<h4 class="sub-label">Neonatal infection</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">6. 🦠 CONGENITAL VIRAL PATHOGENS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">20</span>
+                        <h3 class="topic-heading">Cytomegalovirus — CMV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">One of the most important congenital viral infections.</p>
+<h4 class="sub-label">Congenital CMV</h4>
+<h4 class="sub-label">Microcephaly</h4>
+<h4 class="sub-label">Periventricular calcifications</h4>
+<h4 class="sub-label">Ventriculomegaly</h4>
+<h4 class="sub-label">IUGR</h4>
+<h4 class="sub-label">Hepatosplenomegaly</h4>
+<h4 class="sub-label">Jaundice</h4>
+<h4 class="sub-label">Thrombocytopenia</h4>
+<h4 class="sub-label">Petechiae</h4>
+<h4 class="sub-label">&quot;Blueberry muffin&quot; appearance</h4>
+<h4 class="sub-label">Chorioretinitis</h4>
+<h4 class="sub-label">Sensorineural hearing loss</h4>
+<h4 class="sub-label">Neurodevelopmental impairment</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">CMV → periventricular calcifications + hearing loss</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-6-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">Rubella virus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-2" onchange="toggleMastery('t-6-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Congenital rubella syndrome</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic triad</span></div>
+                
+            </div>
+            
+<p class="standard-p">Cataracts + sensorineural deafness + congenital heart disease</p>
+<h4 class="sub-label">Especially:</h4>
+<h4 class="sub-label">Patent ductus arteriosus</h4>
+<h4 class="sub-label">Pulmonary artery stenosis</h4>
+<h4 class="sub-label">Other:</h4>
+<h4 class="sub-label">Microcephaly</h4>
+<h4 class="sub-label">IUGR</h4>
+<h4 class="sub-label">Hepatosplenomegaly</h4>
+<h4 class="sub-label">Thrombocytopenia</h4>
+<h4 class="sub-label">Developmental abnormalities</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Rubella → cataract + deafness + PDA</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-6-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">22</span>
+                        <h3 class="topic-heading">Herpes simplex virus — HSV-1 / HSV-2</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-3" onchange="toggleMastery('t-6-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Primary genital herpes</div>
+            </div>
+            
+<h4 class="sub-label">Recurrent genital herpes</h4>
+<h4 class="sub-label">Genital vesicles/ulcers</h4>
+<h4 class="sub-label">Neonatal herpes</h4>
+<h4 class="sub-label">Three major forms:</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">1. SEM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Skin</h4>
+<h4 class="sub-label">Eye</h4>
+<h4 class="sub-label">Mouth</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">2. CNS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Encephalitis</h4>
+<h4 class="sub-label">Seizures</h4>
+<h4 class="sub-label">Neurological dysfunction</h4>
+
+                <div class="topic-row" id="topic-t-8-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Disseminated</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-1" onchange="toggleMastery('t-8-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Liver</h4>
+<h4 class="sub-label">Lung</h4>
+<h4 class="sub-label">CNS</h4>
+<h4 class="sub-label">Multiorgan disease</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">HSV → neonatal herpes</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">23</span>
+                        <h3 class="topic-heading">Varicella-zoster virus — VZV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-2" onchange="toggleMastery('t-8-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Chickenpox</div>
+            </div>
+            
+<h4 class="sub-label">Varicella pneumonia</h4>
+<h4 class="sub-label">Severe maternal disease</h4>
+<h4 class="sub-label">Congenital varicella syndrome</h4>
+<h4 class="sub-label">Cicatricial skin scars</h4>
+<h4 class="sub-label">Limb hypoplasia</h4>
+<h4 class="sub-label">Limb deformities</h4>
+<h4 class="sub-label">Microcephaly</h4>
+<h4 class="sub-label">Microphthalmia</h4>
+<h4 class="sub-label">Chorioretinitis</h4>
+<h4 class="sub-label">Neurological abnormalities</h4>
+<h4 class="sub-label">IUGR</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Neonatal varicella</h4>
+<p class="standard-p">Particularly important with maternal infection close to delivery.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">VZV → limb abnormalities + skin scarring</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">Parvovirus B19</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-3" onchange="toggleMastery('t-8-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Fetal disease</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fetal anaemia → high-output cardiac failure → hydrops fetalis → fetal death</span></div>
+<h4 class="sub-label">Also:</h4>
+<h4 class="sub-label">Myocardial dysfunction</h4>
+<h4 class="sub-label">Fetal loss</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Parvovirus B19 → fetal anaemia + hydrops</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">Zika virus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-4" onchange="toggleMastery('t-8-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Congenital Zika syndrome</h4>
+<h4 class="sub-label">Severe microcephaly</h4>
+<h4 class="sub-label">Abnormal brain development</h4>
+<h4 class="sub-label">Intracranial calcifications</h4>
+<h4 class="sub-label">Ventriculomegaly</h4>
+<h4 class="sub-label">Ocular abnormalities</h4>
+<h4 class="sub-label">Retinal/macular abnormalities</h4>
+<h4 class="sub-label">Congenital contractures</h4>
+<h4 class="sub-label">Arthrogryposis</h4>
+<h4 class="sub-label">Neurodevelopmental impairment</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Zika → severe congenital microcephaly</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">🩸 BLOOD-BORNE VIRUSES</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-5" onchange="toggleMastery('t-8-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-8-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">26</span>
+                        <h3 class="topic-heading">Hepatitis B virus — HBV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-6" onchange="toggleMastery('t-8-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Acute hepatitis</div>
+            </div>
+            
+<h4 class="sub-label">Chronic hepatitis</h4>
+<h4 class="sub-label">Cirrhosis</h4>
+<h4 class="sub-label">Hepatocellular carcinoma</h4>
+<h4 class="sub-label">Neonatal</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Perinatal transmission → chronic HBV infection</span></div>
+<p class="standard-p">Neonatal vaccination and appropriate immunoprophylaxis greatly reduce transmission.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">HBV → preventable vertical transmission</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">Hepatitis C virus — HCV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-7" onchange="toggleMastery('t-8-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Chronic hepatitis</div>
+            </div>
+            
+<h4 class="sub-label">Cirrhosis</h4>
+<h4 class="sub-label">Hepatocellular carcinoma</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Vertical transmission</h4>
+<h4 class="sub-label">Chronic paediatric HCV infection</h4>
+
+                <div class="topic-row" id="topic-t-8-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">28</span>
+                        <h3 class="topic-heading">Hepatitis E virus — HEV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-8" onchange="toggleMastery('t-8-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Particularly important in pregnancy.</p>
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Severe acute hepatitis</h4>
+<h4 class="sub-label">Fulminant hepatic failure</h4>
+<h4 class="sub-label">Maternal death</h4>
+<h4 class="sub-label">Fetal loss</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Stillbirth</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">HEV → severe hepatitis in pregnancy</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">Human immunodeficiency virus — HIV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-9" onchange="toggleMastery('t-8-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">HIV infection</div>
+            </div>
+            
+<h4 class="sub-label">Immunodeficiency</h4>
+<h4 class="sub-label">Opportunistic infections</h4>
+<h4 class="sub-label">HIV-associated malignancy</h4>
+<h4 class="sub-label">Vertical transmission</h4>
+<h4 class="sub-label">In utero</h4>
+<h4 class="sub-label">Intrapartum</h4>
+<h4 class="sub-label">Breastfeeding</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">HIV → mother-to-child transmission</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-8-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">30</span>
+                        <h3 class="topic-heading">Human papillomavirus — HPV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-10" onchange="toggleMastery('t-8-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Low-risk HPV 6/11</h4>
+<h4 class="sub-label">Condylomata acuminata</h4>
+<h4 class="sub-label">Genital warts</h4>
+<h4 class="sub-label">Neonatal/childhood</h4>
+<h4 class="sub-label">Recurrent respiratory/laryngeal papillomatosis</h4>
+<h4 class="sub-label">High-risk HPV</h4>
+<h4 class="sub-label">Cervical intraepithelial neoplasia</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">8. 🦠 OTHER IMPORTANT VIRUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-9-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">31</span>
+                        <h3 class="topic-heading">Influenza A/B</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-1" onchange="toggleMastery('t-9-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">Severe influenza</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Respiratory failure</h4>
+<h4 class="sub-label">Maternal morbidity</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Fetal complications</h4>
+
+                <div class="topic-row" id="topic-t-9-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">32</span>
+                        <h3 class="topic-heading">SARS-CoV-2</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-2" onchange="toggleMastery('t-9-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy complications:</h4>
+<h4 class="sub-label">COVID-19 pneumonia</h4>
+<h4 class="sub-label">Severe maternal respiratory disease</h4>
+<h4 class="sub-label">ICU admission</h4>
+<h4 class="sub-label">Thrombotic complications</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Maternal morbidity</h4>
+
+                <div class="topic-row" id="topic-t-9-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">33</span>
+                        <h3 class="topic-heading">Respiratory syncytial virus — RSV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-3" onchange="toggleMastery('t-9-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Primarily important for neonatal/infant disease:</h4>
+<h4 class="sub-label">Bronchiolitis</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Severe respiratory illness</h4>
+
+                <div class="topic-row" id="topic-t-9-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">34</span>
+                        <h3 class="topic-heading">Dengue virus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-4" onchange="toggleMastery('t-9-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">High fever</div>
+            </div>
+            
+<h4 class="sub-label">Thrombocytopenia</h4>
+<h4 class="sub-label">Plasma leakage</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">Shock</h4>
+<h4 class="sub-label">Organ dysfunction</h4>
+<h4 class="sub-label">Pregnancy/fetus</h4>
+<h4 class="sub-label">Fetal loss</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Fetal compromise</h4>
+<h4 class="sub-label">Possible vertical transmission</h4>
+<h4 class="sub-label">Neonatal dengue</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">9. 🪱 PARASITIC PATHOGENS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-10-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">35</span>
+                        <h3 class="topic-heading">Toxoplasma gondii</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-1" onchange="toggleMastery('t-10-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Congenital toxoplasmosis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic triad</span></div>
+                
+            </div>
+            
+<p class="standard-p">Chorioretinitis + hydrocephalus + intracranial calcifications</p>
+<h4 class="sub-label">Other:</h4>
+<h4 class="sub-label">Seizures</h4>
+<h4 class="sub-label">Hepatosplenomegaly</h4>
+<h4 class="sub-label">Jaundice</h4>
+<h4 class="sub-label">Growth restriction</h4>
+<h4 class="sub-label">Neurodevelopmental impairment</h4>
+<h4 class="sub-label">Fetal loss</h4>
+<h4 class="sub-label">Transmission</h4>
+<h4 class="sub-label">Undercooked meat</h4>
+<h4 class="sub-label">Contaminated food</h4>
+<h4 class="sub-label">Cat faeces</h4>
+<h4 class="sub-label">Contaminated soil</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Toxo → hydrocephalus + intracranial calcification + chorioretinitis</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-10-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">36</span>
+                        <h3 class="topic-heading">Trichomonas vaginalis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-2" onchange="toggleMastery('t-10-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Disease</h4>
+<h4 class="sub-label">Trichomoniasis</h4>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">Frothy yellow-green discharge</h4>
+<h4 class="sub-label">Vulvovaginal irritation</h4>
+<h4 class="sub-label">Offensive discharge</h4>
+<h4 class="sub-label">Strawberry cervix</h4>
+<h4 class="sub-label">Vaginal pH &gt;4.5</h4>
+<h4 class="sub-label">Pregnancy associations:</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">Preterm birth</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Trichomonas → strawberry cervix</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">10. 🦟 MALARIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-11-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">37</span>
+                        <h3 class="topic-heading">Plasmodium falciparum</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-1" onchange="toggleMastery('t-11-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Severe malaria</div>
+            </div>
+            
+<h4 class="sub-label">Severe anaemia</h4>
+<h4 class="sub-label">Hypoglycaemia</h4>
+<h4 class="sub-label">Cerebral malaria</h4>
+<h4 class="sub-label">Maternal death</h4>
+<h4 class="sub-label">Placental/fetal</h4>
+<h4 class="sub-label">Placental malaria</h4>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<h4 class="sub-label">Low birth weight</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Stillbirth</h4>
+<h4 class="sub-label">Fetal/neonatal complications</h4>
+<h4 class="sub-label">Most dangerous species:</h4>
+
+                <div class="topic-row" id="topic-t-11-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">P</span>
+                        <h3 class="topic-heading">falciparum</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-2" onchange="toggleMastery('t-11-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Other Plasmodium species</h4>
+
+                <div class="topic-row" id="topic-t-11-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">P</span>
+                        <h3 class="topic-heading">vivax</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-3" onchange="toggleMastery('t-11-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Maternal anaemia</h4>
+<h4 class="sub-label">Adverse pregnancy outcomes</h4>
+<h4 class="sub-label">Low birth weight/preterm birth associations</h4>
+
+                <div class="topic-row" id="topic-t-11-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">P</span>
+                        <h3 class="topic-heading">ovale</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-4" onchange="toggleMastery('t-11-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Malaria in pregnancy</h4>
+
+                <div class="topic-row" id="topic-t-11-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">P</span>
+                        <h3 class="topic-heading">malariae</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-5" onchange="toggleMastery('t-11-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Malaria in pregnancy</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">11. 🍄 FUNGAL PATHOGENS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-12-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">38</span>
+                        <h3 class="topic-heading">Candida albicans</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-12-1" onchange="toggleMastery('t-12-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Vulvovaginal candidiasis</h4>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">Intense pruritus</h4>
+<h4 class="sub-label">Vulval erythema</h4>
+<h4 class="sub-label">Thick white curd-like discharge</h4>
+<h4 class="sub-label">Usually normal vaginal pH</h4>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">Oral thrush</h4>
+<h4 class="sub-label">Diaper dermatitis</h4>
+<h4 class="sub-label">Congenital cutaneous candidiasis</h4>
+<h4 class="sub-label">Invasive candidiasis in high-risk neonates</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                <div class="callout-body">Candida → curdy discharge + intense itching + normal pH</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">12. 🦠 MYCOBACTERIAL INFECTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-13-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">39</span>
+                        <h3 class="topic-heading">Mycobacterium tuberculosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-1" onchange="toggleMastery('t-13-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Pulmonary TB</div>
+            </div>
+            
+<h4 class="sub-label">Extrapulmonary TB</h4>
+<h4 class="sub-label">Genital TB</h4>
+<h4 class="sub-label">Endometrial TB</h4>
+<h4 class="sub-label">Tubal disease</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Pregnancy/fetal/neonatal</h4>
+<h4 class="sub-label">Maternal morbidity</h4>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Congenital TB</h4>
+<h4 class="sub-label">Neonatal TB</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">13. ⭐ MASTER TORCH TABLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>TORCH</th>
+<th>Organism</th>
+<th>Key obstetric/fetal findings</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>T</strong></td>
+<td>Toxoplasma gondii</td>
+<td>Chorioretinitis + hydrocephalus + intracranial calcification</td>
+</tr>
+<tr>
+<td><strong>O</strong></td>
+<td>Others</td>
+<td>Syphilis, VZV, Parvovirus B19, Zika etc.</td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+<td>Rubella</td>
+<td>Cataracts + deafness + PDA</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>CMV</td>
+<td>Periventricular calcification + microcephaly + hearing loss</td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+<td>HSV</td>
+<td>Neonatal SEM/CNS/disseminated herpes</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-14-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">⭐ MASTER “BUG → DISEASE” TABLE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-1" onchange="toggleMastery('t-14-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Most important disease/association</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>GBS</strong></td>
+<td>Neonatal sepsis, pneumonia, meningitis</td>
+</tr>
+<tr>
+<td><strong>GAS</strong></td>
+<td>Severe puerperal sepsis</td>
+</tr>
+<tr>
+<td><strong>S. aureus</strong></td>
+<td>Mastitis, breast abscess, wound infection</td>
+</tr>
+<tr>
+<td><strong>Listeria</strong></td>
+<td>Maternal febrile illness, chorioamnionitis, fetal/neonatal infection</td>
+</tr>
+<tr>
+<td><strong>E. coli</strong></td>
+<td>UTI, pyelonephritis, neonatal sepsis</td>
+</tr>
+<tr>
+<td><strong>Klebsiella</strong></td>
+<td>UTI/pyelonephritis</td>
+</tr>
+<tr>
+<td><strong>Proteus</strong></td>
+<td>UTI + struvite stones</td>
+</tr>
+<tr>
+<td><strong>Pseudomonas</strong></td>
+<td>Nosocomial UTI/wound infection</td>
+</tr>
+<tr>
+<td><strong>Gonococcus</strong></td>
+<td>Cervicitis + neonatal ophthalmia</td>
+</tr>
+<tr>
+<td><strong>Gardnerella/anaerobes</strong></td>
+<td>Bacterial vaginosis</td>
+</tr>
+<tr>
+<td><strong>Treponema</strong></td>
+<td>Syphilis + congenital syphilis</td>
+</tr>
+<tr>
+<td><strong>Chlamydia</strong></td>
+<td>Cervicitis + neonatal conjunctivitis/pneumonia</td>
+</tr>
+<tr>
+<td><strong>Mycoplasma</strong></td>
+<td>Chorioamnionitis/preterm birth associations</td>
+</tr>
+<tr>
+<td><strong>Ureaplasma</strong></td>
+<td>Chorioamnionitis/preterm birth associations</td>
+</tr>
+<tr>
+<td><strong>CMV</strong></td>
+<td>Congenital CMV + hearing loss</td>
+</tr>
+<tr>
+<td><strong>Rubella</strong></td>
+<td>CRS: cataracts/PDA/deafness</td>
+</tr>
+<tr>
+<td><strong>HSV</strong></td>
+<td>Neonatal herpes</td>
+</tr>
+<tr>
+<td><strong>VZV</strong></td>
+<td>Congenital varicella syndrome</td>
+</tr>
+<tr>
+<td><strong>Parvovirus B19</strong></td>
+<td>Fetal anaemia + hydrops</td>
+</tr>
+<tr>
+<td><strong>Zika</strong></td>
+<td>Severe microcephaly</td>
+</tr>
+<tr>
+<td><strong>HBV</strong></td>
+<td>Perinatal HBV transmission</td>
+</tr>
+<tr>
+<td><strong>HCV</strong></td>
+<td>Vertical HCV transmission</td>
+</tr>
+<tr>
+<td><strong>HEV</strong></td>
+<td>Severe hepatitis in pregnancy</td>
+</tr>
+<tr>
+<td><strong>HIV</strong></td>
+<td>Vertical transmission</td>
+</tr>
+<tr>
+<td><strong>HPV 6/11</strong></td>
+<td>Genital warts</td>
+</tr>
+<tr>
+<td><strong>Toxoplasma</strong></td>
+<td>Hydrocephalus + chorioretinitis + intracranial calcification</td>
+</tr>
+<tr>
+<td><strong>Trichomonas</strong></td>
+<td>Strawberry cervix + frothy discharge</td>
+</tr>
+<tr>
+<td><strong>Candida</strong></td>
+<td>Vulvovaginal candidiasis</td>
+</tr>
+<tr>
+<td><strong>P. falciparum</strong></td>
+<td>Severe malaria + placental malaria</td>
+</tr>
+<tr>
+<td><strong>M. tuberculosis</strong></td>
+<td>Maternal/genital TB + congenital/neonatal TB</td>
+</tr>
+<tr>
+<td><strong>Dengue</strong></td>
+<td>Thrombocytopenia + haemorrhage/plasma leakage</td>
+</tr>
+<tr>
+<td><strong>Influenza</strong></td>
+<td>Severe maternal respiratory disease</td>
+</tr>
+<tr>
+<td><strong>SARS-CoV-2</strong></td>
+<td>Severe maternal COVID-19</td>
+</tr>
+<tr>
+<td><strong>RSV</strong></td>
+<td>Neonatal bronchiolitis/pneumonia</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-14-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">🔥 ULTRA-HIGH-YIELD EXAM DIFFERENTIATION</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-2" onchange="toggleMastery('t-14-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Vaginal discharge</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Discharge/findings</th>
+<th>pH</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Candida</strong></td>
+<td>Thick white/curdy + intense itching</td>
+<td>Usually normal</td>
+</tr>
+<tr>
+<td><strong>BV</strong></td>
+<td>Thin grey/white + fishy odour + clue cells</td>
+<td>&gt;4.5</td>
+</tr>
+<tr>
+<td><strong>Trichomonas</strong></td>
+<td>Frothy yellow-green + strawberry cervix</td>
+<td>&gt;4.5</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Neonatal eye disease</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Gonococcus → severe purulent ophthalmia → corneal damage/blindness</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Chlamydia → neonatal inclusion conjunctivitis</span></div>
+<h4 class="sub-label">Congenital infection memory</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Toxoplasma → Hydrocephalus</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>CMV → Calcification</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Rubella → Cataract</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Parvovirus → Anaemia</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Syphilis → Hepatosplenomegaly/bone disease</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>VZV → Limb/skin abnormalities</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Zika → Microcephaly</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HSV → Neonatal herpes</span></div>
+<h4 class="sub-label">Maternal sepsis memory</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>GAS → catastrophic puerperal sepsis</span></div>
+
+                <div class="topic-row" id="topic-t-14-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli → urinary/Gram-negative sepsis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-3" onchange="toggleMastery('t-14-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-14-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">S</span>
+                        <h3 class="topic-heading">aureus → mastitis/wound infection</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-4" onchange="toggleMastery('t-14-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Anaerobes → postpartum pelvic/endometrial infection</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Listeria → febrile food-associated maternal infection + fetal infection</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Clostridium → severe toxic/gas-forming infection</span></div>
+<h4 class="sub-label">🧠 FINAL ONE-LINE MEMORY MAP</h4>
+<p class="standard-p">GBS = baby sepsis | GAS = mother sepsis | E. coli = UTI | Listeria = food + fetus | S. aureus = mastitis | Gonococcus = neonatal eye | Chlamydia = eye + lung | Treponema = syphilis | Candida = curdy itch | Trichomonas = strawberry cervix | BV = clue cells/fishy smell | Toxo = hydrocephalus | CMV = periventricular calcification | Rubella = cataract/PDA/deafness | Parvovirus = fetal anaemia/hydrops | VZV = limb/skin defects | HSV = neonatal herpes | Zika = microcephaly | HBV = vertical transmission | HEV = severe pregnancy hepatitis | HIV = vertical transmission | P. falciparum = severe/placental malaria.</p>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">Bug Catalog Matrix</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 13. ⭐ MASTER TORCH TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for TORCH?</li>
+<li class="surg-item">● OrganismKey obstetric/fetal findings</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 13. ⭐ MASTER TORCH TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for T?</li>
+<li class="surg-item">● Toxoplasma gondiiChorioretinitis + hydrocephalus + intracranial calcification</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 13. ⭐ MASTER TORCH TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for O?</li>
+<li class="surg-item">● OthersSyphilis, VZV, Parvovirus B19, Zika etc.</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 13. ⭐ MASTER TORCH TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for R?</li>
+<li class="surg-item">● RubellaCataracts + deafness + PDA</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 13. ⭐ MASTER TORCH TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for C?</li>
+<li class="surg-item">● CMVPeriventricular calcification + microcephaly + hearing loss</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 13. ⭐ MASTER TORCH TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for H?</li>
+<li class="surg-item">● HSVNeonatal SEM/CNS/disseminated herpes</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 53;
+    const flashcards = [{"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>TORCH</strong>?", "a": "<strong>Organism</strong><br>Key obstetric/fetal findings"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>T</strong>?", "a": "<strong>Toxoplasma gondii</strong><br>Chorioretinitis + hydrocephalus + intracranial calcification"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>O</strong>?", "a": "<strong>Others</strong><br>Syphilis, VZV, Parvovirus B19, Zika etc."}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>R</strong>?", "a": "<strong>Rubella</strong><br>Cataracts + deafness + PDA"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>C</strong>?", "a": "<strong>CMV</strong><br>Periventricular calcification + microcephaly + hearing loss"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>H</strong>?", "a": "<strong>HSV</strong><br>Neonatal SEM/CNS/disseminated herpes"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>GBS</strong>?", "a": "<strong>Neonatal sepsis, pneumonia, meningitis</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>GAS</strong>?", "a": "<strong>Severe puerperal sepsis</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>S. aureus</strong>?", "a": "<strong>Mastitis, breast abscess, wound infection</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Listeria</strong>?", "a": "<strong>Maternal febrile illness, chorioamnionitis, fetal/neonatal infection</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>E. coli</strong>?", "a": "<strong>UTI, pyelonephritis, neonatal sepsis</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Klebsiella</strong>?", "a": "<strong>UTI/pyelonephritis</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Proteus</strong>?", "a": "<strong>UTI + struvite stones</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pseudomonas</strong>?", "a": "<strong>Nosocomial UTI/wound infection</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gonococcus</strong>?", "a": "<strong>Cervicitis + neonatal ophthalmia</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gardnerella/anaerobes</strong>?", "a": "<strong>Bacterial vaginosis</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Treponema</strong>?", "a": "<strong>Syphilis + congenital syphilis</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Chlamydia</strong>?", "a": "<strong>Cervicitis + neonatal conjunctivitis/pneumonia</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mycoplasma</strong>?", "a": "<strong>Chorioamnionitis/preterm birth associations</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ureaplasma</strong>?", "a": "<strong>Chorioamnionitis/preterm birth associations</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>CMV</strong>?", "a": "<strong>Congenital CMV + hearing loss</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Rubella</strong>?", "a": "<strong>CRS: cataracts/PDA/deafness</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>HSV</strong>?", "a": "<strong>Neonatal herpes</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>VZV</strong>?", "a": "<strong>Congenital varicella syndrome</strong>"}, {"category": "13. \u2b50 MASTER TORCH TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Parvovirus B19</strong>?", "a": "<strong>Fetal anaemia + hydrops</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  TORCH ?", "options": ["Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Others  Syphilis, VZV, Parvovirus B19, Zika etc.", "Rubella  Cataracts + deafness + PDA"], "correct": 0, "explanation": "Key Guideline / Fact: Organism  Key obstetric/fetal findings (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  T ?", "options": ["Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Others  Syphilis, VZV, Parvovirus B19, Zika etc.", "Rubella  Cataracts + deafness + PDA"], "correct": 1, "explanation": "Key Guideline / Fact: Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  O ?", "options": ["Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Organism  Key obstetric/fetal findings", "Others  Syphilis, VZV, Parvovirus B19, Zika etc.", "Rubella  Cataracts + deafness + PDA"], "correct": 2, "explanation": "Key Guideline / Fact: Others  Syphilis, VZV, Parvovirus B19, Zika etc. (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  R ?", "options": ["Others  Syphilis, VZV, Parvovirus B19, Zika etc.", "Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Rubella  Cataracts + deafness + PDA"], "correct": 3, "explanation": "Key Guideline / Fact: Rubella  Cataracts + deafness + PDA (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  C ?", "options": ["CMV  Periventricular calcification + microcephaly + hearing loss", "Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Others  Syphilis, VZV, Parvovirus B19, Zika etc."], "correct": 0, "explanation": "Key Guideline / Fact: CMV  Periventricular calcification + microcephaly + hearing loss (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  H ?", "options": ["Organism  Key obstetric/fetal findings", "HSV  Neonatal SEM/CNS/disseminated herpes", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Others  Syphilis, VZV, Parvovirus B19, Zika etc."], "correct": 1, "explanation": "Key Guideline / Fact: HSV  Neonatal SEM/CNS/disseminated herpes (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  GBS ?", "options": ["Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Organism  Key obstetric/fetal findings", "Neonatal sepsis, pneumonia, meningitis", "Others  Syphilis, VZV, Parvovirus B19, Zika etc."], "correct": 2, "explanation": "Key Guideline / Fact: Neonatal sepsis, pneumonia, meningitis (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  GAS ?", "options": ["Others  Syphilis, VZV, Parvovirus B19, Zika etc.", "Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Severe puerperal sepsis"], "correct": 3, "explanation": "Key Guideline / Fact: Severe puerperal sepsis (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  S. aureus ?", "options": ["Mastitis, breast abscess, wound infection", "Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Others  Syphilis, VZV, Parvovirus B19, Zika etc."], "correct": 0, "explanation": "Key Guideline / Fact: Mastitis, breast abscess, wound infection (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Listeria ?", "options": ["Organism  Key obstetric/fetal findings", "Maternal febrile illness, chorioamnionitis, fetal/neonatal infection", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Others  Syphilis, VZV, Parvovirus B19, Zika etc."], "correct": 1, "explanation": "Key Guideline / Fact: Maternal febrile illness, chorioamnionitis, fetal/neonatal infection (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  E. coli ?", "options": ["Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "Organism  Key obstetric/fetal findings", "UTI, pyelonephritis, neonatal sepsis", "Others  Syphilis, VZV, Parvovirus B19, Zika etc."], "correct": 2, "explanation": "Key Guideline / Fact: UTI, pyelonephritis, neonatal sepsis (13. \u2b50 MASTER TORCH TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Klebsiella ?", "options": ["Others  Syphilis, VZV, Parvovirus B19, Zika etc.", "Organism  Key obstetric/fetal findings", "Toxoplasma gondii  Chorioretinitis + hydrocephalus + intracranial calcification", "UTI/pyelonephritis"], "correct": 3, "explanation": "Key Guideline / Fact: UTI/pyelonephritis (13. \u2b50 MASTER TORCH TABLE)."}];
+    const storageKey = 'obgyn_mastered_master_obstetric__bugs__catalogue';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

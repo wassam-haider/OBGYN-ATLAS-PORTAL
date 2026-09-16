@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBGYN Master Atlas & Clinical Revision Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-light: #64748b;
+            --brand-navy: #0f172a;
+            --brand-blue: #1d4ed8;
+            --brand-cobalt: #2563eb;
+            --brand-teal: #0d9488;
+            --brand-rose: #e11d48;
+            --brand-amber: #d97706;
+            --border-subtle: #e2e8f0;
+            --border-strong: #cbd5e1;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 28px rgba(0,0,0,0.12);
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-head: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #090d16;
+            --bg-surface: #0f172a;
+            --bg-card: #131d31;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-light: #64748b;
+            --brand-navy: #020617;
+            --brand-blue: #3b82f6;
+            --brand-cobalt: #60a5fa;
+            --brand-teal: #14b8a6;
+            --brand-rose: #f43f5e;
+            --brand-amber: #f59e0b;
+            --border-subtle: #1e293b;
+            --border-strong: #334155;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 6px 18px rgba(0,0,0,0.5);
+            --shadow-lg: 0 14px 35px rgba(0,0,0,0.65);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.25s, color 0.25s;
+        }
+
+        /* AMBIENT BACKGROUND GLOW */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .glow-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            animation: pulse-glow 8s ease-in-out infinite alternate;
+        }
+
+        .glow-1 {
+            width: 500px;
+            height: 500px;
+            background: #2563eb;
+            top: -150px;
+            left: -100px;
+        }
+
+        .glow-2 {
+            width: 450px;
+            height: 450px;
+            background: #0d9488;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -4s;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.2; }
+            100% { transform: scale(1.15) translate(30px, 20px); opacity: 0.35; }
+        }
+
+        /* ---------------------------------------------------- */
+        /* LOGIN VIEW */
+        /* ---------------------------------------------------- */
+        #view-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 440px;
+            padding: 40px 36px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-emblem {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px auto;
+            background: linear-gradient(135deg, var(--brand-cobalt), var(--brand-teal));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+        }
+
+        .login-title {
+            font-family: var(--font-head);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            margin-bottom: 6px;
+        }
+
+        .login-subtitle {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .input-field-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            font-size: 15px;
+            color: var(--text-light);
+            pointer-events: none;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 12px 14px 12px 42px;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-primary);
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .text-input:focus {
+            border-color: var(--brand-cobalt);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
+            background: var(--bg-surface);
+        }
+
+        .toggle-pwd-btn {
+            position: absolute;
+            right: 12px;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 4px;
+        }
+
+        .toggle-pwd-btn:hover {
+            color: var(--text-main);
+        }
+
+        .login-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .remember-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            cursor: pointer;
+        }
+
+        .remember-checkbox {
+            accent-color: var(--brand-cobalt);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, var(--brand-cobalt), var(--brand-blue));
+            color: #ffffff;
+            border: none;
+            padding: 13px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.35);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .login-error {
+            display: none;
+            background: rgba(225, 29, 72, 0.1);
+            border: 1px solid rgba(225, 29, 72, 0.3);
+            color: #f43f5e;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            text-align: center;
+            animation: shake 0.3s ease-in-out;
+        }
+
+        .demo-credentials-pill {
+            margin-top: 24px;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border: 1px dashed var(--border-strong);
+            border-radius: 10px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .demo-credentials-pill strong {
+            color: var(--brand-cobalt);
+        }
+
+        .autofill-btn {
+            background: transparent;
+            border: none;
+            color: var(--brand-cobalt);
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 4px;
+            display: inline-block;
+        }
+
+        /* ---------------------------------------------------- */
+        /* PORTAL DASHBOARD VIEW */
+        /* ---------------------------------------------------- */
+        #view-portal {
+            display: none;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* PORTAL TOPBAR */
+        .portal-nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: #ffffff;
+            padding: 12px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .portal-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .portal-logo {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--brand-cobalt), var(--brand-teal));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+        }
+
+        .portal-brand-title {
+            font-family: var(--font-head);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .portal-brand-sub {
+            font-size: 11.5px;
+            color: #94a3b8;
+        }
+
+        .portal-user-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .user-profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .user-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--brand-teal);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .user-info-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .user-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .user-role {
+            font-size: 10px;
+            color: #94a3b8;
+        }
+
+        .btn-action {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #ffffff;
+            padding: 7px 13px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-action:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        .btn-logout {
+            background: rgba(225, 29, 72, 0.15);
+            border-color: rgba(225, 29, 72, 0.3);
+            color: #fb7185;
+        }
+
+        .btn-logout:hover {
+            background: rgba(225, 29, 72, 0.3);
+            color: #ffffff;
+        }
+
+        /* MAIN CONTENT CONTAINER */
+        .portal-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 36px 32px 60px 32px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* WELCOME HERO */
+        .portal-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 32px 36px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-hero-text h1 {
+            font-family: var(--font-head);
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .portal-hero-text p {
+            font-size: 14px;
+            color: #94a3b8;
+            max-width: 650px;
+            line-height: 1.55;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 16px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 14px 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-num {
+            font-family: var(--font-head);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--brand-cobalt);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* FILTER & SEARCH BAR */
+        .controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cat-filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 7px 14px;
+            font-size: 12.5px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cat-filter-btn:hover {
+            border-color: var(--border-strong);
+            color: var(--text-main);
+        }
+
+        .cat-filter-btn.active {
+            background: var(--brand-cobalt);
+            color: #ffffff;
+            border-color: var(--brand-cobalt);
+            box-shadow: 0 2px 6px rgba(37,99,235,0.3);
+        }
+
+        .portal-search-box {
+            position: relative;
+            width: 320px;
+        }
+
+        .portal-search-box input {
+            width: 100%;
+            padding: 9px 14px 9px 38px;
+            font-size: 13px;
+            border-radius: 10px;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-card);
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .portal-search-box input:focus {
+            border-color: var(--brand-cobalt);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+        }
+
+        .portal-search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ATLAS MODULES GRID */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 22px;
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .module-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--brand-cobalt);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .card-icon-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+        }
+
+        .card-category-pill {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .card-title {
+            font-family: var(--font-head);
+            font-size: 16.5px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .feature-tag {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-stats-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .btn-launch {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-strong);
+            color: var(--text-main);
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 7px;
+            transition: all 0.15s ease;
+        }
+
+        .module-card:hover .btn-launch {
+            background: var(--brand-cobalt);
+            color: #ffffff;
+            border-color: var(--brand-cobalt);
+        }
+
+        /* COLOR THEMES FOR MODULE CARDS */
+        .color-blue .card-icon-badge { background: rgba(37,99,235,0.12); color: #2563eb; }
+        .color-blue .card-category-pill { background: rgba(37,99,235,0.1); color: #2563eb; border: 1px solid rgba(37,99,235,0.25); }
+
+        .color-teal .card-icon-badge { background: rgba(13,148,136,0.12); color: #0d9488; }
+        .color-teal .card-category-pill { background: rgba(13,148,136,0.1); color: #0d9488; border: 1px solid rgba(13,148,136,0.25); }
+
+        .color-rose .card-icon-badge { background: rgba(225,29,72,0.12); color: #e11d48; }
+        .color-rose .card-category-pill { background: rgba(225,29,72,0.1); color: #e11d48; border: 1px solid rgba(225,29,72,0.25); }
+
+        .color-amber .card-icon-badge { background: rgba(217,119,6,0.12); color: #d97706; }
+        .color-amber .card-category-pill { background: rgba(217,119,6,0.1); color: #d97706; border: 1px solid rgba(217,119,6,0.25); }
+
+        .color-purple .card-icon-badge { background: rgba(147,51,234,0.12); color: #9333ea; }
+        .color-purple .card-category-pill { background: rgba(147,51,234,0.1); color: #9333ea; border: 1px solid rgba(147,51,234,0.25); }
+
+        .color-emerald .card-icon-badge { background: rgba(16,185,129,0.12); color: #10b981; }
+        .color-emerald .card-category-pill { background: rgba(16,185,129,0.1); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
+
+        /* FOOTER */
+        .portal-footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 20px 32px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-light);
+            background: var(--bg-surface);
+        }
+
+        /* KEYFRAMES */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .portal-nav { padding: 12px 16px; }
+            .portal-hero { flex-direction: column; align-items: flex-start; padding: 24px; }
+            .stats-grid { width: 100%; justify-content: space-between; }
+            .portal-main { padding: 20px 16px; }
+            .modules-grid { grid-template-columns: 1fr; }
+            .portal-search-box { width: 100%; }
+            .controls-bar { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-bg">
+        <div class="glow-sphere glow-1"></div>
+        <div class="glow-sphere glow-2"></div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 1: SECURE CLINICAL LOGIN                      -->
+    <!-- ==================================================== -->
+    <main id="view-login">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-emblem">⚕</div>
+                <h1 class="login-title">OBGYN Master Portal</h1>
+                <p class="login-subtitle">Interactive Clinical Atlas & Examination Hub<br>MRCOG / FCPS Revision Suite</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleLoginSubmit(event)">
+                <div class="input-group">
+                    <label class="input-label" for="login-username">Candidate Username</label>
+                    <div class="input-field-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="login-username" class="text-input" placeholder="Enter username" autocomplete="username" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label" for="login-password">Access Password</label>
+                    <div class="input-field-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="login-password" class="text-input" placeholder="Enter password" autocomplete="current-password" required>
+                        <button type="button" class="toggle-pwd-btn" onclick="togglePasswordVisibility()" title="Show/Hide Password">👁️</button>
+                    </div>
+                </div>
+
+                <div class="login-options">
+                    <label class="remember-label">
+                        <input type="checkbox" id="remember-me" class="remember-checkbox" checked>
+                        <span>Remember credentials</span>
+                    </label>
+                    <span style="font-size:11.5px; color:var(--brand-cobalt); font-weight:600;">Authorized Session</span>
+                </div>
+
+                <div id="login-error-msg" class="login-error">
+                    Invalid username or password. Please verify credentials.
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span>Unlock Clinical Portal</span>
+                    <span>→</span>
+                </button>
+            </form>
+
+            <div class="demo-credentials-pill">
+                Static Authorized Account:<br>
+                User: <strong>batool_zehra</strong> &nbsp;|&nbsp; Pass: <strong>GYDOC123</strong><br>
+                <button type="button" class="autofill-btn" onclick="autoFillCredentials()">Click to Autofill Credentials</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================================================== -->
+    <!-- SCREEN 2: POST-LOGIN PORTAL DASHBOARD               -->
+    <!-- ==================================================== -->
+    <div id="view-portal">
+        <!-- PORTAL NAVBAR -->
+        <header class="portal-nav">
+            <div class="portal-brand">
+                <div class="portal-logo">⚕</div>
+                <div>
+                    <div class="portal-brand-title">OBGYN ATLAS PORTAL</div>
+                    <div class="portal-brand-sub">Clinical Examination & Fellowship Hub</div>
+                </div>
+            </div>
+
+            <div class="portal-user-actions">
+                <div class="user-profile-badge">
+                    <div class="user-avatar">BZ</div>
+                    <div class="user-info-text">
+                        <span class="user-name">Dr. Batool Zehra</span>
+                        <span class="user-role">MRCOG / FCPS Candidate</span>
+                    </div>
+                </div>
+
+                <button class="btn-action" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+                <button class="btn-action btn-logout" onclick="handleLogout()" title="Log out">🚪 Sign Out</button>
+            </div>
+        </header>
+
+        <!-- PORTAL MAIN CONTENT -->
+        <main class="portal-main">
+            <!-- HERO BANNER -->
+            <section class="portal-hero">
+                <div class="portal-hero-text">
+                    <h1>Welcome, Dr. Batool Zehra 👋</h1>
+                    <p>Select any clinical syllabus module below to launch its interactive atlas with active recall 3D flashcards, board-style quizzes, structured syllabus checklists, and high-yield drill matrices.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-num">9</div>
+                        <div class="stat-label">Full Atlases</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">540+</div>
+                        <div class="stat-label">Sections</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">220+</div>
+                        <div class="stat-label">Flashcards</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">100+</div>
+                        <div class="stat-label">Quiz Qs</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTROLS & FILTER BAR -->
+            <section class="controls-bar">
+                <div class="category-filters">
+                    <button class="cat-filter-btn active" onclick="filterCategory('all', this)">All Modules (9)</button>
+                    <button class="cat-filter-btn" onclick="filterCategory('obstetrics', this)">Obstetrics</button>
+                    <button class="cat-filter-btn" onclick="filterCategory('gynaecology', this)">Gynaecology</button>
+                    <button class="cat-filter-btn" onclick="filterCategory('microbiology', this)">Bugs & Infections</button>
+                    <button class="cat-filter-btn" onclick="filterCategory('imaging', this)">Imaging & Anatomy</button>
+                </div>
+
+                <div class="portal-search-box">
+                    <span class="portal-search-icon">🔍</span>
+                    <input type="text" id="portal-search" placeholder="Search modules, topics, keywords..." oninput="handlePortalSearch(this.value)">
+                </div>
+            </section>
+
+            <!-- MODULES GRID -->
+            <section class="modules-grid" id="modules-container">
+
+                <!-- 1. ANATOMY ATLAS -->
+                <a href="anatomy_interactive_atlas.html" class="module-card color-blue" data-category="imaging gynaecology obstetrics">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">🏛️</div>
+                            <span class="card-category-pill">Core Anatomy & Physio</span>
+                        </div>
+                        <h2 class="card-title">Master OBGYN Anatomy, Histology, Embryology & Physiology</h2>
+                        <p class="card-desc">Comprehensive reference covering pelvic floor, vascular danger zones, urinary anatomy, embryological shunts, and maternal systemic physiology.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 76 Parts</span>
+                            <span class="feature-tag">🗂️ 20 Flashcards</span>
+                            <span class="feature-tag">✍️ 10 Board Qs</span>
+                            <span class="feature-tag">⚡ Surgical Drill</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">150 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 2. GYN BUGS -->
+                <a href="MASTER%20CLASSIFICATION%20OF%20GYNECOLOGICAL%20BUGS.html" class="module-card color-rose" data-category="microbiology gynaecology">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">🦠</div>
+                            <span class="card-category-pill">Gynaecology Bugs</span>
+                        </div>
+                        <h2 class="card-title">Master Classification of Gynecological Bugs</h2>
+                        <p class="card-desc">Bacterial, viral, fungal, and parasitic pathogens in gynaecology with STI correlations, PID management, and NICE evidence-based criteria.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 22 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Bug Matrix</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">38 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 3. GYN SIGNS & EPONYMS -->
+                <a href="MASTER%20GYNAECOLOGY%20SIGNS,%20EponYMS,%20TRIADS,%20SYNDROMES%20&%20DIAGNOSTIC%20CRITERIA.html" class="module-card color-purple" data-category="gynaecology">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">🩺</div>
+                            <span class="card-category-pill">Signs & Eponyms</span>
+                        </div>
+                        <h2 class="card-title">Master Gynaecology Signs, Eponyms, Triads & Syndromes</h2>
+                        <p class="card-desc">Physiological and pathological clinical signs, classic exam triads, syndrome criteria, and microscopic diagnostic patterns.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 72 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Eponyms Drill</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">72 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 4. OBSTETRIC INVESTIGATIONS & CUT-OFFS 1 -->
+                <a href="MASTER%20OBSTETRIC%20INVESTIGATIONS%20&%20CUT-OFFS.html" class="module-card color-teal" data-category="obstetrics">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">🧪</div>
+                            <span class="card-category-pill">Obstetric Cut-Offs</span>
+                        </div>
+                        <h2 class="card-title">Master Obstetric Investigations & Diagnostic Cut-Offs</h2>
+                        <p class="card-desc">103 structured tables outlining normal ranges, abnormal thresholds, and RCOG/NICE diagnostic cut-offs from early pregnancy to term.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 95 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Cut-Offs Matrix</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">95 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 5. OBSTETRIC SIGNS & EPONYMS -->
+                <a href="MASTER%20OBSTETRIC%20INVESTIGATIONS%20&%20CUT-OFFS2.html" class="module-card color-amber" data-category="obstetrics">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">🤰</div>
+                            <span class="card-category-pill">Obstetric Signs</span>
+                        </div>
+                        <h2 class="card-title">Master Consolidated Obstetric Signs, Eponyms & Criteria</h2>
+                        <p class="card-desc">Presumptive, probable, and positive pregnancy signs, labour mechanics, third-stage emergencies, and puerperal criteria.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 50 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Rapid Drill</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">137 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 6. OBSTETRIC BUGS CATALOGUE -->
+                <a href="MASTER%20OBSTETRIC%20%E2%80%9CBUGS%E2%80%9D%20CATALOGUE.html" class="module-card color-rose" data-category="microbiology obstetrics">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">🧫</div>
+                            <span class="card-category-pill">Perinatal Infections</span>
+                        </div>
+                        <h2 class="card-title">Master Obstetric “Bugs” Catalogue</h2>
+                        <p class="card-desc">Organism-by-organism breakdown of maternal disease, fetal transmission, TORCH profiles, congenital syndromes, and exam differentiation.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 14 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ TORCH Matrix</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">53 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 7. RADIOLOGICAL SIGNS -->
+                <a href="MASTER%20RADIOLOGICAL%20SIGNS%20IN%20OBSTETRICS%20&%20GYNAECOLOGY.html" class="module-card color-blue" data-category="imaging obstetrics gynaecology">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">📡</div>
+                            <span class="card-category-pill">Ultrasound & Imaging</span>
+                        </div>
+                        <h2 class="card-title">Master Radiological Signs in Obstetrics & Gynaecology</h2>
+                        <p class="card-desc">High-yield ultrasound patterns for ectopic pregnancy, early failure, twin chorionicity, placental invasion, and adnexal masses.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 48 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Imaging Matrix</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">126 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 8. INVESTIGATION OF CHOICE IN GYNAECOLOGY -->
+                <a href="MASTER%20%E2%80%94%20INVESTIGATION%20OF%20CHOICE%20IN%20GYNAECOLOGY.html" class="module-card color-teal" data-category="gynaecology">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">📋</div>
+                            <span class="card-category-pill">IOC & Gold Standards</span>
+                        </div>
+                        <h2 class="card-title">Master Investigation of Choice in Gynaecology</h2>
+                        <p class="card-desc">Exhaustive guide to initial investigation of choice (IOC) vs Gold Standard (GS) across 164 clinical gynaecological conditions.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 164 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Protocol Matrix</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">169 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+                <!-- 9. RCOG MASTER TABLE - DELIVERY TIMING -->
+                <a href="rcog%20master%20table.html" class="module-card color-emerald" data-category="obstetrics">
+                    <div>
+                        <div class="card-top">
+                            <div class="card-icon-badge">⏱️</div>
+                            <span class="card-category-pill">Delivery Timing</span>
+                        </div>
+                        <h2 class="card-title">RCOG Master Table — Ideal Time of Delivery</h2>
+                        <p class="card-desc">Definitive gestational timing and delivery mode recommendations across 78 maternal, fetal, and placental conditions.</p>
+                        <div class="card-tags">
+                            <span class="feature-tag">📖 78 Sections</span>
+                            <span class="feature-tag">🗂️ 25 Flashcards</span>
+                            <span class="feature-tag">✍️ 12 Board Qs</span>
+                            <span class="feature-tag">⚡ Timing Matrix</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-stats-text">78 Mastered Checkpoints</span>
+                        <span class="btn-launch">Launch Atlas →</span>
+                    </div>
+                </a>
+
+            </section>
+        </main>
+
+        <footer class="portal-footer">
+            Dr. Batool Zehra — MRCOG & FCPS Master Revision Suite • Protected Clinical Education Portal
+        </footer>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- LOGIC SCRIPT                                         -->
+    <!-- ==================================================== -->
+    <script>
+        const AUTH_USER = "batool_zehra";
+        const AUTH_PASS = "GYDOC123";
+        const STORAGE_AUTH_KEY = "obgyn_portal_auth_user";
+
+        // Auto-login check on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('obgyn_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const loggedInUser = localStorage.getItem(STORAGE_AUTH_KEY);
+            if (loggedInUser === AUTH_USER) {
+                showPortalView();
+            } else {
+                showLoginView();
+            }
+        });
+
+        function handleLoginSubmit(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('login-username').value.trim();
+            const passInput = document.getElementById('login-password').value.trim();
+            const rememberMe = document.getElementById('remember-me').checked;
+            const errorMsg = document.getElementById('login-error-msg');
+
+            if (userInput === AUTH_USER && passInput === AUTH_PASS) {
+                errorMsg.style.display = 'none';
+                if (rememberMe) {
+                    localStorage.setItem(STORAGE_AUTH_KEY, AUTH_USER);
+                } else {
+                    sessionStorage.setItem(STORAGE_AUTH_KEY, AUTH_USER);
+                }
+                showPortalView();
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('login-password').value = '';
+                document.getElementById('login-password').focus();
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem(STORAGE_AUTH_KEY);
+            sessionStorage.removeItem(STORAGE_AUTH_KEY);
+            showLoginView();
+        }
+
+        function showLoginView() {
+            document.getElementById('view-login').style.display = 'flex';
+            document.getElementById('view-portal').style.display = 'none';
+            document.getElementById('login-error-msg').style.display = 'none';
+        }
+
+        function showPortalView() {
+            document.getElementById('view-login').style.display = 'none';
+            document.getElementById('view-portal').style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function autoFillCredentials() {
+            document.getElementById('login-username').value = AUTH_USER;
+            document.getElementById('login-password').value = AUTH_PASS;
+            document.getElementById('login-error-msg').style.display = 'none';
+        }
+
+        function togglePasswordVisibility() {
+            const pwdField = document.getElementById('login-password');
+            if (pwdField.type === 'password') {
+                pwdField.type = 'text';
+            } else {
+                pwdField.type = 'password';
+            }
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('obgyn_theme', next);
+        }
+
+        // Live Search in Portal
+        function handlePortalSearch(query) {
+            const q = query.toLowerCase().trim();
+            const cards = document.querySelectorAll('.module-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(q) ? 'flex' : 'none';
+            });
+        }
+
+        // Category Filter
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.cat-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.module-card');
+            cards.forEach(card => {
+                if (cat === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    card.style.display = categories.includes(cat) ? 'flex' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

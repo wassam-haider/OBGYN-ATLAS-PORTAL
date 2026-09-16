@@ -1,0 +1,3061 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦠 MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+
+:root {
+    --bg-primary: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-light: #64748b;
+    --brand-navy: #0f172a;
+    --brand-blue: #1d4ed8;
+    --brand-cobalt: #2563eb;
+    --brand-teal: #0d9488;
+    --brand-rose: #e11d48;
+    --brand-amber: #d97706;
+    --border-subtle: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --highlight-bg: #fef08a;
+    --badge-bg: #eff6ff;
+    --badge-text: #1d4ed8;
+    --badge-border: #bfdbfe;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-head: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #090d16;
+    --bg-surface: #0f172a;
+    --bg-card: #131d31;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-light: #64748b;
+    --brand-navy: #020617;
+    --brand-blue: #3b82f6;
+    --brand-cobalt: #60a5fa;
+    --brand-teal: #14b8a6;
+    --brand-rose: #f43f5e;
+    --brand-amber: #f59e0b;
+    --border-subtle: #1e293b;
+    --border-strong: #334155;
+    --highlight-bg: #854d0e;
+    --badge-bg: #1e3a8a33;
+    --badge-text: #93c5fd;
+    --badge-border: #1e40af;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.25s, color 0.25s;
+}
+
+/* APP TOP NAVBAR */
+.app-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--brand-cobalt), var(--brand-teal));
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+}
+
+.brand-title-text {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.brand-subtitle-text {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.nav-mode-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    padding: 7px 15px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    background: var(--brand-cobalt);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(37,99,235,0.35);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-header {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+.btn-header:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* PROGRESS & SEARCH SUBNAV */
+.progress-subnav {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 57px;
+    z-index: 999;
+    box-shadow: var(--shadow-sm);
+}
+
+.progress-track-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    max-width: 420px;
+}
+
+.progress-count-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand-cobalt);
+    min-width: 140px;
+}
+
+.progress-bar-bg {
+    flex: 1;
+    height: 8px;
+    background: var(--border-subtle);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--brand-teal), var(--brand-cobalt));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input-box {
+    position: relative;
+    width: 280px;
+}
+
+.search-input-box input {
+    width: 100%;
+    padding: 6px 12px 6px 32px;
+    font-size: 12.5px;
+    border-radius: 6px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-primary);
+    color: var(--text-main);
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-input-box input:focus {
+    border-color: var(--brand-cobalt);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* APP MAIN LAYOUT */
+.app-container {
+    display: flex;
+    min-height: calc(100vh - 110px);
+}
+
+/* SIDEBAR SYLLABUS */
+.app-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    padding: 18px 16px;
+    position: sticky;
+    top: 108px;
+    height: calc(100vh - 108px);
+    overflow-y: auto;
+}
+
+.sidebar-heading {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    padding-left: 6px;
+}
+
+.part-nav-list {
+    list-style: none;
+}
+
+.part-nav-link {
+    display: block;
+    padding: 7px 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-left: 2px solid transparent;
+}
+
+.part-nav-link:hover {
+    color: var(--brand-cobalt);
+    background: var(--bg-primary);
+    border-left-color: var(--brand-cobalt);
+}
+
+/* MAIN VIEW AREA */
+.main-view-area {
+    flex: 1;
+    padding: 24px 36px;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* READER HERO */
+.reader-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .reader-hero {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    border: 1px solid var(--border-subtle);
+}
+
+.reader-hero-title {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.reader-hero-sub {
+    font-size: 13.5px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.reader-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* SECTION PART CARD */
+.part-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    overflow: hidden;
+}
+
+.part-card.section-mastered {
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.part-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+}
+
+.part-top-bar {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.part-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.part-pill {
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--badge-border);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+}
+
+.part-title {
+    font-family: var(--font-head);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.part-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-icon {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-icon:hover {
+    background: var(--brand-cobalt);
+    color: #ffffff;
+    border-color: var(--brand-cobalt);
+}
+
+.part-body {
+    padding: 20px 24px;
+}
+
+/* TOPIC ROW & CHECKPOINT */
+.topic-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 12px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    background: var(--bg-primary);
+    border-left: 3px solid var(--brand-cobalt);
+    border-radius: 0 6px 6px 0;
+    transition: background-color 0.2s ease;
+}
+
+.topic-row.mastered-badge-active {
+    background: rgba(16, 185, 129, 0.08);
+    border-left-color: #10b981;
+}
+
+.topic-title-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topic-badge {
+    background: var(--brand-cobalt);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.topic-row.mastered-badge-active .topic-badge {
+    background: #10b981;
+}
+
+.topic-heading {
+    font-family: var(--font-head);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.mastery-check-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.topic-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #10b981;
+}
+
+/* LISTS & BULLETS */
+.core-list {
+    list-style: none;
+    margin: 8px 0 12px 6px;
+}
+
+.core-bullet {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13.5px;
+    margin-bottom: 6px;
+    line-height: 1.55;
+}
+
+.bullet-icon {
+    color: var(--brand-cobalt);
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+.sub-list {
+    list-style: none;
+    margin: 4px 0 8px 24px;
+}
+
+.sub-bullet {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+.sub-bullet-icon {
+    color: var(--brand-teal);
+    font-size: 10px;
+    flex-shrink: 0;
+}
+
+.bullet-text {
+    flex: 1;
+}
+
+/* STYLED TABLES */
+.table-wrap {
+    margin: 14px 0;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.styled-table thead tr {
+    background: var(--bg-primary);
+    border-bottom: 2px solid var(--border-strong);
+}
+
+.styled-table th {
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 12.5px;
+}
+
+.styled-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    vertical-align: top;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background: rgba(0,0,0,0.015);
+}
+
+[data-theme="dark"] .styled-table tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.02);
+}
+
+.styled-table tr:hover {
+    background: rgba(37,99,235,0.04);
+}
+
+.val-pill {
+    display: inline-block;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--badge-border);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* CALLOUTS */
+.atlas-callout {
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-left: 4px solid;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.callout-highyield {
+    background: rgba(217, 119, 6, 0.08);
+    border-left-color: var(--brand-amber);
+}
+
+.callout-highyield .callout-tag {
+    color: var(--brand-amber);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.callout-info {
+    background: rgba(13, 148, 136, 0.08);
+    border-left-color: var(--brand-teal);
+}
+
+.callout-info .callout-tag {
+    color: var(--brand-teal);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.callout-body {
+    margin-top: 4px;
+    color: var(--text-main);
+}
+
+/* SEQUENCE PILL */
+.sequence-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    margin: 6px 0;
+}
+
+.flow-arrow {
+    color: var(--brand-cobalt);
+    font-weight: 800;
+}
+
+.sub-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin: 14px 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.standard-p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 6px 0;
+    color: var(--text-main);
+}
+
+/* FLASHCARDS VIEW */
+.flashcard-arena {
+    display: none;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-perspective {
+    perspective: 1200px;
+    min-height: 320px;
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.fcard-inner {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.fcard-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.fcard-front, .fcard-back {
+    position: absolute;
+    width: 100%;
+    min-height: 320px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-card);
+}
+
+.fcard-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(145deg, var(--bg-card) 0%, rgba(37,99,235,0.05) 100%);
+    border-color: var(--brand-cobalt);
+}
+
+.fcard-category {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--brand-cobalt);
+}
+
+.fcard-question {
+    font-family: var(--font-head);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin: 20px 0;
+    color: var(--text-main);
+}
+
+.fcard-answer {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: var(--text-main);
+}
+
+.fcard-hint {
+    font-size: 11.5px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.flashcard-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-fc {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text-main);
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-fc:hover {
+    border-color: var(--brand-cobalt);
+    color: var(--brand-cobalt);
+    box-shadow: var(--shadow-sm);
+}
+
+/* QUIZ VIEW */
+.quiz-arena {
+    display: none;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.quiz-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-progress-bar {
+    height: 6px;
+    background: var(--border-subtle);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--brand-cobalt);
+    transition: width 0.3s ease;
+}
+
+.quiz-q-num {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--brand-cobalt);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.quiz-q-text {
+    font-family: var(--font-head);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 24px;
+}
+
+.quiz-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quiz-opt-btn {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    text-align: left;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quiz-opt-btn:hover:not(:disabled) {
+    border-color: var(--brand-cobalt);
+    background: rgba(37,99,235,0.04);
+}
+
+.quiz-opt-btn.correct {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: #10b981;
+    color: #065f46;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .quiz-opt-btn.correct {
+    color: #34d399;
+}
+
+.quiz-opt-btn.wrong {
+    background: rgba(225, 29, 72, 0.12);
+    border-color: #e11d48;
+    color: #9f1239;
+}
+
+[data-theme="dark"] .quiz-opt-btn.wrong {
+    color: #fb7185;
+}
+
+.quiz-feedback-box {
+    display: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    background: var(--bg-primary);
+    border-left: 4px solid var(--brand-cobalt);
+    line-height: 1.5;
+}
+
+/* HIGH-YIELD SUMMARY / DRILL TAB */
+.surgical-drill-arena {
+    display: none;
+}
+
+.surgical-hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: #ffffff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.grid-surgical {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 18px;
+}
+
+.surg-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+.surg-box-title {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--brand-cobalt);
+}
+
+.surg-items-list {
+    list-style: none;
+}
+
+.surg-item {
+    font-size: 13px;
+    padding: 4px 0;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* PRINT MEDIA */
+@media print {
+    .app-nav, .progress-subnav, .app-sidebar, .part-actions, .nav-mode-tabs {
+        display: none !important;
+    }
+    .app-container {
+        display: block !important;
+    }
+    .main-view-area {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .part-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+        margin-bottom: 16px !important;
+    }
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 900px) {
+    .app-sidebar {
+        display: none;
+    }
+    .main-view-area {
+        padding: 16px;
+    }
+    .search-input-box {
+        width: 180px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">🦠 MASTER CLASSIFICATION OF GYNECOLOGIC</div>
+                <div class="brand-subtitle-text">MRCOG / FCPS / RCOG Guidance — Interactive Study A</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ Bug Catalog Matrix</button>
+        </div>
+
+        <div class="nav-actions">
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 38 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 22 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (22 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="I. BACTERIA">I. BACTERIA</a></li><li><a href="#part-2" class="part-nav-link" title="II. BACTERIAL VAGINOSIS ORGANISMS">II. BACTERIAL VAGINOSIS ORGANISMS</a></li><li><a href="#part-3" class="part-nav-link" title="III. ANAEROBIC BACTERIA">III. ANAEROBIC BACTERIA</a></li><li><a href="#part-4" class="part-nav-link" title="VI. FUNGI">VI. FUNGI</a></li><li><a href="#part-5" class="part-nav-link" title="VII. PROTOZOA">VII. PROTOZOA</a></li><li><a href="#part-6" class="part-nav-link" title="VIII. VIRUSES">VIII. VIRUSES</a></li><li><a href="#part-7" class="part-nav-link" title="IX. HERPES SIMPLEX VIRUS">IX. HERPES SIMPLEX VIRUS</a></li><li><a href="#part-8" class="part-nav-link" title="X. HIV">X. HIV</a></li><li><a href="#part-9" class="part-nav-link" title="XI. HEPATITIS VIRUSES">XI. HEPATITIS VIRUSES</a></li><li><a href="#part-10" class="part-nav-link" title="XII. OTHER VIRUSES">XII. OTHER VIRUSES</a></li><li><a href="#part-11" class="part-nav-link" title="XIII. ARTHROPODS / ECTOPARASITES">XIII. ARTHROPODS / ECTOPARASITES</a></li><li><a href="#part-12" class="part-nav-link" title="XIV. MOLLUSCUM CONTAGIOSUM">XIV. MOLLUSCUM CONTAGIOSUM</a></li><li><a href="#part-13" class="part-nav-link" title="XV. GENITAL ULCER DISEASE — COMPLETE BUG CLASSIFICATION">XV. GENITAL ULCER DISEASE — COMPLETE BUG CLASSIFICATION</a></li><li><a href="#part-14" class="part-nav-link" title="XVI. VAGINAL DISCHARGE — BUG CLASSIFICATION">XVI. VAGINAL DISCHARGE — BUG CLASSIFICATION</a></li><li><a href="#part-15" class="part-nav-link" title="XVII. CERVICITIS — BUG CLASSIFICATION">XVII. CERVICITIS — BUG CLASSIFICATION</a></li><li><a href="#part-16" class="part-nav-link" title="XVIII. PID — BUG CLASSIFICATION">XVIII. PID — BUG CLASSIFICATION</a></li><li><a href="#part-17" class="part-nav-link" title="XIX. BARTHOLIN GLAND INFECTION">XIX. BARTHOLIN GLAND INFECTION</a></li><li><a href="#part-18" class="part-nav-link" title="XX. LOWER URINARY TRACT INFECTION IN WOMEN">XX. LOWER URINARY TRACT INFECTION IN WOMEN</a></li><li><a href="#part-19" class="part-nav-link" title="🦠 BACTERIA">🦠 BACTERIA</a></li><li><a href="#part-20" class="part-nav-link" title="🍄 FUNGI">🍄 FUNGI</a></li><li><a href="#part-21" class="part-nav-link" title="🦠 PROTOZOA">🦠 PROTOZOA</a></li><li><a href="#part-22" class="part-nav-link" title="🧬 VIRUSES">🧬 VIRUSES</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">🦠 MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS</h1>
+                    <div class="reader-hero-sub">⭐ MRCOG / FCPS / RCOG Guidance — Interactive Study Atlas</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">I. BACTERIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-1-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Sexually transmitted bacterial pathogens</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-1" onchange="toggleMastery('t-1-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Main disease/condition</th>
+<th>High-yield association</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Chlamydia trachomatis</strong></td>
+<td>Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh–Curtis syndrome</td>
+<td>Cervicitis + PID + infertility</td>
+</tr>
+<tr>
+<td><strong>Neisseria gonorrhoeae</strong></td>
+<td>Gonococcal cervicitis, urethritis, PID, salpingitis</td>
+<td>Purulent cervicitis</td>
+</tr>
+<tr>
+<td><strong>Mycoplasma genitalium</strong></td>
+<td>Cervicitis, urethritis, PID</td>
+<td>Cervicitis/PID</td>
+</tr>
+<tr>
+<td><strong>Treponema pallidum</strong></td>
+<td>Syphilis</td>
+<td>Painless chancre</td>
+</tr>
+<tr>
+<td><strong>Haemophilus ducreyi</strong></td>
+<td>Chancroid</td>
+<td>Painful genital ulcer</td>
+</tr>
+<tr>
+<td><strong>Klebsiella granulomatis</strong></td>
+<td>Donovanosis/granuloma inguinale</td>
+<td>Beefy-red painless ulcer</td>
+</tr>
+<tr>
+<td><strong>C. trachomatis L1–L3</strong></td>
+<td>Lymphogranuloma venereum</td>
+<td>Genital ulcer → lymphadenopathy/proctitis</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">NICE&#x27;s evidence base specifically includes chlamydia, gonorrhoea, syphilis, LGV and M. genitalium among STI-related organisms.</p>
+
+                <div class="topic-row" id="topic-t-1-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Mollicutes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-2" onchange="toggleMastery('t-1-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Disease/association</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Mycoplasma genitalium</strong></td>
+<td>Cervicitis, urethritis, PID</td>
+</tr>
+<tr>
+<td><strong>Mycoplasma hominis</strong></td>
+<td>Genital tract/pelvic infection associations</td>
+</tr>
+<tr>
+<td><strong>Ureaplasma urealyticum</strong></td>
+<td>Mainly colonisation; association with urethritis/genital tract disease</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam priority</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-1-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">M</span>
+                        <h3 class="topic-heading">genitalium → cervicitis + PID</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-3" onchange="toggleMastery('t-1-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">NICE notes increasing recognition of M. genitalium, including significant antimicrobial resistance.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">II. BACTERIAL VAGINOSIS ORGANISMS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">BV is polymicrobial, not a single-organism infection.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important organisms</span></div>
+                <div class="callout-body">Gardnerella vaginalis</div>
+            </div>
+            
+<h4 class="sub-label">Atopobium vaginae</h4>
+<p class="standard-p">Prevotella spp.</p>
+<p class="standard-p">Mobiluncus spp.</p>
+<p class="standard-p">Bacteroides spp.</p>
+<h4 class="sub-label">Other anaerobic bacteria</h4>
+<h4 class="sub-label">Disease</h4>
+<h4 class="sub-label">Bacterial vaginosis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic findings</span></div>
+                <div class="callout-body">Thin homogeneous discharge</div>
+            </div>
+            
+<h4 class="sub-label">Fishy/malodorous discharge</h4>
+<h4 class="sub-label">Vaginal pH &gt;4.5</h4>
+<h4 class="sub-label">Clue cells</h4>
+<h4 class="sub-label">Positive amine/whiff test</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam association</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Clue cells → BV</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">III. ANAEROBIC BACTERIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important particularly in PID and tubo-ovarian abscess.</span></div>
+                
+            </div>
+            
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism/group</th>
+<th>Conditions</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Bacteroides spp.</strong></td>
+<td>BV, PID, pelvic abscess</td>
+</tr>
+<tr>
+<td><strong>Prevotella spp.</strong></td>
+<td>BV, PID</td>
+</tr>
+<tr>
+<td><strong>Fusobacterium spp.</strong></td>
+<td>Pelvic infection/PID</td>
+</tr>
+<tr>
+<td><strong>Peptostreptococcus spp.</strong></td>
+<td>Pelvic infection</td>
+</tr>
+<tr>
+<td><strong>Other anaerobes</strong></td>
+<td>PID, tubo-ovarian abscess</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Key concept</span></div>
+                
+            </div>
+            
+<p class="standard-p">PID is usually polymicrobial, not a single-organism infection.</p>
+<p class="standard-p">Major pathogens include Chlamydia + Gonorrhoea + M. genitalium, with anaerobic and vaginal flora also contributing.</p>
+<h4 class="sub-label">IV. ENTERIC / GRAM-NEGATIVE BACTERIA</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Gynecological relevance</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Escherichia coli</strong></td>
+<td>UTI, Bartholin abscess, pelvic infection</td>
+</tr>
+<tr>
+<td><strong>Klebsiella spp.</strong></td>
+<td>UTI, pelvic infection</td>
+</tr>
+<tr>
+<td><strong>Proteus spp.</strong></td>
+<td>UTI</td>
+</tr>
+<tr>
+<td><strong>Other enteric Gram-negative organisms</strong></td>
+<td>PID/pelvic infection</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Most important</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli → commonest bacterial cause of UTI</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">V</span>
+                        <h3 class="topic-heading">GRAM-POSITIVE BACTERIA</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Gynecological conditions</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Staphylococcus aureus</strong></td>
+<td>Bartholin abscess, vulval/skin infection</td>
+</tr>
+<tr>
+<td><strong>Streptococcus pyogenes</strong></td>
+<td>Vulvitis, cellulitis, severe genital infection</td>
+</tr>
+<tr>
+<td><strong>Enterococcus spp.</strong></td>
+<td>Pelvic/postoperative infection</td>
+</tr>
+<tr>
+<td><strong>Streptococcus agalactiae (GBS)</strong></td>
+<td>Genital colonisation; mainly obstetric significance</td>
+</tr>
+<tr>
+<td><strong>Other streptococci</strong></td>
+<td>Pelvic/genital infection</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">GBS is deliberately not a core non-obstetric gynecological bug in this classification because its major clinical importance is obstetric/neonatal.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">VI. FUNGI</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Candida species</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Disease</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Candida albicans</strong></td>
+<td>Vulvovaginal candidiasis</td>
+</tr>
+<tr>
+<td><strong>Candida glabrata</strong></td>
+<td>Non-albicans VVC</td>
+</tr>
+<tr>
+<td><strong>Candida krusei</strong></td>
+<td>Non-albicans VVC; intrinsically resistant to fluconazole</td>
+</tr>
+<tr>
+<td><strong>Other Candida spp.</strong></td>
+<td>Complicated/recurrent VVC</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Vulvovaginal candidiasis</h4>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">Intense vulval pruritus</h4>
+<h4 class="sub-label">Vulval erythema</h4>
+<h4 class="sub-label">Thick white discharge</h4>
+<h4 class="sub-label">Usually no fishy odour</h4>
+<h4 class="sub-label">Vaginal pH usually ≤4.5</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam association</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Candida → itch + thick white discharge + normal vaginal pH</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG specifically identifies candidiasis as a core gynaecological condition.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">VII. PROTOZOA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Trichomonas vaginalis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Disease</h4>
+<h4 class="sub-label">Trichomoniasis</h4>
+<h4 class="sub-label">Features</h4>
+<h4 class="sub-label">Frothy yellow-green discharge</h4>
+<h4 class="sub-label">Vulvovaginal irritation</h4>
+<h4 class="sub-label">Offensive discharge</h4>
+<h4 class="sub-label">pH &gt;4.5</h4>
+<h4 class="sub-label">Strawberry cervix</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam association</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Trichomonas → frothy discharge + strawberry cervix + high pH</span></div>
+
+                <div class="topic-row" id="topic-t-5-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Entamoeba histolytica</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-2" onchange="toggleMastery('t-5-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Rare:</h4>
+<h4 class="sub-label">Genital/perineal amoebiasis</h4>
+<h4 class="sub-label">Genital ulceration</h4>
+<p class="standard-p">Not a routine gynecological STI.</p>
+
+                <div class="topic-row" id="topic-t-5-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Giardia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-3" onchange="toggleMastery('t-5-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Not a typical gynecological pathogen.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">VIII. VIRUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">HUMAN PAPILLOMAVIRUS — HPV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Low-risk HPV</h4>
+<h4 class="sub-label">HPV 6, 11</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Genital warts / condyloma acuminata</span></div>
+<h4 class="sub-label">High-risk HPV</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important oncogenic types include</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">HPV 16</h4>
+<h4 class="sub-label">HPV 18</h4>
+<h4 class="sub-label">HPV 31</h4>
+<h4 class="sub-label">HPV 33</h4>
+<h4 class="sub-label">HPV 35</h4>
+<h4 class="sub-label">HPV 39</h4>
+<h4 class="sub-label">HPV 45</h4>
+<h4 class="sub-label">HPV 51</h4>
+<h4 class="sub-label">HPV 52</h4>
+<h4 class="sub-label">HPV 56</h4>
+<h4 class="sub-label">HPV 58</h4>
+<h4 class="sub-label">HPV 59</h4>
+<h4 class="sub-label">HPV 66</h4>
+<h4 class="sub-label">HPV 68</h4>
+<h4 class="sub-label">Diseases</h4>
+<h4 class="sub-label">Genital warts</h4>
+<h4 class="sub-label">Cervical intraepithelial neoplasia</h4>
+<h4 class="sub-label">Vulval intraepithelial neoplasia</h4>
+<h4 class="sub-label">Vaginal intraepithelial neoplasia</h4>
+<h4 class="sub-label">Anal intraepithelial neoplasia</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Vulval cancer</h4>
+<h4 class="sub-label">Vaginal cancer</h4>
+<h4 class="sub-label">Anal cancer</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Memorise</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HPV 6/11 → genital warts</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HPV 16/18 → major oncogenic HPV types</span></div>
+<p class="standard-p">RCOG includes cervical screening/HPV and genital warts within its gynaecology curriculum, while NICE includes HPV vaccination within its STI framework.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">IX. HERPES SIMPLEX VIRUS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">HSV-1 and HSV-2</h4>
+<h4 class="sub-label">Disease</h4>
+<h4 class="sub-label">Genital herpes</h4>
+<h4 class="sub-label">Features</h4>
+<h4 class="sub-label">Painful vesicles</h4>
+<h4 class="sub-label">Painful shallow ulcers</h4>
+<h4 class="sub-label">Dysuria</h4>
+<h4 class="sub-label">Tender inguinal lymphadenopathy</h4>
+<h4 class="sub-label">Recurrent genital ulceration</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam association</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HSV → painful genital vesicles/ulcers</span></div>
+<p class="standard-p">HSV-2 is classically associated with recurrent genital disease, although HSV-1 is also an important cause of genital herpes.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">X. HIV</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Human immunodeficiency virus</h4>
+<h4 class="sub-label">Gynecological relevance</h4>
+<h4 class="sub-label">HIV infection</h4>
+<h4 class="sub-label">Increased susceptibility to infections</h4>
+<h4 class="sub-label">Recurrent vulvovaginal candidiasis</h4>
+<h4 class="sub-label">HPV-related disease</h4>
+<h4 class="sub-label">CIN</h4>
+<h4 class="sub-label">Increased cervical cancer risk</h4>
+<h4 class="sub-label">Pelvic infections</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE specifically includes HIV within its STI framework.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">XI. HEPATITIS VIRUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">These are sexual-health pathogens rather than primary gynecological pathogens.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Virus</th>
+<th>Relevance</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>HBV</strong></td>
+<td>Sexually transmissible hepatitis B</td>
+</tr>
+<tr>
+<td><strong>HCV</strong></td>
+<td>Sexual transmission possible, especially in higher-risk networks</td>
+</tr>
+<tr>
+<td><strong>HAV</strong></td>
+<td>Sexual transmission possible in particular sexual practices</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE addresses hepatitis A and B vaccination within its STI guidance.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">XII. OTHER VIRUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Cytomegalovirus — CMV</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important mainly in</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Immunocompromised patients</h4>
+<p class="standard-p">Not a core non-obstetric gynecological STI.</p>
+<h4 class="sub-label">Epstein–Barr virus — EBV</h4>
+<h4 class="sub-label">Can be sexually transmitted but:</h4>
+<h4 class="sub-label">Not a routine gynecological pathogen</h4>
+<h4 class="sub-label">Mainly associated with infectious mononucleosis</h4>
+<p class="standard-p">Low priority for MRCOG gynecology infection questions.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">XIII. ARTHROPODS / ECTOPARASITES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">These are important because RCOG/UK sexual-health curricula include them within STI knowledge.</p>
+
+                <div class="topic-row" id="topic-t-11-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Pthirus pubis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-1" onchange="toggleMastery('t-11-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pubic lice / pediculosis pubis</h4>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">Severe pruritus</h4>
+<h4 class="sub-label">Nits/lice in pubic hair</h4>
+<h4 class="sub-label">Excoriations</h4>
+
+                <div class="topic-row" id="topic-t-11-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Sarcoptes scabiei</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-2" onchange="toggleMastery('t-11-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Scabies</h4>
+<h4 class="sub-label">May involve:</h4>
+<h4 class="sub-label">Vulva</h4>
+<h4 class="sub-label">Perineum</h4>
+<h4 class="sub-label">Buttocks</h4>
+<h4 class="sub-label">Generalised skin</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam point</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Pubic lice → Pthirus pubis</span></div>
+<p class="standard-p">RCOG&#x27;s DRCOG sexual-health syllabus explicitly includes pubic lice and molluscum alongside major STIs.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">XIV. MOLLUSCUM CONTAGIOSUM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Molluscum contagiosum virus</h4>
+<p class="standard-p">A poxvirus.</p>
+<h4 class="sub-label">Disease</h4>
+<h4 class="sub-label">Molluscum contagiosum</h4>
+<h4 class="sub-label">Features</h4>
+<h4 class="sub-label">Small pearly papules</h4>
+<h4 class="sub-label">Central umbilication</h4>
+<h4 class="sub-label">Can occur in genital/perineal region</h4>
+<h4 class="sub-label">Sexually transmitted in adults when genital</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Exam association</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Umbilicated genital papules → molluscum contagiosum</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">XV. GENITAL ULCER DISEASE — COMPLETE BUG CLASSIFICATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Disease</th>
+<th>Ulcer</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>HSV-1/2</strong></td>
+<td>Genital herpes</td>
+<td>Painful vesicles/ulcers</td>
+</tr>
+<tr>
+<td><strong>H. ducreyi</strong></td>
+<td>Chancroid</td>
+<td>Painful ulcer</td>
+</tr>
+<tr>
+<td><strong>T. pallidum</strong></td>
+<td>Syphilis</td>
+<td>Painless chancre</td>
+</tr>
+<tr>
+<td><strong>K. granulomatis</strong></td>
+<td>Donovanosis</td>
+<td>Painless beefy-red ulcer</td>
+</tr>
+<tr>
+<td><strong>C. trachomatis L1–L3</strong></td>
+<td>LGV</td>
+<td>Small transient lesion → lymphadenopathy</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">🧠 Memorise</h4>
+<h4 class="sub-label">PAINFUL</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ HSV</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Chancroid</span></div>
+<h4 class="sub-label">PAINLESS</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Syphilis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Donovanosis</span></div>
+<h4 class="sub-label">LGV</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ C. trachomatis L1–L3</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">XVI. VAGINAL DISCHARGE — BUG CLASSIFICATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Organism</th>
+<th>Discharge</th>
+<th>pH</th>
+<th>Key sign</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Candida</strong></td>
+<td>Candida spp.</td>
+<td>Thick white</td>
+<td>≤4.5</td>
+<td>Intense itch</td>
+</tr>
+<tr>
+<td><strong>BV</strong></td>
+<td>Gardnerella + anaerobes</td>
+<td>Thin, homogeneous, fishy</td>
+<td>&gt;4.5</td>
+<td>Clue cells</td>
+</tr>
+<tr>
+<td><strong>Trichomoniasis</strong></td>
+<td>T. vaginalis</td>
+<td>Frothy yellow-green</td>
+<td>&gt;4.5</td>
+<td>Strawberry cervix</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">🧠 One-line memory</h4>
+<h4 class="sub-label">Candida = itch + white + normal pH</h4>
+<h4 class="sub-label">BV = fishy + clue cells + high pH</h4>
+<h4 class="sub-label">Trichomonas = frothy + strawberry cervix + high pH</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">XVII. CERVICITIS — BUG CLASSIFICATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Major causes</h4>
+<h4 class="sub-label">Chlamydia trachomatis</h4>
+<h4 class="sub-label">Neisseria gonorrhoeae</h4>
+<h4 class="sub-label">Mycoplasma genitalium</h4>
+<h4 class="sub-label">Other possible causes</h4>
+<h4 class="sub-label">HSV</h4>
+<h4 class="sub-label">Trichomonas</h4>
+<h4 class="sub-label">BV-associated organisms</h4>
+<h4 class="sub-label">Clinical features</h4>
+<h4 class="sub-label">Mucopurulent discharge</h4>
+<h4 class="sub-label">Cervical friability</h4>
+<h4 class="sub-label">Contact/postcoital bleeding</h4>
+<h4 class="sub-label">Dysuria</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Core memory</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Cervicitis = Chlamydia + Gonorrhoea + M. genitalium</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">XVIII. PID — BUG CLASSIFICATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Major organisms</h4>
+<h4 class="sub-label">STI pathogens</h4>
+
+                <div class="topic-row" id="topic-t-16-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">trachomatis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-16-1" onchange="toggleMastery('t-16-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-16-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">N</span>
+                        <h3 class="topic-heading">gonorrhoeae</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-16-2" onchange="toggleMastery('t-16-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-16-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">M</span>
+                        <h3 class="topic-heading">genitalium</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-16-3" onchange="toggleMastery('t-16-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Other organisms</h4>
+<h4 class="sub-label">Anaerobes</h4>
+<h4 class="sub-label">Gardnerella-associated organisms</h4>
+<h4 class="sub-label">Enteric Gram-negative organisms</h4>
+<h4 class="sub-label">Streptococci</h4>
+<h4 class="sub-label">Other vaginal flora</h4>
+<h4 class="sub-label">PID spectrum</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Endometritis → salpingitis → pelvic peritonitis → tubo-ovarian abscess</span></div>
+<p class="standard-p">Possible Fitz-Hugh–Curtis syndrome.</p>
+<h4 class="sub-label">Complications</h4>
+<h4 class="sub-label">Tubal infertility</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Chronic pelvic pain</h4>
+<h4 class="sub-label">Tubo-ovarian abscess</h4>
+<p class="standard-p">NICE highlights PID, infertility and ectopic pregnancy as important consequences of STIs.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">XIX. BARTHOLIN GLAND INFECTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Bartholin cyst</h4>
+<p class="standard-p">Not necessarily infectious.</p>
+<h4 class="sub-label">Bartholin abscess</h4>
+<p class="standard-p">Usually polymicrobial.</p>
+<h4 class="sub-label">Possible organisms:</h4>
+
+                <div class="topic-row" id="topic-t-17-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-17-1" onchange="toggleMastery('t-17-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Staphylococcus aureus</h4>
+<h4 class="sub-label">Streptococci</h4>
+<h4 class="sub-label">Anaerobes</h4>
+<h4 class="sub-label">Gonorrhoea</h4>
+<h4 class="sub-label">Chlamydia</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Bartholin cyst ≠ necessarily infection</h4>
+<p class="standard-p">Bartholin abscess = infected/obstructed Bartholin gland</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG identifies Bartholin abscess as a core gynaecological condition.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">XX. LOWER URINARY TRACT INFECTION IN WOMEN</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Although primarily urogynaecology/urology:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Organism</th>
+<th>Condition</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>E. coli</strong></td>
+<td>Most common cystitis/UTI pathogen</td>
+</tr>
+<tr>
+<td><strong>Klebsiella</strong></td>
+<td>UTI</td>
+</tr>
+<tr>
+<td><strong>Proteus</strong></td>
+<td>UTI</td>
+</tr>
+<tr>
+<td><strong>Enterococcus</strong></td>
+<td>UTI</td>
+</tr>
+<tr>
+<td><strong>Staphylococcus saprophyticus</strong></td>
+<td>UTI</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Most important</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-18-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli → commonest UTI pathogen</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-18-1" onchange="toggleMastery('t-18-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">RCOG includes lower urinary tract infections in women within its gynaecology curriculum.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>XXI. COMPLETE BUG → DISEASE MASTER TABLE</span></div>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>🦠 Organism</th>
+<th>⭐ Main gynecological disease</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>C. trachomatis</strong></td>
+<td>Cervicitis, PID, salpingitis, infertility</td>
+</tr>
+<tr>
+<td><strong>N. gonorrhoeae</strong></td>
+<td>Cervicitis, PID</td>
+</tr>
+<tr>
+<td><strong>M. genitalium</strong></td>
+<td>Cervicitis, PID</td>
+</tr>
+<tr>
+<td><strong>T. pallidum</strong></td>
+<td>Syphilis</td>
+</tr>
+<tr>
+<td><strong>H. ducreyi</strong></td>
+<td>Chancroid</td>
+</tr>
+<tr>
+<td><strong>K. granulomatis</strong></td>
+<td>Donovanosis</td>
+</tr>
+<tr>
+<td><strong>C. trachomatis L1–L3</strong></td>
+<td>LGV</td>
+</tr>
+<tr>
+<td><strong>Gardnerella vaginalis</strong></td>
+<td>BV</td>
+</tr>
+<tr>
+<td><strong>Atopobium vaginae</strong></td>
+<td>BV</td>
+</tr>
+<tr>
+<td><strong>Prevotella spp.</strong></td>
+<td>BV/PID</td>
+</tr>
+<tr>
+<td><strong>Mobiluncus spp.</strong></td>
+<td>BV</td>
+</tr>
+<tr>
+<td><strong>Bacteroides spp.</strong></td>
+<td>BV/PID/abscess</td>
+</tr>
+<tr>
+<td><strong>Fusobacterium spp.</strong></td>
+<td>Pelvic infection</td>
+</tr>
+<tr>
+<td><strong>Candida albicans</strong></td>
+<td>Vulvovaginal candidiasis</td>
+</tr>
+<tr>
+<td><strong>Candida glabrata</strong></td>
+<td>Non-albicans VVC</td>
+</tr>
+<tr>
+<td><strong>Candida krusei</strong></td>
+<td>Non-albicans VVC</td>
+</tr>
+<tr>
+<td><strong>T. vaginalis</strong></td>
+<td>Trichomoniasis</td>
+</tr>
+<tr>
+<td><strong>HPV 6/11</strong></td>
+<td>Genital warts</td>
+</tr>
+<tr>
+<td><strong>High-risk HPV</strong></td>
+<td>CIN/anogenital cancers</td>
+</tr>
+<tr>
+<td><strong>HSV-1/2</strong></td>
+<td>Genital herpes</td>
+</tr>
+<tr>
+<td><strong>HIV</strong></td>
+<td>HIV infection + HPV/CIN/infectious complications</td>
+</tr>
+<tr>
+<td><strong>HBV</strong></td>
+<td>Sexually transmitted hepatitis B</td>
+</tr>
+<tr>
+<td><strong>HCV</strong></td>
+<td>Sexually transmissible hepatitis C</td>
+</tr>
+<tr>
+<td><strong>Molluscum contagiosum virus</strong></td>
+<td>Molluscum contagiosum</td>
+</tr>
+<tr>
+<td><strong>Pthirus pubis</strong></td>
+<td>Pubic lice</td>
+</tr>
+<tr>
+<td><strong>Sarcoptes scabiei</strong></td>
+<td>Scabies</td>
+</tr>
+<tr>
+<td><strong>E. coli</strong></td>
+<td>UTI, Bartholin/pelvic infection</td>
+</tr>
+<tr>
+<td><strong>Klebsiella spp.</strong></td>
+<td>UTI/pelvic infection</td>
+</tr>
+<tr>
+<td><strong>Proteus spp.</strong></td>
+<td>UTI</td>
+</tr>
+<tr>
+<td><strong>S. aureus</strong></td>
+<td>Bartholin/vulval infection</td>
+</tr>
+<tr>
+<td><strong>S. pyogenes</strong></td>
+<td>Vulval/genital infection</td>
+</tr>
+<tr>
+<td><strong>Enterococcus spp.</strong></td>
+<td>UTI/pelvic/postoperative infection</td>
+</tr>
+<tr>
+<td><strong>M. hominis</strong></td>
+<td>Genital/pelvic infection association</td>
+</tr>
+<tr>
+<td><strong>Ureaplasma spp.</strong></td>
+<td>Mainly colonisation/possible genital tract disease</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">🦠 BACTERIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">STIs</h4>
+<h4 class="sub-label">Chlamydia</h4>
+<h4 class="sub-label">Gonorrhoea</h4>
+<h4 class="sub-label">Syphilis</h4>
+
+                <div class="topic-row" id="topic-t-19-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">M</span>
+                        <h3 class="topic-heading">genitalium</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-19-1" onchange="toggleMastery('t-19-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Chancroid</h4>
+<h4 class="sub-label">Donovanosis</h4>
+<h4 class="sub-label">LGV</h4>
+<h4 class="sub-label">Vaginal flora/BV</h4>
+<h4 class="sub-label">Gardnerella</h4>
+<h4 class="sub-label">Atopobium</h4>
+<h4 class="sub-label">Prevotella</h4>
+<h4 class="sub-label">Mobiluncus</h4>
+<h4 class="sub-label">Bacteroides</h4>
+<h4 class="sub-label">Anaerobes</h4>
+<h4 class="sub-label">Bacteroides</h4>
+<h4 class="sub-label">Prevotella</h4>
+<h4 class="sub-label">Fusobacterium</h4>
+<h4 class="sub-label">Peptostreptococcus</h4>
+<h4 class="sub-label">Enteric</h4>
+
+                <div class="topic-row" id="topic-t-19-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-19-2" onchange="toggleMastery('t-19-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Klebsiella</h4>
+<h4 class="sub-label">Proteus</h4>
+<h4 class="sub-label">Gram-positive</h4>
+<h4 class="sub-label">Staphylococcus</h4>
+<h4 class="sub-label">Streptococcus</h4>
+<h4 class="sub-label">Enterococcus</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">🍄 FUNGI</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Candida albicans</h4>
+<h4 class="sub-label">Candida glabrata</h4>
+<h4 class="sub-label">Candida krusei</h4>
+<p class="standard-p">Other Candida spp.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">🦠 PROTOZOA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Trichomonas vaginalis</h4>
+<h4 class="sub-label">Entamoeba histolytica — rare genital disease</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">🧬 VIRUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">HPV</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>6/11 → warts</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>High-risk HPV → CIN/cancer</span></div>
+<h4 class="sub-label">Herpes</h4>
+<h4 class="sub-label">HSV-1</h4>
+<h4 class="sub-label">HSV-2</h4>
+<h4 class="sub-label">Retrovirus</h4>
+<h4 class="sub-label">HIV</h4>
+<h4 class="sub-label">Hepatitis</h4>
+<h4 class="sub-label">HBV</h4>
+<h4 class="sub-label">HCV</h4>
+<h4 class="sub-label">HAV in selected sexual practices</h4>
+<h4 class="sub-label">Poxvirus</h4>
+<h4 class="sub-label">Molluscum contagiosum virus</h4>
+<h4 class="sub-label">Other</h4>
+<h4 class="sub-label">CMV</h4>
+<h4 class="sub-label">EBV — low-yield/non-core</h4>
+<h4 class="sub-label">🕷️ ECTOPARASITES</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Pthirus pubis → pubic lice</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Sarcoptes scabiei → scabies</span></div>
+<h4 class="sub-label">XXIII. 🎯 MRCOG HIGH-YIELD CORE BUGS</h4>
+<p class="standard-p">If you want the highest-yield organisms to memorise first, use this order:</p>
+<h4 class="sub-label">🔴 Tier 1 — MUST KNOW</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Chlamydia trachomatis → cervicitis/PID/infertility</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Neisseria gonorrhoeae → purulent cervicitis/PID</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Mycoplasma genitalium → cervicitis/PID</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Treponema pallidum → syphilis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HSV-1/2 → genital herpes</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HPV → warts/CIN/cancer</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Trichomonas vaginalis → trichomoniasis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Candida albicans → VVC</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Gardnerella + anaerobes → BV</span></div>
+
+                <div class="topic-row" id="topic-t-22-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli → UTI</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-1" onchange="toggleMastery('t-22-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">🔵 Tier 2 — Important STI organisms</h4>
+
+                <div class="topic-row" id="topic-t-22-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">H</span>
+                        <h3 class="topic-heading">ducreyi → chancroid</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-2" onchange="toggleMastery('t-22-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-22-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">K</span>
+                        <h3 class="topic-heading">granulomatis → Donovanosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-3" onchange="toggleMastery('t-22-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-22-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">trachomatis L1–L3 → LGV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-4" onchange="toggleMastery('t-22-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HIV → HIV infection/HPV-related disease</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HBV/HCV → viral hepatitis/sexual transmission</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Molluscum contagiosum virus → molluscum</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Pthirus pubis → pubic lice</span></div>
+<h4 class="sub-label">🟣 Tier 3 — Important supporting flora/pathogens</h4>
+<h4 class="sub-label">Atopobium</h4>
+<h4 class="sub-label">Prevotella</h4>
+<h4 class="sub-label">Mobiluncus</h4>
+<h4 class="sub-label">Bacteroides</h4>
+<h4 class="sub-label">Fusobacterium</h4>
+<h4 class="sub-label">Peptostreptococcus</h4>
+
+                <div class="topic-row" id="topic-t-22-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-5" onchange="toggleMastery('t-22-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Klebsiella</h4>
+<h4 class="sub-label">Proteus</h4>
+<h4 class="sub-label">Staphylococcus aureus</h4>
+<h4 class="sub-label">Streptococci</h4>
+<h4 class="sub-label">Enterococcus</h4>
+<h4 class="sub-label">Mycoplasma hominis/Ureaplasma</h4>
+<h4 class="sub-label">🧠 FINAL ULTRA-RAPID MEMORY MAP</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>CHLAMYDIA → cervicitis → PID → infertility</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>GONORRHOEA → purulent cervicitis → PID</span></div>
+
+                <div class="topic-row" id="topic-t-22-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">M</span>
+                        <h3 class="topic-heading">GENITALIUM → cervicitis/PID</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-6" onchange="toggleMastery('t-22-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>SYPHILIS → painless chancre</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HSV → painful vesicles/ulcers</span></div>
+
+                <div class="topic-row" id="topic-t-22-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">H</span>
+                        <h3 class="topic-heading">DUCREYI → painful ulcer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-7" onchange="toggleMastery('t-22-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>DONOVANOSIS → beefy-red painless ulcer</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>LGV → ulcer → lymphadenopathy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HPV 6/11 → genital warts</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HIGH-RISK HPV → CIN/cancer</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>CANDIDA → itch + thick white + pH ≤4.5</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>BV → fishy + clue cells + pH &gt;4.5</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>TRICHOMONAS → frothy + strawberry cervix + pH &gt;4.5</span></div>
+
+                <div class="topic-row" id="topic-t-22-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">COLI → UTI</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-22-8" onchange="toggleMastery('t-22-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ANAEROBES → BV/PID/TOA</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>BARTHOLIN ABSCESS → polymicrobial</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HIV → immunodeficiency + HPV/CIN risk</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>MOLLUSCUM → umbilicated papules</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PTHIRUS → pubic lice</span></div>
+<p class="standard-p">This is the consolidated non-obstetric gynecology infection classification. RCOG&#x27;s curriculum explicitly places BV, candidiasis, STIs, genital ulcers/warts, PID, Bartholin abscess and lower urinary infection within its gynaecology curriculum, while NICE provides the broader UK STI framework.</p>
+<p class="standard-p">Excluded from the core list: chorioamnionitis, congenital infections, intra-amniotic infection, puerperal sepsis, neonatal GBS disease and other pregnancy-specific infections, because those belong to obstetric infection, not the non-obstetric gynecology bug list.</p>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">Bug Catalog Matrix</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 I. BACTERIA</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Chlamydia trachomatis: Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh–Curtis syndrome</li>
+<li class="surg-item">● Neisseria gonorrhoeae: Gonococcal cervicitis, urethritis, PID, salpingitis</li>
+<li class="surg-item">● Mycoplasma genitalium: Cervicitis, urethritis, PID</li>
+<li class="surg-item">● Treponema pallidum: Syphilis</li>
+<li class="surg-item">● Haemophilus ducreyi: Chancroid</li>
+<li class="surg-item">● Klebsiella granulomatis: Donovanosis/granuloma inguinale</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 III. ANAEROBIC BACTERIA</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Bacteroides spp.: BV, PID, pelvic abscess</li>
+<li class="surg-item">● Prevotella spp.: BV, PID</li>
+<li class="surg-item">● Fusobacterium spp.: Pelvic infection/PID</li>
+<li class="surg-item">● Peptostreptococcus spp.: Pelvic infection</li>
+<li class="surg-item">● Other anaerobes: PID, tubo-ovarian abscess</li>
+<li class="surg-item">● Escherichia coli: UTI, Bartholin abscess, pelvic infection</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 VI. FUNGI</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Candida albicans: Vulvovaginal candidiasis</li>
+<li class="surg-item">● Candida glabrata: Non-albicans VVC</li>
+<li class="surg-item">● Candida krusei: Non-albicans VVC; intrinsically resistant to fluconazole</li>
+<li class="surg-item">● Other Candida spp.: Complicated/recurrent VVC</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 XI. HEPATITIS VIRUSES</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Virus: Relevance</li>
+<li class="surg-item">● HBV: Sexually transmissible hepatitis B</li>
+<li class="surg-item">● HCV: Sexual transmission possible, especially in higher-risk networks</li>
+<li class="surg-item">● HAV: Sexual transmission possible in particular sexual practices</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 38;
+    const flashcards = [{"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Chlamydia trachomatis</strong>?", "a": "<strong>Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome</strong><br>Cervicitis + PID + infertility"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Neisseria gonorrhoeae</strong>?", "a": "<strong>Gonococcal cervicitis, urethritis, PID, salpingitis</strong><br>Purulent cervicitis"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mycoplasma genitalium</strong>?", "a": "<strong>Cervicitis, urethritis, PID</strong><br>Cervicitis/PID"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Treponema pallidum</strong>?", "a": "<strong>Syphilis</strong><br>Painless chancre"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Haemophilus ducreyi</strong>?", "a": "<strong>Chancroid</strong><br>Painful genital ulcer"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Klebsiella granulomatis</strong>?", "a": "<strong>Donovanosis/granuloma inguinale</strong><br>Beefy-red painless ulcer"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>C. trachomatis L1\u2013L3</strong>?", "a": "<strong>Lymphogranuloma venereum</strong><br>Genital ulcer \u2192 lymphadenopathy/proctitis"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mycoplasma hominis</strong>?", "a": "<strong>Genital tract/pelvic infection associations</strong>"}, {"category": "I. BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ureaplasma urealyticum</strong>?", "a": "<strong>Mainly colonisation; association with urethritis/genital tract disease</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Bacteroides spp.</strong>?", "a": "<strong>BV, PID, pelvic abscess</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Prevotella spp.</strong>?", "a": "<strong>BV, PID</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fusobacterium spp.</strong>?", "a": "<strong>Pelvic infection/PID</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Peptostreptococcus spp.</strong>?", "a": "<strong>Pelvic infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Other anaerobes</strong>?", "a": "<strong>PID, tubo-ovarian abscess</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Escherichia coli</strong>?", "a": "<strong>UTI, Bartholin abscess, pelvic infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Klebsiella spp.</strong>?", "a": "<strong>UTI, pelvic infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Proteus spp.</strong>?", "a": "<strong>UTI</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Other enteric Gram-negative organisms</strong>?", "a": "<strong>PID/pelvic infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Staphylococcus aureus</strong>?", "a": "<strong>Bartholin abscess, vulval/skin infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Streptococcus pyogenes</strong>?", "a": "<strong>Vulvitis, cellulitis, severe genital infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Enterococcus spp.</strong>?", "a": "<strong>Pelvic/postoperative infection</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Streptococcus agalactiae (GBS)</strong>?", "a": "<strong>Genital colonisation; mainly obstetric significance</strong>"}, {"category": "III. ANAEROBIC BACTERIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Other streptococci</strong>?", "a": "<strong>Pelvic/genital infection</strong>"}, {"category": "VI. FUNGI", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Candida albicans</strong>?", "a": "<strong>Vulvovaginal candidiasis</strong>"}, {"category": "VI. FUNGI", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Candida glabrata</strong>?", "a": "<strong>Non-albicans VVC</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Chlamydia trachomatis ?", "options": ["Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID  Cervicitis/PID", "Syphilis  Painless chancre"], "correct": 0, "explanation": "Key Guideline / Fact: Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Neisseria gonorrhoeae ?", "options": ["Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID  Cervicitis/PID", "Syphilis  Painless chancre"], "correct": 1, "explanation": "Key Guideline / Fact: Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Mycoplasma genitalium ?", "options": ["Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Cervicitis, urethritis, PID  Cervicitis/PID", "Syphilis  Painless chancre"], "correct": 2, "explanation": "Key Guideline / Fact: Cervicitis, urethritis, PID  Cervicitis/PID (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Treponema pallidum ?", "options": ["Cervicitis, urethritis, PID  Cervicitis/PID", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Syphilis  Painless chancre"], "correct": 3, "explanation": "Key Guideline / Fact: Syphilis  Painless chancre (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Haemophilus ducreyi ?", "options": ["Chancroid  Painful genital ulcer", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID  Cervicitis/PID"], "correct": 0, "explanation": "Key Guideline / Fact: Chancroid  Painful genital ulcer (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Klebsiella granulomatis ?", "options": ["Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Donovanosis/granuloma inguinale  Beefy-red painless ulcer", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID  Cervicitis/PID"], "correct": 1, "explanation": "Key Guideline / Fact: Donovanosis/granuloma inguinale  Beefy-red painless ulcer (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  C. trachomatis L1\u2013L3 ?", "options": ["Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Lymphogranuloma venereum  Genital ulcer \u2192 lymphadenopathy/proctitis", "Cervicitis, urethritis, PID  Cervicitis/PID"], "correct": 2, "explanation": "Key Guideline / Fact: Lymphogranuloma venereum  Genital ulcer \u2192 lymphadenopathy/proctitis (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Mycoplasma hominis ?", "options": ["Cervicitis, urethritis, PID  Cervicitis/PID", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Genital tract/pelvic infection associations"], "correct": 3, "explanation": "Key Guideline / Fact: Genital tract/pelvic infection associations (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ureaplasma urealyticum ?", "options": ["Mainly colonisation; association with urethritis/genital tract disease", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID  Cervicitis/PID"], "correct": 0, "explanation": "Key Guideline / Fact: Mainly colonisation; association with urethritis/genital tract disease (I. BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Bacteroides spp. ?", "options": ["Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "BV, PID, pelvic abscess", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID  Cervicitis/PID"], "correct": 1, "explanation": "Key Guideline / Fact: BV, PID, pelvic abscess (III. ANAEROBIC BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Prevotella spp. ?", "options": ["Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "BV, PID", "Cervicitis, urethritis, PID  Cervicitis/PID"], "correct": 2, "explanation": "Key Guideline / Fact: BV, PID (III. ANAEROBIC BACTERIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Fusobacterium spp. ?", "options": ["Cervicitis, urethritis, PID  Cervicitis/PID", "Cervicitis, urethritis, PID, salpingitis, infertility, Fitz-Hugh\u2013Curtis syndrome  Cervicitis + PID + infertility", "Gonococcal cervicitis, urethritis, PID, salpingitis  Purulent cervicitis", "Pelvic infection/PID"], "correct": 3, "explanation": "Key Guideline / Fact: Pelvic infection/PID (III. ANAEROBIC BACTERIA)."}];
+    const storageKey = 'obgyn_mastered_master_classification_of_gynecological_bugs';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>
