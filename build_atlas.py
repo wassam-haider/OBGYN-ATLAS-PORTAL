@@ -1822,9 +1822,7 @@ def convert_md_to_interactive_atlas(input_md_path, output_html_path=None):
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-{CSS_TEMPLATE}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 

@@ -1,0 +1,63 @@
+/* Shared stylesheet extracted from original inline CSS */
+:root {
+    --bg-primary: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --text-light: #64748b;
+    --brand-navy: #0f172a;
+    --brand-blue: #1d4ed8;
+    --brand-cobalt: #2563eb;
+    --brand-teal: #0d9488;
+    --brand-rose: #e11d48;
+    --brand-amber: #d97706;
+    --border-subtle: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --highlight-bg: #fef08a;
+    --badge-bg: #eff6ff;
+    --badge-text: #1d4ed8;
+    --badge-border: #bfdbfe;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-head: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+[data-theme="dark"] {
+    --bg-primary: #090d16;
+    --bg-surface: #0f172a;
+    --bg-card: #131d31;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-light: #64748b;
+    --brand-navy: #020617;
+    --brand-blue: #3b82f6;
+    --brand-cobalt: #60a5fa;
+    --brand-teal: #14b8a6;
+    --brand-rose: #f43f5e;
+    --brand-amber: #f59e0b;
+    --border-subtle: #1e293b;
+    --border-strong: #334155;
+    --highlight-bg: #854d0e;
+    --badge-bg: #1e3a8a33;
+    --badge-text: #93c5fd;
+    --badge-border: #1e40af;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.25s, color 0.25s;
+}
+/* Additional CSS omitted for brevity */
