@@ -1,0 +1,3208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+<style>
+/* Image Gallery Styles */
+.image-gallery-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+.gallery-top-bar {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.gallery-icon {
+    font-size: 22px;
+}
+.gallery-title {
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.gallery-subtitle {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+.gallery-item {
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-primary);
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.gallery-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #f8fafc;
+    display: block;
+    padding: 8px;
+}
+[data-theme="dark"] .gallery-item img {
+    background: #0f172a;
+}
+.gallery-item-label {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+.lightbox-overlay.active {
+    display: flex;
+}
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+.lightbox-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.lightbox-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.lightbox-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+.lightbox-counter {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.lightbox-close:hover {
+    background: rgba(239,68,68,0.6);
+}
+</style>
+
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lb-overlay">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="Clinical Image">
+    <div class="lightbox-controls">
+        <button class="lightbox-btn" onclick="galleryPrev()">← Previous</button>
+        <span class="lightbox-counter" id="lb-counter">1 / 1</span>
+        <button class="lightbox-btn" onclick="galleryNext()">Next →</button>
+    </div>
+</div>
+
+
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MRCOG Part 3 OSCE — EARLY PREGNANCY AT</div>
+                <div class="brand-subtitle-text">Ectopic pregnancy • Miscarriage • Septic miscarria</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (18)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 62 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 55 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (55 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. UNIVERSAL EARLY-PREGNANCY OSCE APPROACH">1. UNIVERSAL EARLY-PREGNANCY OSCE APPROACH</a></li><li><a href="#part-3" class="part-nav-link" title="2. ECTOPIC PREGNANCY">2. ECTOPIC PREGNANCY</a></li><li><a href="#part-4" class="part-nav-link" title="3. ECTOPIC HISTORY">3. ECTOPIC HISTORY</a></li><li><a href="#part-5" class="part-nav-link" title="4. ECTOPIC EXAMINATION">4. ECTOPIC EXAMINATION</a></li><li><a href="#part-6" class="part-nav-link" title="5. ECTOPIC INVESTIGATIONS">5. ECTOPIC INVESTIGATIONS</a></li><li><a href="#part-7" class="part-nav-link" title="7. PREGNANCY OF UNKNOWN LOCATION — PUL">7. PREGNANCY OF UNKNOWN LOCATION — PUL</a></li><li><a href="#part-8" class="part-nav-link" title="8. TRANSVAGINAL ULTRASOUND — KEY NUMBERS">8. TRANSVAGINAL ULTRASOUND — KEY NUMBERS</a></li><li><a href="#part-9" class="part-nav-link" title="9. ECTOPIC MANAGEMENT — OSCE ALGORITHM">9. ECTOPIC MANAGEMENT — OSCE ALGORITHM</a></li><li><a href="#part-10" class="part-nav-link" title="10. EXPECTANT MANAGEMENT">10. EXPECTANT MANAGEMENT</a></li><li><a href="#part-11" class="part-nav-link" title="11. METHOTREXATE">11. METHOTREXATE</a></li><li><a href="#part-12" class="part-nav-link" title="12. SURGERY FOR ECTOPIC">12. SURGERY FOR ECTOPIC</a></li><li><a href="#part-13" class="part-nav-link" title="14. TYPES OF MISCARRIAGE">14. TYPES OF MISCARRIAGE</a></li><li><a href="#part-14" class="part-nav-link" title="15. MISCARRIAGE HISTORY">15. MISCARRIAGE HISTORY</a></li><li><a href="#part-15" class="part-nav-link" title="16. MISCARRIAGE EXAMINATION">16. MISCARRIAGE EXAMINATION</a></li><li><a href="#part-16" class="part-nav-link" title="17. ULTRASOUND DIAGNOSIS OF MISSED MISCARRIAGE">17. ULTRASOUND DIAGNOSIS OF MISSED MISCARRIAGE</a></li><li><a href="#part-17" class="part-nav-link" title="18. MANAGEMENT OF MISCARRIAGE">18. MANAGEMENT OF MISCARRIAGE</a></li><li><a href="#part-18" class="part-nav-link" title="19. MEDICAL MANAGEMENT">19. MEDICAL MANAGEMENT</a></li><li><a href="#part-19" class="part-nav-link" title="20. SURGICAL MANAGEMENT">20. SURGICAL MANAGEMENT</a></li><li><a href="#part-20" class="part-nav-link" title="21. SEPTIC MISCARRIAGE">21. SEPTIC MISCARRIAGE</a></li><li><a href="#part-21" class="part-nav-link" title="22. SEPTIC MISCARRIAGE — CLINICAL FEATURES">22. SEPTIC MISCARRIAGE — CLINICAL FEATURES</a></li><li><a href="#part-22" class="part-nav-link" title="23. SEPSIS OSCE — SAY THIS">23. SEPSIS OSCE — SAY THIS</a></li><li><a href="#part-23" class="part-nav-link" title="24. SEPTIC MISCARRIAGE MANAGEMENT">24. SEPTIC MISCARRIAGE MANAGEMENT</a></li><li><a href="#part-24" class="part-nav-link" title="25. MOLAR PREGNANCY">25. MOLAR PREGNANCY</a></li><li><a href="#part-25" class="part-nav-link" title="26. RISK FACTORS">26. RISK FACTORS</a></li><li><a href="#part-26" class="part-nav-link" title="27. MOLAR PREGNANCY HISTORY">27. MOLAR PREGNANCY HISTORY</a></li><li><a href="#part-27" class="part-nav-link" title="28. MOLAR EXAMINATION">28. MOLAR EXAMINATION</a></li><li><a href="#part-28" class="part-nav-link" title="30. ULTRASOUND — COMPLETE MOLE">30. ULTRASOUND — COMPLETE MOLE</a></li><li><a href="#part-29" class="part-nav-link" title="31. ULTRASOUND — PARTIAL MOLE">31. ULTRASOUND — PARTIAL MOLE</a></li><li><a href="#part-30" class="part-nav-link" title="32. MOLAR PREGNANCY INVESTIGATIONS">32. MOLAR PREGNANCY INVESTIGATIONS</a></li><li><a href="#part-31" class="part-nav-link" title="33. MOLAR PREGNANCY MANAGEMENT">33. MOLAR PREGNANCY MANAGEMENT</a></li><li><a href="#part-32" class="part-nav-link" title="35. HYPEREMESIS GRAVIDARUM">35. HYPEREMESIS GRAVIDARUM</a></li><li><a href="#part-33" class="part-nav-link" title="36. HISTORY">36. HISTORY</a></li><li><a href="#part-34" class="part-nav-link" title="37. IMPORTANT DIFFERENTIALS">37. IMPORTANT DIFFERENTIALS</a></li><li><a href="#part-35" class="part-nav-link" title="38. HYPEREMESIS EXAMINATION">38. HYPEREMESIS EXAMINATION</a></li><li><a href="#part-36" class="part-nav-link" title="39. NUMERICAL ASSESSMENT">39. NUMERICAL ASSESSMENT</a></li><li><a href="#part-37" class="part-nav-link" title="40. WEIGHT LOSS">40. WEIGHT LOSS</a></li><li><a href="#part-38" class="part-nav-link" title="41. HYPEREMESIS INVESTIGATIONS">41. HYPEREMESIS INVESTIGATIONS</a></li><li><a href="#part-39" class="part-nav-link" title="42. KETONES — EXAM TRAP">42. KETONES — EXAM TRAP</a></li><li><a href="#part-40" class="part-nav-link" title="43. ELECTROLYTE ABNORMALITIES">43. ELECTROLYTE ABNORMALITIES</a></li><li><a href="#part-41" class="part-nav-link" title="44. LIVER FUNCTION">44. LIVER FUNCTION</a></li><li><a href="#part-42" class="part-nav-link" title="45. THYROID">45. THYROID</a></li><li><a href="#part-43" class="part-nav-link" title="46. HYPEREMESIS MANAGEMENT — OSCE">46. HYPEREMESIS MANAGEMENT — OSCE</a></li><li><a href="#part-44" class="part-nav-link" title="47. CRITICAL THIAMINE RULE">47. CRITICAL THIAMINE RULE</a></li><li><a href="#part-45" class="part-nav-link" title="48. ANTIEMETICS">48. ANTIEMETICS</a></li><li><a href="#part-46" class="part-nav-link" title="49. ACID SUPPRESSION">49. ACID SUPPRESSION</a></li><li><a href="#part-47" class="part-nav-link" title="50. THROMBOPROPHYLAXIS">50. THROMBOPROPHYLAXIS</a></li><li><a href="#part-48" class="part-nav-link" title="51. NUTRITION">51. NUTRITION</a></li><li><a href="#part-49" class="part-nav-link" title="52. ADMISSION INDICATIONS">52. ADMISSION INDICATIONS</a></li><li><a href="#part-50" class="part-nav-link" title="53. RAPID COMPARISON — FIVE EARLY-PREGNANCY CONDITIONS">53. RAPID COMPARISON — FIVE EARLY-PREGNANCY CONDITIONS</a></li><li><a href="#part-51" class="part-nav-link" title="2. TVUS">2. TVUS</a></li><li><a href="#part-52" class="part-nav-link" title="57. THE &quot;EARLY PRE-ECLAMPSIA&quot; TRAP">57. THE &quot;EARLY PRE-ECLAMPSIA&quot; TRAP</a></li><li><a href="#part-53" class="part-nav-link" title="58. OSCE COUNSELLING — UNIVERSAL FRAMEWORK">58. OSCE COUNSELLING — UNIVERSAL FRAMEWORK</a></li><li><a href="#part-54" class="part-nav-link" title="59. HIGH-YIELD NUMBERS TO MEMORISE FOR MRCOG">59. HIGH-YIELD NUMBERS TO MEMORISE FOR MRCOG</a></li><li><a href="#part-55" class="part-nav-link" title="60. MRCOG EXAMINER &quot;RED FLAGS&quot;">60. MRCOG EXAMINER &quot;RED FLAGS&quot;</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS</h1>
+                    <div class="reader-hero-sub">⭐ Ectopic pregnancy • Miscarriage • Septic miscarriage • Molar pregnancy • Hyperemesis gravidarum</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+
+    <!-- IMAGE GALLERY SECTION -->
+    <div class="image-gallery-section" id="gallery-section">
+        <div class="gallery-top-bar">
+            <span class="gallery-icon">🖼️</span>
+            <div>
+                <div class="gallery-title">Clinical Figures & Reference Diagrams</div>
+                <div class="gallery-subtitle">22 high-yield images — click any image to enlarge</div>
+            </div>
+        </div>
+        <div class="gallery-grid">
+            
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img1.jpeg" alt="Figure 1" loading="lazy">
+            <div class="gallery-item-label">Figure 1</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img10.jpeg" alt="Figure 2" loading="lazy">
+            <div class="gallery-item-label">Figure 2</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img11.jpeg" alt="Figure 3" loading="lazy">
+            <div class="gallery-item-label">Figure 3</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img12.jpeg" alt="Figure 4" loading="lazy">
+            <div class="gallery-item-label">Figure 4</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img13.jpeg" alt="Figure 5" loading="lazy">
+            <div class="gallery-item-label">Figure 5</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img14.jpeg" alt="Figure 6" loading="lazy">
+            <div class="gallery-item-label">Figure 6</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img15.jpeg" alt="Figure 7" loading="lazy">
+            <div class="gallery-item-label">Figure 7</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img16.jpeg" alt="Figure 8" loading="lazy">
+            <div class="gallery-item-label">Figure 8</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img17.jpeg" alt="Figure 9" loading="lazy">
+            <div class="gallery-item-label">Figure 9</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img18.jpeg" alt="Figure 10" loading="lazy">
+            <div class="gallery-item-label">Figure 10</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img19.jpeg" alt="Figure 11" loading="lazy">
+            <div class="gallery-item-label">Figure 11</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img2.jpeg" alt="Figure 12" loading="lazy">
+            <div class="gallery-item-label">Figure 12</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img20.jpeg" alt="Figure 13" loading="lazy">
+            <div class="gallery-item-label">Figure 13</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img21.jpeg" alt="Figure 14" loading="lazy">
+            <div class="gallery-item-label">Figure 14</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img22.jpeg" alt="Figure 15" loading="lazy">
+            <div class="gallery-item-label">Figure 15</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img3.jpeg" alt="Figure 16" loading="lazy">
+            <div class="gallery-item-label">Figure 16</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img4.jpeg" alt="Figure 17" loading="lazy">
+            <div class="gallery-item-label">Figure 17</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img5.jpeg" alt="Figure 18" loading="lazy">
+            <div class="gallery-item-label">Figure 18</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img6.jpeg" alt="Figure 19" loading="lazy">
+            <div class="gallery-item-label">Figure 19</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img7.jpeg" alt="Figure 20" loading="lazy">
+            <div class="gallery-item-label">Figure 20</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img8.jpeg" alt="Figure 21" loading="lazy">
+            <div class="gallery-item-label">Figure 21</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MRCOG Part 3 OSCE — EARLY PREGNANCY ATLAS/img9.jpeg" alt="Figure 22" loading="lazy">
+            <div class="gallery-item-label">Figure 22</div>
+        </div>
+        </div>
+    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is structured as an MRCOG Part 3 OSCE answer framework: what to say, what to examine, investigations, numerical thresholds, interpretation, immediate management, counselling and examiner traps.</p>
+<p class="standard-p">Guideline note: RCOG&#x27;s ectopic guideline is currently being updated; the current RCOG page lists the existing Green-top Guideline No. 21, while the update is in development. For practical UK management, NICE NG126 is also important.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. UNIVERSAL EARLY-PREGNANCY OSCE APPROACH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Any station involving pain, bleeding, vomiting or a positive pregnancy test:</p>
+<h4 class="sub-label">Step 1 — Safety first</h4>
+<p class="standard-p">Introduce yourself.</p>
+<p class="standard-p">Confirm identity.</p>
+<p class="standard-p">Confirm gestational age/LMP.</p>
+<p class="standard-p">Explain the purpose of assessment.</p>
+<p class="standard-p">Gain consent.</p>
+<p class="standard-p">Offer chaperone for intimate examination.</p>
+<p class="standard-p">Assess ABCDE if acutely unwell.</p>
+<h4 class="sub-label">Determine whether this is:</h4>
+<h4 class="sub-label">haemorrhagic shock</h4>
+<h4 class="sub-label">ruptured ectopic</h4>
+<h4 class="sub-label">septic miscarriage</h4>
+<h4 class="sub-label">severe hyperemesis/dehydration</h4>
+<p class="standard-p">molar pregnancy with complications.</p>
+<h4 class="sub-label">Immediate observations</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>Normal adult reference</th>
+<th>Concerning</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>HR</strong></td>
+<td>~60–<span class="val-pill">100 bpm</span></td>
+<td>&gt;100–120</td>
+</tr>
+<tr>
+<td><strong>BP</strong></td>
+<td>approximately 90–140/60–90</td>
+<td>hypotension</td>
+</tr>
+<tr>
+<td><strong>RR</strong></td>
+<td>12–20/min</td>
+<td>≥22 concerning in acute illness</td>
+</tr>
+<tr>
+<td><strong>SpO₂</strong></td>
+<td><span class="val-pill">≥95%</span> generally</td>
+<td>&lt;<span class="val-pill">94%</span></td>
+</tr>
+<tr>
+<td><strong>Temperature</strong></td>
+<td>~36–37.5°C</td>
+<td>≥38°C infection</td>
+</tr>
+<tr>
+<td><strong>CRT</strong></td>
+<td>&lt;2 sec</td>
+<td>≥2–3 sec</td>
+</tr>
+<tr>
+<td><strong>GCS</strong></td>
+<td>15</td>
+<td>reduced = emergency</td>
+</tr>
+<tr>
+<td><strong>Urine output</strong></td>
+<td><span class="val-pill">≥0.5 mL</span>/kg/h</td>
+<td>oliguria</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">Do not wait for investigations in an unstable patient.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">2. ECTOPIC PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">5</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Implantation of a pregnancy outside the endometrial cavity.</p>
+<h4 class="sub-label">Commonest site:</h4>
+<p class="standard-p">Ampulla of fallopian tube.</p>
+<h4 class="sub-label">Other sites:</h4>
+<h4 class="sub-label">isthmic</h4>
+<h4 class="sub-label">fimbrial</h4>
+<h4 class="sub-label">interstitial</h4>
+<h4 class="sub-label">cervical</h4>
+<h4 class="sub-label">ovarian</h4>
+<h4 class="sub-label">abdominal</h4>
+<h4 class="sub-label">caesarean scar</h4>
+<p class="standard-p">heterotopic pregnancy.</p>
+<p class="standard-p">RCOG specifically recognises tubal, cervical, caesarean-scar, interstitial, ovarian, abdominal and heterotopic ectopics.</p>
+<h4 class="sub-label">OSCE opening statement</h4>
+<p class="standard-p">&quot;My immediate priority is to determine whether this woman is haemodynamically stable and whether there is evidence of a ruptured ectopic pregnancy.&quot;</p>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">ABCDE</h4>
+<h4 class="sub-label">observations</h4>
+<h4 class="sub-label">IV access</h4>
+<h4 class="sub-label">bloods</h4>
+<h4 class="sub-label">pregnancy location</h4>
+<h4 class="sub-label">ultrasound</h4>
+<h4 class="sub-label">β-hCG</h4>
+<p class="standard-p">management according to stability and findings.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">3. ECTOPIC HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">onset</h4>
+<h4 class="sub-label">site</h4>
+<h4 class="sub-label">unilateral/bilateral</h4>
+<h4 class="sub-label">sudden/gradual</h4>
+<h4 class="sub-label">severity</h4>
+<h4 class="sub-label">radiation to shoulder tip</h4>
+<h4 class="sub-label">constant/intermittent</h4>
+<h4 class="sub-label">worsening?</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">amount</h4>
+<h4 class="sub-label">colour</h4>
+<h4 class="sub-label">clots</h4>
+<h4 class="sub-label">tissue</h4>
+<h4 class="sub-label">duration</h4>
+<h4 class="sub-label">Pregnancy symptoms</h4>
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">gestational age</h4>
+<h4 class="sub-label">positive pregnancy test</h4>
+<h4 class="sub-label">nausea/vomiting</h4>
+<p class="standard-p">breast tenderness.</p>
+<h4 class="sub-label">Risk factors</h4>
+<h4 class="sub-label">High-yield MRCOG list:</h4>
+<h4 class="sub-label">previous ectopic</h4>
+<h4 class="sub-label">tubal surgery</h4>
+<h4 class="sub-label">previous PID</h4>
+<h4 class="sub-label">Chlamydia/Gonorrhoea</h4>
+<h4 class="sub-label">tubal damage</h4>
+<h4 class="sub-label">previous pelvic surgery</h4>
+<h4 class="sub-label">IVF/assisted conception</h4>
+<h4 class="sub-label">smoking</h4>
+<h4 class="sub-label">intrauterine contraception if pregnancy occurs</h4>
+<h4 class="sub-label">previous ectopic</h4>
+<p class="standard-p">infertility.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">absence of risk factors does not exclude ectopic. Most women do not necessarily have an identifiable risk factor.</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">4. ECTOPIC EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">pallor</h4>
+<h4 class="sub-label">sweating</h4>
+<h4 class="sub-label">distress</h4>
+<h4 class="sub-label">collapse</h4>
+<p class="standard-p">altered consciousness.</p>
+<h4 class="sub-label">ABCDE</h4>
+<h4 class="sub-label">Particularly:</h4>
+<h4 class="sub-label">Circulation</h4>
+<h4 class="sub-label">HR</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">CRT</h4>
+<h4 class="sub-label">peripheral temperature</h4>
+<p class="standard-p">pulse volume.</p>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">tenderness</h4>
+<h4 class="sub-label">guarding</h4>
+<h4 class="sub-label">rebound</h4>
+<h4 class="sub-label">rigidity</h4>
+<h4 class="sub-label">abdominal distension</h4>
+<p class="standard-p">lower abdominal/peritoneal irritation.</p>
+<h4 class="sub-label">Pelvic examination</h4>
+<h4 class="sub-label">If appropriate and after consent/chaperone:</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">bleeding?</h4>
+<h4 class="sub-label">cervical os open?</h4>
+<h4 class="sub-label">products?</h4>
+<h4 class="sub-label">discharge?</h4>
+<h4 class="sub-label">Bimanual</h4>
+<h4 class="sub-label">cervical motion tenderness</h4>
+<h4 class="sub-label">uterine size</h4>
+<h4 class="sub-label">adnexal tenderness/mass</h4>
+<p class="standard-p">pouch of Douglas tenderness.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic ectopic picture</span></div>
+                
+            </div>
+            
+<p class="standard-p">Amenorrhoea + unilateral lower abdominal pain + vaginal bleeding.</p>
+<p class="standard-p">But do not rely on the classic triad.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">5. ECTOPIC INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Blood tests</h4>
+<h4 class="sub-label">β-hCG</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">group and save</h4>
+<h4 class="sub-label">RhD status</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">CRP if infection considered</h4>
+<p class="standard-p">coagulation if bleeding/severe illness.</p>
+<h4 class="sub-label">If surgery possible:</h4>
+<h4 class="sub-label">crossmatch appropriate blood</h4>
+<p class="standard-p">anaesthetic assessment.</p>
+
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">β-hCG — EXAMINER FAVOURITE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Serial β-hCG</h4>
+<p class="standard-p">Usually measured<span class="val-pill"> 48 hours</span> apart when pregnancy location is uncertain.</p>
+<p class="standard-p">A normally developing intrauterine pregnancy generally demonstrates a substantial rise; RCOG patient information describes approximately<span class="val-pill"> 63%</span> rise over<span class="val-pill"> 48 hours</span> as typical. Ectopic pregnancy may show a slower rise, plateau or fall.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important MRCOG warning</span></div>
+                
+            </div>
+            
+<p class="standard-p">β-hCG alone does NOT diagnose ectopic pregnancy.</p>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Location = ultrasound</h4>
+<h4 class="sub-label">Trend = β-hCG</h4>
+<h4 class="sub-label">Do not say:</h4>
+<h4 class="sub-label">&quot;The β-hCG is abnormal, therefore it is ectopic.&quot;</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">7. PREGNANCY OF UNKNOWN LOCATION — PUL</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Positive pregnancy test but no intrauterine or extrauterine pregnancy identified on TVUS.</p>
+<h4 class="sub-label">Possibilities:</h4>
+<h4 class="sub-label">Very early IUP</h4>
+<h4 class="sub-label">Failed intrauterine pregnancy</h4>
+<p class="standard-p">Ectopic pregnancy.</p>
+<h4 class="sub-label">Management principle</h4>
+<h4 class="sub-label">haemodynamic status first</h4>
+<h4 class="sub-label">symptoms take priority over β-hCG</h4>
+<h4 class="sub-label">serial β-hCG</h4>
+<h4 class="sub-label">repeat TVUS</h4>
+<p class="standard-p">safety-net.</p>
+<p class="standard-p">RCOG notes that early ectopic diagnosis can sometimes take a week or more and that repeat ultrasound may be required.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">8. TRANSVAGINAL ULTRASOUND — KEY NUMBERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Normal early pregnancy findings</h4>
+<h4 class="sub-label">Gestational sac</h4>
+<h4 class="sub-label">visible around 4.5–5 weeks</h4>
+<h4 class="sub-label">Yolk sac</h4>
+<h4 class="sub-label">approximately 5–5.5 weeks</h4>
+<h4 class="sub-label">Embryo</h4>
+<h4 class="sub-label">approximately 5.5–6 weeks</h4>
+<h4 class="sub-label">Cardiac activity</h4>
+<p class="standard-p">usually visible around 5.5–6+ weeks by TVUS.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive ultrasound evidence of ectopic</span></div>
+                <div class="callout-body">extrauterine gestational sac containing:</div>
+            </div>
+            
+<h4 class="sub-label">yolk sac and/or</h4>
+<p class="standard-p">embryo ± cardiac activity.</p>
+<h4 class="sub-label">Highly suspicious</h4>
+<h4 class="sub-label">adnexal mass</h4>
+<h4 class="sub-label">tubal ring</h4>
+<h4 class="sub-label">empty uterus with adnexal mass</h4>
+<h4 class="sub-label">moderate/large free fluid</h4>
+<p class="standard-p">complex free fluid suggesting haemoperitoneum.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">9. ECTOPIC MANAGEMENT — OSCE ALGORITHM</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-9-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Unstable / ruptured ectopic</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-1" onchange="toggleMastery('t-9-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Immediate</h4>
+<h4 class="sub-label">call senior gynaecologist</h4>
+<h4 class="sub-label">anaesthetist</h4>
+<h4 class="sub-label">theatre</h4>
+<h4 class="sub-label">activate major haemorrhage protocol if necessary</h4>
+<h4 class="sub-label">2 large-bore IV cannulae</h4>
+<h4 class="sub-label">bloods</h4>
+<h4 class="sub-label">crossmatch</h4>
+<h4 class="sub-label">IV fluids judiciously</h4>
+<h4 class="sub-label">blood products as indicated</h4>
+<h4 class="sub-label">oxygen if hypoxaemic</h4>
+<p class="standard-p">urgent surgery.</p>
+<p class="standard-p">Do not delay surgery for β-hCG or repeat ultrasound in a shocked patient.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">10. EXPECTANT MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Potential candidate:</h4>
+<h4 class="sub-label">clinically stable</h4>
+<h4 class="sub-label">minimal/no pain</h4>
+<h4 class="sub-label">small ectopic</h4>
+<h4 class="sub-label">low/falling β-hCG</h4>
+<h4 class="sub-label">no fetal cardiac activity</h4>
+<h4 class="sub-label">reliable follow-up</h4>
+<p class="standard-p">no significant haemoperitoneum.</p>
+<p class="standard-p">β-hCG is followed until negative.</p>
+<p class="standard-p">RCOG notes that expectant-management success varies widely and is strongly influenced by the initial β-hCG level.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">11. METHOTREXATE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Think:</h4>
+<p class="standard-p">Stable + unruptured + suitable ectopic + reliable follow-up</p>
+<h4 class="sub-label">Before treatment:</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">renal function</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">β-hCG</h4>
+<h4 class="sub-label">ultrasound</h4>
+<h4 class="sub-label">exclude viable intrauterine pregnancy</h4>
+<p class="standard-p">assess contraindications.</p>
+<h4 class="sub-label">Common contraindications</h4>
+<h4 class="sub-label">haemodynamic instability</h4>
+<h4 class="sub-label">ruptured ectopic</h4>
+<h4 class="sub-label">significant haemoperitoneum</h4>
+<h4 class="sub-label">inability to comply with follow-up</h4>
+<h4 class="sub-label">breastfeeding</h4>
+<h4 class="sub-label">significant hepatic disease</h4>
+<h4 class="sub-label">significant renal disease</h4>
+<h4 class="sub-label">blood dyscrasias</h4>
+<h4 class="sub-label">immunodeficiency</h4>
+<p class="standard-p">certain drug interactions.</p>
+<h4 class="sub-label">Follow-up</h4>
+<h4 class="sub-label">β-hCG:</h4>
+<h4 class="sub-label">Day 4</h4>
+<h4 class="sub-label">Day 7</h4>
+<p class="standard-p">then weekly.</p>
+<h4 class="sub-label">Expected:</h4>
+<h4 class="sub-label">≥15% fall from Day 4 to Day 7</h4>
+<p class="standard-p">Then continue weekly until negative.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">12. SURGERY FOR ECTOPIC</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Laparoscopic salpingectomy</h4>
+<h4 class="sub-label">Often preferred when:</h4>
+<h4 class="sub-label">contralateral tube healthy</h4>
+<h4 class="sub-label">significant tubal damage</h4>
+<h4 class="sub-label">completed family</h4>
+<p class="standard-p">normal opposite tube.</p>
+<h4 class="sub-label">Salpingotomy</h4>
+<h4 class="sub-label">Consider when:</h4>
+<h4 class="sub-label">contralateral tube absent/damaged</h4>
+<p class="standard-p">fertility preservation important.</p>
+<h4 class="sub-label">But explain:</h4>
+<h4 class="sub-label">persistent trophoblast risk</h4>
+<p class="standard-p">postoperative β-hCG surveillance required.</p>
+
+                <div class="topic-row" id="topic-t-12-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">MIScarriage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-12-1" onchange="toggleMastery('t-12-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">6</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Pregnancy loss before fetal viability; in clinical OSCEs, early miscarriage generally refers to pregnancy loss in the first trimester.</p>
+<p class="standard-p">RCOG notes that early miscarriage is common and approximately 1 in 5 women experience miscarriage.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">14. TYPES OF MISCARRIAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Threatened miscarriage</h4>
+<h4 class="sub-label">bleeding</h4>
+<h4 class="sub-label">closed cervix</h4>
+<p class="standard-p">viable pregnancy.</p>
+<h4 class="sub-label">Inevitable miscarriage</h4>
+<h4 class="sub-label">bleeding</h4>
+<h4 class="sub-label">cervical os open</h4>
+<p class="standard-p">pregnancy cannot continue.</p>
+<h4 class="sub-label">Incomplete miscarriage</h4>
+<h4 class="sub-label">some products expelled</h4>
+<p class="standard-p">some retained.</p>
+<h4 class="sub-label">Complete miscarriage</h4>
+<h4 class="sub-label">all products expelled</h4>
+<p class="standard-p">uterus empty.</p>
+<h4 class="sub-label">Missed miscarriage</h4>
+<p class="standard-p">non-viable intrauterine pregnancy retained.</p>
+<h4 class="sub-label">Anembryonic pregnancy</h4>
+<p class="standard-p">gestational sac without embryo.</p>
+<h4 class="sub-label">Septic miscarriage</h4>
+<p class="standard-p">miscarriage complicated by uterine/pelvic infection.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">15. MISCARRIAGE HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">onset</h4>
+<h4 class="sub-label">quantity</h4>
+<h4 class="sub-label">clots</h4>
+<h4 class="sub-label">tissue</h4>
+<p class="standard-p">colour.</p>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">cramping</h4>
+<h4 class="sub-label">unilateral</h4>
+<h4 class="sub-label">severity</h4>
+<p class="standard-p">radiation.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">gestation</h4>
+<h4 class="sub-label">previous scan</h4>
+<p class="standard-p">fetal heartbeat previously documented.</p>
+<h4 class="sub-label">Ectopic screening</h4>
+<h4 class="sub-label">Always ask:</h4>
+<h4 class="sub-label">shoulder-tip pain</h4>
+<h4 class="sub-label">dizziness</h4>
+<h4 class="sub-label">collapse</h4>
+<p class="standard-p">unilateral pain.</p>
+<h4 class="sub-label">Risk factors</h4>
+<h4 class="sub-label">previous miscarriage</h4>
+<h4 class="sub-label">maternal age</h4>
+<h4 class="sub-label">chromosomal abnormalities</h4>
+<h4 class="sub-label">uterine abnormalities</h4>
+<h4 class="sub-label">antiphospholipid syndrome</h4>
+<h4 class="sub-label">diabetes</h4>
+<h4 class="sub-label">thyroid disease</h4>
+<h4 class="sub-label">infection</h4>
+<h4 class="sub-label">smoking</h4>
+<p class="standard-p">obesity.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">16. MISCARRIAGE EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General</h4>
+<h4 class="sub-label">pallor</h4>
+<h4 class="sub-label">distress</h4>
+<h4 class="sub-label">fever</h4>
+<p class="standard-p">dehydration.</p>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">tenderness</h4>
+<h4 class="sub-label">guarding</h4>
+<h4 class="sub-label">uterine tenderness</h4>
+<p class="standard-p">peritonism.</p>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">amount of bleeding</h4>
+<h4 class="sub-label">cervical os</h4>
+<h4 class="sub-label">products</h4>
+<h4 class="sub-label">discharge</h4>
+<p class="standard-p">infection.</p>
+<h4 class="sub-label">Bimanual</h4>
+<h4 class="sub-label">uterine size</h4>
+<h4 class="sub-label">tenderness</h4>
+<p class="standard-p">adnexal tenderness/mass.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">17. ULTRASOUND DIAGNOSIS OF MISSED MISCARRIAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Use TVUS.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important cut-offs</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">A key modern principle:</h4>
+<p class="standard-p">Do not diagnose miscarriage from an isolated borderline scan.</p>
+<h4 class="sub-label">For a pregnancy with:</h4>
+<h4 class="sub-label">CRL ≥7 mm</h4>
+<h4 class="sub-label">and</h4>
+<h4 class="sub-label">No visible cardiac activity</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ diagnostic of pregnancy failure when confirmed according to appropriate ultrasound criteria.</span></div>
+<h4 class="sub-label">Mean gestational sac diameter ≥25 mm</h4>
+<h4 class="sub-label">with</h4>
+<h4 class="sub-label">No embryo</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ diagnostic of pregnancy failure.</span></div>
+<h4 class="sub-label">But in OSCE:</h4>
+<p class="standard-p">If measurements are close to diagnostic thresholds or dates are uncertain, repeat TVUS rather than making a potentially irreversible diagnosis.</p>
+<p class="standard-p">NICE/RCOG practice emphasises cautious ultrasound diagnosis and appropriate repeat scanning.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">18. MANAGEMENT OF MISCARRIAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Once diagnosis confirmed:</h4>
+<h4 class="sub-label">Three broad options</h4>
+<h4 class="sub-label">Expectant</h4>
+<h4 class="sub-label">Medical</h4>
+<h4 class="sub-label">Surgical</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE recommends offering appropriate women a choice of management options.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">EXPECTANT MANAGEMENT</h4>
+<h4 class="sub-label">Suitable if:</h4>
+<h4 class="sub-label">stable</h4>
+<h4 class="sub-label">no infection</h4>
+<h4 class="sub-label">acceptable bleeding</h4>
+<h4 class="sub-label">willing to wait</h4>
+<p class="standard-p">reliable follow-up.</p>
+<h4 class="sub-label">Advantages:</h4>
+<h4 class="sub-label">avoids surgery</h4>
+<p class="standard-p">avoids anaesthetic.</p>
+<h4 class="sub-label">Disadvantages:</h4>
+<h4 class="sub-label">unpredictable bleeding</h4>
+<h4 class="sub-label">possible incomplete miscarriage</h4>
+<p class="standard-p">possible need for later intervention.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">19. MEDICAL MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Commonly:</h4>
+<h4 class="sub-label">Misoprostol</h4>
+<h4 class="sub-label">For missed miscarriage:</h4>
+<p class="standard-p">800 micrograms vaginal/oral/sublingual depending on protocol.</p>
+<h4 class="sub-label">For incomplete miscarriage:</h4>
+<p class="standard-p">600 micrograms misoprostol is commonly used.</p>
+<p class="standard-p">Always follow the current local/NICE protocol, because dosing varies by clinical scenario and route.</p>
+<h4 class="sub-label">Possible adverse effects:</h4>
+<h4 class="sub-label">pain</h4>
+<h4 class="sub-label">heavy bleeding</h4>
+<h4 class="sub-label">nausea</h4>
+<h4 class="sub-label">vomiting</h4>
+<h4 class="sub-label">diarrhoea</h4>
+<p class="standard-p">fever/chills.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">20. SURGICAL MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Options:</h4>
+<h4 class="sub-label">Manual vacuum aspiration</h4>
+<h4 class="sub-label">outpatient procedure</h4>
+<p class="standard-p">local anaesthesia possible.</p>
+<h4 class="sub-label">Surgical evacuation</h4>
+<h4 class="sub-label">theatre</h4>
+<p class="standard-p">anaesthesia.</p>
+<p class="standard-p">NICE specifically identifies manual vacuum aspiration under local anaesthetic and surgical management in theatre under general anaesthetic as options where clinically appropriate.</p>
+<h4 class="sub-label">Immediate surgical management if:</h4>
+<h4 class="sub-label">haemodynamic instability</h4>
+<h4 class="sub-label">heavy/persistent bleeding</h4>
+<h4 class="sub-label">infection/sepsis</h4>
+<h4 class="sub-label">failed medical management</h4>
+<p class="standard-p">patient preference in appropriate circumstances.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">21. SEPTIC MISCARRIAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Infection of retained products of conception following miscarriage/abortion.</p>
+<p class="standard-p">This is an obstetric-gynaecological emergency.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">22. SEPTIC MISCARRIAGE — CLINICAL FEATURES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">fever</h4>
+<h4 class="sub-label">rigors</h4>
+<h4 class="sub-label">lower abdominal pain</h4>
+<h4 class="sub-label">foul-smelling vaginal discharge</h4>
+<h4 class="sub-label">vaginal bleeding</h4>
+<h4 class="sub-label">malaise</h4>
+<p class="standard-p">vomiting.</p>
+<h4 class="sub-label">Signs</h4>
+<h4 class="sub-label">T ≥38°C</h4>
+<h4 class="sub-label">tachycardia</h4>
+<h4 class="sub-label">hypotension</h4>
+<h4 class="sub-label">tachypnoea</h4>
+<h4 class="sub-label">uterine tenderness</h4>
+<h4 class="sub-label">offensive discharge</h4>
+<h4 class="sub-label">peritonism</h4>
+<h4 class="sub-label">altered mental state</h4>
+<p class="standard-p">oliguria.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">23. SEPSIS OSCE — SAY THIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">&quot;I would recognise this as suspected maternal sepsis and initiate the sepsis pathway immediately.&quot;</p>
+<h4 class="sub-label">Investigations</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">CRP</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">coagulation</h4>
+<h4 class="sub-label">lactate</h4>
+<h4 class="sub-label">blood cultures</h4>
+<h4 class="sub-label">urine culture</h4>
+<h4 class="sub-label">vaginal/cervical swabs</h4>
+<h4 class="sub-label">group and save/crossmatch</h4>
+<p class="standard-p">ultrasound for retained products.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">24. SEPTIC MISCARRIAGE MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-23-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Resuscitation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-23-1" onchange="toggleMastery('t-23-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">ABCDE.</p>
+
+                <div class="topic-row" id="topic-t-23-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">IV access</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-23-2" onchange="toggleMastery('t-23-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Two large-bore cannulae if severely unwell.</p>
+
+                <div class="topic-row" id="topic-t-23-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Cultures</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-23-3" onchange="toggleMastery('t-23-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Blood cultures before antibiotics if this does not delay treatment.</p>
+
+                <div class="topic-row" id="topic-t-23-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Broad-spectrum IV antibiotics</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-23-4" onchange="toggleMastery('t-23-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Start immediately.</p>
+<h4 class="sub-label">Cover:</h4>
+<h4 class="sub-label">Gram-positive organisms</h4>
+<h4 class="sub-label">Gram-negative organisms</h4>
+<p class="standard-p">anaerobes.</p>
+
+                <div class="topic-row" id="topic-t-23-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Source control</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-23-5" onchange="toggleMastery('t-23-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Remove infected retained products once the patient is stabilised and alongside antibiotic treatment.</p>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Urgent uterine evacuation</h4>
+
+                <div class="topic-row" id="topic-t-23-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Monitor</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-23-6" onchange="toggleMastery('t-23-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">HR</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">temperature</h4>
+<h4 class="sub-label">urine output</h4>
+<h4 class="sub-label">lactate</h4>
+<h4 class="sub-label">renal function</h4>
+<p class="standard-p">coagulation.</p>
+<h4 class="sub-label">Complications</h4>
+<h4 class="sub-label">septic shock</h4>
+<h4 class="sub-label">DIC</h4>
+<h4 class="sub-label">renal failure</h4>
+<h4 class="sub-label">ARDS</h4>
+<h4 class="sub-label">pelvic abscess</h4>
+<h4 class="sub-label">infertility</h4>
+<p class="standard-p">death.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">25. MOLAR PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">5</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Abnormal proliferation of trophoblastic tissue.</p>
+<h4 class="sub-label">Two main forms:</h4>
+<h4 class="sub-label">Complete mole</h4>
+<h4 class="sub-label">no viable fetus</h4>
+<h4 class="sub-label">diffuse trophoblastic proliferation</h4>
+<h4 class="sub-label">usually androgenetic diploid genome</h4>
+<h4 class="sub-label">typically 46XX</h4>
+<p class="standard-p">no maternal nuclear contribution.</p>
+<h4 class="sub-label">Partial mole</h4>
+<h4 class="sub-label">abnormal fetus may be present</h4>
+<h4 class="sub-label">triploid, commonly 69XXY/69XXX/69XYY</h4>
+<p class="standard-p">focal trophoblastic proliferation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">26. RISK FACTORS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">previous molar pregnancy</h4>
+<h4 class="sub-label">extremes of reproductive age</h4>
+<h4 class="sub-label">previous pregnancy loss</h4>
+<p class="standard-p">dietary factors have been proposed but are not central OSCE points.</p>
+<h4 class="sub-label">Recurrence</h4>
+<h4 class="sub-label">After one molar pregnancy:</h4>
+<p class="standard-p">approximately 1–<span class="val-pill">2%</span> risk of another mole.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">27. MOLAR PREGNANCY HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-26" onchange="toggleMastery('sec-26')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">vaginal bleeding</h4>
+<h4 class="sub-label">excessive nausea/vomiting</h4>
+<h4 class="sub-label">uterine size greater than dates</h4>
+<h4 class="sub-label">pelvic pressure</h4>
+<h4 class="sub-label">passage of grape-like vesicles</h4>
+<h4 class="sub-label">hyperthyroid symptoms</h4>
+<h4 class="sub-label">early pre-eclampsia symptoms</h4>
+<p class="standard-p">previous molar pregnancy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic findings</span></div>
+                <div class="callout-body">vaginal bleeding</div>
+            </div>
+            
+<h4 class="sub-label">uterus large for gestational age</h4>
+<h4 class="sub-label">very high β-hCG</h4>
+<h4 class="sub-label">hyperemesis</h4>
+<h4 class="sub-label">theca-lutein cysts</h4>
+<h4 class="sub-label">early-onset pre-eclampsia</h4>
+<p class="standard-p">hyperthyroidism.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">28. MOLAR EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">pallor</h4>
+<h4 class="sub-label">dehydration</h4>
+<h4 class="sub-label">tremor</h4>
+<h4 class="sub-label">tachycardia</h4>
+<p class="standard-p">thyroid enlargement.</p>
+<h4 class="sub-label">BP</h4>
+<p class="standard-p">Early pre-eclampsia before<span class="val-pill"> 20 weeks</span> should make you consider:</p>
+<h4 class="sub-label">Molar pregnancy</h4>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">uterus larger than expected</h4>
+<p class="standard-p">adnexal enlargement from theca-lutein cysts.</p>
+
+                <div class="topic-row" id="topic-t-27-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">β-hCG IN MOLAR PREGNANCY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-27-1" onchange="toggleMastery('t-27-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">β-hCG is often:</h4>
+<h4 class="sub-label">markedly elevated</h4>
+<p class="standard-p">There is no single universal diagnostic number.</p>
+<p class="standard-p">Very high levels, particularly &gt;100,<span class="val-pill">000 IU</span>/L, strongly support the diagnosis in the appropriate clinical/ultrasound context.</p>
+<h4 class="sub-label">Why?</h4>
+<p class="standard-p">Trophoblastic tissue produces hCG.</p>
+<h4 class="sub-label">Very high hCG can cause:</h4>
+<h4 class="sub-label">hyperemesis</h4>
+<h4 class="sub-label">hyperthyroidism</h4>
+<p class="standard-p">ovarian theca-lutein cysts.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">30. ULTRASOUND — COMPLETE MOLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">&quot;Snowstorm&quot;/&quot;cluster of grapes&quot; appearance</h4>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">heterogeneous intrauterine mass</h4>
+<h4 class="sub-label">multiple small cystic spaces</h4>
+<h4 class="sub-label">no fetus</h4>
+<p class="standard-p">no normal amniotic sac.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">31. ULTRASOUND — PARTIAL MOLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-29" onchange="toggleMastery('sec-29')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">May show:</h4>
+<h4 class="sub-label">abnormal fetus</h4>
+<h4 class="sub-label">growth restriction</h4>
+<h4 class="sub-label">enlarged/cystic placenta</h4>
+<h4 class="sub-label">increased placental thickness</h4>
+<h4 class="sub-label">cystic spaces</h4>
+<p class="standard-p">abnormal gestational sac.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">32. MOLAR PREGNANCY INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Blood</h4>
+<h4 class="sub-label">β-hCG</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">blood group/Rh</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">TFT</h4>
+<p class="standard-p">coagulation if indicated.</p>
+<h4 class="sub-label">Ultrasound</h4>
+<p class="standard-p">TVUS.</p>
+<h4 class="sub-label">Histology</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive classification may require</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">histopathology</h4>
+<h4 class="sub-label">p57 immunohistochemistry</h4>
+<p class="standard-p">ploidy/genetic testing in difficult cases.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">33. MOLAR PREGNANCY MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Initial treatment</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Suction evacuation</h4>
+<h4 class="sub-label">Before evacuation:</h4>
+<h4 class="sub-label">assess haemoglobin</h4>
+<h4 class="sub-label">group and save/crossmatch</h4>
+<h4 class="sub-label">assess thyroid status</h4>
+<h4 class="sub-label">assess bleeding risk</h4>
+<p class="standard-p">senior involvement.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Send products for:</h4>
+<h4 class="sub-label">histopathological examination</h4>
+
+                <div class="topic-row" id="topic-t-31-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">34</span>
+                        <h3 class="topic-heading">POST-MOLAR hCG SURVEILLANCE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-31-1" onchange="toggleMastery('t-31-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">The key principle:</h4>
+<h4 class="sub-label">Serial quantitative β-hCG surveillance</h4>
+<h4 class="sub-label">Purpose:</h4>
+<h4 class="sub-label">detect persistent gestational trophoblastic disease</h4>
+<p class="standard-p">detect gestational trophoblastic neoplasia.</p>
+<h4 class="sub-label">Plateau/rise</h4>
+<p class="standard-p">A plateau or rise in β-hCG following evacuation raises concern for persistent disease.</p>
+<h4 class="sub-label">MRCOG phrase</h4>
+<p class="standard-p">&quot;I would refer to the specialist gestational trophoblastic disease centre and follow their established hCG surveillance protocol.&quot;</p>
+<p class="standard-p">This is safer than memorising one surveillance schedule because protocols can differ according to complete versus partial mole and current national guidance.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">35. HYPEREMESIS GRAVIDARUM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-32" onchange="toggleMastery('sec-32')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">6</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Severe nausea and vomiting in pregnancy resulting in:</h4>
+<h4 class="sub-label">dehydration</h4>
+<h4 class="sub-label">electrolyte disturbance</h4>
+<h4 class="sub-label">nutritional deficiency</h4>
+<h4 class="sub-label">weight loss</h4>
+<h4 class="sub-label">inability to maintain oral intake</h4>
+<p class="standard-p">functional impairment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">36. HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-33" onchange="toggleMastery('sec-33')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Vomiting</h4>
+<h4 class="sub-label">frequency/day</h4>
+<h4 class="sub-label">inability to keep fluids down</h4>
+<h4 class="sub-label">blood</h4>
+<h4 class="sub-label">bile</h4>
+<p class="standard-p">duration.</p>
+<h4 class="sub-label">Intake/output</h4>
+<h4 class="sub-label">oral fluid intake</h4>
+<h4 class="sub-label">urine output</h4>
+<h4 class="sub-label">dark urine</h4>
+<p class="standard-p">dizziness.</p>
+<h4 class="sub-label">Weight</h4>
+<h4 class="sub-label">Ask:</h4>
+<p class="standard-p">&quot;What was your pre-pregnancy weight and what is your current weight?&quot;</p>
+<p class="standard-p">Significant weight loss is concerning.</p>
+<h4 class="sub-label">Additional symptoms</h4>
+<h4 class="sub-label">abdominal pain</h4>
+<h4 class="sub-label">fever</h4>
+<h4 class="sub-label">diarrhoea</h4>
+<h4 class="sub-label">headache</h4>
+<h4 class="sub-label">visual symptoms</h4>
+<h4 class="sub-label">urinary symptoms</h4>
+<p class="standard-p">thyroid symptoms.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">37. IMPORTANT DIFFERENTIALS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-34" onchange="toggleMastery('sec-34')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Do not automatically label vomiting as hyperemesis.</p>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">gastroenteritis</h4>
+<h4 class="sub-label">UTI/pyelonephritis</h4>
+<h4 class="sub-label">hepatitis</h4>
+<h4 class="sub-label">pancreatitis</h4>
+<h4 class="sub-label">appendicitis</h4>
+<h4 class="sub-label">bowel obstruction</h4>
+<h4 class="sub-label">diabetic ketoacidosis</h4>
+<h4 class="sub-label">molar pregnancy</h4>
+<h4 class="sub-label">multiple pregnancy</h4>
+<h4 class="sub-label">thyroid disease</h4>
+<p class="standard-p">drug-induced vomiting.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">38. HYPEREMESIS EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">dehydration</h4>
+<h4 class="sub-label">dry mucous membranes</h4>
+<h4 class="sub-label">tachycardia</h4>
+<h4 class="sub-label">hypotension</h4>
+<h4 class="sub-label">postural hypotension</h4>
+<h4 class="sub-label">reduced skin turgor</h4>
+<p class="standard-p">weight loss.</p>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">tenderness</h4>
+<h4 class="sub-label">guarding</h4>
+<h4 class="sub-label">organomegaly</h4>
+<p class="standard-p">masses.</p>
+<h4 class="sub-label">Neurological</h4>
+<h4 class="sub-label">If severe/prolonged vomiting:</h4>
+<h4 class="sub-label">confusion</h4>
+<h4 class="sub-label">ataxia</h4>
+<p class="standard-p">ophthalmoplegia.</p>
+<h4 class="sub-label">Think:</h4>
+<p class="standard-p">Wernicke encephalopathy due to thiamine deficiency.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">39. NUMERICAL ASSESSMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">PUQE score</h4>
+<h4 class="sub-label">Pregnancy-Unique Quantification of Emesis</h4>
+<h4 class="sub-label">Assesses:</h4>
+<h4 class="sub-label">duration of nausea</h4>
+<h4 class="sub-label">number of vomiting episodes</h4>
+<p class="standard-p">number of retching episodes.</p>
+<h4 class="sub-label">Interpretation</h4>
+<h4 class="sub-label">≤6: mild</h4>
+<h4 class="sub-label">7–12: moderate</h4>
+<h4 class="sub-label">≥13: severe</h4>
+<p class="standard-p">Use alongside clinical assessment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">40. WEIGHT LOSS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">A commonly used marker of significant hyperemesis:</h4>
+<h4 class="sub-label">≥5% pre-pregnancy weight loss</h4>
+<p class="standard-p">particularly when associated with dehydration and inability to eat/drink.</p>
+<h4 class="sub-label">Example:</h4>
+<h4 class="sub-label">Pre-pregnancy weight = 80 kg</h4>
+<h4 class="sub-label">5% = 4 kg</h4>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p"><span class="val-pill">76 kg</span> or less = <span class="val-pill">≥5%</span> loss.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">41. HYPEREMESIS INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Blood</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">creatinine</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">glucose</h4>
+<h4 class="sub-label">TFT</h4>
+<h4 class="sub-label">magnesium</h4>
+<h4 class="sub-label">phosphate</h4>
+<h4 class="sub-label">calcium if severe/prolonged</h4>
+<p class="standard-p">amylase/lipase if abdominal pain.</p>
+<h4 class="sub-label">Urine</h4>
+<h4 class="sub-label">urinalysis</h4>
+<h4 class="sub-label">ketones</h4>
+<p class="standard-p">culture if infection suspected.</p>
+<h4 class="sub-label">Ultrasound</h4>
+<h4 class="sub-label">Confirm:</h4>
+<h4 class="sub-label">viable pregnancy</h4>
+<h4 class="sub-label">gestational age</h4>
+<h4 class="sub-label">multiple pregnancy</h4>
+<p class="standard-p">molar pregnancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">42. KETONES — EXAM TRAP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Historically:</h4>
+<p class="standard-p">ketonuria = hyperemesis severity.</p>
+<p class="standard-p">But ketones are not a reliable standalone marker of severity.</p>
+<h4 class="sub-label">Assess the whole patient:</h4>
+<h4 class="sub-label">weight loss</h4>
+<h4 class="sub-label">oral intake</h4>
+<h4 class="sub-label">dehydration</h4>
+<h4 class="sub-label">electrolytes</h4>
+<h4 class="sub-label">renal function</h4>
+<h4 class="sub-label">PUQE</h4>
+<p class="standard-p">functional impairment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">43. ELECTROLYTE ABNORMALITIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">Hyponatraemia</h4>
+<h4 class="sub-label">Na:</h4>
+<p class="standard-p">&lt;<span class="val-pill">135 mm</span>ol/L</p>
+<h4 class="sub-label">Hypokalaemia</h4>
+<h4 class="sub-label">K:</h4>
+<p class="standard-p">&lt;<span class="val-pill">3.5 mm</span>ol/L</p>
+<h4 class="sub-label">Hypochloraemia</h4>
+<h4 class="sub-label">Cl:</h4>
+<p class="standard-p">&lt;95–<span class="val-pill">100 mm</span>ol/L, depending on laboratory reference.</p>
+<h4 class="sub-label">AKI</h4>
+<h4 class="sub-label">Raised:</h4>
+<h4 class="sub-label">urea</h4>
+<h4 class="sub-label">creatinine</h4>
+<p class="standard-p">due to dehydration.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-41" data-part-index="41">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 41</span>
+                    <h2 class="part-title">44. LIVER FUNCTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-41" onchange="toggleMastery('sec-41')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-41')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-41')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Mild:</h4>
+<h4 class="sub-label">ALT/AST elevation</h4>
+<p class="standard-p">bilirubin may increase.</p>
+<p class="standard-p">Usually resolves as vomiting improves.</p>
+<p class="standard-p">Marked abnormalities should prompt investigation for another cause.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-42" data-part-index="42">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 42</span>
+                    <h2 class="part-title">45. THYROID</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-42" onchange="toggleMastery('sec-42')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-42')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-42')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">hCG can stimulate the TSH receptor.</p>
+<h4 class="sub-label">Therefore:</h4>
+<h4 class="sub-label">suppressed TSH</h4>
+<h4 class="sub-label">elevated free T4</h4>
+<p class="standard-p">can occur transiently with severe hyperemesis.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not automatically diagnose Graves&#x27; disease.</p>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">goitre</h4>
+<h4 class="sub-label">ophthalmopathy</h4>
+<h4 class="sub-label">previous thyroid disease</h4>
+<p class="standard-p">persistent biochemical abnormality.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-43" data-part-index="43">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 43</span>
+                    <h2 class="part-title">46. HYPEREMESIS MANAGEMENT — OSCE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-43" onchange="toggleMastery('sec-43')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-43')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-43')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Step 1 — Assess severity</h4>
+<h4 class="sub-label">observations</h4>
+<h4 class="sub-label">hydration</h4>
+<h4 class="sub-label">weight</h4>
+<h4 class="sub-label">PUQE</h4>
+<h4 class="sub-label">urine</h4>
+<p class="standard-p">electrolytes.</p>
+<h4 class="sub-label">Step 2 — Fluid replacement</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">IV 0.9% sodium chloride</h4>
+<p class="standard-p">with electrolyte replacement according to blood results.</p>
+<h4 class="sub-label">Potassium</h4>
+<p class="standard-p">Replace if hypokalaemic.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-44" data-part-index="44">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 44</span>
+                    <h2 class="part-title">47. CRITICAL THIAMINE RULE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-44" onchange="toggleMastery('sec-44')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-44')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-44')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">NEVER give IV dextrose to a severely vomiting/depleted patient before thiamine.</p>
+<h4 class="sub-label">Why?</h4>
+<h4 class="sub-label">Glucose increases thiamine demand and may precipitate:</h4>
+<h4 class="sub-label">Wernicke encephalopathy</h4>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">Thiamine before dextrose.</p>
+<p class="standard-p">Give thiamine to women with prolonged vomiting/poor intake, especially before carbohydrate administration.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-45" data-part-index="45">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 45</span>
+                    <h2 class="part-title">48. ANTIEMETICS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-45" onchange="toggleMastery('sec-45')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-45')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-45')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Common classes:</h4>
+<h4 class="sub-label">First-line options</h4>
+<h4 class="sub-label">antihistamines</h4>
+<h4 class="sub-label">cyclizine</h4>
+<h4 class="sub-label">promethazine</h4>
+<h4 class="sub-label">phenothiazines</h4>
+<h4 class="sub-label">prochlorperazine</h4>
+<p class="standard-p">chlorpromazine.</p>
+<h4 class="sub-label">Other options</h4>
+<h4 class="sub-label">metoclopramide</h4>
+<p class="standard-p">ondansetron.</p>
+<h4 class="sub-label">MRCOG point</h4>
+<h4 class="sub-label">Use:</h4>
+<p class="standard-p">different pharmacological classes in combination if necessary</p>
+<p class="standard-p">rather than repeatedly escalating the same drug.</p>
+<h4 class="sub-label">Check:</h4>
+<h4 class="sub-label">QT risk</h4>
+<h4 class="sub-label">extrapyramidal effects</h4>
+<h4 class="sub-label">sedation</h4>
+<p class="standard-p">drug interactions.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-46" data-part-index="46">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 46</span>
+                    <h2 class="part-title">49. ACID SUPPRESSION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-46" onchange="toggleMastery('sec-46')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-46')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-46')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Consider if:</h4>
+<h4 class="sub-label">reflux</h4>
+<h4 class="sub-label">gastritis</h4>
+<h4 class="sub-label">oesophagitis</h4>
+<p class="standard-p">persistent epigastric symptoms.</p>
+<h4 class="sub-label">Options include:</h4>
+<h4 class="sub-label">H₂ blocker</h4>
+<p class="standard-p">proton-pump inhibitor.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-47" data-part-index="47">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 47</span>
+                    <h2 class="part-title">50. THROMBOPROPHYLAXIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-47" onchange="toggleMastery('sec-47')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-47')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-47')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Hospitalised women with hyperemesis may have increased VTE risk because of:</p>
+<h4 class="sub-label">dehydration</h4>
+<h4 class="sub-label">immobility</h4>
+<p class="standard-p">pregnancy.</p>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">Assess VTE risk and provide thromboprophylaxis where indicated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-48" data-part-index="48">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 48</span>
+                    <h2 class="part-title">51. NUTRITION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-48" onchange="toggleMastery('sec-48')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-48')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-48')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">If refractory:</h4>
+<h4 class="sub-label">dietitian</h4>
+<h4 class="sub-label">oral nutritional supplementation</h4>
+<h4 class="sub-label">enteral feeding if necessary</h4>
+<p class="standard-p">parenteral nutrition only when enteral feeding is inappropriate/unsuccessful.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-49" data-part-index="49">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 49</span>
+                    <h2 class="part-title">52. ADMISSION INDICATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-49" onchange="toggleMastery('sec-49')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-49')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-49')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Consider admission for:</h4>
+<h4 class="sub-label">severe dehydration</h4>
+<h4 class="sub-label">electrolyte abnormalities</h4>
+<h4 class="sub-label">AKI</h4>
+<h4 class="sub-label">inability to tolerate oral fluids</h4>
+<h4 class="sub-label">persistent vomiting despite antiemetics</h4>
+<h4 class="sub-label">significant weight loss</h4>
+<h4 class="sub-label">severe PUQE</h4>
+<h4 class="sub-label">nutritional deficiency</h4>
+<h4 class="sub-label">significant comorbidity</h4>
+<p class="standard-p">social inability to manage safely at home.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-50" data-part-index="50">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 50</span>
+                    <h2 class="part-title">53. RAPID COMPARISON — FIVE EARLY-PREGNANCY CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-50')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-50')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Typical presentation</th>
+<th>Key investigation</th>
+<th>Key finding</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Ectopic</strong></td>
+<td>unilateral pain + bleeding</td>
+<td>TVUS + serial β-hCG</td>
+<td>adnexal pregnancy/free fluid</td>
+</tr>
+<tr>
+<td><strong>Miscarriage</strong></td>
+<td>bleeding ± cramping</td>
+<td>TVUS</td>
+<td>non-viable/failed IUP</td>
+</tr>
+<tr>
+<td><strong>Septic miscarriage</strong></td>
+<td>bleeding + pain + fever/offensive discharge</td>
+<td>FBC/CRP/lactate/cultures + US</td>
+<td>infection ± retained products</td>
+</tr>
+<tr>
+<td><strong>Molar pregnancy</strong></td>
+<td>bleeding + hyperemesis + large uterus</td>
+<td>TVUS + β-hCG</td>
+<td>cystic trophoblastic tissue</td>
+</tr>
+<tr>
+<td><strong>Hyperemesis</strong></td>
+<td>severe vomiting + dehydration</td>
+<td>U&amp;E/LFT/weight/urine</td>
+<td>dehydration/electrolyte disturbance</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-50-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">54</span>
+                        <h3 class="topic-heading">THE &quot;PAIN + BLEEDING&quot; MRCOG ALGORITHM</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-50-1" onchange="toggleMastery('t-50-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Positive pregnancy test + pain/bleeding</h4>
+
+                <div class="topic-row" id="topic-t-50-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Is she unstable?</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-50-2" onchange="toggleMastery('t-50-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">⬇️</h4>
+<h4 class="sub-label">YES</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">RUPTURED ECTOPIC until proven otherwise</h4>
+<h4 class="sub-label">ABCDE</h4>
+<h4 class="sub-label">IV access</h4>
+<h4 class="sub-label">bloods/crossmatch</h4>
+<h4 class="sub-label">senior gynaecology</h4>
+<p class="standard-p">theatre.</p>
+<h4 class="sub-label">NO</h4>
+<h4 class="sub-label">⬇️</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-51" data-part-index="51">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 51</span>
+                    <h2 class="part-title">2. TVUS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-51')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-51')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">IUP + heartbeat</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ threatened miscarriage or other cause of symptoms.</span></div>
+<h4 class="sub-label">IUP + no heartbeat / criteria for pregnancy failure</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ miscarriage.</span></div>
+<h4 class="sub-label">Adnexal pregnancy</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ectopic.</span></div>
+<h4 class="sub-label">No IUP/no ectopic</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ PUL</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ serial β-hCG + repeat TVUS + safety-net.</span></div>
+
+                <div class="topic-row" id="topic-t-51-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">55</span>
+                        <h3 class="topic-heading">THE &quot;FEVER + BLEEDING&quot; ALGORITHM</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-51-1" onchange="toggleMastery('t-51-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Positive pregnancy test +:</h4>
+<h4 class="sub-label">fever</h4>
+<h4 class="sub-label">uterine tenderness</h4>
+<h4 class="sub-label">offensive discharge</h4>
+<h4 class="sub-label">tachycardia</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ septic miscarriage until proven otherwise</span></div>
+<h4 class="sub-label">Do:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ABCDE → cultures → IV antibiotics → fluids → lactate → source control</span></div>
+
+                <div class="topic-row" id="topic-t-51-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">56</span>
+                        <h3 class="topic-heading">THE &quot;VOMITING + VERY HIGH β-hCG&quot; ALGORITHM</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-51-2" onchange="toggleMastery('t-51-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Severe vomiting + markedly elevated β-hCG:</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Molar pregnancy</h4>
+<h4 class="sub-label">Multiple pregnancy</h4>
+<p class="standard-p">Hyperemesis gravidarum.</p>
+<h4 class="sub-label">Perform:</h4>
+<h4 class="sub-label">TVUS</h4>
+<h4 class="sub-label">and assess:</h4>
+<h4 class="sub-label">thyroid</h4>
+<h4 class="sub-label">electrolytes</h4>
+<h4 class="sub-label">dehydration</h4>
+<p class="standard-p">weight.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-52" data-part-index="52">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 52</span>
+                    <h2 class="part-title">57. THE &quot;EARLY PRE-ECLAMPSIA&quot; TRAP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-52" onchange="toggleMastery('sec-52')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-52')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-52')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pre-eclampsia-like picture before 20 weeks:</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Molar pregnancy</h4>
+<h4 class="sub-label">Also consider:</h4>
+<h4 class="sub-label">antiphospholipid syndrome</h4>
+<h4 class="sub-label">renal disease</h4>
+<p class="standard-p">other rare causes.</p>
+<p class="standard-p">But molar pregnancy should immediately be excluded.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-53" data-part-index="53">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 53</span>
+                    <h2 class="part-title">58. OSCE COUNSELLING — UNIVERSAL FRAMEWORK</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-53" onchange="toggleMastery('sec-53')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-53')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-53')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">After stabilisation/diagnosis:</h4>
+<h4 class="sub-label">Explain</h4>
+<h4 class="sub-label">diagnosis</h4>
+<h4 class="sub-label">uncertainty if applicable</h4>
+<h4 class="sub-label">investigations</h4>
+<h4 class="sub-label">treatment options</h4>
+<h4 class="sub-label">risks</h4>
+<h4 class="sub-label">benefits</h4>
+<p class="standard-p">alternatives.</p>
+<h4 class="sub-label">Ask about concerns</h4>
+<h4 class="sub-label">&quot;What are you most worried about at the moment?&quot;</h4>
+<h4 class="sub-label">Reproductive implications</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">future fertility</h4>
+<h4 class="sub-label">recurrence risk</h4>
+<h4 class="sub-label">follow-up</h4>
+<h4 class="sub-label">contraception where relevant</h4>
+<p class="standard-p">when pregnancy can be attempted again.</p>
+<h4 class="sub-label">Emotional care</h4>
+<p class="standard-p">Pregnancy loss can be psychologically traumatic.</p>
+<h4 class="sub-label">Offer:</h4>
+<h4 class="sub-label">emotional support</h4>
+<h4 class="sub-label">partner/family involvement</h4>
+<h4 class="sub-label">bereavement support</h4>
+<p class="standard-p">appropriate referral.</p>
+<p class="standard-p">RCOG emphasises that miscarriage is common and that most women subsequently have a successful pregnancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-54" data-part-index="54">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 54</span>
+                    <h2 class="part-title">59. HIGH-YIELD NUMBERS TO MEMORISE FOR MRCOG</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-54" onchange="toggleMastery('sec-54')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-54')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-54')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ectopic</h4>
+<h4 class="sub-label">~6–10 weeks: common period when ectopic is diagnosed</h4>
+<h4 class="sub-label">β-hCG commonly assessed 48 hours apart</h4>
+<p class="standard-p">normal IUP: substantial rise; RCOG patient information gives <span class="val-pill">~63%</span>/48 h</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>MTX follow-up: Day 4 → Day 7</span></div>
+<h4 class="sub-label">expected MTX fall: ≥15%</h4>
+<h4 class="sub-label">recurrent ectopic: approximately 7–10%</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>CRL <span class="val-pill">≥7 mm</span> + no heartbeat → pregnancy failure criterion</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>MSD <span class="val-pill">≥25 mm</span> + no embryo → pregnancy failure criterion</span></div>
+<h4 class="sub-label">Do not diagnose borderline cases from a single scan</h4>
+<h4 class="sub-label">Hyperemesis</h4>
+<h4 class="sub-label">≥5% weight loss = significant</h4>
+<h4 class="sub-label">PUQE:</h4>
+<h4 class="sub-label">≤6 mild</h4>
+<h4 class="sub-label">7–12 moderate</h4>
+<h4 class="sub-label">≥13 severe</h4>
+<h4 class="sub-label">Na &lt;135</h4>
+<h4 class="sub-label">K &lt;3.5</h4>
+<h4 class="sub-label">thiamine before dextrose</h4>
+<h4 class="sub-label">Molar</h4>
+<h4 class="sub-label">β-hCG often &gt;100,000 IU/L</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>early pre-eclampsia &lt;<span class="val-pill">20 weeks</span> → consider molar pregnancy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>previous mole → recurrence approximately 1–<span class="val-pill">2%</span></span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-55" data-part-index="55">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 55</span>
+                    <h2 class="part-title">60. MRCOG EXAMINER &quot;RED FLAGS&quot;</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-55" onchange="toggleMastery('sec-55')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-55')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-55')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">If you hear:</h4>
+<h4 class="sub-label">&quot;Pregnant + collapse + abdominal pain&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ruptured ectopic</span></div>
+<h4 class="sub-label">&quot;Pregnant + unilateral pain + shoulder-tip pain&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ haemoperitoneum/ectopic</span></div>
+<h4 class="sub-label">&quot;Positive pregnancy test + no pregnancy on scan&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ PUL — ectopic remains possible</span></div>
+<h4 class="sub-label">&quot;Bleeding + fever + offensive discharge&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ septic miscarriage</span></div>
+<h4 class="sub-label">&quot;Very high β-hCG + snowstorm scan&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ complete molar pregnancy</span></div>
+<h4 class="sub-label">&quot;Hyperemesis + hyperthyroidism&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ consider hCG-mediated gestational transient thyrotoxicosis/molar pregnancy</span></div>
+<h4 class="sub-label">&quot;Vomiting + confusion + ataxia&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Wernicke encephalopathy</span></div>
+<h4 class="sub-label">&quot;Dextrose before thiamine&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ major OSCE error</span></div>
+<h4 class="sub-label">&quot;Unstable ectopic + waiting for β-hCG&quot;</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ major OSCE error</span></div>
+<p class="standard-p">&quot;Borderline ultrasound measurement + immediate miscarriage diagnosis&quot;</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ major OSCE error</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ FINAL MRCOG PART 3 ONE-MINUTE FRAMEWORK</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">For any early-pregnancy station, think:</h4>
+<h4 class="sub-label">STABLE OR UNSTABLE?</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">PAIN? BLEEDING? VOMITING? FEVER?</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">ECTOPIC? MISCARRIAGE? SEPSIS? MOLE? HYPEREMESIS?</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">ABCDE + observations</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">TVUS + β-hCG ± serial β-hCG</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">FBC + U&amp;E + LFT + group/Rh ± CRP/lactate/cultures</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">DIAGNOSE</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">EXPECTANT / MEDICAL / SURGICAL / RESUSCITATION</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">COUNSEL + SAFETY-NET + FOLLOW-UP</h4>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 18</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 1. UNIVERSAL EARLY-PREGNANCY OSCE APPROA</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Parameter: Normal adult reference</li>
+<li class="surg-item">● HR: ~60–100 bpm</li>
+<li class="surg-item">● BP: approximately 90–140/60–90</li>
+<li class="surg-item">● RR: 12–20/min</li>
+<li class="surg-item">● SpO₂: ≥95% generally</li>
+<li class="surg-item">● Temperature: ~36–37.5°C</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 62;
+    const flashcards = [{"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Parameter</strong>?", "a": "<strong>Normal adult reference</strong><br>Concerning"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>HR</strong>?", "a": "<strong>~60\u2013100 bpm</strong><br>>100\u2013120"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>BP</strong>?", "a": "<strong>approximately 90\u2013140/60\u201390</strong><br>hypotension"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>RR</strong>?", "a": "<strong>12\u201320/min</strong><br>\u226522 concerning in acute illness"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>SpO\u2082</strong>?", "a": "<strong>\u226595% generally</strong><br><94%"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Temperature</strong>?", "a": "<strong>~36\u201337.5\u00b0C</strong><br>\u226538\u00b0C infection"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>CRT</strong>?", "a": "<strong><2 sec</strong><br>\u22652\u20133 sec"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>GCS</strong>?", "a": "<strong>15</strong><br>reduced = emergency"}, {"category": "1. UNIVERSAL EARLY-PREGNANCY O", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Urine output</strong>?", "a": "<strong>\u22650.5 mL/kg/h</strong><br>oliguria"}, {"category": "FIVE EARLY-PREGNANCY CONDITION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ectopic</strong>?", "a": "<strong>unilateral pain + bleeding</strong><br>TVUS + serial \u03b2-hCG<br>adnexal pregnancy/free fluid"}, {"category": "FIVE EARLY-PREGNANCY CONDITION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Miscarriage</strong>?", "a": "<strong>bleeding \u00b1 cramping</strong><br>TVUS<br>non-viable/failed IUP"}, {"category": "FIVE EARLY-PREGNANCY CONDITION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Septic miscarriage</strong>?", "a": "<strong>bleeding + pain + fever/offensive discharge</strong><br>FBC/CRP/lactate/cultures + US<br>infection \u00b1 retained products"}, {"category": "FIVE EARLY-PREGNANCY CONDITION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Molar pregnancy</strong>?", "a": "<strong>bleeding + hyperemesis + large uterus</strong><br>TVUS + \u03b2-hCG<br>cystic trophoblastic tissue"}, {"category": "FIVE EARLY-PREGNANCY CONDITION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Hyperemesis</strong>?", "a": "<strong>severe vomiting + dehydration</strong><br>U&E/LFT/weight/urine<br>dehydration/electrolyte disturbance"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>17. ULTRASOUND DIAGNOSIS OF MISSED MISCARRIAGE</strong>", "a": "<strong>\u2192 diagnostic of pregnancy failure when confirmed according to appropriate ultrasound criteria.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>2. TVUS</strong>", "a": "<strong>\u2192 threatened miscarriage or other cause of symptoms.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>59. HIGH-YIELD NUMBERS TO MEMORISE FOR MRCOG</strong>", "a": "<strong>MTX follow-up: Day 4 \u2192 Day 7</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>60. MRCOG EXAMINER &quot;RED FLAGS&quot;</strong>", "a": "<strong>\u2192 ruptured ectopic</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Parameter ?", "options": ["Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "approximately 90\u2013140/60\u201390  hypotension", "12\u201320/min  \u226522 concerning in acute illness"], "correct": 0, "explanation": "Key Guideline / Fact: Normal adult reference  Concerning (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  HR ?", "options": ["Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "approximately 90\u2013140/60\u201390  hypotension", "12\u201320/min  \u226522 concerning in acute illness"], "correct": 1, "explanation": "Key Guideline / Fact: ~60\u2013100 bpm  >100\u2013120 (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  BP ?", "options": ["~60\u2013100 bpm  >100\u2013120", "Normal adult reference  Concerning", "approximately 90\u2013140/60\u201390  hypotension", "12\u201320/min  \u226522 concerning in acute illness"], "correct": 2, "explanation": "Key Guideline / Fact: approximately 90\u2013140/60\u201390  hypotension (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  RR ?", "options": ["approximately 90\u2013140/60\u201390  hypotension", "Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "12\u201320/min  \u226522 concerning in acute illness"], "correct": 3, "explanation": "Key Guideline / Fact: 12\u201320/min  \u226522 concerning in acute illness (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  SpO\u2082 ?", "options": ["\u226595% generally  <94%", "Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "approximately 90\u2013140/60\u201390  hypotension"], "correct": 0, "explanation": "Key Guideline / Fact: \u226595% generally  <94% (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Temperature ?", "options": ["Normal adult reference  Concerning", "~36\u201337.5\u00b0C  \u226538\u00b0C infection", "~60\u2013100 bpm  >100\u2013120", "approximately 90\u2013140/60\u201390  hypotension"], "correct": 1, "explanation": "Key Guideline / Fact: ~36\u201337.5\u00b0C  \u226538\u00b0C infection (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  CRT ?", "options": ["~60\u2013100 bpm  >100\u2013120", "Normal adult reference  Concerning", "\u22652\u20133 sec", "approximately 90\u2013140/60\u201390  hypotension"], "correct": 2, "explanation": "Key Guideline / Fact: \u22652\u20133 sec (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  GCS ?", "options": ["approximately 90\u2013140/60\u201390  hypotension", "Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "15  reduced = emergency"], "correct": 3, "explanation": "Key Guideline / Fact: 15  reduced = emergency (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Urine output ?", "options": ["\u22650.5 mL/kg/h  oliguria", "Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "approximately 90\u2013140/60\u201390  hypotension"], "correct": 0, "explanation": "Key Guideline / Fact: \u22650.5 mL/kg/h  oliguria (1. UNIVERSAL EARLY-PREGNANCY O)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ectopic ?", "options": ["Normal adult reference  Concerning", "unilateral pain + bleeding  TVUS + serial \u03b2-hCG adnexal pregnancy/free fluid", "~60\u2013100 bpm  >100\u2013120", "approximately 90\u2013140/60\u201390  hypotension"], "correct": 1, "explanation": "Key Guideline / Fact: unilateral pain + bleeding  TVUS + serial \u03b2-hCG adnexal pregnancy/free fluid (FIVE EARLY-PREGNANCY CONDITION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Miscarriage ?", "options": ["~60\u2013100 bpm  >100\u2013120", "Normal adult reference  Concerning", "bleeding \u00b1 cramping  TVUS non-viable/failed IUP", "approximately 90\u2013140/60\u201390  hypotension"], "correct": 2, "explanation": "Key Guideline / Fact: bleeding \u00b1 cramping  TVUS non-viable/failed IUP (FIVE EARLY-PREGNANCY CONDITION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Septic miscarriage ?", "options": ["approximately 90\u2013140/60\u201390  hypotension", "Normal adult reference  Concerning", "~60\u2013100 bpm  >100\u2013120", "bleeding + pain + fever/offensive discharge  FBC/CRP/lactate/cultures + US infection \u00b1 retained products"], "correct": 3, "explanation": "Key Guideline / Fact: bleeding + pain + fever/offensive discharge  FBC/CRP/lactate/cultures + US infection \u00b1 retained products (FIVE EARLY-PREGNANCY CONDITION)."}];
+    const storageKey = 'obgyn_mastered_mrcog_part_3_osce___early_pregnancy_atlas';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+
+<script>
+// Image Gallery Lightbox
+(function() {
+    let lbImages = [];
+    let lbIndex = 0;
+
+    function openLightbox(imgs, idx) {
+        lbImages = imgs;
+        lbIndex = idx;
+        updateLightbox();
+        document.getElementById('lb-overlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lb-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+        document.getElementById('lb-img').src = lbImages[lbIndex];
+        document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+    }
+
+    window.galleryNext = function() {
+        lbIndex = (lbIndex + 1) % lbImages.length;
+        updateLightbox();
+    };
+    window.galleryPrev = function() {
+        lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+        updateLightbox();
+    };
+    window.closeLightbox = closeLightbox;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var items = document.querySelectorAll('.gallery-item');
+        var imgSrcs = Array.from(items).map(function(el) {
+            return el.querySelector('img').src;
+        });
+        items.forEach(function(item, idx) {
+            item.addEventListener('click', function() {
+                openLightbox(imgSrcs, idx);
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            var overlay = document.getElementById('lb-overlay');
+            if (overlay && overlay.classList.contains('active')) {
+                if (e.key === 'ArrowRight') galleryNext();
+                else if (e.key === 'ArrowLeft') galleryPrev();
+                else if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRCOG Part 3 — SEXUAL HEALTH OSCE MASTER GUIDE — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MRCOG Part 3 — SEXUAL HEALTH OSCE MAST</div>
+                <div class="brand-subtitle-text">For MRCOG Part 3, sexual-health stations are rarel</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 42 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 31 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (31 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. UNIVERSAL SEXUAL-HEALTH OSCE APPROACH">1. UNIVERSAL SEXUAL-HEALTH OSCE APPROACH</a></li><li><a href="#part-3" class="part-nav-link" title="3. VAGINITIS / VAGINAL DISCHARGE">3. VAGINITIS / VAGINAL DISCHARGE</a></li><li><a href="#part-4" class="part-nav-link" title="4. CANDIDAL VULVOVAGINITIS">4. CANDIDAL VULVOVAGINITIS</a></li><li><a href="#part-5" class="part-nav-link" title="5. BACTERIAL VAGINOSIS">5. BACTERIAL VAGINOSIS</a></li><li><a href="#part-6" class="part-nav-link" title="6. TRICHOMONIASIS">6. TRICHOMONIASIS</a></li><li><a href="#part-7" class="part-nav-link" title="7. VAGINITIS — QUICK DIFFERENTIAL">7. VAGINITIS — QUICK DIFFERENTIAL</a></li><li><a href="#part-8" class="part-nav-link" title="8. CERVICITIS">8. CERVICITIS</a></li><li><a href="#part-9" class="part-nav-link" title="9. PID — HIGH-YIELD MRCOG STATION">9. PID — HIGH-YIELD MRCOG STATION</a></li><li><a href="#part-10" class="part-nav-link" title="10. STI SCREENING — WHAT TO TEST">10. STI SCREENING — WHAT TO TEST</a></li><li><a href="#part-11" class="part-nav-link" title="11. GENITAL ULCERS">11. GENITAL ULCERS</a></li><li><a href="#part-12" class="part-nav-link" title="12. GENITAL HERPES">12. GENITAL HERPES</a></li><li><a href="#part-13" class="part-nav-link" title="13. SYPHILIS">13. SYPHILIS</a></li><li><a href="#part-14" class="part-nav-link" title="14. GENITAL WARTS">14. GENITAL WARTS</a></li><li><a href="#part-15" class="part-nav-link" title="15. SEXUAL DYSFUNCTION">15. SEXUAL DYSFUNCTION</a></li><li><a href="#part-16" class="part-nav-link" title="16. DYSPAREUNIA — OSCE DIFFERENTIAL">16. DYSPAREUNIA — OSCE DIFFERENTIAL</a></li><li><a href="#part-17" class="part-nav-link" title="17. SAFEGUARDING — VERY HIGH-YIELD">17. SAFEGUARDING — VERY HIGH-YIELD</a></li><li><a href="#part-18" class="part-nav-link" title="18. CONSENT">18. CONSENT</a></li><li><a href="#part-19" class="part-nav-link" title="19. SEXUAL ASSAULT OSCE">19. SEXUAL ASSAULT OSCE</a></li><li><a href="#part-20" class="part-nav-link" title="20. FGM — MRCOG SAFEGUARDING">20. FGM — MRCOG SAFEGUARDING</a></li><li><a href="#part-21" class="part-nav-link" title="21. FORCED MARRIAGE">21. FORCED MARRIAGE</a></li><li><a href="#part-22" class="part-nav-link" title="22. REPRODUCTIVE COERCION">22. REPRODUCTIVE COERCION</a></li><li><a href="#part-23" class="part-nav-link" title="23. CHILD/ADOLESCENT SEXUAL HEALTH">23. CHILD/ADOLESCENT SEXUAL HEALTH</a></li><li><a href="#part-24" class="part-nav-link" title="24. STI PARTNER MANAGEMENT">24. STI PARTNER MANAGEMENT</a></li><li><a href="#part-25" class="part-nav-link" title="25. SEXUAL HEALTH COUNSELLING — EXAMINER CHECKLIST">25. SEXUAL HEALTH COUNSELLING — EXAMINER CHECKLIST</a></li><li><a href="#part-26" class="part-nav-link" title="26. NUMERICAL VALUES — RAPID REVISION TABLE">26. NUMERICAL VALUES — RAPID REVISION TABLE</a></li><li><a href="#part-27" class="part-nav-link" title="28. MRCOG “GENITAL LESION” MEMORY MAP">28. MRCOG “GENITAL LESION” MEMORY MAP</a></li><li><a href="#part-28" class="part-nav-link" title="29. MRCOG “DO NOT MISS” LIST">29. MRCOG “DO NOT MISS” LIST</a></li><li><a href="#part-29" class="part-nav-link" title="2. PID">2. PID</a></li><li><a href="#part-30" class="part-nav-link" title="4. STI">4. STI</a></li><li><a href="#part-31" class="part-nav-link" title="5. HIV">5. HIV</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MRCOG Part 3 — SEXUAL HEALTH OSCE MASTER GUIDE</h1>
+                    <div class="reader-hero-sub">⭐ For MRCOG Part 3, sexual-health stations are rarely just “name the diagnosis.” The examiner is assessing whether you can take a sensitive sexual history, examine appropriately, interpret bedside tests, diagnose safely, treat/arrange follow-up, partner-notify, prevent transmission, address fertility/pregnancy implications, and recognise safeguarding concerns.</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">For STI-specific management, the BASHH guidelines are particularly important alongside RCOG/NICE, and BASHH currently lists updated guidance for anogenital herpes (2024), anogenital warts (2024), chlamydia (2026), and other sexual-health categories.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. UNIVERSAL SEXUAL-HEALTH OSCE APPROACH</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Opening the consultation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Introduction</h4>
+<p class="standard-p">Wash hands.</p>
+<p class="standard-p">Introduce yourself.</p>
+<p class="standard-p">Confirm patient identity.</p>
+<p class="standard-p">Confirm age.</p>
+<p class="standard-p">Explain confidentiality.</p>
+<p class="standard-p">Establish whether they are comfortable discussing sexual health.</p>
+<p class="standard-p">Offer a chaperone for examination.</p>
+<p class="standard-p">Obtain consent before examination/swabs.</p>
+<h4 class="sub-label">Useful opening</h4>
+<p class="standard-p">“I understand you have some concerns regarding your sexual or genital health. I ask these questions routinely because they help me provide the correct care. Everything you tell me is confidential, subject to the usual safeguarding exceptions. Is it okay if I ask you some personal questions?”</p>
+<h4 class="sub-label">Confidentiality caveat</h4>
+<h4 class="sub-label">Explain:</h4>
+<p class="standard-p">Information is confidential.</p>
+<h4 class="sub-label">Exceptions include:</h4>
+<h4 class="sub-label">serious risk of harm to patient/another person</h4>
+<h4 class="sub-label">safeguarding concerns</h4>
+<p class="standard-p">certain legal/public-health requirements.</p>
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">SEXUAL HISTORY — 6 Ps</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">A very useful MRCOG structure:</h4>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Partners</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Current partner?</h4>
+<h4 class="sub-label">Number of partners recently?</h4>
+<h4 class="sub-label">New partner?</h4>
+<h4 class="sub-label">Male/female/both?</h4>
+<h4 class="sub-label">Partner&#x27;s STI history?</h4>
+<h4 class="sub-label">Partner symptoms?</h4>
+<h4 class="sub-label">Partner treated?</h4>
+<p class="standard-p">Avoid assumptions about heterosexuality or monogamy.</p>
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Practices</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask sensitively:</h4>
+<h4 class="sub-label">Vaginal intercourse?</h4>
+<h4 class="sub-label">Oral sex?</h4>
+<h4 class="sub-label">Anal sex?</h4>
+<h4 class="sub-label">Genital-to-genital contact?</h4>
+<h4 class="sub-label">Sex toys?</h4>
+<h4 class="sub-label">Condom use?</h4>
+<h4 class="sub-label">Shared sex toys?</h4>
+<h4 class="sub-label">Frequency of intercourse?</h4>
+<p class="standard-p">This determines which anatomical sites require testing.</p>
+
+                <div class="topic-row" id="topic-t-2-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Protection</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-5" onchange="toggleMastery('t-2-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Condoms?</h4>
+<h4 class="sub-label">Consistency of use?</h4>
+<h4 class="sub-label">Contraception?</h4>
+<h4 class="sub-label">HPV vaccination?</h4>
+<h4 class="sub-label">HIV PrEP/PEP where appropriate?</h4>
+<h4 class="sub-label">Previous STI screening?</h4>
+
+                <div class="topic-row" id="topic-t-2-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Past STIs</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-6" onchange="toggleMastery('t-2-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Previous chlamydia?</h4>
+<h4 class="sub-label">Gonorrhoea?</h4>
+<h4 class="sub-label">Syphilis?</h4>
+<h4 class="sub-label">HIV?</h4>
+<h4 class="sub-label">Hepatitis B/C?</h4>
+<h4 class="sub-label">Herpes?</h4>
+<h4 class="sub-label">HPV/genital warts?</h4>
+<h4 class="sub-label">PID?</h4>
+<h4 class="sub-label">Also:</h4>
+<h4 class="sub-label">Previous treatment?</h4>
+<h4 class="sub-label">Partner treated?</h4>
+<h4 class="sub-label">Recurrence?</h4>
+
+                <div class="topic-row" id="topic-t-2-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Pregnancy prevention/plans</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-7" onchange="toggleMastery('t-2-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<p class="standard-p">LMP.</p>
+<p class="standard-p">Pregnancy possibility.</p>
+<p class="standard-p">Current contraception.</p>
+<p class="standard-p">Future fertility plans.</p>
+<p class="standard-p">Desire for pregnancy.</p>
+<p class="standard-p">Always perform a pregnancy test when clinically appropriate before certain investigations/treatments.</p>
+
+                <div class="topic-row" id="topic-t-2-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Protection from coercion/abuse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-8" onchange="toggleMastery('t-2-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">“Do you feel safe in your relationship?”</h4>
+<h4 class="sub-label">“Has anyone ever pressured or forced you to have sex?”</h4>
+<h4 class="sub-label">“Are you free to say no?”</h4>
+<h4 class="sub-label">“Has anyone ever controlled your contraception?”</h4>
+<p class="standard-p">“Are you worried about anyone finding out that you have attended today?”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">3. VAGINITIS / VAGINAL DISCHARGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Main differential</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Discharge</th>
+<th>pH</th>
+<th>Microscopy/typical finding</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Candida</strong></td>
+<td>Thick, white, curdy</td>
+<td>&lt;4.5</td>
+<td>Budding yeast/pseudohyphae</td>
+</tr>
+<tr>
+<td><strong>BV</strong></td>
+<td>Thin, homogeneous, grey/white</td>
+<td>&gt;4.5</td>
+<td>Clue cells</td>
+</tr>
+<tr>
+<td><strong>Trichomoniasis</strong></td>
+<td>Frothy yellow-green</td>
+<td>&gt;4.5</td>
+<td>Motile trichomonads</td>
+</tr>
+<tr>
+<td><strong>Physiological</strong></td>
+<td>Clear/white, variable</td>
+<td>Usually ≤4.5</td>
+<td>No inflammatory/pathogenic findings</td>
+</tr>
+<tr>
+<td><strong>Cervicitis</strong></td>
+<td>Mucopurulent</td>
+<td>Usually normal vaginal pH</td>
+<td>Cervical discharge/contact bleeding</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">4. CANDIDAL VULVOVAGINITIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Cause</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Candida albicans</h4>
+<h4 class="sub-label">Risk factors:</h4>
+<p class="standard-p">Diabetes.</p>
+<p class="standard-p">Pregnancy.</p>
+<p class="standard-p">Recent antibiotics.</p>
+<p class="standard-p">Immunosuppression.</p>
+<p class="standard-p">Oestrogen exposure.</p>
+<p class="standard-p">Poorly controlled glycaemia.</p>
+<p class="standard-p">Not necessarily sexually transmitted.</p>
+<h4 class="sub-label">Symptoms</h4>
+<p class="standard-p">Intense vulval itching.</p>
+<p class="standard-p">Burning.</p>
+<p class="standard-p">Vulval soreness.</p>
+<p class="standard-p">Dyspareunia.</p>
+<p class="standard-p">Dysuria due to external irritation.</p>
+<p class="standard-p">Thick white discharge.</p>
+<h4 class="sub-label">Examination</h4>
+<p class="standard-p">Vulval erythema.</p>
+<p class="standard-p">Excoriations.</p>
+<p class="standard-p">Fissuring.</p>
+<p class="standard-p">Oedema.</p>
+<p class="standard-p">Thick white discharge.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE distinction</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Candida → itch predominates.</span></div>
+<h4 class="sub-label">Vaginal pH</h4>
+<h4 class="sub-label">Usually:</h4>
+<p class="standard-p">&lt;4.5</p>
+<p class="standard-p">A pH &gt;4.5 should make you consider BV or trichomoniasis rather than uncomplicated Candida.</p>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Vaginal microscopy.</p>
+<p class="standard-p">KOH preparation.</p>
+<h4 class="sub-label">Culture if:</h4>
+<h4 class="sub-label">recurrent</h4>
+<h4 class="sub-label">complicated</h4>
+<h4 class="sub-label">persistent</h4>
+<p class="standard-p">non-albicans suspected.</p>
+<h4 class="sub-label">Microscopy</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">budding yeast</h4>
+<p class="standard-p">pseudohyphae.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">5. BACTERIAL VAGINOSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Cause</h4>
+<p class="standard-p">Disruption of normal Lactobacillus-dominant flora with increased anaerobic organisms.</p>
+<h4 class="sub-label">Common organisms include:</h4>
+<h4 class="sub-label">Gardnerella vaginalis</h4>
+<h4 class="sub-label">anaerobes</h4>
+<p class="standard-p">Atopobium and others.</p>
+<h4 class="sub-label">Symptoms</h4>
+<p class="standard-p">Often asymptomatic.</p>
+<h4 class="sub-label">Typical:</h4>
+<p class="standard-p">Thin homogeneous discharge.</p>
+<p class="standard-p">Grey/white discharge.</p>
+<p class="standard-p">Fishy odour.</p>
+<p class="standard-p">Odour particularly noticeable after intercourse/menstruation.</p>
+<p class="standard-p">Usually minimal inflammation.</p>
+<h4 class="sub-label">pH</h4>
+<h4 class="sub-label">&gt;4.5</h4>
+<h4 class="sub-label">Amsel criteria</h4>
+<h4 class="sub-label">Four criteria:</h4>
+<p class="standard-p">Homogeneous thin discharge.</p>
+<p class="standard-p">Vaginal pH &gt;4.5.</p>
+<p class="standard-p">Positive whiff test.</p>
+<p class="standard-p">Clue cells on microscopy.</p>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">≥3 of 4 = BV by Amsel criteria.</p>
+<h4 class="sub-label">Clue cells</h4>
+<p class="standard-p">Vaginal epithelial cells coated with bacteria.</p>
+<h4 class="sub-label">Microscopically:</h4>
+<h4 class="sub-label">stippled appearance</h4>
+<p class="standard-p">poorly defined cell borders.</p>
+<h4 class="sub-label">Whiff test</h4>
+<p class="standard-p">Add KOH to vaginal discharge.</p>
+<h4 class="sub-label">Positive:</h4>
+<h4 class="sub-label">fishy/amines odour</h4>
+<h4 class="sub-label">Nugent score</h4>
+<h4 class="sub-label">Gram-stain scoring:</h4>
+<h4 class="sub-label">0–3: normal flora</h4>
+<h4 class="sub-label">4–6: intermediate</h4>
+<h4 class="sub-label">7–10: BV</h4>
+<p class="standard-p">This is a very useful numerical value for MRCOG.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">6. TRICHOMONIASIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Organism</h4>
+<h4 class="sub-label">Trichomonas vaginalis</h4>
+<p class="standard-p">Sexually transmitted protozoan.</p>
+<h4 class="sub-label">Symptoms</h4>
+<p class="standard-p">Frothy discharge.</p>
+<p class="standard-p">Yellow-green discharge.</p>
+<p class="standard-p">Offensive odour.</p>
+<p class="standard-p">Vulval irritation.</p>
+<p class="standard-p">Dysuria.</p>
+<p class="standard-p">Dyspareunia.</p>
+<p class="standard-p">Can be asymptomatic.</p>
+<h4 class="sub-label">Examination</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">“Strawberry cervix”</h4>
+<p class="standard-p">punctate cervical haemorrhages.</p>
+<p class="standard-p">erythematous cervix.</p>
+<h4 class="sub-label">pH</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">&gt;4.5</h4>
+<h4 class="sub-label">Microscopy</h4>
+<h4 class="sub-label">Wet mount:</h4>
+<p class="standard-p">motile flagellated organisms.</p>
+<p class="standard-p">However, wet microscopy has limited sensitivity.</p>
+<h4 class="sub-label">Preferred test</h4>
+<p class="standard-p">NAAT is much more sensitive.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE point</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Treat:</h4>
+<h4 class="sub-label">Patient + sexual partner(s)</h4>
+<p class="standard-p">because reinfection is common.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">7. VAGINITIS — QUICK DIFFERENTIAL</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Candida</h4>
+<h4 class="sub-label">ITCH + thick white discharge + pH &lt;4.5</h4>
+<h4 class="sub-label">BV</h4>
+<p class="standard-p">FISHY ODOUR + thin grey discharge + pH &gt;4.5 + clue cells</p>
+<h4 class="sub-label">Trichomonas</h4>
+<p class="standard-p">FROTHY yellow-green discharge + strawberry cervix + pH &gt;4.5</p>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">MUCOPURULENT CERVICAL discharge + contact bleeding</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">8. CERVICITIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Inflammation of the cervix.</p>
+<h4 class="sub-label">Common causes</h4>
+<h4 class="sub-label">Infectious</h4>
+<p class="standard-p">Chlamydia trachomatis.</p>
+<p class="standard-p">Neisseria gonorrhoeae.</p>
+<p class="standard-p">Mycoplasma genitalium.</p>
+<p class="standard-p">Trichomonas vaginalis.</p>
+<p class="standard-p">HSV can occasionally be associated.</p>
+<h4 class="sub-label">Non-infectious</h4>
+<p class="standard-p">Chemical irritation.</p>
+<p class="standard-p">Foreign body.</p>
+<p class="standard-p">Cervical ectropion.</p>
+<p class="standard-p">Trauma.</p>
+<p class="standard-p">Instrumentation.</p>
+<h4 class="sub-label">Clinical features</h4>
+<p class="standard-p">Abnormal vaginal discharge.</p>
+<p class="standard-p">Mucopurulent discharge.</p>
+<p class="standard-p">Postcoital bleeding.</p>
+<p class="standard-p">Intermenstrual bleeding.</p>
+<p class="standard-p">Dyspareunia.</p>
+<p class="standard-p">Dysuria.</p>
+<p class="standard-p">Pelvic pain may indicate ascending infection/PID.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Look for:</h4>
+<p class="standard-p">mucopurulent discharge from cervical os.</p>
+<p class="standard-p">cervical erythema.</p>
+<p class="standard-p">friability.</p>
+<p class="standard-p">contact bleeding.</p>
+<p class="standard-p">ectropion.</p>
+<p class="standard-p">ulcers.</p>
+<p class="standard-p">masses.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key finding</span></div>
+                
+            </div>
+            
+<p class="standard-p">Cervical motion/contact may cause bleeding.</p>
+<h4 class="sub-label">Investigations</h4>
+<h4 class="sub-label">NAAT</h4>
+<h4 class="sub-label">Test for:</h4>
+<p class="standard-p">Chlamydia.</p>
+<p class="standard-p">Gonorrhoea.</p>
+<h4 class="sub-label">Depending on circumstances:</h4>
+<p class="standard-p">Trichomonas.</p>
+
+                <div class="topic-row" id="topic-t-8-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">M</span>
+                        <h3 class="topic-heading">genitalium.</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-1" onchange="toggleMastery('t-8-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Also consider:</h4>
+<p class="standard-p">HIV.</p>
+<p class="standard-p">Syphilis.</p>
+<p class="standard-p">Hepatitis B/C depending on risk.</p>
+<h4 class="sub-label">Treatment principle</h4>
+<h4 class="sub-label">Treat according to:</h4>
+<p class="standard-p">organism.</p>
+<p class="standard-p">local resistance.</p>
+<p class="standard-p">pregnancy status.</p>
+<p class="standard-p">allergy.</p>
+<p class="standard-p">STI risk.</p>
+<p class="standard-p">current BASHH/local guideline.</p>
+<p class="standard-p">For example, CDC guidance lists doxycycline<span class="val-pill"> 100 mg</span> twice daily for<span class="val-pill"> 7 days</span> as a cervicitis regimen, with gonorrhoea treatment added when indicated; local/BASHH guidance should be followed in UK-style MRCOG answers.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<p class="standard-p">Do not automatically use doxycycline.</p>
+<p class="standard-p">Choose a pregnancy-appropriate regimen according to current guideline.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">9. PID — HIGH-YIELD MRCOG STATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Ascending infection/inflammation involving:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>endometrium → endometritis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>fallopian tubes → salpingitis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ovaries/tubes → tubo-ovarian abscess</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>pelvic peritoneum → pelvic peritonitis.</span></div>
+<p class="standard-p">PID can be caused by STI organisms as well as vaginal flora/anaerobes.</p>
+<h4 class="sub-label">Risk factors</h4>
+<p class="standard-p">Young age.</p>
+<p class="standard-p">New sexual partner.</p>
+<p class="standard-p">Multiple sexual partners.</p>
+<p class="standard-p">Previous STI.</p>
+<p class="standard-p">Previous PID.</p>
+<p class="standard-p">Previous chlamydia/gonorrhoea.</p>
+<p class="standard-p">Recent uterine instrumentation.</p>
+<p class="standard-p">Recent insertion of an IUD — particularly around insertion period.</p>
+<h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">Classical triad</h4>
+<p class="standard-p">Lower abdominal/pelvic pain.</p>
+<p class="standard-p">Abnormal vaginal discharge.</p>
+<p class="standard-p">Abnormal bleeding.</p>
+<h4 class="sub-label">Other:</h4>
+<p class="standard-p">Deep dyspareunia.</p>
+<p class="standard-p">Postcoital bleeding.</p>
+<p class="standard-p">Intermenstrual bleeding.</p>
+<p class="standard-p">Fever.</p>
+<p class="standard-p">Dysuria.</p>
+<p class="standard-p">Nausea/vomiting.</p>
+<p class="standard-p">PID can be mild or asymptomatic.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Abdominal</h4>
+<h4 class="sub-label">suprapubic tenderness</h4>
+<h4 class="sub-label">lower abdominal tenderness</h4>
+<p class="standard-p">guarding/peritonism if severe.</p>
+<h4 class="sub-label">Pelvic</h4>
+<h4 class="sub-label">The 3 minimum clinical criteria:</h4>
+<p class="standard-p">Cervical motion tenderness.</p>
+<p class="standard-p">Uterine tenderness.</p>
+<p class="standard-p">Adnexal tenderness.</p>
+<p class="standard-p">If a sexually active woman at STI risk has pelvic/lower abdominal pain with no better explanation and ≥1 of these three, empiric PID treatment should be considered.</p>
+<h4 class="sub-label">PID red flags</h4>
+<h4 class="sub-label">Urgent assessment/admission if:</h4>
+<p class="standard-p">severe illness.</p>
+<p class="standard-p">sepsis.</p>
+<p class="standard-p">severe abdominal pain.</p>
+<p class="standard-p">peritonism.</p>
+<p class="standard-p">tubo-ovarian abscess.</p>
+<p class="standard-p">pregnancy.</p>
+<p class="standard-p">surgical emergency cannot be excluded.</p>
+<p class="standard-p">unable to tolerate oral treatment.</p>
+<p class="standard-p">failure to improve on outpatient treatment.</p>
+<p class="standard-p">diagnostic uncertainty.</p>
+<h4 class="sub-label">PID differential</h4>
+<h4 class="sub-label">Always consider:</h4>
+<p class="standard-p">Ectopic pregnancy.</p>
+<p class="standard-p">Appendicitis.</p>
+<p class="standard-p">Ovarian torsion.</p>
+<p class="standard-p">Ruptured ovarian cyst.</p>
+<p class="standard-p">Endometriosis.</p>
+<p class="standard-p">UTI/pyelonephritis.</p>
+<p class="standard-p">Gastrointestinal disease.</p>
+<h4 class="sub-label">MRCOG golden rule</h4>
+<p class="standard-p">Always exclude pregnancy/ectopic pregnancy in reproductive-age women with pelvic pain.</p>
+<h4 class="sub-label">PID investigations</h4>
+<h4 class="sub-label">Immediate</h4>
+<p class="standard-p">Pregnancy test.</p>
+<p class="standard-p">Urinalysis.</p>
+<p class="standard-p">FBC.</p>
+<p class="standard-p">CRP.</p>
+<p class="standard-p">U&amp;E/LFT where appropriate.</p>
+<p class="standard-p">STI NAAT.</p>
+<p class="standard-p">HIV/syphilis ± hepatitis testing depending on risk.</p>
+<h4 class="sub-label">Imaging</h4>
+<h4 class="sub-label">Pelvic ultrasound</h4>
+<h4 class="sub-label">Look for:</h4>
+<p class="standard-p">tubo-ovarian abscess.</p>
+<p class="standard-p">hydrosalpinx.</p>
+<p class="standard-p">pyosalpinx.</p>
+<p class="standard-p">free fluid.</p>
+<h4 class="sub-label">Long-term PID complications</h4>
+<h4 class="sub-label">Extremely important for counselling:</h4>
+<p class="standard-p">Tubal factor infertility.</p>
+<p class="standard-p">Ectopic pregnancy.</p>
+<p class="standard-p">Chronic pelvic pain.</p>
+<p class="standard-p">Recurrent PID.</p>
+<p class="standard-p">Tubo-ovarian abscess.</p>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">Do not delay treatment while waiting for all test results when clinical PID is suspected.</p>
+<p class="standard-p">Early treatment matters because even mild/unrecognised PID can be associated with reproductive complications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">10. STI SCREENING — WHAT TO TEST</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Depending on exposure/risk:</h4>
+<h4 class="sub-label">Chlamydia</h4>
+<h4 class="sub-label">NAAT:</h4>
+<h4 class="sub-label">vaginal/cervical sample</h4>
+<h4 class="sub-label">first-catch urine</h4>
+<p class="standard-p">rectal/pharyngeal testing according to exposure.</p>
+<h4 class="sub-label">Gonorrhoea</h4>
+<p class="standard-p">NAAT ± culture.</p>
+<p class="standard-p">Culture is particularly important when antimicrobial resistance or treatment failure is suspected.</p>
+<h4 class="sub-label">Syphilis</h4>
+<p class="standard-p">Serology.</p>
+<h4 class="sub-label">HIV</h4>
+<p class="standard-p">4th-generation laboratory antigen/antibody testing is commonly used.</p>
+<h4 class="sub-label">Hepatitis B</h4>
+<h4 class="sub-label">Especially:</h4>
+<h4 class="sub-label">unvaccinated patients</h4>
+<h4 class="sub-label">multiple partners</h4>
+<p class="standard-p">high-risk exposure.</p>
+<h4 class="sub-label">Hepatitis C</h4>
+<p class="standard-p">Risk-based or according to local screening recommendations.</p>
+<h4 class="sub-label">Trichomonas</h4>
+<p class="standard-p">NAAT when indicated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">11. GENITAL ULCERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Major differential</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Ulcer</th>
+<th>Pain</th>
+<th>Other clues</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>HSV</strong></td>
+<td>Multiple superficial ulcers</td>
+<td>Painful</td>
+<td>Vesicles, recurrent</td>
+</tr>
+<tr>
+<td><strong>Syphilis</strong></td>
+<td>Single clean ulcer</td>
+<td>Usually painless</td>
+<td>Regional nodes</td>
+</tr>
+<tr>
+<td><strong>Chancroid</strong></td>
+<td>Deep irregular ulcer</td>
+<td>Painful</td>
+<td>Tender nodes</td>
+</tr>
+<tr>
+<td><strong>Behçet</strong></td>
+<td>Recurrent ulcers</td>
+<td>Painful</td>
+<td>Oral ulcers/systemic features</td>
+</tr>
+<tr>
+<td><strong>Crohn disease</strong></td>
+<td>Fissures/ulcers</td>
+<td>Variable</td>
+<td>GI disease</td>
+</tr>
+<tr>
+<td><strong>Malignancy</strong></td>
+<td>Irregular/indurated</td>
+<td>Variable</td>
+<td>Persistent</td>
+</tr>
+<tr>
+<td><strong>Trauma</strong></td>
+<td>Variable</td>
+<td>Painful</td>
+<td>History</td>
+</tr>
+<tr>
+<td><strong>Fixed drug eruption</strong></td>
+<td>Well-demarcated ulcer/erosion</td>
+<td>Variable</td>
+<td>Recurs same site</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">12. GENITAL HERPES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Cause</h4>
+<p class="standard-p">HSV-1 or HSV-2.</p>
+<p class="standard-p">HSV-2 traditionally causes more recurrent genital disease, although genital HSV-1 is increasingly recognised.</p>
+<h4 class="sub-label">Primary episode</h4>
+<h4 class="sub-label">May cause:</h4>
+<p class="standard-p">painful grouped vesicles.</p>
+<p class="standard-p">painful ulcers.</p>
+<p class="standard-p">dysuria.</p>
+<p class="standard-p">vaginal discharge.</p>
+<p class="standard-p">tender inguinal lymph nodes.</p>
+<p class="standard-p">fever.</p>
+<p class="standard-p">malaise.</p>
+<p class="standard-p">headache.</p>
+<p class="standard-p">Severe primary disease can cause urinary retention or neurological complications.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Look for:</h4>
+<p class="standard-p">vesicles.</p>
+<p class="standard-p">shallow ulcers.</p>
+<p class="standard-p">crusting.</p>
+<p class="standard-p">erythema.</p>
+<p class="standard-p">tender inguinal nodes.</p>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">Preferred</h4>
+<h4 class="sub-label">Lesion swab for:</h4>
+<h4 class="sub-label">HSV PCR/NAAT</h4>
+<p class="standard-p">Type HSV-1 versus HSV-2 when possible.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important counselling</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">HSV:</h4>
+<p class="standard-p">establishes lifelong latency.</p>
+<p class="standard-p">can recur.</p>
+<p class="standard-p">can be transmitted during asymptomatic shedding.</p>
+<p class="standard-p">may be transmitted by people without obvious lesions.</p>
+<p class="standard-p">CDC specifically emphasises asymptomatic shedding and transmission counselling.</p>
+<h4 class="sub-label">First episode treatment</h4>
+<h4 class="sub-label">Example CDC regimen:</h4>
+<h4 class="sub-label">Acyclovir 400 mg PO three times daily for 7–10 days</h4>
+<h4 class="sub-label">or</h4>
+<h4 class="sub-label">Valaciclovir 1 g PO twice daily for 7–10 days</h4>
+<p class="standard-p">Treatment may be extended if lesions have not healed by<span class="val-pill"> 10 days</span>.</p>
+<h4 class="sub-label">For MRCOG:</h4>
+<h4 class="sub-label">“I would follow the current BASHH regimen.”</h4>
+<p class="standard-p">Do not rely on an old memorised regimen if the station asks for current UK guidance.</p>
+<h4 class="sub-label">Recurrent herpes</h4>
+<h4 class="sub-label">Options:</h4>
+<p class="standard-p">episodic treatment.</p>
+<p class="standard-p">suppressive therapy for frequent/severe recurrences.</p>
+<p class="standard-p">suppressive treatment can also be considered when psychological distress is substantial.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<p class="standard-p">This is an important MRCOG crossover.</p>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">first episode or recurrent?</h4>
+<h4 class="sub-label">gestation?</h4>
+<h4 class="sub-label">lesions/prodrome at labour?</h4>
+<h4 class="sub-label">previous history?</h4>
+<p class="standard-p">treatment.</p>
+<p class="standard-p">Management is obstetric-led and depends on timing, recurrence, lesions/prodrome and delivery circumstances.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">13. SYPHILIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Organism</h4>
+<h4 class="sub-label">Treponema pallidum</h4>
+<h4 class="sub-label">Primary syphilis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic lesion</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Chancre</h4>
+<p class="standard-p">usually single.</p>
+<p class="standard-p">painless.</p>
+<p class="standard-p">clean-based.</p>
+<p class="standard-p">indurated.</p>
+<p class="standard-p">regional lymphadenopathy.</p>
+<h4 class="sub-label">Secondary syphilis</h4>
+<h4 class="sub-label">Features:</h4>
+<p class="standard-p">widespread rash.</p>
+<p class="standard-p">palms and soles.</p>
+<p class="standard-p">mucous patches.</p>
+<p class="standard-p">condyloma lata.</p>
+<p class="standard-p">lymphadenopathy.</p>
+<p class="standard-p">systemic symptoms.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important differential</span></div>
+                
+            </div>
+            
+<p class="standard-p">Condyloma lata ≠ genital wart.</p>
+<p class="standard-p">Condyloma lata occurs in secondary syphilis.</p>
+<h4 class="sub-label">Tertiary syphilis</h4>
+<h4 class="sub-label">May cause:</h4>
+<p class="standard-p">cardiovascular disease.</p>
+<p class="standard-p">neurological disease.</p>
+<p class="standard-p">gummatous disease.</p>
+<h4 class="sub-label">Investigations</h4>
+<h4 class="sub-label">Serology:</h4>
+<p class="standard-p">treponemal tests.</p>
+<p class="standard-p">non-treponemal tests such as RPR/VDRL.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important numerical concept</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">RPR/VDRL titres are useful for:</h4>
+<p class="standard-p">baseline.</p>
+<p class="standard-p">monitoring treatment response.</p>
+<p class="standard-p">detecting reinfection.</p>
+<p class="standard-p">A clinically significant change is generally a fourfold change in titre, equivalent to a two-dilution change.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">14. GENITAL WARTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Cause</h4>
+<p class="standard-p">HPV.</p>
+<p class="standard-p">Approximately<span class="val-pill"> 90%</span> of anogenital warts are associated with HPV 6 and 11, which are low-oncogenic-risk types.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Appearance</span></div>
+                <div class="callout-body">papular.</div>
+            </div>
+            
+<p class="standard-p">flat.</p>
+<p class="standard-p">pedunculated.</p>
+<p class="standard-p">cauliflower-like.</p>
+<p class="standard-p">flesh-coloured.</p>
+<h4 class="sub-label">Sites:</h4>
+<p class="standard-p">vulva.</p>
+<p class="standard-p">vagina.</p>
+<p class="standard-p">cervix.</p>
+<p class="standard-p">perineum.</p>
+<p class="standard-p">perianal region.</p>
+<p class="standard-p">anus.</p>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">Usually:</h4>
+<p class="standard-p">Clinical examination.</p>
+<p class="standard-p">HPV testing is not recommended simply to diagnose genital warts.</p>
+<h4 class="sub-label">When to biopsy</h4>
+<h4 class="sub-label">Biopsy if:</h4>
+<p class="standard-p">pigmented.</p>
+<p class="standard-p">indurated.</p>
+<p class="standard-p">fixed.</p>
+<p class="standard-p">ulcerated.</p>
+<p class="standard-p">bleeding.</p>
+<p class="standard-p">atypical.</p>
+<p class="standard-p">diagnosis uncertain.</p>
+<p class="standard-p">immunocompromised patient.</p>
+<p class="standard-p">failure to respond to treatment.</p>
+<p class="standard-p">lesion worsens.</p>
+<h4 class="sub-label">Treatment options</h4>
+<h4 class="sub-label">Patient-applied</h4>
+<p class="standard-p">Imiquimod.</p>
+<p class="standard-p">Podophyllotoxin/podofilox where appropriate.</p>
+<h4 class="sub-label">Clinician-applied</h4>
+<p class="standard-p">Cryotherapy.</p>
+<p class="standard-p">TCA/BCA.</p>
+<p class="standard-p">Surgical excision.</p>
+<p class="standard-p">Electrosurgery.</p>
+<p class="standard-p">Laser in selected cases.</p>
+<h4 class="sub-label">Treatment depends on:</h4>
+<p class="standard-p">number.</p>
+<p class="standard-p">size.</p>
+<p class="standard-p">location.</p>
+<p class="standard-p">pregnancy.</p>
+<p class="standard-p">patient preference.</p>
+<p class="standard-p">cost.</p>
+<p class="standard-p">clinician expertise.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Very important:</h4>
+<p class="standard-p">Avoid podophyllin/podophyllotoxin and sinecatechins during pregnancy.</p>
+<p class="standard-p">Imiquimod is generally avoided until better pregnancy safety data are available.</p>
+<p class="standard-p">Cryotherapy or appropriate surgical treatment may be considered if required.</p>
+<h4 class="sub-label">HPV COUNSELLING</h4>
+<h4 class="sub-label">Explain:</h4>
+<p class="standard-p">HPV is extremely common.</p>
+<p class="standard-p">Infection may be asymptomatic.</p>
+<p class="standard-p">Warts can appear months or years after acquisition.</p>
+<p class="standard-p">Therefore, appearance of warts does not establish when HPV was acquired or prove recent infidelity.</p>
+<p class="standard-p">Treatment removes visible warts but does not necessarily eradicate HPV.</p>
+<p class="standard-p">Recurrence can occur.</p>
+<p class="standard-p">HPV vaccination prevents infection with vaccine-covered types but does not treat existing infection/warts.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">15. SEXUAL DYSFUNCTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is a very good communication station.</p>
+<h4 class="sub-label">First rule</h4>
+<p class="standard-p">Do not immediately label it psychological.</p>
+<p class="standard-p">Use a biopsychosocial model.</p>
+<h4 class="sub-label">Female sexual dysfunction</h4>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">Desire</h4>
+<p class="standard-p">low sexual desire.</p>
+<p class="standard-p">loss of libido.</p>
+<h4 class="sub-label">Arousal</h4>
+<p class="standard-p">difficulty becoming/staying aroused.</p>
+<h4 class="sub-label">Orgasm</h4>
+<p class="standard-p">delayed/absent orgasm.</p>
+<h4 class="sub-label">Pain</h4>
+<p class="standard-p">dyspareunia.</p>
+<p class="standard-p">vaginismus/genito-pelvic pain/penetration disorder.</p>
+<h4 class="sub-label">History</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">superficial or deep?</h4>
+<h4 class="sub-label">insertional or deep?</h4>
+<h4 class="sub-label">onset?</h4>
+<h4 class="sub-label">duration?</h4>
+<h4 class="sub-label">relation to cycle?</h4>
+<h4 class="sub-label">every intercourse or occasional?</h4>
+<h4 class="sub-label">lubrication?</h4>
+<h4 class="sub-label">bleeding?</h4>
+<h4 class="sub-label">discharge?</h4>
+<h4 class="sub-label">Causes of superficial dyspareunia</h4>
+<p class="standard-p">Candida.</p>
+<p class="standard-p">BV/vulvovaginal inflammation.</p>
+<p class="standard-p">Genitourinary syndrome of menopause.</p>
+<p class="standard-p">Vulvodynia.</p>
+<p class="standard-p">Dermatoses.</p>
+<p class="standard-p">Vaginal atrophy.</p>
+<p class="standard-p">Pelvic floor dysfunction.</p>
+<p class="standard-p">Vaginismus.</p>
+<p class="standard-p">Trauma.</p>
+<h4 class="sub-label">Causes of deep dyspareunia</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Ovarian mass</h4>
+<h4 class="sub-label">Fibroids</h4>
+<h4 class="sub-label">Pelvic adhesions</h4>
+<h4 class="sub-label">Pelvic floor dysfunction</h4>
+<h4 class="sub-label">Low libido — causes</h4>
+<h4 class="sub-label">Biological</h4>
+<p class="standard-p">menopause.</p>
+<p class="standard-p">pregnancy/postpartum.</p>
+<p class="standard-p">thyroid disease.</p>
+<p class="standard-p">hyperprolactinaemia.</p>
+<p class="standard-p">anaemia.</p>
+<p class="standard-p">chronic illness.</p>
+<p class="standard-p">pain.</p>
+<p class="standard-p">medications.</p>
+<h4 class="sub-label">Psychological</h4>
+<p class="standard-p">depression.</p>
+<p class="standard-p">anxiety.</p>
+<p class="standard-p">trauma.</p>
+<p class="standard-p">body-image concerns.</p>
+<p class="standard-p">stress.</p>
+<h4 class="sub-label">Relationship</h4>
+<p class="standard-p">conflict.</p>
+<p class="standard-p">lack of intimacy.</p>
+<p class="standard-p">communication difficulties.</p>
+<p class="standard-p">coercion.</p>
+<h4 class="sub-label">Medication causes</h4>
+<h4 class="sub-label">Particularly:</h4>
+<p class="standard-p">SSRIs.</p>
+<p class="standard-p">some antipsychotics.</p>
+<p class="standard-p">some antihypertensives.</p>
+<h4 class="sub-label">Examination</h4>
+<p class="standard-p">Only with consent.</p>
+<h4 class="sub-label">Depending on symptoms:</h4>
+<p class="standard-p">vulval examination.</p>
+<p class="standard-p">speculum.</p>
+<p class="standard-p">bimanual.</p>
+<p class="standard-p">pelvic floor assessment.</p>
+<h4 class="sub-label">Investigations</h4>
+<p class="standard-p">Do not order every hormone test routinely.</p>
+<p class="standard-p">Target investigations based on history.</p>
+<h4 class="sub-label">Possible:</h4>
+<p class="standard-p">pregnancy test.</p>
+<p class="standard-p">FBC.</p>
+<p class="standard-p">TSH.</p>
+<p class="standard-p">prolactin.</p>
+<p class="standard-p">glucose/HbA1c.</p>
+<p class="standard-p">STI testing.</p>
+<p class="standard-p">vaginal swabs.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Treat cause.</p>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Vaginal infection</h4>
+<p class="standard-p">Treat infection.</p>
+<h4 class="sub-label">Genitourinary syndrome of menopause</h4>
+<p class="standard-p">lubricants.</p>
+<p class="standard-p">moisturisers.</p>
+<p class="standard-p">local vaginal oestrogen when appropriate.</p>
+<h4 class="sub-label">Pelvic floor dysfunction</h4>
+<p class="standard-p">Pelvic floor physiotherapy.</p>
+<h4 class="sub-label">Vaginismus</h4>
+<p class="standard-p">psychosexual therapy.</p>
+<p class="standard-p">pelvic floor physiotherapy.</p>
+<p class="standard-p">graded vaginal dilators where appropriate.</p>
+<h4 class="sub-label">Relationship factors</h4>
+<p class="standard-p">Psychosexual/relationship therapy.</p>
+<h4 class="sub-label">Depression/anxiety</h4>
+<p class="standard-p">Appropriate psychological/psychiatric management.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">16. DYSPAREUNIA — OSCE DIFFERENTIAL</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Superficial</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Vulvovaginitis → vulvodynia → dermatoses → atrophy → pelvic floor dysfunction → vaginismus</span></div>
+<h4 class="sub-label">Deep</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PID → endometriosis → adenomyosis → ovarian pathology → adhesions</span></div>
+<h4 class="sub-label">A useful examiner statement:</h4>
+<p class="standard-p">“I would clarify whether the pain is superficial or deep because this significantly narrows the differential diagnosis.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">17. SAFEGUARDING — VERY HIGH-YIELD</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This can turn a routine STI station into a safeguarding station.</p>
+<h4 class="sub-label">Look for:</h4>
+<p class="standard-p">sexual assault.</p>
+<p class="standard-p">rape.</p>
+<p class="standard-p">intimate partner violence.</p>
+<p class="standard-p">coercive control.</p>
+<p class="standard-p">reproductive coercion.</p>
+<p class="standard-p">trafficking.</p>
+<p class="standard-p">exploitation.</p>
+<p class="standard-p">forced marriage.</p>
+<p class="standard-p">FGM.</p>
+<p class="standard-p">child sexual abuse.</p>
+<p class="standard-p">vulnerable adults.</p>
+<p class="standard-p">non-consensual sex.</p>
+<p class="standard-p">financial/social control.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">18. CONSENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Remember</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Consent must be</h4>
+<p class="standard-p">Freely given + informed + specific + ongoing + capable of being withdrawn.</p>
+<h4 class="sub-label">No consent if:</h4>
+<p class="standard-p">coercion.</p>
+<p class="standard-p">threats.</p>
+<p class="standard-p">force.</p>
+<p class="standard-p">incapacitation.</p>
+<p class="standard-p">unconsciousness.</p>
+<p class="standard-p">lack of capacity.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">19. SEXUAL ASSAULT OSCE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First priority</h4>
+<h4 class="sub-label">Immediate safety</h4>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">“Are you safe to go home today?”</h4>
+<h4 class="sub-label">If not:</h4>
+<p class="standard-p">safeguarding pathway.</p>
+<p class="standard-p">urgent specialist support.</p>
+<p class="standard-p">police involvement according to patient&#x27;s wishes/local policy and safeguarding requirements.</p>
+<h4 class="sub-label">Clinical assessment</h4>
+<h4 class="sub-label">Assess:</h4>
+<p class="standard-p">injuries.</p>
+<p class="standard-p">pregnancy risk.</p>
+<p class="standard-p">STI exposure.</p>
+<p class="standard-p">HIV risk.</p>
+<p class="standard-p">hepatitis B risk.</p>
+<p class="standard-p">need for emergency contraception.</p>
+<p class="standard-p">need for HIV PEP.</p>
+<p class="standard-p">forensic evidence.</p>
+<p class="standard-p">psychological support.</p>
+<h4 class="sub-label">Do not</h4>
+<p class="standard-p">blame.</p>
+<h4 class="sub-label">ask “Why didn&#x27;t you leave?”</h4>
+<p class="standard-p">imply consent from previous sexual activity.</p>
+<p class="standard-p">repeatedly ask the patient to recount traumatic details unnecessarily.</p>
+<p class="standard-p">promise absolute confidentiality where safeguarding exceptions apply.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">20. FGM — MRCOG SAFEGUARDING</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask sensitively about:</h4>
+<p class="standard-p">history of FGM.</p>
+<p class="standard-p">pain.</p>
+<p class="standard-p">sexual problems.</p>
+<p class="standard-p">urinary problems.</p>
+<p class="standard-p">menstrual problems.</p>
+<p class="standard-p">obstetric complications.</p>
+<p class="standard-p">risk to daughters/family members.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Identify:</h4>
+<p class="standard-p">clitoral tissue alteration/removal.</p>
+<p class="standard-p">labial alteration.</p>
+<p class="standard-p">narrowed introitus.</p>
+<p class="standard-p">scar tissue.</p>
+<h4 class="sub-label">FGM types — WHO classification</h4>
+<h4 class="sub-label">Type 1</h4>
+<h4 class="sub-label">Partial/total removal of:</h4>
+<p class="standard-p">clitoris and/or prepuce.</p>
+<h4 class="sub-label">Type 2</h4>
+<h4 class="sub-label">Partial/total removal of:</h4>
+<h4 class="sub-label">clitoris and labia minora</h4>
+<p class="standard-p">± labia majora.</p>
+<h4 class="sub-label">Type 3</h4>
+<h4 class="sub-label">Infibulation</h4>
+<p class="standard-p">Narrowing of vaginal opening by creating a covering seal.</p>
+<h4 class="sub-label">Type 4</h4>
+<h4 class="sub-label">Other harmful procedures:</h4>
+<p class="standard-p">pricking.</p>
+<p class="standard-p">piercing.</p>
+<p class="standard-p">incising.</p>
+<p class="standard-p">scraping.</p>
+<p class="standard-p">cauterisation etc.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">21. FORCED MARRIAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important distinction</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Arranged marriage</h4>
+<p class="standard-p">Person has free consent.</p>
+<h4 class="sub-label">Forced marriage</h4>
+<p class="standard-p">Person does not freely consent and may be subjected to:</p>
+<p class="standard-p">pressure.</p>
+<p class="standard-p">threats.</p>
+<p class="standard-p">violence.</p>
+<p class="standard-p">coercion.</p>
+<p class="standard-p">Never treat forced marriage as simply a cultural/family issue.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">22. REPRODUCTIVE COERCION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<p class="standard-p">“Are you able to make your own decisions about contraception and pregnancy?”</p>
+<h4 class="sub-label">Red flags:</h4>
+<p class="standard-p">partner sabotaging contraception.</p>
+<p class="standard-p">forced pregnancy.</p>
+<p class="standard-p">forced abortion.</p>
+<p class="standard-p">contraception being removed/hidden.</p>
+<p class="standard-p">condom sabotage.</p>
+<p class="standard-p">reproductive threats.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">23. CHILD/ADOLESCENT SEXUAL HEALTH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Assess:</h4>
+<p class="standard-p">age.</p>
+<p class="standard-p">capacity.</p>
+<p class="standard-p">consent.</p>
+<p class="standard-p">coercion.</p>
+<p class="standard-p">age of sexual partner.</p>
+<p class="standard-p">exploitation.</p>
+<p class="standard-p">trafficking.</p>
+<p class="standard-p">online grooming.</p>
+<p class="standard-p">abuse.</p>
+<h4 class="sub-label">UK OSCE concept</h4>
+<p class="standard-p">Gillick competence relates to whether a child under 16 can consent to medical treatment.</p>
+<p class="standard-p">Fraser guidelines specifically concern contraceptive/sexual-health advice and treatment for under-16s.</p>
+<h4 class="sub-label">Do not simply assume:</h4>
+<p class="standard-p">“Under 16 = cannot receive confidential sexual-health care.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">24. STI PARTNER MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For diagnosed STI:</h4>
+<h4 class="sub-label">Discuss</h4>
+<p class="standard-p">informing partner(s).</p>
+<p class="standard-p">partner testing.</p>
+<p class="standard-p">partner treatment.</p>
+<p class="standard-p">abstaining from sex until appropriate treatment completed.</p>
+<p class="standard-p">condom use.</p>
+<p class="standard-p">reinfection prevention.</p>
+<p class="standard-p">For PID, CDC guidance recommends evaluation/testing and presumptive treatment for chlamydia and gonorrhoea for sexual partners in the<span class="val-pill"> 60 days</span> before symptom onset, with the most recent partner addressed if intercourse was more remote.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">25. SEXUAL HEALTH COUNSELLING — EXAMINER CHECKLIST</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Before finishing, cover:</h4>
+<h4 class="sub-label">Infection</h4>
+<p class="standard-p">diagnosis explained.</p>
+<p class="standard-p">treatment.</p>
+<p class="standard-p">adherence.</p>
+<p class="standard-p">side effects.</p>
+<h4 class="sub-label">Transmission</h4>
+<p class="standard-p">condoms.</p>
+<p class="standard-p">abstinence during treatment where appropriate.</p>
+<p class="standard-p">partner notification.</p>
+<h4 class="sub-label">Testing</h4>
+<p class="standard-p">HIV.</p>
+<p class="standard-p">syphilis.</p>
+<p class="standard-p">other STI testing as indicated.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<p class="standard-p">contraception.</p>
+<p class="standard-p">pregnancy testing.</p>
+<p class="standard-p">emergency contraception if relevant.</p>
+<h4 class="sub-label">Fertility</h4>
+<h4 class="sub-label">Particularly after:</h4>
+<p class="standard-p">PID.</p>
+<p class="standard-p">chlamydia.</p>
+<p class="standard-p">gonorrhoea.</p>
+<h4 class="sub-label">Vaccination</h4>
+<p class="standard-p">HPV.</p>
+<p class="standard-p">hepatitis B when indicated.</p>
+<h4 class="sub-label">Safety</h4>
+<p class="standard-p">coercion.</p>
+<p class="standard-p">domestic abuse.</p>
+<p class="standard-p">sexual assault.</p>
+<p class="standard-p">safeguarding.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">26. NUMERICAL VALUES — RAPID REVISION TABLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>Important value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Normal vaginal pH</strong></td>
+<td>~3.8–4.5</td>
+</tr>
+<tr>
+<td><strong>Candida pH</strong></td>
+<td>&lt;4.5</td>
+</tr>
+<tr>
+<td><strong>BV pH</strong></td>
+<td>&gt;4.5</td>
+</tr>
+<tr>
+<td><strong>Trichomonas pH</strong></td>
+<td>usually &gt;4.5</td>
+</tr>
+<tr>
+<td><strong>Amsel criteria for BV</strong></td>
+<td>≥3/4</td>
+</tr>
+<tr>
+<td><strong>Nugent normal</strong></td>
+<td>0–3</td>
+</tr>
+<tr>
+<td><strong>Nugent intermediate</strong></td>
+<td>4–6</td>
+</tr>
+<tr>
+<td><strong>Nugent BV</strong></td>
+<td>7–10</td>
+</tr>
+<tr>
+<td><strong>BV clue cells</strong></td>
+<td>Typically <span class="val-pill">≥20%</span> epithelial cells</td>
+</tr>
+<tr>
+<td><strong>Gonorrhoea/Chlamydia preferred screening</strong></td>
+<td>NAAT</td>
+</tr>
+<tr>
+<td><strong>PID minimum clinical criteria</strong></td>
+<td>≥1 of 3</td>
+</tr>
+<tr>
+<td><strong>PID criteria</strong></td>
+<td>Cervical motion + uterine + adnexal tenderness</td>
+</tr>
+<tr>
+<td><strong>PID partner look-back</strong></td>
+<td><span class="val-pill">60 days</span> in CDC guidance</td>
+</tr>
+<tr>
+<td><strong>Genital warts due to HPV 6/11</strong></td>
+<td><span class="val-pill">~90%</span></td>
+</tr>
+<tr>
+<td><strong>Significant RPR/VDRL titre change</strong></td>
+<td>4-fold</td>
+</tr>
+<tr>
+<td><strong>HSV first episode example: acyclovir</strong></td>
+<td><span class="val-pill">400 mg</span> TDS × 7–<span class="val-pill">10 days</span></td>
+</tr>
+<tr>
+<td><strong>HSV first episode example: valaciclovir</strong></td>
+<td><span class="val-pill">1 g</span> BD × 7–<span class="val-pill">10 days</span></td>
+</tr>
+<tr>
+<td><strong>Cervicitis example: doxycycline</strong></td>
+<td><span class="val-pill">100 mg</span> BD ×<span class="val-pill"> 7 days</span></td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">These treatment doses are examples from current referenced STI guidance; for an MRCOG station, state that you would follow the current BASHH guideline/local antimicrobial policy, particularly because recommendations and resistance patterns can change.</p>
+
+                <div class="topic-row" id="topic-t-26-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">MRCOG “DISCHARGE COLOUR → DIAGNOSIS” MEMORY MAP</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-26-1" onchange="toggleMastery('t-26-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">🟢 Thick white + intense itch</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Candida</span></div>
+<h4 class="sub-label">⚪ Thin grey/white + fishy smell</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ BV</span></div>
+<h4 class="sub-label">🟡🟢 Frothy yellow-green</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Trichomoniasis</span></div>
+<h4 class="sub-label">🔴 Mucopurulent from cervix + postcoital bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Cervicitis</span></div>
+<h4 class="sub-label">🔴 Pelvic pain + cervical motion tenderness</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ PID</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">28. MRCOG “GENITAL LESION” MEMORY MAP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Painful grouped vesicles → ulcers</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ HSV</span></div>
+<h4 class="sub-label">Painless indurated ulcer</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Primary syphilis</span></div>
+<h4 class="sub-label">Cauliflower/papillary growth</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ HPV wart</span></div>
+<p class="standard-p">Irregular/pigmented/indurated/ulcerated persistent lesion</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Biopsy — exclude malignancy/other pathology</span></div>
+<h4 class="sub-label">Moist broad-based lesions</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Consider condyloma lata → secondary syphilis</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">29. MRCOG “DO NOT MISS” LIST</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">In every sexual-health station, mentally run through:</h4>
+
+                <div class="topic-row" id="topic-t-28-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-28-1" onchange="toggleMastery('t-28-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Could she be pregnant?</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">2. PID</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Could this be ascending infection?</h4>
+
+                <div class="topic-row" id="topic-t-29-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Ectopic</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-29-1" onchange="toggleMastery('t-29-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Could this pelvic pain be ectopic?</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">4. STI</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Which anatomical sites need testing based on sexual practices?</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">5. HIV</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Does she need HIV testing/PEP/PrEP assessment?</h4>
+
+                <div class="topic-row" id="topic-t-31-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Syphilis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-31-1" onchange="toggleMastery('t-31-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Could this ulcer/rash be syphilis?</h4>
+
+                <div class="topic-row" id="topic-t-31-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Partner management</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-31-2" onchange="toggleMastery('t-31-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Who needs testing/treatment?</h4>
+
+                <div class="topic-row" id="topic-t-31-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Safeguarding</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-31-3" onchange="toggleMastery('t-31-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Is sex actually consensual and is she safe?</h4>
+
+                <div class="topic-row" id="topic-t-31-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Pregnancy implications</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-31-4" onchange="toggleMastery('t-31-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Is she pregnant, planning pregnancy, or breastfeeding?</h4>
+
+                <div class="topic-row" id="topic-t-31-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-31-5" onchange="toggleMastery('t-31-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Could this persistent/atypical lesion be malignant?</h4>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 3. VAGINITIS / VAGINAL DISCHARGE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Candida: Thick, white, curdy</li>
+<li class="surg-item">● BV: Thin, homogeneous, grey/white</li>
+<li class="surg-item">● Trichomoniasis: Frothy yellow-green</li>
+<li class="surg-item">● Physiological: Clear/white, variable</li>
+<li class="surg-item">● Cervicitis: Mucopurulent</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 11. GENITAL ULCERS</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● HSV: Multiple superficial ulcers</li>
+<li class="surg-item">● Syphilis: Single clean ulcer</li>
+<li class="surg-item">● Chancroid: Deep irregular ulcer</li>
+<li class="surg-item">● Behçet: Recurrent ulcers</li>
+<li class="surg-item">● Crohn disease: Fissures/ulcers</li>
+<li class="surg-item">● Malignancy: Irregular/indurated</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 42;
+    const flashcards = [{"category": "3. VAGINITIS / VAGINAL DISCHAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Candida</strong>?", "a": "<strong>Thick, white, curdy</strong><br><4.5<br>Budding yeast/pseudohyphae"}, {"category": "3. VAGINITIS / VAGINAL DISCHAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>BV</strong>?", "a": "<strong>Thin, homogeneous, grey/white</strong><br>>4.5<br>Clue cells"}, {"category": "3. VAGINITIS / VAGINAL DISCHAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Trichomoniasis</strong>?", "a": "<strong>Frothy yellow-green</strong><br>>4.5<br>Motile trichomonads"}, {"category": "3. VAGINITIS / VAGINAL DISCHAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Physiological</strong>?", "a": "<strong>Clear/white, variable</strong><br>Usually \u22644.5<br>No inflammatory/pathogenic findings"}, {"category": "3. VAGINITIS / VAGINAL DISCHAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervicitis</strong>?", "a": "<strong>Mucopurulent</strong><br>Usually normal vaginal pH<br>Cervical discharge/contact bleeding"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>HSV</strong>?", "a": "<strong>Multiple superficial ulcers</strong><br>Painful<br>Vesicles, recurrent"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Syphilis</strong>?", "a": "<strong>Single clean ulcer</strong><br>Usually painless<br>Regional nodes"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Chancroid</strong>?", "a": "<strong>Deep irregular ulcer</strong><br>Painful<br>Tender nodes"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Beh\u00e7et</strong>?", "a": "<strong>Recurrent ulcers</strong><br>Painful<br>Oral ulcers/systemic features"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Crohn disease</strong>?", "a": "<strong>Fissures/ulcers</strong><br>Variable<br>GI disease"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Malignancy</strong>?", "a": "<strong>Irregular/indurated</strong><br>Variable<br>Persistent"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Trauma</strong>?", "a": "<strong>Variable</strong><br>Painful<br>History"}, {"category": "11. GENITAL ULCERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fixed drug eruption</strong>?", "a": "<strong>Well-demarcated ulcer/erosion</strong><br>Variable<br>Recurs same site"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Parameter</strong>?", "a": "<strong>Important value</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal vaginal pH</strong>?", "a": "<strong>~3.8\u20134.5</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Candida pH</strong>?", "a": "<strong><4.5</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>BV pH</strong>?", "a": "<strong>>4.5</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Trichomonas pH</strong>?", "a": "<strong>usually >4.5</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Amsel criteria for BV</strong>?", "a": "<strong>\u22653/4</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Nugent normal</strong>?", "a": "<strong>0\u20133</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Nugent intermediate</strong>?", "a": "<strong>4\u20136</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Nugent BV</strong>?", "a": "<strong>7\u201310</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>BV clue cells</strong>?", "a": "<strong>Typically \u226520% epithelial cells</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gonorrhoea/Chlamydia preferred screening</strong>?", "a": "<strong>NAAT</strong>"}, {"category": "RAPID REVISION TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>PID minimum clinical criteria</strong>?", "a": "<strong>\u22651 of 3</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Candida ?", "options": ["Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Frothy yellow-green  >4.5 Motile trichomonads", "Clear/white, variable  Usually \u22644.5 No inflammatory/pathogenic findings"], "correct": 0, "explanation": "Key Guideline / Fact: Thick, white, curdy   Budding yeast/pseudohyphae (3. VAGINITIS / VAGINAL DISCHAR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  BV ?", "options": ["Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Frothy yellow-green  >4.5 Motile trichomonads", "Clear/white, variable  Usually \u22644.5 No inflammatory/pathogenic findings"], "correct": 1, "explanation": "Key Guideline / Fact: Thin, homogeneous, grey/white  >4.5 Clue cells (3. VAGINITIS / VAGINAL DISCHAR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Trichomoniasis ?", "options": ["Thin, homogeneous, grey/white  >4.5 Clue cells", "Thick, white, curdy   Budding yeast/pseudohyphae", "Frothy yellow-green  >4.5 Motile trichomonads", "Clear/white, variable  Usually \u22644.5 No inflammatory/pathogenic findings"], "correct": 2, "explanation": "Key Guideline / Fact: Frothy yellow-green  >4.5 Motile trichomonads (3. VAGINITIS / VAGINAL DISCHAR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Physiological ?", "options": ["Frothy yellow-green  >4.5 Motile trichomonads", "Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Clear/white, variable  Usually \u22644.5 No inflammatory/pathogenic findings"], "correct": 3, "explanation": "Key Guideline / Fact: Clear/white, variable  Usually \u22644.5 No inflammatory/pathogenic findings (3. VAGINITIS / VAGINAL DISCHAR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervicitis ?", "options": ["Mucopurulent  Usually normal vaginal pH Cervical discharge/contact bleeding", "Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Frothy yellow-green  >4.5 Motile trichomonads"], "correct": 0, "explanation": "Key Guideline / Fact: Mucopurulent  Usually normal vaginal pH Cervical discharge/contact bleeding (3. VAGINITIS / VAGINAL DISCHAR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  HSV ?", "options": ["Thick, white, curdy   Budding yeast/pseudohyphae", "Multiple superficial ulcers  Painful Vesicles, recurrent", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Frothy yellow-green  >4.5 Motile trichomonads"], "correct": 1, "explanation": "Key Guideline / Fact: Multiple superficial ulcers  Painful Vesicles, recurrent (11. GENITAL ULCERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Syphilis ?", "options": ["Thin, homogeneous, grey/white  >4.5 Clue cells", "Thick, white, curdy   Budding yeast/pseudohyphae", "Single clean ulcer  Usually painless Regional nodes", "Frothy yellow-green  >4.5 Motile trichomonads"], "correct": 2, "explanation": "Key Guideline / Fact: Single clean ulcer  Usually painless Regional nodes (11. GENITAL ULCERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Chancroid ?", "options": ["Frothy yellow-green  >4.5 Motile trichomonads", "Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Deep irregular ulcer  Painful Tender nodes"], "correct": 3, "explanation": "Key Guideline / Fact: Deep irregular ulcer  Painful Tender nodes (11. GENITAL ULCERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Beh\u00e7et ?", "options": ["Recurrent ulcers  Painful Oral ulcers/systemic features", "Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Frothy yellow-green  >4.5 Motile trichomonads"], "correct": 0, "explanation": "Key Guideline / Fact: Recurrent ulcers  Painful Oral ulcers/systemic features (11. GENITAL ULCERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Crohn disease ?", "options": ["Thick, white, curdy   Budding yeast/pseudohyphae", "Fissures/ulcers  Variable GI disease", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Frothy yellow-green  >4.5 Motile trichomonads"], "correct": 1, "explanation": "Key Guideline / Fact: Fissures/ulcers  Variable GI disease (11. GENITAL ULCERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Malignancy ?", "options": ["Thin, homogeneous, grey/white  >4.5 Clue cells", "Thick, white, curdy   Budding yeast/pseudohyphae", "Irregular/indurated  Variable Persistent", "Frothy yellow-green  >4.5 Motile trichomonads"], "correct": 2, "explanation": "Key Guideline / Fact: Irregular/indurated  Variable Persistent (11. GENITAL ULCERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Trauma ?", "options": ["Frothy yellow-green  >4.5 Motile trichomonads", "Thick, white, curdy   Budding yeast/pseudohyphae", "Thin, homogeneous, grey/white  >4.5 Clue cells", "Variable  Painful History"], "correct": 3, "explanation": "Key Guideline / Fact: Variable  Painful History (11. GENITAL ULCERS)."}];
+    const storageKey = 'obgyn_mastered_mrcog_part_3___sexual_health_osce_master_guide';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

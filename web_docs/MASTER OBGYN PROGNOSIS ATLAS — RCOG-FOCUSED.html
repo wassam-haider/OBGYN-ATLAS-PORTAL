@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER OBGYN PROGNOSIS ATLAS — RCOG-FOCUSED — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MASTER OBGYN PROGNOSIS ATLAS — RCOG-FO</div>
+                <div class="brand-subtitle-text">Exam framework: For every condition, ask:</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 34 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 9 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (9 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="PART I — OBSTETRIC CONDITIONS">PART I — OBSTETRIC CONDITIONS</a></li><li><a href="#part-3" class="part-nav-link" title="6. PPROM">6. PPROM</a></li><li><a href="#part-4" class="part-nav-link" title="PART II — EARLY PREGNANCY">PART II — EARLY PREGNANCY</a></li><li><a href="#part-5" class="part-nav-link" title="19. PCOS">19. PCOS</a></li><li><a href="#part-6" class="part-nav-link" title="PART IV — UROGYNAECOLOGY">PART IV — UROGYNAECOLOGY</a></li><li><a href="#part-7" class="part-nav-link" title="PART V — GYNAECOLOGICAL EMERGENCIES">PART V — GYNAECOLOGICAL EMERGENCIES</a></li><li><a href="#part-8" class="part-nav-link" title="PART VI — OBSTETRIC INFECTIONS">PART VI — OBSTETRIC INFECTIONS</a></li><li><a href="#part-9" class="part-nav-link" title="PART VII — COMMON OBSTETRIC PROCEDURAL OUTCOMES">PART VII — COMMON OBSTETRIC PROCEDURAL OUTCOMES</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MASTER OBGYN PROGNOSIS ATLAS — RCOG-FOCUSED</h1>
+                    <div class="reader-hero-sub">⭐ Exam framework: For every condition, ask:</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Maternal prognosis → fetal/neonatal prognosis → fertility prognosis → recurrence risk → long-term prognosis → mortality/morbidity.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">PART I — OBSTETRIC CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Hypertension in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Maternal prognosis</th>
+<th>Fetal prognosis</th>
+<th>Recurrence / long-term</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Chronic hypertension</strong></td>
+<td>Usually good if controlled; increased risk of superimposed PE, abruption, stroke</td>
+<td>↑ FGR, preterm birth, stillbirth</td>
+<td>Recurs as chronic disease; ↑ later CV/renal risk</td>
+</tr>
+<tr>
+<td><strong>Gestational hypertension</strong></td>
+<td>Usually favourable, but may progress to PE</td>
+<td>Usually good if term and uncomplicated; ↑ FGR/preterm risk</td>
+<td>↑ recurrence of hypertensive disease</td>
+</tr>
+<tr>
+<td><strong>Mild pre-eclampsia</strong></td>
+<td>Generally favourable with surveillance</td>
+<td>Usually good if late-onset</td>
+<td>Increased recurrence and future CV disease</td>
+</tr>
+<tr>
+<td><strong>Early-onset PE</strong></td>
+<td>Higher maternal morbidity</td>
+<td>↑ FGR, prematurity, stillbirth</td>
+<td>Recurrence substantially increased</td>
+</tr>
+<tr>
+<td><strong>Severe PE</strong></td>
+<td>Potentially life-threatening: stroke, HELLP, renal/liver complications</td>
+<td>High prematurity/FGR risk</td>
+<td>Increased future hypertension/CVD</td>
+</tr>
+<tr>
+<td><strong>Eclampsia</strong></td>
+<td>Usually recover with treatment, but risk of stroke, aspiration, organ failure and death</td>
+<td>Increased fetal hypoxia, prematurity and death</td>
+<td>Increased recurrence of PE/eclampsia</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG notes that prognosis is particularly dependent on gestational age</span></div>
+                <div class="callout-body">serious maternal/perinatal morbidity and mortality increase substantially when PE occurs before<span class="val-pill"> 33 weeks</span>.</div>
+            </div>
+            
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important RCOG recurrence figures for PE</span></div>
+                <div class="callout-body">Previous PE with birth 28–<span class="val-pill">34 weeks</span> → ~1 in 3 recurrence</div>
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Previous PE with birth 34–<span class="val-pill">37 weeks</span> → ~1 in 4</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Previous PE with birth <span class="val-pill">≥37 weeks</span> → ~1 in 6</span></div>
+<p class="standard-p">RCOG also highlights increased lifetime risk of hypertension, stroke and heart disease after PE.</p>
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">HELLP syndrome</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Maternal prognosis</h4>
+<p class="standard-p">Potentially life-threatening.</p>
+<p class="standard-p">Risks: DIC, hepatic complications, renal failure, pulmonary oedema, stroke.</p>
+<p class="standard-p">Usually improves after delivery.</p>
+<h4 class="sub-label">Fetal prognosis</h4>
+<p class="standard-p">Mainly determined by gestational age.</p>
+<p class="standard-p">High risk of FGR, placental insufficiency, prematurity and fetal death.</p>
+<h4 class="sub-label">Future pregnancy</h4>
+<p class="standard-p">Increased risk of recurrent hypertensive disease/HELLP.</p>
+<p class="standard-p">Requires consultant-led surveillance.</p>
+<h4 class="sub-label">Exam pearl:</h4>
+<p class="standard-p">Earlier onset = worse maternal + fetal prognosis.</p>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Gestational diabetes mellitus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<p class="standard-p">Usually resolves after delivery.</p>
+<h4 class="sub-label">Increased future risk of:</h4>
+<h4 class="sub-label">type 2 diabetes</h4>
+<h4 class="sub-label">recurrent GDM</h4>
+<p class="standard-p">metabolic disease.</p>
+<h4 class="sub-label">Fetal/neonatal</h4>
+<h4 class="sub-label">Macrosomia</h4>
+<h4 class="sub-label">Shoulder dystocia</h4>
+<h4 class="sub-label">Birth trauma</h4>
+<h4 class="sub-label">Neonatal hypoglycaemia</h4>
+<h4 class="sub-label">Respiratory morbidity</h4>
+<h4 class="sub-label">Jaundice</h4>
+<p class="standard-p">Stillbirth risk if poorly controlled.</p>
+<h4 class="sub-label">Long-term offspring</h4>
+<p class="standard-p">Increased risk of obesity and metabolic disease.</p>
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Pre-existing diabetes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Generally higher-risk pregnancy than uncomplicated GDM.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">↑</h4>
+<h4 class="sub-label">pre-eclampsia</h4>
+<h4 class="sub-label">miscarriage</h4>
+<h4 class="sub-label">diabetic ketoacidosis</h4>
+<h4 class="sub-label">hypoglycaemia</h4>
+<h4 class="sub-label">progression of retinopathy/nephropathy</h4>
+<p class="standard-p">operative delivery.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Fetal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">↑</h4>
+<h4 class="sub-label">congenital malformations</h4>
+<h4 class="sub-label">macrosomia</h4>
+<h4 class="sub-label">FGR if severe vascular disease</h4>
+<h4 class="sub-label">stillbirth</h4>
+<h4 class="sub-label">neonatal hypoglycaemia</h4>
+<p class="standard-p">prematurity.</p>
+<p class="standard-p">Prognosis is substantially improved by excellent preconception glycaemic control and antenatal management.</p>
+
+                <div class="topic-row" id="topic-t-2-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Preterm labour</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-5" onchange="toggleMastery('t-2-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Prognosis depends predominantly on gestational age.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Gestation</th>
+<th>General prognosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>&lt;<span class="val-pill">24 weeks</span></strong></td>
+<td>Very high morbidity/mortality</td>
+</tr>
+<tr>
+<td><strong>24–27+6</strong></td>
+<td>High neonatal morbidity</td>
+</tr>
+<tr>
+<td><strong>28–31+6</strong></td>
+<td>Survival substantially improves but morbidity remains significant</td>
+</tr>
+<tr>
+<td><strong>32–33+6</strong></td>
+<td>Generally good survival; respiratory/neurodevelopmental morbidity possible</td>
+</tr>
+<tr>
+<td><strong>34–36+6</strong></td>
+<td>Generally favourable but increased neonatal morbidity compared with term</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important complications</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">respiratory distress</h4>
+<h4 class="sub-label">IVH</h4>
+<h4 class="sub-label">NEC</h4>
+<h4 class="sub-label">sepsis</h4>
+<h4 class="sub-label">cerebral palsy</h4>
+<p class="standard-p">neurodevelopmental impairment.</p>
+<p class="standard-p">RCOG specifically maintains guidance covering corticosteroids, PPROM, cervical cerclage and preterm birth.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">6. PPROM</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Maternal prognosis</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">maternal sepsis</h4>
+<h4 class="sub-label">placental abruption</h4>
+<p class="standard-p">operative delivery.</p>
+<h4 class="sub-label">Fetal/neonatal prognosis</h4>
+<p class="standard-p">Depends heavily on gestational age.</p>
+<h4 class="sub-label">Risks:</h4>
+<h4 class="sub-label">prematurity</h4>
+<h4 class="sub-label">respiratory morbidity</h4>
+<h4 class="sub-label">neonatal sepsis</h4>
+<h4 class="sub-label">cord compression</h4>
+<p class="standard-p">pulmonary hypoplasia, particularly with very early prolonged oligohydramnios.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Earlier PPROM → worse prognosis.</span></div>
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Placental abruption</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Maternal prognosis</h4>
+<h4 class="sub-label">Potentially severe:</h4>
+<h4 class="sub-label">major haemorrhage</h4>
+<h4 class="sub-label">shock</h4>
+<h4 class="sub-label">DIC</h4>
+<h4 class="sub-label">renal failure</h4>
+<h4 class="sub-label">hysterectomy</h4>
+<p class="standard-p">maternal death.</p>
+<h4 class="sub-label">Fetal prognosis</h4>
+<h4 class="sub-label">fetal hypoxia</h4>
+<h4 class="sub-label">FGR</h4>
+<h4 class="sub-label">prematurity</h4>
+<p class="standard-p">fetal death.</p>
+<p class="standard-p">Prognosis is strongly related to extent of abruption, maternal haemorrhage and fetal status.</p>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Placenta praevia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">recurrent APH</div>
+            </div>
+            
+<h4 class="sub-label">major PPH</h4>
+<h4 class="sub-label">transfusion</h4>
+<h4 class="sub-label">emergency caesarean</h4>
+<p class="standard-p">hysterectomy.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Fetal</span></div>
+                <div class="callout-body">prematurity</div>
+            </div>
+            
+<h4 class="sub-label">neonatal morbidity</h4>
+<h4 class="sub-label">malpresentation</h4>
+<p class="standard-p">fetal compromise during bleeding.</p>
+<p class="standard-p">Importantly, a low-lying placenta at the 20-week scan often resolves: RCOG reports that 9/10 women with a low-lying placenta at<span class="val-pill"> 20 weeks</span> no longer have it at follow-up.</p>
+
+                <div class="topic-row" id="topic-t-3-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Placenta accreta spectrum</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-3" onchange="toggleMastery('t-3-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Maternal prognosis</h4>
+<h4 class="sub-label">Potentially life-threatening:</h4>
+<h4 class="sub-label">massive obstetric haemorrhage</h4>
+<h4 class="sub-label">transfusion</h4>
+<h4 class="sub-label">bladder/ureteric injury</h4>
+<h4 class="sub-label">hysterectomy</h4>
+<h4 class="sub-label">ICU admission</h4>
+<p class="standard-p">maternal death.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Fetal</span></div>
+                <div class="callout-body">iatrogenic prematurity</div>
+            </div>
+            
+<p class="standard-p">neonatal morbidity.</p>
+<p class="standard-p">Best prognosis occurs with antenatal diagnosis and planned delivery in an experienced specialist centre.</p>
+<p class="standard-p">RCOG describes placenta praevia/accreta as conditions associated with substantial maternal and neonatal morbidity and mortality, particularly because of major haemorrhage and preterm birth.</p>
+
+                <div class="topic-row" id="topic-t-3-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Vasa praevia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-4" onchange="toggleMastery('t-3-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Untreated/undiagnosed:</h4>
+<h4 class="sub-label">catastrophic fetal haemorrhage after membrane rupture</h4>
+<h4 class="sub-label">acute fetal hypoxia</h4>
+<p class="standard-p">fetal death.</p>
+<p class="standard-p">Antenatally diagnosed + planned caesarean: prognosis becomes dramatically better.</p>
+<h4 class="sub-label">Exam pearl</h4>
+<p class="standard-p">Antenatal diagnosis is the major prognostic determinant.</p>
+
+                <div class="topic-row" id="topic-t-3-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Multiple pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-5" onchange="toggleMastery('t-3-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Maternal prognosis</h4>
+<h4 class="sub-label">↑</h4>
+<h4 class="sub-label">anaemia</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">GDM</h4>
+<h4 class="sub-label">PPH</h4>
+<h4 class="sub-label">operative delivery</h4>
+<p class="standard-p">thromboembolism.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Fetal</span></div>
+                
+            </div>
+            
+<p class="standard-p">Major determinant is chorionicity.</p>
+<h4 class="sub-label">Risks:</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">FGR</h4>
+<h4 class="sub-label">TTTS</h4>
+<h4 class="sub-label">TAPS</h4>
+<h4 class="sub-label">TRAP sequence</h4>
+<h4 class="sub-label">congenital abnormalities</h4>
+<p class="standard-p">stillbirth.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG highlights increased risks including PE, caesarean/assisted birth and PPH.</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-3-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Fetal growth restriction</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-6" onchange="toggleMastery('t-3-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis</h4>
+<h4 class="sub-label">Depends on:</h4>
+<h4 class="sub-label">gestational age</h4>
+<h4 class="sub-label">severity</h4>
+<h4 class="sub-label">Doppler abnormalities</h4>
+<h4 class="sub-label">associated anomalies</h4>
+<p class="standard-p">maternal disease.</p>
+<h4 class="sub-label">Complications:</h4>
+<h4 class="sub-label">stillbirth</h4>
+<h4 class="sub-label">hypoxia</h4>
+<h4 class="sub-label">prematurity</h4>
+<h4 class="sub-label">neonatal morbidity</h4>
+<p class="standard-p">neurodevelopmental impairment.</p>
+<p class="standard-p">Early severe FGR + abnormal Dopplers = poor prognosis.</p>
+
+                <div class="topic-row" id="topic-t-3-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Small-for-gestational-age fetus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-7" onchange="toggleMastery('t-3-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Distinguish from FGR.</p>
+<h4 class="sub-label">Constitutionally small fetus</h4>
+<p class="standard-p">Usually good prognosis if Dopplers and growth trajectory are normal.</p>
+<h4 class="sub-label">Pathological FGR</h4>
+<h4 class="sub-label">Higher:</h4>
+<h4 class="sub-label">stillbirth</h4>
+<h4 class="sub-label">prematurity</h4>
+<h4 class="sub-label">neonatal morbidity</h4>
+<p class="standard-p">long-term metabolic/cardiovascular disease.</p>
+
+                <div class="topic-row" id="topic-t-3-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Oligohydramnios</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-8" onchange="toggleMastery('t-3-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Prognosis depends on cause and gestation.</p>
+<h4 class="sub-label">Risks:</h4>
+<h4 class="sub-label">cord compression</h4>
+<h4 class="sub-label">abnormal CTG</h4>
+<h4 class="sub-label">FGR</h4>
+<h4 class="sub-label">pulmonary hypoplasia if severe and early</h4>
+<p class="standard-p">musculoskeletal abnormalities with prolonged early severe oligohydramnios.</p>
+<p class="standard-p">Term isolated oligohydramnios generally has a much better prognosis than early severe oligohydramnios.</p>
+
+                <div class="topic-row" id="topic-t-3-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">Polyhydramnios</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-9" onchange="toggleMastery('t-3-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Mild idiopathic</h4>
+<p class="standard-p">Often good prognosis.</p>
+<h4 class="sub-label">Severe/secondary</h4>
+<h4 class="sub-label">Risks:</h4>
+<h4 class="sub-label">malpresentation</h4>
+<h4 class="sub-label">preterm labour</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">cord prolapse</h4>
+<h4 class="sub-label">placental abruption</h4>
+<h4 class="sub-label">PPH</h4>
+<p class="standard-p">fetal anomaly.</p>
+<p class="standard-p">Prognosis depends largely on underlying cause.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">PART II — EARLY PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-4-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">Miscarriage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-1" onchange="toggleMastery('t-4-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Single early miscarriage</h4>
+<p class="standard-p">Usually excellent future fertility prognosis.</p>
+<p class="standard-p">Most subsequent pregnancies are successful.</p>
+<h4 class="sub-label">Recurrent miscarriage</h4>
+<h4 class="sub-label">Prognosis depends on:</h4>
+<h4 class="sub-label">maternal age</h4>
+<h4 class="sub-label">chromosomal abnormalities</h4>
+<h4 class="sub-label">uterine pathology</h4>
+<h4 class="sub-label">APS</h4>
+<h4 class="sub-label">endocrine disease</h4>
+<p class="standard-p">parental chromosomal rearrangement.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">A history of miscarriage does not automatically imply infertility.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-4-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">Ectopic pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-2" onchange="toggleMastery('t-4-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">RCOG recognises tubal, cervical, caesarean-scar, interstitial/cornual, ovarian, abdominal and heterotopic ectopic pregnancy.</p>
+<h4 class="sub-label">Maternal prognosis</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>With early diagnosis and treatment → generally excellent.</span></div>
+<h4 class="sub-label">Untreated ruptured ectopic:</h4>
+<h4 class="sub-label">major haemorrhage</h4>
+<h4 class="sub-label">shock</h4>
+<h4 class="sub-label">emergency surgery</h4>
+<p class="standard-p">maternal death.</p>
+<h4 class="sub-label">Fertility</h4>
+<h4 class="sub-label">Depends on:</h4>
+<h4 class="sub-label">condition of contralateral tube</h4>
+<h4 class="sub-label">tubal damage</h4>
+<h4 class="sub-label">previous ectopic</h4>
+<p class="standard-p">underlying PID/infertility.</p>
+<h4 class="sub-label">Recurrence</h4>
+<p class="standard-p">Approximately<span class="val-pill"> 10%</span> after one ectopic and higher after multiple ectopics.</p>
+
+                <div class="topic-row" id="topic-t-4-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">Molar pregnancy / gestational trophoblastic disease</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-3" onchange="toggleMastery('t-4-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Complete mole</h4>
+<p class="standard-p">Usually excellent prognosis with appropriate treatment.</p>
+<h4 class="sub-label">Potential progression to:</h4>
+<h4 class="sub-label">persistent GTD</h4>
+<h4 class="sub-label">invasive mole</h4>
+<p class="standard-p">choriocarcinoma.</p>
+<h4 class="sub-label">Choriocarcinoma</h4>
+<p class="standard-p">Generally highly chemotherapy-sensitive, with excellent cure rates in low-risk disease.</p>
+<h4 class="sub-label">Poor prognosis associated with:</h4>
+<h4 class="sub-label">high FIGO score</h4>
+<h4 class="sub-label">liver/brain metastases</h4>
+<h4 class="sub-label">delayed treatment</h4>
+<h4 class="sub-label">very high hCG</h4>
+<p class="standard-p">antecedent term pregnancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">19. PCOS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Immediate prognosis</h4>
+<p class="standard-p">Chronic condition rather than a curable disease.</p>
+<h4 class="sub-label">Fertility</h4>
+<p class="standard-p">Ovulatory dysfunction may cause subfertility.</p>
+<p class="standard-p">Many women conceive with lifestyle intervention and/or ovulation induction.</p>
+<h4 class="sub-label">Long-term</h4>
+<h4 class="sub-label">Increased risk of:</h4>
+<h4 class="sub-label">type 2 diabetes</h4>
+<h4 class="sub-label">metabolic syndrome</h4>
+<h4 class="sub-label">endometrial hyperplasia/cancer</h4>
+<p class="standard-p">cardiovascular risk factors.</p>
+<p class="standard-p">RCOG has specifically addressed the long-term consequences of PCOS in its Green-top guidance.</p>
+
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">20</span>
+                        <h3 class="topic-heading">Endometriosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis</h4>
+<p class="standard-p">Chronic, recurrent condition.</p>
+<h4 class="sub-label">Can cause:</h4>
+<h4 class="sub-label">chronic pelvic pain</h4>
+<h4 class="sub-label">dyspareunia</h4>
+<h4 class="sub-label">infertility/subfertility</h4>
+<h4 class="sub-label">ovarian endometrioma</h4>
+<p class="standard-p">recurrent symptoms after treatment.</p>
+<h4 class="sub-label">Fertility</h4>
+<p class="standard-p">Severity, age, ovarian reserve and tubal factors determine prognosis.</p>
+<h4 class="sub-label">Cancer</h4>
+<p class="standard-p">Small increased association with certain ovarian cancers, but malignant transformation is uncommon.</p>
+
+                <div class="topic-row" id="topic-t-5-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">Fibroids</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-2" onchange="toggleMastery('t-5-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Small/asymptomatic fibroid</h4>
+<p class="standard-p">Usually excellent prognosis.</p>
+<h4 class="sub-label">Submucosal/intracavitary fibroid</h4>
+<h4 class="sub-label">May cause:</h4>
+<h4 class="sub-label">infertility</h4>
+<h4 class="sub-label">miscarriage</h4>
+<p class="standard-p">abnormal bleeding.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Depending on size/location:</h4>
+<h4 class="sub-label">pain</h4>
+<h4 class="sub-label">malpresentation</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">placental complications</h4>
+<h4 class="sub-label">PPH</h4>
+<p class="standard-p">caesarean delivery.</p>
+
+                <div class="topic-row" id="topic-t-5-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">22</span>
+                        <h3 class="topic-heading">Adenomyosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-3" onchange="toggleMastery('t-5-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis</h4>
+<p class="standard-p">Chronic condition.</p>
+<h4 class="sub-label">Associated with:</h4>
+<h4 class="sub-label">heavy menstrual bleeding</h4>
+<h4 class="sub-label">dysmenorrhoea</h4>
+<h4 class="sub-label">pelvic pain</h4>
+<p class="standard-p">infertility/subfertility.</p>
+<h4 class="sub-label">Pregnancy may have increased risk of:</h4>
+<h4 class="sub-label">miscarriage</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">placental complications</h4>
+<p class="standard-p">PPH.</p>
+
+                <div class="topic-row" id="topic-t-5-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">23</span>
+                        <h3 class="topic-heading">Pelvic inflammatory disease</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-4" onchange="toggleMastery('t-5-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Acute PID</h4>
+<p class="standard-p">Usually responds well to antibiotics if treated early.</p>
+<h4 class="sub-label">Delayed/untreated PID</h4>
+<h4 class="sub-label">Can result in:</h4>
+<h4 class="sub-label">chronic pelvic pain</h4>
+<h4 class="sub-label">tubal infertility</h4>
+<h4 class="sub-label">ectopic pregnancy</h4>
+<p class="standard-p">tubo-ovarian abscess.</p>
+<h4 class="sub-label">Fertility</h4>
+<p class="standard-p">Risk increases with repeated episodes.</p>
+<h4 class="sub-label">Exam pearl:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>First PID episode → fertility risk; recurrent PID → substantially greater risk.</span></div>
+
+                <div class="topic-row" id="topic-t-5-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">Ovarian cysts</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-5" onchange="toggleMastery('t-5-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Functional cyst</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Usually resolves spontaneously → excellent prognosis.</span></div>
+<h4 class="sub-label">Benign persistent cyst</h4>
+<p class="standard-p">Generally excellent after appropriate management.</p>
+<h4 class="sub-label">Torsion</h4>
+<p class="standard-p">Usually good if treated promptly; delayed treatment can cause ovarian necrosis.</p>
+<h4 class="sub-label">Malignant mass</h4>
+<p class="standard-p">Prognosis depends heavily on stage, histology and residual disease.</p>
+
+                <div class="topic-row" id="topic-t-5-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">Endometrial hyperplasia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-6" onchange="toggleMastery('t-5-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Without atypia</h4>
+<p class="standard-p">Generally excellent prognosis and often regresses with progestogen therapy.</p>
+<h4 class="sub-label">Atypical hyperplasia / EIN</h4>
+<p class="standard-p">Significant risk of concurrent or future endometrial carcinoma.</p>
+<h4 class="sub-label">Exam pearl:</h4>
+<p class="standard-p">Atypia changes the prognosis.</p>
+<p class="standard-p">RCOG specifically has Green-top guidance on management of endometrial hyperplasia.</p>
+
+                <div class="topic-row" id="topic-t-5-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">26</span>
+                        <h3 class="topic-heading">Endometrial cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-7" onchange="toggleMastery('t-5-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognostic factors</h4>
+<h4 class="sub-label">Most important:</h4>
+<h4 class="sub-label">FIGO stage</h4>
+<h4 class="sub-label">histological type</h4>
+<h4 class="sub-label">grade</h4>
+<h4 class="sub-label">myometrial invasion</h4>
+<h4 class="sub-label">LVSI</h4>
+<h4 class="sub-label">nodal/metastatic disease</h4>
+<p class="standard-p">molecular classification.</p>
+<h4 class="sub-label">General pattern</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Stage I → generally excellent prognosis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Advanced stage → progressively poorer prognosis.</span></div>
+
+                <div class="topic-row" id="topic-t-5-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">Cervical cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-8" onchange="toggleMastery('t-5-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis mainly determined by:</h4>
+<h4 class="sub-label">FIGO stage</h4>
+<h4 class="sub-label">tumour size</h4>
+<h4 class="sub-label">nodal status</h4>
+<h4 class="sub-label">parametrial involvement</h4>
+<p class="standard-p">distant metastases.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Early-stage disease → potentially curable.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Advanced/metastatic disease → substantially poorer prognosis.</span></div>
+
+                <div class="topic-row" id="topic-t-5-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">28</span>
+                        <h3 class="topic-heading">Ovarian cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-9" onchange="toggleMastery('t-5-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis depends primarily on:</h4>
+<h4 class="sub-label">FIGO stage</h4>
+<h4 class="sub-label">histological subtype</h4>
+<h4 class="sub-label">grade</h4>
+<h4 class="sub-label">residual disease after cytoreduction</h4>
+<h4 class="sub-label">molecular characteristics</h4>
+<p class="standard-p">response to chemotherapy.</p>
+<h4 class="sub-label">General rule</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Early-stage ovarian cancer → considerably better prognosis.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Advanced-stage epithelial ovarian cancer → poorer prognosis and significant recurrence risk.</span></div>
+
+                <div class="topic-row" id="topic-t-5-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">Vulval cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-10" onchange="toggleMastery('t-5-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognostic factors</h4>
+<h4 class="sub-label">FIGO stage</h4>
+<h4 class="sub-label">tumour size</h4>
+<h4 class="sub-label">depth of invasion</h4>
+<p class="standard-p">lymph-node involvement.</p>
+<p class="standard-p">Node-negative disease has much better prognosis than node-positive disease.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">PART IV — UROGYNAECOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">30</span>
+                        <h3 class="topic-heading">Pelvic organ prolapse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis</h4>
+<p class="standard-p">Not usually life-threatening.</p>
+<p class="standard-p">Can be chronic/recurrent.</p>
+<h4 class="sub-label">Symptoms:</h4>
+<h4 class="sub-label">pressure</h4>
+<h4 class="sub-label">vaginal bulge</h4>
+<h4 class="sub-label">urinary/bowel dysfunction</h4>
+<p class="standard-p">sexual dysfunction.</p>
+<h4 class="sub-label">After surgery:</h4>
+<p class="standard-p">symptoms usually improve significantly.</p>
+<p class="standard-p">recurrence remains possible.</p>
+
+                <div class="topic-row" id="topic-t-6-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">31</span>
+                        <h3 class="topic-heading">Stress urinary incontinence</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-2" onchange="toggleMastery('t-6-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Prognosis</h4>
+<p class="standard-p">Generally good.</p>
+<p class="standard-p">Pelvic floor therapy can improve symptoms.</p>
+<p class="standard-p">Surgical treatment has high success but recurrence can occur.</p>
+
+                <div class="topic-row" id="topic-t-6-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">32</span>
+                        <h3 class="topic-heading">Urge incontinence / overactive bladder</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-3" onchange="toggleMastery('t-6-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually chronic but manageable.</p>
+<h4 class="sub-label">Prognosis:</h4>
+<p class="standard-p">improvement possible with bladder training, lifestyle modification and medication.</p>
+<p class="standard-p">recurrence is common.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">PART V — GYNAECOLOGICAL EMERGENCIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Prognosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Ovarian torsion</strong></td>
+<td>Excellent if treated early; ovarian loss possible if delayed</td>
+</tr>
+<tr>
+<td><strong>Ruptured ectopic</strong></td>
+<td>Potentially life-threatening</td>
+</tr>
+<tr>
+<td><strong>Tubo-ovarian abscess</strong></td>
+<td>Usually treatable; infertility/chronic pain possible</td>
+</tr>
+<tr>
+<td><strong>Acute PID</strong></td>
+<td>Good if treated early</td>
+</tr>
+<tr>
+<td><strong>Haemorrhagic ovarian cyst</strong></td>
+<td>Usually self-limiting</td>
+</tr>
+<tr>
+<td><strong>Severe OHSS</strong></td>
+<td>Usually resolves with treatment; thromboembolism/organ failure possible</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Major maternal/fetal emergency</td>
+</tr>
+<tr>
+<td><strong>Uterine inversion</strong></td>
+<td>Life-threatening haemorrhage but excellent outcome with rapid treatment</td>
+</tr>
+<tr>
+<td><strong>Major PPH</strong></td>
+<td>Usually good with rapid multidisciplinary management; severe cases can cause organ failure/death</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG identifies PPH as potentially life-threatening and stresses rapid treatment to prevent progression to major haemorrhage.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">PART VI — OBSTETRIC INFECTIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Chorioamnionitis</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<p class="standard-p">Usually good with prompt antibiotics and delivery when indicated.</p>
+<h4 class="sub-label">Untreated:</h4>
+<h4 class="sub-label">maternal sepsis</h4>
+<h4 class="sub-label">postpartum endometritis</h4>
+<p class="standard-p">PPH.</p>
+<h4 class="sub-label">Neonatal</h4>
+<h4 class="sub-label">neonatal sepsis</h4>
+<h4 class="sub-label">pneumonia</h4>
+<h4 class="sub-label">meningitis</h4>
+<p class="standard-p">prematurity-related morbidity.</p>
+<h4 class="sub-label">GBS colonisation</h4>
+<p class="standard-p">Usually excellent maternal prognosis.</p>
+<p class="standard-p">Main concern is neonatal early-onset GBS disease.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>With appropriate intrapartum antibiotic prophylaxis → neonatal risk is markedly reduced.</span></div>
+<h4 class="sub-label">Maternal sepsis</h4>
+<h4 class="sub-label">Prognosis depends heavily on:</h4>
+<h4 class="sub-label">speed of recognition</h4>
+<h4 class="sub-label">source control</h4>
+<h4 class="sub-label">antimicrobial therapy</h4>
+<p class="standard-p">organ dysfunction.</p>
+<p class="standard-p">Sepsis with organ failure = poor prognosis compared with uncomplicated infection.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">PART VII — COMMON OBSTETRIC PROCEDURAL OUTCOMES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Previous caesarean section</h4>
+<p class="standard-p">Future prognosis is generally good, but risks increase with:</p>
+<h4 class="sub-label">number of previous CS</h4>
+<h4 class="sub-label">placenta praevia</h4>
+<h4 class="sub-label">placenta accreta spectrum</h4>
+<h4 class="sub-label">uterine rupture</h4>
+<h4 class="sub-label">adhesions</h4>
+<p class="standard-p">surgical complications.</p>
+<h4 class="sub-label">VBAC</h4>
+<h4 class="sub-label">Successful VBAC:</h4>
+<h4 class="sub-label">avoids repeat abdominal surgery</h4>
+<p class="standard-p">generally favourable maternal outcome.</p>
+<h4 class="sub-label">Failed TOLAC:</h4>
+<h4 class="sub-label">emergency caesarean</h4>
+<p class="standard-p">increased maternal/neonatal morbidity.</p>
+<p class="standard-p">Uterine rupture is uncommon but potentially catastrophic.</p>
+<h4 class="sub-label">HIGH-YIELD RCOG PROGNOSTIC RULES</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 1</span></div>
+                <div class="callout-body">Gestational age is one of the strongest prognostic factors</div>
+            </div>
+            
+<h4 class="sub-label">Especially for:</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">FGR</h4>
+<h4 class="sub-label">early-onset PE</h4>
+<p class="standard-p">placental disease.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 2</span></div>
+                <div class="callout-body">Severity determines prognosis</div>
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Mild → usually favourable</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Severe → significantly increased morbidity/mortality</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 3</span></div>
+                <div class="callout-body">Antenatal diagnosis improves prognosis</div>
+            </div>
+            
+<h4 class="sub-label">Especially:</h4>
+<h4 class="sub-label">placenta accreta</h4>
+<h4 class="sub-label">vasa praevia</h4>
+<h4 class="sub-label">fetal anomalies</h4>
+<h4 class="sub-label">FGR</h4>
+<p class="standard-p">multiple pregnancy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 4</span></div>
+                <div class="callout-body">Early treatment improves prognosis</div>
+            </div>
+            
+<h4 class="sub-label">Especially:</h4>
+<h4 class="sub-label">ectopic pregnancy</h4>
+<h4 class="sub-label">PPH</h4>
+<h4 class="sub-label">sepsis</h4>
+<h4 class="sub-label">ovarian torsion</h4>
+<p class="standard-p">PID.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 5</span></div>
+                <div class="callout-body">Fetal prognosis is often determined by prematurity</div>
+            </div>
+            
+<p class="standard-p">For PE, PPROM, abruption, FGR and placenta praevia.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 6</span></div>
+                <div class="callout-body">Recurrence matters</div>
+            </div>
+            
+<h4 class="sub-label">Particularly:</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">GDM</h4>
+<h4 class="sub-label">miscarriage</h4>
+<h4 class="sub-label">ectopic pregnancy</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">placental abruption</h4>
+<h4 class="sub-label">PPH</h4>
+<p class="standard-p">endometriosis.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Rule 7</span></div>
+                <div class="callout-body">Cancer prognosis = stage first</div>
+            </div>
+            
+<h4 class="sub-label">For:</h4>
+<h4 class="sub-label">cervical</h4>
+<h4 class="sub-label">endometrial</h4>
+<h4 class="sub-label">ovarian</h4>
+<p class="standard-p">vulval cancers.</p>
+<h4 class="sub-label">The MRCOG prognosis formula</h4>
+<h4 class="sub-label">For any OBGYN condition, write:</h4>
+<h4 class="sub-label">Prognosis</h4>
+<h4 class="sub-label">Immediate maternal outcome</h4>
+<h4 class="sub-label">Immediate fetal/neonatal outcome</h4>
+<h4 class="sub-label">Fertility outcome</h4>
+<h4 class="sub-label">Recurrence risk</h4>
+<h4 class="sub-label">Long-term maternal consequences</h4>
+<h4 class="sub-label">Long-term offspring consequences</h4>
+<h4 class="sub-label">Mortality</h4>
+<h4 class="sub-label">Factors improving prognosis</h4>
+<h4 class="sub-label">Factors worsening prognosis</h4>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 PART I — OBSTETRIC CONDITIONS</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Chronic hypertension: Usually good if controlled; increased risk of superimposed PE, abruption, stroke</li>
+<li class="surg-item">● Gestational hypertension: Usually favourable, but may progress to PE</li>
+<li class="surg-item">● Mild pre-eclampsia: Generally favourable with surveillance</li>
+<li class="surg-item">● Early-onset PE: Higher maternal morbidity</li>
+<li class="surg-item">● Severe PE: Potentially life-threatening: stroke, HELLP, renal/liver complications</li>
+<li class="surg-item">● Eclampsia: Usually recover with treatment, but risk of stroke, aspiration, organ failure and death</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 PART V — GYNAECOLOGICAL EMERGENCIES</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Ovarian torsion: Excellent if treated early; ovarian loss possible if delayed</li>
+<li class="surg-item">● Ruptured ectopic: Potentially life-threatening</li>
+<li class="surg-item">● Tubo-ovarian abscess: Usually treatable; infertility/chronic pain possible</li>
+<li class="surg-item">● Acute PID: Good if treated early</li>
+<li class="surg-item">● Haemorrhagic ovarian cyst: Usually self-limiting</li>
+<li class="surg-item">● Severe OHSS: Usually resolves with treatment; thromboembolism/organ failure possible</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 34;
+    const flashcards = [{"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Chronic hypertension</strong>?", "a": "<strong>Usually good if controlled; increased risk of superimposed PE, abruption, stroke</strong><br>\u2191 FGR, preterm birth, stillbirth<br>Recurs as chronic disease; \u2191 later CV/renal risk"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gestational hypertension</strong>?", "a": "<strong>Usually favourable, but may progress to PE</strong><br>Usually good if term and uncomplicated; \u2191 FGR/preterm risk<br>\u2191 recurrence of hypertensive disease"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mild pre-eclampsia</strong>?", "a": "<strong>Generally favourable with surveillance</strong><br>Usually good if late-onset<br>Increased recurrence and future CV disease"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Early-onset PE</strong>?", "a": "<strong>Higher maternal morbidity</strong><br>\u2191 FGR, prematurity, stillbirth<br>Recurrence substantially increased"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe PE</strong>?", "a": "<strong>Potentially life-threatening: stroke, HELLP, renal/liver complications</strong><br>High prematurity/FGR risk<br>Increased future hypertension/CVD"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Eclampsia</strong>?", "a": "<strong>Usually recover with treatment, but risk of stroke, aspiration, organ failure and death</strong><br>Increased fetal hypoxia, prematurity and death<br>Increased recurrence of PE/eclampsia"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gestation</strong>?", "a": "<strong>General prognosis</strong>"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;24 weeks</strong>?", "a": "<strong>Very high morbidity/mortality</strong>"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>24\u201327+6</strong>?", "a": "<strong>High neonatal morbidity</strong>"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>28\u201331+6</strong>?", "a": "<strong>Survival substantially improves but morbidity remains significant</strong>"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>32\u201333+6</strong>?", "a": "<strong>Generally good survival; respiratory/neurodevelopmental morbidity possible</strong>"}, {"category": "OBSTETRIC CONDITIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>34\u201336+6</strong>?", "a": "<strong>Generally favourable but increased neonatal morbidity compared with term</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ovarian torsion</strong>?", "a": "<strong>Excellent if treated early; ovarian loss possible if delayed</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ruptured ectopic</strong>?", "a": "<strong>Potentially life-threatening</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Tubo-ovarian abscess</strong>?", "a": "<strong>Usually treatable; infertility/chronic pain possible</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Acute PID</strong>?", "a": "<strong>Good if treated early</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Haemorrhagic ovarian cyst</strong>?", "a": "<strong>Usually self-limiting</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe OHSS</strong>?", "a": "<strong>Usually resolves with treatment; thromboembolism/organ failure possible</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterine rupture</strong>?", "a": "<strong>Major maternal/fetal emergency</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterine inversion</strong>?", "a": "<strong>Life-threatening haemorrhage but excellent outcome with rapid treatment</strong>"}, {"category": "GYNAECOLOGICAL EMERGENCIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Major PPH</strong>?", "a": "<strong>Usually good with rapid multidisciplinary management; severe cases can cause organ failure/death</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>Overview &amp; Core Guidance</strong>", "a": "<strong>Maternal prognosis \u2192 fetal/neonatal prognosis \u2192 fertility prognosis \u2192 recurrence risk \u2192 long-term prognosis \u2192 mortality/morbidity.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART I \u2014 OBSTETRIC CONDITIONS</strong>", "a": "<strong>Previous PE with birth 28\u201334 weeks \u2192 ~1 in 3 recurrence</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>6. PPROM</strong>", "a": "<strong>Earlier PPROM \u2192 worse prognosis.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART II \u2014 EARLY PREGNANCY</strong>", "a": "<strong>With early diagnosis and treatment \u2192 generally excellent.</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Gestational hypertension ?", "options": ["Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased", "Potentially life-threatening: stroke, HELLP, renal/liver complications  High prematurity/FGR risk Increased future hypertension/CVD"], "correct": 0, "explanation": "Key Guideline / Fact: Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Mild pre-eclampsia ?", "options": ["Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased", "Potentially life-threatening: stroke, HELLP, renal/liver complications  High prematurity/FGR risk Increased future hypertension/CVD"], "correct": 1, "explanation": "Key Guideline / Fact: Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Early-onset PE ?", "options": ["Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased", "Potentially life-threatening: stroke, HELLP, renal/liver complications  High prematurity/FGR risk Increased future hypertension/CVD"], "correct": 2, "explanation": "Key Guideline / Fact: Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Severe PE ?", "options": ["Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Potentially life-threatening: stroke, HELLP, renal/liver complications  High prematurity/FGR risk Increased future hypertension/CVD"], "correct": 3, "explanation": "Key Guideline / Fact: Potentially life-threatening: stroke, HELLP, renal/liver complications  High prematurity/FGR risk Increased future hypertension/CVD (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Gestation ?", "options": ["General prognosis", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased"], "correct": 0, "explanation": "Key Guideline / Fact: General prognosis (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;24 weeks ?", "options": ["Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Very high morbidity/mortality", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased"], "correct": 1, "explanation": "Key Guideline / Fact: Very high morbidity/mortality (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  24\u201327+6 ?", "options": ["Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "High neonatal morbidity", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased"], "correct": 2, "explanation": "Key Guideline / Fact: High neonatal morbidity (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  28\u201331+6 ?", "options": ["Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Survival substantially improves but morbidity remains significant"], "correct": 3, "explanation": "Key Guideline / Fact: Survival substantially improves but morbidity remains significant (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  32\u201333+6 ?", "options": ["Generally good survival; respiratory/neurodevelopmental morbidity possible", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased"], "correct": 0, "explanation": "Key Guideline / Fact: Generally good survival; respiratory/neurodevelopmental morbidity possible (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  34\u201336+6 ?", "options": ["Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable but increased neonatal morbidity compared with term", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased"], "correct": 1, "explanation": "Key Guideline / Fact: Generally favourable but increased neonatal morbidity compared with term (OBSTETRIC CONDITIONS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ovarian torsion ?", "options": ["Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Excellent if treated early; ovarian loss possible if delayed", "Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased"], "correct": 2, "explanation": "Key Guideline / Fact: Excellent if treated early; ovarian loss possible if delayed (GYNAECOLOGICAL EMERGENCIES)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ruptured ectopic ?", "options": ["Higher maternal morbidity  \u2191 FGR, prematurity, stillbirth Recurrence substantially increased", "Usually favourable, but may progress to PE  Usually good if term and uncomplicated; \u2191 FGR/preterm risk \u2191 recurrence of hypertensive disease", "Generally favourable with surveillance  Usually good if late-onset Increased recurrence and future CV disease", "Potentially life-threatening"], "correct": 3, "explanation": "Key Guideline / Fact: Potentially life-threatening (GYNAECOLOGICAL EMERGENCIES)."}];
+    const storageKey = 'obgyn_mastered_master_obgyn_prognosis_atlas___rcog-focused';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

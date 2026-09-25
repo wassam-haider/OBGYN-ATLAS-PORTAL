@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYNAECOLOGICAL SURGERY — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">GYNAECOLOGICAL SURGERY</div>
+                <div class="brand-subtitle-text">Pre-operative assessment, prerequisites &amp; preparat</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (23)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 79 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 11 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (11 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="C. INVESTIGATIONS">C. INVESTIGATIONS</a></li><li><a href="#part-3" class="part-nav-link" title="I. CONSENT FOR OVARIAN SURGERY">I. CONSENT FOR OVARIAN SURGERY</a></li><li><a href="#part-4" class="part-nav-link" title="L. ANAESTHETIC ASSESSMENT">L. ANAESTHETIC ASSESSMENT</a></li><li><a href="#part-5" class="part-nav-link" title="M. BLOOD MANAGEMENT">M. BLOOD MANAGEMENT</a></li><li><a href="#part-6" class="part-nav-link" title="☐ AUB">☐ AUB</a></li><li><a href="#part-7" class="part-nav-link" title="☐ VTE">☐ VTE</a></li><li><a href="#part-8" class="part-nav-link" title="V. LAPAROSCOPIC SURGERY — COMPLETE CHECKLIST">V. LAPAROSCOPIC SURGERY — COMPLETE CHECKLIST</a></li><li><a href="#part-9" class="part-nav-link" title="☐ BMI">☐ BMI</a></li><li><a href="#part-10" class="part-nav-link" title="☐ VTE">☐ VTE</a></li><li><a href="#part-11" class="part-nav-link" title="X. MAJOR GYNAECOLOGICAL ONCOLOGY SURGERY">X. MAJOR GYNAECOLOGICAL ONCOLOGY SURGERY</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">GYNAECOLOGICAL SURGERY</h1>
+                    <div class="reader-hero-sub">⭐ Pre-operative assessment, prerequisites &amp; preparation</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Master list of procedures</h4>
+<p class="standard-p">For examination purposes, divide gynaecological procedures into:</p>
+
+                <div class="topic-row" id="topic-t-1-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Outpatient/minor procedures</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-1" onchange="toggleMastery('t-1-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Vulval biopsy</h4>
+<h4 class="sub-label">Vaginal biopsy</h4>
+<h4 class="sub-label">Cervical biopsy</h4>
+<h4 class="sub-label">Endometrial biopsy</h4>
+<h4 class="sub-label">Pap smear/HPV sampling</h4>
+<h4 class="sub-label">Colposcopy-directed biopsy</h4>
+<h4 class="sub-label">LLETZ/LEEP</h4>
+<h4 class="sub-label">Bartholin cyst/abscess procedures</h4>
+<h4 class="sub-label">IUD insertion/removal</h4>
+<h4 class="sub-label">Implant insertion/removal</h4>
+<h4 class="sub-label">Outpatient hysteroscopy</h4>
+<h4 class="sub-label">Outpatient polypectomy</h4>
+<h4 class="sub-label">Outpatient endometrial biopsy</h4>
+
+                <div class="topic-row" id="topic-t-1-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Hysteroscopic procedures</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-2" onchange="toggleMastery('t-1-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Diagnostic hysteroscopy</h4>
+<h4 class="sub-label">Operative hysteroscopy</h4>
+<h4 class="sub-label">Polypectomy</h4>
+<h4 class="sub-label">Submucous fibroid resection</h4>
+<h4 class="sub-label">Septal resection</h4>
+<h4 class="sub-label">Adhesiolysis</h4>
+<h4 class="sub-label">Endometrial ablation</h4>
+<h4 class="sub-label">Removal of retained intrauterine pathology</h4>
+
+                <div class="topic-row" id="topic-t-1-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Laparoscopic procedures</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-3" onchange="toggleMastery('t-1-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Diagnostic laparoscopy</h4>
+<h4 class="sub-label">Chromopertubation</h4>
+<h4 class="sub-label">Ovarian cystectomy</h4>
+<h4 class="sub-label">Oophorectomy</h4>
+<h4 class="sub-label">Salpingectomy</h4>
+<h4 class="sub-label">Salpingostomy</h4>
+<h4 class="sub-label">Adhesiolysis</h4>
+<h4 class="sub-label">Endometriosis surgery</h4>
+<h4 class="sub-label">Myomectomy</h4>
+<h4 class="sub-label">Laparoscopic sterilisation</h4>
+<p class="standard-p">Ectopic pregnancy surgery — early pregnancy/obstetric-related and therefore excluded from your requested scope</p>
+<p class="standard-p">RCOG&#x27;s reproductive medicine OSATS specifically includes laparoscopic adhesiolysis, endometriosis surgery, ovarian cystectomy, salpingectomy, salpingostomy and myomectomy, emphasising patient selection, contraindications, consent, positioning, entry and assessment of anatomy.</p>
+
+                <div class="topic-row" id="topic-t-1-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Open abdominal surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-4" onchange="toggleMastery('t-1-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Laparotomy</h4>
+<h4 class="sub-label">Ovarian cyst surgery</h4>
+<h4 class="sub-label">Oophorectomy</h4>
+<h4 class="sub-label">Salpingo-oophorectomy</h4>
+<h4 class="sub-label">Myomectomy</h4>
+<h4 class="sub-label">Adhesiolysis</h4>
+<h4 class="sub-label">Complex benign pelvic surgery</h4>
+<h4 class="sub-label">Gynaecological oncology procedures</h4>
+
+                <div class="topic-row" id="topic-t-1-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Hysterectomy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-5" onchange="toggleMastery('t-1-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Total abdominal hysterectomy</h4>
+<h4 class="sub-label">Total laparoscopic hysterectomy</h4>
+<h4 class="sub-label">Laparoscopic-assisted vaginal hysterectomy</h4>
+<h4 class="sub-label">Vaginal hysterectomy</h4>
+<h4 class="sub-label">Subtotal/supracervical hysterectomy</h4>
+<h4 class="sub-label">Radical hysterectomy — oncology</h4>
+
+                <div class="topic-row" id="topic-t-1-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Urogynaecology</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-6" onchange="toggleMastery('t-1-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Anterior repair</h4>
+<h4 class="sub-label">Posterior repair</h4>
+<h4 class="sub-label">Vaginal vault suspension</h4>
+<h4 class="sub-label">Sacrospinous fixation</h4>
+<h4 class="sub-label">Sacrocolpopexy</h4>
+<h4 class="sub-label">Mid-urethral sling</h4>
+<h4 class="sub-label">Burch colposuspension</h4>
+<h4 class="sub-label">Periurethral procedures</h4>
+<h4 class="sub-label">Fistula repair</h4>
+
+                <div class="topic-row" id="topic-t-1-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Oncology</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-7" onchange="toggleMastery('t-1-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Vulval cancer surgery</h4>
+<h4 class="sub-label">Cervical cancer surgery</h4>
+<h4 class="sub-label">Endometrial cancer surgery</h4>
+<h4 class="sub-label">Ovarian cancer cytoreduction</h4>
+<h4 class="sub-label">Lymph-node assessment/dissection</h4>
+<h4 class="sub-label">Radical hysterectomy</h4>
+<h4 class="sub-label">Pelvic/para-aortic lymphadenectomy</h4>
+
+                <div class="topic-row" id="topic-t-1-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">UNIVERSAL PRE-OPERATIVE ASSESSMENT</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-8" onchange="toggleMastery('t-1-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is the answer you should give first in almost every MRCOG/OSCE surgical station.</p>
+
+                <div class="topic-row" id="topic-t-1-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Confirm patient identity</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-9" onchange="toggleMastery('t-1-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Full name</h4>
+<h4 class="sub-label">Hospital/medical record number</h4>
+<h4 class="sub-label">DOB</h4>
+<h4 class="sub-label">Procedure</h4>
+<h4 class="sub-label">Side/site</h4>
+<h4 class="sub-label">Indication</h4>
+<h4 class="sub-label">Surgeon</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Planned anaesthetic</h4>
+<h4 class="sub-label">Allergies</h4>
+<p class="standard-p">Use the WHO surgical safety principles/time-out in conjunction with local policy.</p>
+
+                <div class="topic-row" id="topic-t-1-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Confirm the diagnosis and indication</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-10" onchange="toggleMastery('t-1-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Why is surgery being performed?</h4>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Abnormal uterine bleeding</h4>
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Chronic pelvic pain</h4>
+<h4 class="sub-label">Ovarian cyst/mass</h4>
+<h4 class="sub-label">Prolapse</h4>
+<h4 class="sub-label">Stress urinary incontinence</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Suspected malignancy</h4>
+<h4 class="sub-label">Cervical intraepithelial neoplasia</h4>
+<h4 class="sub-label">Vulval disease</h4>
+<h4 class="sub-label">Failed medical treatment</h4>
+<h4 class="sub-label">Confirm:</h4>
+<h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Severity</h4>
+<h4 class="sub-label">Previous treatment</h4>
+<h4 class="sub-label">Response to treatment</h4>
+<h4 class="sub-label">Imaging</h4>
+<h4 class="sub-label">Histology</h4>
+<h4 class="sub-label">Previous operative findings</h4>
+<p class="standard-p">Do not operate simply because an abnormality exists — establish the indication and whether surgery will alter outcome.</p>
+
+                <div class="topic-row" id="topic-t-1-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Consider alternatives</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-11" onchange="toggleMastery('t-1-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Conservative</h4>
+<h4 class="sub-label">Observation</h4>
+<h4 class="sub-label">Expectant management</h4>
+<h4 class="sub-label">Lifestyle measures</h4>
+<h4 class="sub-label">Medical</h4>
+<h4 class="sub-label">NSAIDs</h4>
+<h4 class="sub-label">Tranexamic acid</h4>
+<h4 class="sub-label">Hormonal therapy</h4>
+<h4 class="sub-label">LNG-IUS</h4>
+<h4 class="sub-label">GnRH analogues/antagonists where appropriate</h4>
+<h4 class="sub-label">Other disease-specific medication</h4>
+<h4 class="sub-label">Interventional</h4>
+<h4 class="sub-label">UAE for selected fibroids</h4>
+<h4 class="sub-label">Endometrial ablation</h4>
+<h4 class="sub-label">Hysteroscopic treatment</h4>
+<h4 class="sub-label">Image-guided procedures</h4>
+<h4 class="sub-label">Surgical</h4>
+<h4 class="sub-label">Minimally invasive vs open</h4>
+<h4 class="sub-label">Uterus-preserving vs definitive surgery</h4>
+<p class="standard-p">RCOG&#x27;s consent principles require discussion of recommended options, alternatives and consequences of no treatment, with adequate time for decision-making and documentation.</p>
+
+                <div class="topic-row" id="topic-t-1-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Full history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-12" onchange="toggleMastery('t-1-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-1-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Presenting complaint</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-13" onchange="toggleMastery('t-1-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Discharge</h4>
+<h4 class="sub-label">Pressure symptoms</h4>
+<h4 class="sub-label">Mass</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Prolapse</h4>
+<h4 class="sub-label">Urinary symptoms</h4>
+<h4 class="sub-label">Bowel symptoms</h4>
+<h4 class="sub-label">Sexual dysfunction</h4>
+<h4 class="sub-label">Constitutional symptoms</h4>
+
+                <div class="topic-row" id="topic-t-1-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Menstrual history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-14" onchange="toggleMastery('t-1-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">Cycle length</h4>
+<h4 class="sub-label">Regularity</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Amount</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<h4 class="sub-label">Intermenstrual bleeding</h4>
+<h4 class="sub-label">Postcoital bleeding</h4>
+<h4 class="sub-label">Postmenopausal bleeding</h4>
+
+                <div class="topic-row" id="topic-t-1-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">Pregnancy/fertility history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-15" onchange="toggleMastery('t-1-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Although excluding obstetric procedures, pregnancy status must still be established before gynaecological surgery in reproductive-age patients.</p>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">Pregnancy possibility</h4>
+<h4 class="sub-label">Contraception</h4>
+<h4 class="sub-label">Fertility wishes</h4>
+<h4 class="sub-label">Previous pregnancies</h4>
+<h4 class="sub-label">Previous ectopic/miscarriage if relevant</h4>
+<h4 class="sub-label">Previous fertility treatment</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">For procedures involving:</h4>
+<h4 class="sub-label">uterus</h4>
+<h4 class="sub-label">tubes</h4>
+<h4 class="sub-label">ovaries</h4>
+<h4 class="sub-label">cervix</h4>
+<h4 class="sub-label">ask:</h4>
+<h4 class="sub-label">&quot;Does she wish to preserve fertility?&quot;</h4>
+
+                <div class="topic-row" id="topic-t-1-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Fertility-preservation assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-16" onchange="toggleMastery('t-1-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Especially important before:</h4>
+<h4 class="sub-label">Hysterectomy</h4>
+<h4 class="sub-label">Oophorectomy</h4>
+<h4 class="sub-label">Bilateral salpingectomy</h4>
+<h4 class="sub-label">Myomectomy</h4>
+<h4 class="sub-label">Endometriosis surgery</h4>
+<h4 class="sub-label">Ovarian cystectomy</h4>
+<h4 class="sub-label">Oncology surgery</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Fertility wishes</h4>
+<h4 class="sub-label">Ovarian reserve</h4>
+<h4 class="sub-label">Uterine preservation</h4>
+<h4 class="sub-label">Unilateral vs bilateral ovarian surgery</h4>
+<h4 class="sub-label">Possibility of unexpected malignancy</h4>
+<h4 class="sub-label">Possibility of conversion to more extensive surgery</h4>
+<h4 class="sub-label">For young patients, document clearly whether:</h4>
+<h4 class="sub-label">&quot;Fertility preservation is a priority.&quot;</h4>
+
+                <div class="topic-row" id="topic-t-1-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Previous surgical history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-17" onchange="toggleMastery('t-1-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask specifically about:</h4>
+<h4 class="sub-label">Previous Caesarean sections</h4>
+<h4 class="sub-label">Previous laparotomy</h4>
+<h4 class="sub-label">Previous laparoscopy</h4>
+<h4 class="sub-label">Previous hysterectomy</h4>
+<h4 class="sub-label">Previous pelvic surgery</h4>
+<h4 class="sub-label">Previous bowel surgery</h4>
+<h4 class="sub-label">Previous bladder/ureteric surgery</h4>
+<h4 class="sub-label">Previous adhesions</h4>
+<h4 class="sub-label">Previous postoperative complications</h4>
+<h4 class="sub-label">Why?</h4>
+<h4 class="sub-label">Previous surgery increases the possibility of:</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Bowel injury</h4>
+<h4 class="sub-label">Bladder injury</h4>
+<h4 class="sub-label">Ureteric injury</h4>
+<h4 class="sub-label">Difficult laparoscopic entry</h4>
+<h4 class="sub-label">Conversion to laparotomy</h4>
+<p class="standard-p">RCOG&#x27;s surgical curriculum emphasises knowledge of complications and safe surgical risk reduction.</p>
+
+                <div class="topic-row" id="topic-t-1-18">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Medical history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-18" onchange="toggleMastery('t-1-18')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Screen for:</h4>
+<h4 class="sub-label">Cardiovascular</h4>
+<h4 class="sub-label">Hypertension</h4>
+<h4 class="sub-label">IHD</h4>
+<h4 class="sub-label">Heart failure</h4>
+<h4 class="sub-label">Arrhythmia</h4>
+<h4 class="sub-label">Valvular disease</h4>
+<h4 class="sub-label">Respiratory</h4>
+<h4 class="sub-label">Asthma</h4>
+<h4 class="sub-label">COPD</h4>
+<h4 class="sub-label">OSA</h4>
+<h4 class="sub-label">Recent respiratory infection</h4>
+<h4 class="sub-label">Endocrine</h4>
+<h4 class="sub-label">Diabetes</h4>
+<h4 class="sub-label">Thyroid disease</h4>
+<h4 class="sub-label">Adrenal disease</h4>
+<h4 class="sub-label">Renal</h4>
+<h4 class="sub-label">CKD</h4>
+<h4 class="sub-label">Renal impairment</h4>
+<h4 class="sub-label">Hepatic</h4>
+<h4 class="sub-label">Chronic liver disease</h4>
+<h4 class="sub-label">Cirrhosis</h4>
+<h4 class="sub-label">Haematological</h4>
+<h4 class="sub-label">Anaemia</h4>
+<h4 class="sub-label">Bleeding disorder</h4>
+<h4 class="sub-label">Thrombophilia</h4>
+<h4 class="sub-label">Previous VTE</h4>
+<h4 class="sub-label">Neurological</h4>
+<h4 class="sub-label">Seizures</h4>
+<h4 class="sub-label">Stroke</h4>
+<h4 class="sub-label">Neuropathy</h4>
+<h4 class="sub-label">Other</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">Frailty</h4>
+<h4 class="sub-label">Immunosuppression</h4>
+<h4 class="sub-label">Malignancy</h4>
+
+                <div class="topic-row" id="topic-t-1-19">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Medication review</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-19" onchange="toggleMastery('t-1-19')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Specifically ask about:</h4>
+<h4 class="sub-label">Anticoagulants</h4>
+<h4 class="sub-label">Antiplatelets</h4>
+<h4 class="sub-label">Aspirin</h4>
+<h4 class="sub-label">NSAIDs</h4>
+<h4 class="sub-label">Antihypertensives</h4>
+<h4 class="sub-label">Insulin</h4>
+<h4 class="sub-label">Metformin</h4>
+<h4 class="sub-label">Steroids</h4>
+<h4 class="sub-label">Hormonal contraception</h4>
+<h4 class="sub-label">HRT</h4>
+<h4 class="sub-label">Tamoxifen</h4>
+<h4 class="sub-label">Chemotherapy</h4>
+<h4 class="sub-label">Immunosuppressants</h4>
+<h4 class="sub-label">Ask:</h4>
+<p class="standard-p">&quot;What medications are you taking, including over-the-counter and herbal medications?&quot;</p>
+
+                <div class="topic-row" id="topic-t-1-20">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Allergy assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-20" onchange="toggleMastery('t-1-20')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Document:</h4>
+<h4 class="sub-label">Drug allergy</h4>
+<h4 class="sub-label">Antibiotic allergy</h4>
+<h4 class="sub-label">Latex allergy</h4>
+<h4 class="sub-label">Chlorhexidine allergy</h4>
+<h4 class="sub-label">Previous anaesthetic reaction</h4>
+<p class="standard-p">Document reaction, not merely the drug name.</p>
+<h4 class="sub-label">Example:</h4>
+<h4 class="sub-label">❌ &quot;Penicillin allergy&quot;</h4>
+<h4 class="sub-label">Better:</h4>
+<h4 class="sub-label">✅ &quot;Penicillin — anaphylaxis.&quot;</h4>
+
+                <div class="topic-row" id="topic-t-1-21">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Previous anaesthesia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-21" onchange="toggleMastery('t-1-21')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">Difficult intubation</h4>
+<h4 class="sub-label">Difficult airway</h4>
+<h4 class="sub-label">PONV</h4>
+<h4 class="sub-label">Awareness</h4>
+<h4 class="sub-label">Malignant hyperthermia</h4>
+<h4 class="sub-label">Anaesthetic allergy</h4>
+<h4 class="sub-label">Previous ICU admission</h4>
+<h4 class="sub-label">Previous transfusion</h4>
+
+                <div class="topic-row" id="topic-t-1-22">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">VTE assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-22" onchange="toggleMastery('t-1-22')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Previous VTE</h4>
+<h4 class="sub-label">Thrombophilia</h4>
+<h4 class="sub-label">Family history</h4>
+<h4 class="sub-label">Cancer</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">Immobility</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Age</h4>
+<h4 class="sub-label">Hormonal therapy</h4>
+<h4 class="sub-label">Major surgery</h4>
+<h4 class="sub-label">Expected duration of surgery</h4>
+<h4 class="sub-label">Plan:</h4>
+<h4 class="sub-label">Early mobilisation</h4>
+<h4 class="sub-label">Mechanical prophylaxis</h4>
+<h4 class="sub-label">Pharmacological prophylaxis where indicated</h4>
+<h4 class="sub-label">Timing relative to neuraxial anaesthesia</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">RCOG Green-top 37a is primarily an obstetric guideline, so its pregnancy/postpartum scoring system should not simply be transplanted onto non-pregnant gynaecological patients. For gynaecological surgery, follow the current local/NICE/anaesthetic VTE assessment pathway.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-1-23">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Infection assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-23" onchange="toggleMastery('t-1-23')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">Fever</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Vaginitis</h4>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">Skin infection</h4>
+<h4 class="sub-label">Respiratory infection</h4>
+<h4 class="sub-label">Pelvic abscess</h4>
+<h4 class="sub-label">If elective surgery:</h4>
+<p class="standard-p">Treat active infection where appropriate and reassess fitness for surgery.</p>
+
+                <div class="topic-row" id="topic-t-1-24">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Nutritional assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-24" onchange="toggleMastery('t-1-24')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Particularly for:</h4>
+<h4 class="sub-label">Cancer</h4>
+<h4 class="sub-label">Major laparotomy</h4>
+<h4 class="sub-label">Frail patients</h4>
+<h4 class="sub-label">Elderly patients</h4>
+<h4 class="sub-label">Chronic illness</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">Weight loss</h4>
+<h4 class="sub-label">Malnutrition</h4>
+<h4 class="sub-label">Albumin where clinically appropriate</h4>
+<h4 class="sub-label">Nutritional intake</h4>
+
+                <div class="topic-row" id="topic-t-1-25">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Psychological assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-25" onchange="toggleMastery('t-1-25')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">Anxiety</h4>
+<h4 class="sub-label">Previous traumatic examinations</h4>
+<h4 class="sub-label">Sexual trauma</h4>
+<h4 class="sub-label">Fear of anaesthesia</h4>
+<h4 class="sub-label">Concerns regarding fertility</h4>
+<h4 class="sub-label">Body image</h4>
+<h4 class="sub-label">Sexual function</h4>
+<h4 class="sub-label">Cancer concerns</h4>
+<p class="standard-p">Offer appropriate support.</p>
+
+                <div class="topic-row" id="topic-t-1-26">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">EXAMINATION</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-26" onchange="toggleMastery('t-1-26')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-1-27">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">General examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-27" onchange="toggleMastery('t-1-27')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">General condition</h4>
+<h4 class="sub-label">Pallor</h4>
+<h4 class="sub-label">Jaundice</h4>
+<h4 class="sub-label">Hydration</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">Nutritional state</h4>
+<h4 class="sub-label">Oedema</h4>
+
+                <div class="topic-row" id="topic-t-1-28">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Vital signs</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-28" onchange="toggleMastery('t-1-28')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Record:</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">Respiratory rate</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Temperature</h4>
+
+                <div class="topic-row" id="topic-t-1-29">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Cardiovascular examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-29" onchange="toggleMastery('t-1-29')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Especially if:</h4>
+<h4 class="sub-label">Cardiac disease</h4>
+<h4 class="sub-label">Major surgery</h4>
+<h4 class="sub-label">Older patient</h4>
+<h4 class="sub-label">Abnormal history</h4>
+
+                <div class="topic-row" id="topic-t-1-30">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Respiratory examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-30" onchange="toggleMastery('t-1-30')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Particularly:</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">OSA</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Respiratory disease</h4>
+<h4 class="sub-label">Major surgery</h4>
+
+                <div class="topic-row" id="topic-t-1-31">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Abdominal examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-31" onchange="toggleMastery('t-1-31')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Mass</h4>
+<h4 class="sub-label">Tenderness</h4>
+<h4 class="sub-label">Previous scars</h4>
+<h4 class="sub-label">Hernias</h4>
+<h4 class="sub-label">Hepatomegaly</h4>
+<h4 class="sub-label">Ascites</h4>
+<h4 class="sub-label">Abdominal distension</h4>
+<p class="standard-p">Previous scars are especially important before laparoscopy.</p>
+
+                <div class="topic-row" id="topic-t-1-32">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Pelvic examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-32" onchange="toggleMastery('t-1-32')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Depending on indication:</h4>
+<h4 class="sub-label">Vulva</h4>
+<h4 class="sub-label">Lesions</h4>
+<h4 class="sub-label">Ulcers</h4>
+<h4 class="sub-label">Masses</h4>
+<h4 class="sub-label">Scarring</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Cervical lesion</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Discharge</h4>
+<h4 class="sub-label">Prolapse</h4>
+<h4 class="sub-label">Vaginal lesions</h4>
+<h4 class="sub-label">Bimanual</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Uterine size</h4>
+<h4 class="sub-label">Mobility</h4>
+<h4 class="sub-label">Position</h4>
+<h4 class="sub-label">Adnexal mass</h4>
+<h4 class="sub-label">Tenderness</h4>
+<h4 class="sub-label">Pelvic fixation</h4>
+<h4 class="sub-label">Rectovaginal</h4>
+<h4 class="sub-label">Consider for:</h4>
+<h4 class="sub-label">Deep endometriosis</h4>
+<h4 class="sub-label">Suspected malignancy</h4>
+<h4 class="sub-label">Posterior compartment disease</h4>
+<h4 class="sub-label">Rectovaginal involvement</h4>
+<p class="standard-p">RCOG specifically notes that intimate examination may be required during gynaecological procedures under anaesthesia and that this should be incorporated into consent.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">C. INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Basic preoperative investigations</h4>
+<p class="standard-p">Do not order every test for every patient. Investigations should be guided by:</p>
+<h4 class="sub-label">Age</h4>
+<h4 class="sub-label">Comorbidity</h4>
+<h4 class="sub-label">ASA grade</h4>
+<h4 class="sub-label">Procedure</h4>
+<h4 class="sub-label">Expected blood loss</h4>
+<h4 class="sub-label">Anaesthesia</h4>
+<p class="standard-p">Local policy.</p>
+<h4 class="sub-label">Common investigations</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Group and save</h4>
+<h4 class="sub-label">Crossmatch when significant blood loss is anticipated</h4>
+<h4 class="sub-label">U&amp;E/creatinine</h4>
+<h4 class="sub-label">LFT when indicated</h4>
+<h4 class="sub-label">Glucose/HbA1c where indicated</h4>
+<h4 class="sub-label">Coagulation profile when indicated</h4>
+<h4 class="sub-label">ECG when indicated</h4>
+<h4 class="sub-label">CXR only when clinically indicated</h4>
+<h4 class="sub-label">Pregnancy test where applicable</h4>
+<h4 class="sub-label">Urinalysis/urine culture when indicated</h4>
+
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">D</span>
+                        <h3 class="topic-heading">PROCEDURE-SPECIFIC INVESTIGATIONS</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Fibroid surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before:</h4>
+<h4 class="sub-label">Pelvic ultrasound</h4>
+<h4 class="sub-label">MRI if complex mapping is required</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Ferritin/iron studies if anaemic</h4>
+<h4 class="sub-label">Pregnancy exclusion where relevant</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Number</h4>
+<h4 class="sub-label">Size</h4>
+<h4 class="sub-label">Location</h4>
+<h4 class="sub-label">FIGO classification where appropriate</h4>
+<h4 class="sub-label">Cavity distortion</h4>
+<h4 class="sub-label">Desire for fertility</h4>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Endometrial pathology</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Depending on presentation:</h4>
+<h4 class="sub-label">TVUS</h4>
+<h4 class="sub-label">Endometrial biopsy</h4>
+<h4 class="sub-label">Hysteroscopy</h4>
+<h4 class="sub-label">Histology</h4>
+<p class="standard-p">For postmenopausal bleeding, ensure appropriate assessment has been completed before definitive surgery.</p>
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Ovarian mass</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">TVUS</h4>
+<h4 class="sub-label">CA-125 where indicated</h4>
+<h4 class="sub-label">Other tumour markers depending on age/presentation</h4>
+<h4 class="sub-label">RMI or other appropriate risk stratification</h4>
+<h4 class="sub-label">CT/MRI when indicated</h4>
+<p class="standard-p">RCOG&#x27;s ovarian-mass guidance specifically addresses distinguishing women suitable for benign gynaecological management from those requiring gynaecological oncology referral.</p>
+<h4 class="sub-label">Red flags for oncology referral</h4>
+<h4 class="sub-label">Solid components</h4>
+<h4 class="sub-label">Papillary projections</h4>
+<h4 class="sub-label">Ascites</h4>
+<h4 class="sub-label">Bilateral complex masses</h4>
+<h4 class="sub-label">Elevated tumour markers</h4>
+<h4 class="sub-label">Postmenopausal complex mass</h4>
+<h4 class="sub-label">Suspicious imaging</h4>
+<h4 class="sub-label">Metastatic disease</h4>
+
+                <div class="topic-row" id="topic-t-2-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Endometriosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-5" onchange="toggleMastery('t-2-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">TVUS</h4>
+<h4 class="sub-label">MRI for deep disease where indicated</h4>
+<h4 class="sub-label">Bowel symptoms</h4>
+<h4 class="sub-label">Bladder symptoms</h4>
+<h4 class="sub-label">Fertility goals</h4>
+<h4 class="sub-label">Previous surgery</h4>
+<h4 class="sub-label">Endometriosis severity/location</h4>
+<h4 class="sub-label">Plan possible involvement of:</h4>
+<h4 class="sub-label">Urology</h4>
+<h4 class="sub-label">Colorectal surgery</h4>
+<h4 class="sub-label">Fertility team</h4>
+
+                <div class="topic-row" id="topic-t-2-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Prolapse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-6" onchange="toggleMastery('t-2-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Perform:</h4>
+<h4 class="sub-label">POP-Q examination</h4>
+<h4 class="sub-label">Vaginal examination</h4>
+<h4 class="sub-label">Cervical assessment</h4>
+<h4 class="sub-label">Urinalysis</h4>
+<h4 class="sub-label">Postvoid residual where indicated</h4>
+<h4 class="sub-label">For stress incontinence:</h4>
+<h4 class="sub-label">Cough stress test</h4>
+<h4 class="sub-label">Urodynamics in selected patients</h4>
+
+                <div class="topic-row" id="topic-t-2-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Incontinence surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-7" onchange="toggleMastery('t-2-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Type of incontinence</h4>
+<h4 class="sub-label">Bladder diary</h4>
+<h4 class="sub-label">Urinalysis</h4>
+<h4 class="sub-label">Postvoid residual</h4>
+<h4 class="sub-label">Pelvic examination</h4>
+<h4 class="sub-label">Prolapse</h4>
+<h4 class="sub-label">Urodynamics when indicated</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Conservative treatment</h4>
+<h4 class="sub-label">Pelvic-floor physiotherapy</h4>
+<h4 class="sub-label">Medical treatment</h4>
+<h4 class="sub-label">Surgical options</h4>
+
+                <div class="topic-row" id="topic-t-2-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Cervical excisional procedures</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-8" onchange="toggleMastery('t-2-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before LLETZ/LEEP:</h4>
+<h4 class="sub-label">Cytology/HPV results</h4>
+<h4 class="sub-label">Colposcopy findings</h4>
+<h4 class="sub-label">Transformation zone</h4>
+<h4 class="sub-label">Histology where available</h4>
+<h4 class="sub-label">Pregnancy status</h4>
+<h4 class="sub-label">Previous excisional procedures</h4>
+<h4 class="sub-label">Assess risk of:</h4>
+<h4 class="sub-label">Incomplete excision</h4>
+<h4 class="sub-label">Cervical stenosis</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Future reproductive implications</h4>
+
+                <div class="topic-row" id="topic-t-2-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">CONSENT — VERY HIGH-YIELD MRCOG AREA</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-9" onchange="toggleMastery('t-2-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">RCOG emphasises that consent should be a process rather than merely a signature. The patient should understand recommended treatment, alternatives, consequences of no treatment and relevant risks.</p>
+<h4 class="sub-label">Consent framework</h4>
+
+                <div class="topic-row" id="topic-t-2-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Diagnosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-10" onchange="toggleMastery('t-2-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">&quot;Your diagnosis is...&quot;</h4>
+
+                <div class="topic-row" id="topic-t-2-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Proposed procedure</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-11" onchange="toggleMastery('t-2-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Explain:</h4>
+<h4 class="sub-label">What</h4>
+<h4 class="sub-label">Why</h4>
+<h4 class="sub-label">How</h4>
+<h4 class="sub-label">Route</h4>
+<h4 class="sub-label">Anaesthetic</h4>
+
+                <div class="topic-row" id="topic-t-2-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Benefits</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-12" onchange="toggleMastery('t-2-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">What outcome is expected?</h4>
+
+                <div class="topic-row" id="topic-t-2-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Alternatives</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-13" onchange="toggleMastery('t-2-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">No treatment</h4>
+<h4 class="sub-label">Medical treatment</h4>
+<h4 class="sub-label">Conservative management</h4>
+<h4 class="sub-label">Alternative procedure</h4>
+<h4 class="sub-label">Different surgical route</h4>
+
+                <div class="topic-row" id="topic-t-2-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Risks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-14" onchange="toggleMastery('t-2-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Universal:</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Scarring</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">VTE</h4>
+<h4 class="sub-label">Anaesthetic complications</h4>
+<h4 class="sub-label">Need for further surgery</h4>
+<h4 class="sub-label">Return to theatre</h4>
+<h4 class="sub-label">Death in appropriate major-risk contexts</h4>
+<p class="standard-p">RCOG&#x27;s consent guidance specifically identifies VTE/PE, return to theatre, bowel, bladder, ureteric and major vascular injury among serious risks that may need discussion, together with procedure-specific risks.</p>
+
+                <div class="topic-row" id="topic-t-2-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">F</span>
+                        <h3 class="topic-heading">CONSENT FOR LAPAROSCOPY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-15" onchange="toggleMastery('t-2-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Always discuss possibility of:</h4>
+<h4 class="sub-label">Conversion</h4>
+<p class="standard-p">&quot;There is a possibility that the operation may need to be converted to an open operation if it is not safe to continue laparoscopically.&quot;</p>
+<h4 class="sub-label">Organ injury</h4>
+<h4 class="sub-label">Bowel</h4>
+<h4 class="sub-label">Bladder</h4>
+<h4 class="sub-label">Ureter</h4>
+<h4 class="sub-label">Major vessels</h4>
+<h4 class="sub-label">Nerve injury</h4>
+<h4 class="sub-label">Other</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Port-site hernia</h4>
+<h4 class="sub-label">Port-site bleeding</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">VTE</h4>
+<h4 class="sub-label">Anaesthetic complications</h4>
+<h4 class="sub-label">Shoulder-tip pain</h4>
+<h4 class="sub-label">Failed procedure</h4>
+<p class="standard-p">RCOG&#x27;s surgical training specifically requires understanding diagnostic laparoscopy, laparotomy, hysterectomy and vaginal surgery, as well as complications and risk reduction.</p>
+
+                <div class="topic-row" id="topic-t-2-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">G</span>
+                        <h3 class="topic-heading">CONSENT FOR HYSTERECTOMY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-16" onchange="toggleMastery('t-2-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Route</h4>
+<h4 class="sub-label">Abdominal</h4>
+<h4 class="sub-label">Vaginal</h4>
+<h4 class="sub-label">Laparoscopic</h4>
+<h4 class="sub-label">Consequences</h4>
+<h4 class="sub-label">Permanent loss of fertility</h4>
+<h4 class="sub-label">No future menstruation</h4>
+<h4 class="sub-label">Cervix retained vs removed</h4>
+<h4 class="sub-label">Ovaries retained vs removed</h4>
+<h4 class="sub-label">Ovaries</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Conservation</h4>
+<h4 class="sub-label">Unilateral oophorectomy</h4>
+<h4 class="sub-label">Bilateral salpingo-oophorectomy</h4>
+<h4 class="sub-label">If ovaries removed:</h4>
+<h4 class="sub-label">Immediate surgical menopause if premenopausal</h4>
+<h4 class="sub-label">HRT implications</h4>
+<h4 class="sub-label">Specific injuries</h4>
+<h4 class="sub-label">Bladder</h4>
+<h4 class="sub-label">Ureter</h4>
+<h4 class="sub-label">Bowel</h4>
+<h4 class="sub-label">Major vessels</h4>
+<h4 class="sub-label">Additional possibilities</h4>
+<h4 class="sub-label">Adhesiolysis</h4>
+<h4 class="sub-label">Cystoscopy where indicated</h4>
+<h4 class="sub-label">Conversion from laparoscopy to laparotomy</h4>
+<h4 class="sub-label">Blood transfusion</h4>
+
+                <div class="topic-row" id="topic-t-2-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">H</span>
+                        <h3 class="topic-heading">CONSENT FOR MYOMECTOMY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-17" onchange="toggleMastery('t-2-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Transfusion</h4>
+<h4 class="sub-label">Hysterectomy if uncontrollable haemorrhage</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Recurrence</h4>
+<h4 class="sub-label">Future fibroids</h4>
+<h4 class="sub-label">Fertility implications</h4>
+<p class="standard-p">Possible need for future Caesarean delivery depending on uterine incision — relevant to future pregnancy counselling, although this is not an obstetric procedure</p>
+<h4 class="sub-label">Conversion to laparotomy</h4>
+<p class="standard-p">For fertility-preserving surgery, document the patient&#x27;s reproductive goals.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">I. CONSENT FOR OVARIAN SURGERY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For ovarian cystectomy:</h4>
+<h4 class="sub-label">Cyst rupture</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Loss of ovarian tissue</h4>
+<h4 class="sub-label">Reduced ovarian reserve</h4>
+<h4 class="sub-label">Oophorectomy if unavoidable</h4>
+<h4 class="sub-label">Unexpected malignancy</h4>
+<h4 class="sub-label">Conversion to laparotomy</h4>
+<h4 class="sub-label">If malignancy is suspected:</h4>
+<p class="standard-p">Consent must reflect the possibility that the procedure may need to be modified according to intraoperative findings and oncological principles.</p>
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">J</span>
+                        <h3 class="topic-heading">CONSENT FOR HYSTEROSCOPY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Vasovagal episode</h4>
+<h4 class="sub-label">Cervical trauma</h4>
+<h4 class="sub-label">Uterine perforation</h4>
+<h4 class="sub-label">Fluid overload</h4>
+<h4 class="sub-label">Incomplete procedure</h4>
+<h4 class="sub-label">Need for repeat procedure</h4>
+<h4 class="sub-label">For operative hysteroscopy:</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Perforation</h4>
+<h4 class="sub-label">Fluid overload/electrolyte disturbance</h4>
+<h4 class="sub-label">Thermal injury</h4>
+<h4 class="sub-label">Need for further surgery</h4>
+<p class="standard-p">RCOG&#x27;s current outpatient hysteroscopy guidance emphasises explaining the procedure, benefits, risks, alternatives and pain-relief options before the appointment, and allowing the patient to reschedule if she needs more time for decision-making.</p>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">K</span>
+                        <h3 class="topic-heading">OUTPATIENT HYSTEROSCOPY — SPECIAL PREPARATION</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Unlike GA hysteroscopy:</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">No fasting required</h4>
+<h4 class="sub-label">Eat and drink normally</h4>
+<h4 class="sub-label">Written information beforehand</h4>
+<h4 class="sub-label">Discuss analgesia</h4>
+<h4 class="sub-label">Medication list</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Explain alternatives</h4>
+<h4 class="sub-label">Explain possibility of biopsy/polypectomy</h4>
+<h4 class="sub-label">Explain stopping procedure if patient requests</h4>
+<p class="standard-p">RCOG explicitly states that routine fasting is not required for outpatient hysteroscopy and recommends analgesia before attendance.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">L. ANAESTHETIC ASSESSMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For GA/regional anaesthesia:</h4>
+<h4 class="sub-label">Assess</h4>
+<h4 class="sub-label">ASA grade</h4>
+<h4 class="sub-label">Airway</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">OSA</h4>
+<h4 class="sub-label">Cardiovascular status</h4>
+<h4 class="sub-label">Respiratory status</h4>
+<h4 class="sub-label">Previous anaesthetic problems</h4>
+<h4 class="sub-label">Medication</h4>
+<h4 class="sub-label">Allergies</h4>
+<h4 class="sub-label">Fasting status</h4>
+<h4 class="sub-label">VTE risk</h4>
+<h4 class="sub-label">Discuss with anaesthetist</h4>
+<h4 class="sub-label">General anaesthesia</h4>
+<h4 class="sub-label">Regional anaesthesia</h4>
+<h4 class="sub-label">Sedation</h4>
+<h4 class="sub-label">Local anaesthesia</h4>
+<p class="standard-p">depending on procedure.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">M. BLOOD MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Preoperative haemoglobin</h4>
+<p class="standard-p">Correct significant anaemia where possible before elective surgery.</p>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">Oral iron</h4>
+<h4 class="sub-label">IV iron</h4>
+<h4 class="sub-label">Treatment of underlying bleeding</h4>
+<h4 class="sub-label">Haematology input if necessary</h4>
+<h4 class="sub-label">Blood availability</h4>
+<h4 class="sub-label">For procedures with significant expected blood loss:</h4>
+<h4 class="sub-label">Group and save</h4>
+<h4 class="sub-label">Crossmatch as appropriate</h4>
+<h4 class="sub-label">Massive haemorrhage plan for high-risk surgery</h4>
+
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">N</span>
+                        <h3 class="topic-heading">ANTIBIOTIC PROPHYLAXIS</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Determine according to:</h4>
+<h4 class="sub-label">Procedure</h4>
+<h4 class="sub-label">Infection risk</h4>
+<h4 class="sub-label">Local antimicrobial policy</h4>
+<h4 class="sub-label">Patient allergy</h4>
+<h4 class="sub-label">Expected contamination</h4>
+<h4 class="sub-label">Particularly relevant to:</h4>
+<h4 class="sub-label">Hysterectomy</h4>
+<h4 class="sub-label">Vaginal surgery</h4>
+<h4 class="sub-label">Major pelvic surgery</h4>
+<h4 class="sub-label">Certain oncology procedures</h4>
+<p class="standard-p">Do not automatically give antibiotics for every minor gynaecological procedure.</p>
+
+                <div class="topic-row" id="topic-t-5-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">O</span>
+                        <h3 class="topic-heading">BOWEL PREPARATION</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-2" onchange="toggleMastery('t-5-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Routine bowel preparation is NOT required for most gynaecological operations.</p>
+<h4 class="sub-label">Consider selectively when:</h4>
+<h4 class="sub-label">Significant bowel surgery anticipated</h4>
+<h4 class="sub-label">Deep infiltrating endometriosis with bowel involvement</h4>
+<h4 class="sub-label">Colorectal involvement</h4>
+<h4 class="sub-label">Selected oncology procedures</h4>
+<p class="standard-p">Follow the colorectal/gynaecology multidisciplinary plan.</p>
+
+                <div class="topic-row" id="topic-t-5-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">P</span>
+                        <h3 class="topic-heading">VAGINAL PREPARATION</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-3" onchange="toggleMastery('t-5-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before major vaginal/pelvic surgery:</h4>
+<h4 class="sub-label">Appropriate hygiene</h4>
+<h4 class="sub-label">Hair removal only if required</h4>
+<h4 class="sub-label">Avoid unnecessary shaving</h4>
+<h4 class="sub-label">Antiseptic preparation according to theatre protocol</h4>
+<h4 class="sub-label">Appropriate bladder catheterisation</h4>
+
+                <div class="topic-row" id="topic-t-5-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">Q</span>
+                        <h3 class="topic-heading">THROMBOPROPHYLAXIS PLAN</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-4" onchange="toggleMastery('t-5-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before surgery document:</h4>
+<h4 class="sub-label">Risk of VTE</h4>
+<h4 class="sub-label">versus</h4>
+<p class="standard-p">Risk of bleeding.</p>
+<h4 class="sub-label">Plan:</h4>
+<h4 class="sub-label">Compression stockings if appropriate</h4>
+<h4 class="sub-label">Intermittent pneumatic compression where indicated</h4>
+<h4 class="sub-label">Pharmacological prophylaxis where indicated</h4>
+<h4 class="sub-label">Early mobilisation</h4>
+<p class="standard-p">For major surgery, reassess VTE risk postoperatively.</p>
+
+                <div class="topic-row" id="topic-t-5-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">R</span>
+                        <h3 class="topic-heading">DAY-OF-SURGERY CHECKLIST</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-5" onchange="toggleMastery('t-5-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Patient</h4>
+<h4 class="sub-label">☐ Correct patient</h4>
+<h4 class="sub-label">☐ Correct operation</h4>
+<h4 class="sub-label">☐ Correct site/side</h4>
+<h4 class="sub-label">☐ Consent signed and valid</h4>
+<h4 class="sub-label">☐ Allergies documented</h4>
+<h4 class="sub-label">☐ Pregnancy excluded where relevant</h4>
+<h4 class="sub-label">☐ Investigations reviewed</h4>
+<h4 class="sub-label">☐ Anaesthetic review completed</h4>
+<h4 class="sub-label">☐ VTE assessment completed</h4>
+<h4 class="sub-label">☐ Antibiotic plan</h4>
+<h4 class="sub-label">☐ Blood plan</h4>
+<h4 class="sub-label">☐ Imaging available</h4>
+<h4 class="sub-label">☐ Histology available</h4>
+<h4 class="sub-label">☐ Marking/site verification where applicable</h4>
+
+                <div class="topic-row" id="topic-t-5-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">S</span>
+                        <h3 class="topic-heading">SURGICAL SAFETY BRIEF</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-6" onchange="toggleMastery('t-5-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before starting:</h4>
+<h4 class="sub-label">Team introduction</h4>
+<h4 class="sub-label">Surgeon</h4>
+<h4 class="sub-label">Assistant</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Scrub nurse</h4>
+<h4 class="sub-label">Circulating nurse</h4>
+<h4 class="sub-label">Confirm</h4>
+<h4 class="sub-label">Procedure</h4>
+<h4 class="sub-label">Patient</h4>
+<h4 class="sub-label">Position</h4>
+<h4 class="sub-label">Equipment</h4>
+<h4 class="sub-label">Imaging</h4>
+<h4 class="sub-label">Blood availability</h4>
+<h4 class="sub-label">Antibiotics</h4>
+<h4 class="sub-label">VTE prophylaxis</h4>
+<h4 class="sub-label">Anticipated difficult steps</h4>
+
+                <div class="topic-row" id="topic-t-5-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">T</span>
+                        <h3 class="topic-heading">PROCEDURE-SPECIFIC PREPARATION — QUICK TABLE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-7" onchange="toggleMastery('t-5-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Procedure</th>
+<th>Key pre-op assessment</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Diagnostic hysteroscopy</strong></td>
+<td>Indication, TVUS, pregnancy exclusion, consent, pain plan</td>
+</tr>
+<tr>
+<td><strong>Operative hysteroscopy</strong></td>
+<td>Lesion size/location, imaging, consent, fluid-management plan</td>
+</tr>
+<tr>
+<td><strong>Polypectomy</strong></td>
+<td>Ultrasound/hysteroscopy, histology plan</td>
+</tr>
+<tr>
+<td><strong>Fibroid resection</strong></td>
+<td>Fibroid size/location, FIGO type, Hb, fluid plan</td>
+</tr>
+<tr>
+<td><strong>Endometrial ablation</strong></td>
+<td>Completed fertility, exclude pregnancy, assess cavity/endometrium</td>
+</tr>
+<tr>
+<td><strong>Diagnostic laparoscopy</strong></td>
+<td>Indication, previous surgery, imaging, VTE, anaesthetic assessment</td>
+</tr>
+<tr>
+<td><strong>Ovarian cystectomy</strong></td>
+<td>Ultrasound, malignancy risk, tumour markers where appropriate, fertility wishes</td>
+</tr>
+<tr>
+<td><strong>Oophorectomy</strong></td>
+<td>Imaging, malignancy risk, fertility/ovarian function discussion</td>
+</tr>
+<tr>
+<td><strong>Salpingectomy</strong></td>
+<td>Indication, fertility implications, consent</td>
+</tr>
+<tr>
+<td><strong>Endometriosis surgery</strong></td>
+<td>Mapping, bowel/bladder involvement, fertility, MDT if complex</td>
+</tr>
+<tr>
+<td><strong>Adhesiolysis</strong></td>
+<td>Previous surgery, expected adhesions, bowel/bladder injury consent</td>
+</tr>
+<tr>
+<td><strong>Myomectomy</strong></td>
+<td>Ultrasound/MRI, Hb, fertility plan, blood-loss plan</td>
+</tr>
+<tr>
+<td><strong>Laparotomy</strong></td>
+<td>Full major-surgery assessment, blood plan, VTE, bowel/bladder risks</td>
+</tr>
+<tr>
+<td><strong>Abdominal hysterectomy</strong></td>
+<td>Diagnosis, imaging, cervical screening, fertility consequences, ovaries</td>
+</tr>
+<tr>
+<td><strong>TLH</strong></td>
+<td>Uterine size, mobility, prior surgery, laparoscopy risks, conversion plan</td>
+</tr>
+<tr>
+<td><strong>Vaginal hysterectomy</strong></td>
+<td>Uterine mobility/size, prolapse, pelvic anatomy, urinary assessment</td>
+</tr>
+<tr>
+<td><strong>Prolapse repair</strong></td>
+<td>POP-Q, urinary symptoms, bowel/sexual function</td>
+</tr>
+<tr>
+<td><strong>SUI surgery</strong></td>
+<td>Diagnosis, urinalysis, residual, conservative treatment, urodynamics where indicated</td>
+</tr>
+<tr>
+<td><strong>LLETZ</strong></td>
+<td>HPV/cytology/colposcopy/histology, pregnancy status</td>
+</tr>
+<tr>
+<td><strong>Vulval biopsy</strong></td>
+<td>Lesion mapping, consent, local anaesthetic, histology</td>
+</tr>
+<tr>
+<td><strong>Bartholin procedure</strong></td>
+<td>Abscess/cyst assessment, age, recurrent disease, malignancy concern</td>
+</tr>
+<tr>
+<td><strong>Oncology surgery</strong></td>
+<td>Histology, staging imaging, MDT plan, fitness, nutrition, blood/VTE plan</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-5-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">U</span>
+                        <h3 class="topic-heading">HYSTERECTOMY — COMPLETE PRE-OP CHECKLIST</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-8" onchange="toggleMastery('t-5-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">☐ Fibroid</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">☐ AUB</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">☐ Adenomyosis</h4>
+<h4 class="sub-label">☐ Endometriosis</h4>
+<h4 class="sub-label">☐ Prolapse</h4>
+<h4 class="sub-label">☐ Endometrial hyperplasia</h4>
+<h4 class="sub-label">☐ Cancer</h4>
+<h4 class="sub-label">☐ Other</h4>
+<h4 class="sub-label">Before surgery</h4>
+<h4 class="sub-label">☐ Confirm indication</h4>
+<h4 class="sub-label">☐ Discuss alternatives</h4>
+<h4 class="sub-label">☐ Fertility counselling</h4>
+<h4 class="sub-label">☐ Cervical screening status</h4>
+<h4 class="sub-label">☐ Endometrial assessment when indicated</h4>
+<h4 class="sub-label">☐ Imaging</h4>
+<h4 class="sub-label">☐ Hb</h4>
+<h4 class="sub-label">☐ Anaesthetic assessment</h4>
+<h4 class="sub-label">☐ VTE assessment</h4>
+<h4 class="sub-label">☐ Antibiotic plan</h4>
+<h4 class="sub-label">☐ Blood plan</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">☐ Route</h4>
+<h4 class="sub-label">☐ Conversion</h4>
+<h4 class="sub-label">☐ Bleeding/transfusion</h4>
+<h4 class="sub-label">☐ Infection</h4>
+<h4 class="sub-label">☐ Bladder injury</h4>
+<h4 class="sub-label">☐ Ureteric injury</h4>
+<h4 class="sub-label">☐ Bowel injury</h4>
+<h4 class="sub-label">☐ Vascular injury</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">☐ VTE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">☐ Anaesthetic risk</h4>
+<h4 class="sub-label">☐ Cervix retained/removed</h4>
+<h4 class="sub-label">☐ Ovaries retained/removed</h4>
+<h4 class="sub-label">☐ Surgical menopause</h4>
+<h4 class="sub-label">☐ Further surgery</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">V. LAPAROSCOPIC SURGERY — COMPLETE CHECKLIST</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Patient selection</h4>
+<h4 class="sub-label">☐ Correct indication</h4>
+<h4 class="sub-label">☐ No major contraindication</h4>
+<h4 class="sub-label">☐ Anaesthetic fitness</h4>
+<h4 class="sub-label">☐ Appropriate expertise available</h4>
+<h4 class="sub-label">Pre-op</h4>
+<h4 class="sub-label">☐ Imaging</h4>
+<h4 class="sub-label">☐ Previous operative history</h4>
+<h4 class="sub-label">☐ Previous abdominal scars</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">☐ BMI</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">☐ Anaesthetic assessment</h4>
+<h4 class="sub-label">☐ VTE assessment</h4>
+<h4 class="sub-label">☐ Pregnancy exclusion if relevant</h4>
+<h4 class="sub-label">☐ Blood tests</h4>
+<h4 class="sub-label">☐ Consent</h4>
+<h4 class="sub-label">Specific consent</h4>
+<h4 class="sub-label">☐ Entry injury</h4>
+<h4 class="sub-label">☐ Bowel injury</h4>
+<h4 class="sub-label">☐ Bladder injury</h4>
+<h4 class="sub-label">☐ Ureter injury</h4>
+<h4 class="sub-label">☐ Major vascular injury</h4>
+<h4 class="sub-label">☐ Haemorrhage</h4>
+<h4 class="sub-label">☐ Conversion to laparotomy</h4>
+<h4 class="sub-label">☐ Port-site complications</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">☐ VTE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">☐ Anaesthetic complications</h4>
+<p class="standard-p">RCOG&#x27;s laparoscopic OSATS specifically expects assessment of patient selection, contraindications, consent, positioning, Veress/trocar entry, anatomical assessment and procedure-specific operative steps.</p>
+
+                <div class="topic-row" id="topic-t-10-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">W</span>
+                        <h3 class="topic-heading">HYSTEROSCOPIC SURGERY — COMPLETE CHECKLIST</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-1" onchange="toggleMastery('t-10-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before</h4>
+<h4 class="sub-label">☐ Confirm indication</h4>
+<h4 class="sub-label">☐ Ultrasound reviewed</h4>
+<h4 class="sub-label">☐ Cavity pathology defined</h4>
+<h4 class="sub-label">☐ Pregnancy excluded</h4>
+<h4 class="sub-label">☐ Cervical access assessed</h4>
+<h4 class="sub-label">☐ Consent</h4>
+<h4 class="sub-label">☐ Analgesia/anaesthesia plan</h4>
+<h4 class="sub-label">☐ Fluid management system available</h4>
+<h4 class="sub-label">☐ Distension medium identified</h4>
+<h4 class="sub-label">☐ Maximum fluid deficit policy understood</h4>
+<h4 class="sub-label">☐ Resuscitation available</h4>
+<h4 class="sub-label">During planning</h4>
+<h4 class="sub-label">Know:</h4>
+<h4 class="sub-label">Distension medium</h4>
+<h4 class="sub-label">Fluid deficit</h4>
+<h4 class="sub-label">Electrolyte complications</h4>
+<h4 class="sub-label">Perforation management</h4>
+<h4 class="sub-label">Bleeding management</h4>
+<h4 class="sub-label">Equipment failure plan</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">X. MAJOR GYNAECOLOGICAL ONCOLOGY SURGERY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Before surgery:</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">☐ Histology</h4>
+<h4 class="sub-label">☐ Imaging</h4>
+<h4 class="sub-label">☐ FIGO staging where relevant</h4>
+<h4 class="sub-label">☐ MDT discussion</h4>
+<h4 class="sub-label">☐ Operability assessment</h4>
+<h4 class="sub-label">Fitness</h4>
+<h4 class="sub-label">☐ Anaesthetic assessment</h4>
+<h4 class="sub-label">☐ Cardiopulmonary assessment</h4>
+<h4 class="sub-label">☐ Nutritional assessment</h4>
+<h4 class="sub-label">☐ Renal function</h4>
+<h4 class="sub-label">☐ Hb</h4>
+<h4 class="sub-label">☐ VTE risk</h4>
+<h4 class="sub-label">☐ Blood products</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Discuss possibility of:</h4>
+<h4 class="sub-label">Extensive surgery</h4>
+<h4 class="sub-label">Bowel resection</h4>
+<h4 class="sub-label">Bladder surgery</h4>
+<h4 class="sub-label">Ureteric procedures</h4>
+<h4 class="sub-label">Stoma</h4>
+<h4 class="sub-label">Lymphadenectomy</h4>
+<h4 class="sub-label">ICU admission</h4>
+<h4 class="sub-label">Transfusion</h4>
+<h4 class="sub-label">Prolonged hospitalisation</h4>
+<h4 class="sub-label">Reoperation</h4>
+<h4 class="sub-label">Death</h4>
+
+                <div class="topic-row" id="topic-t-11-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">Y</span>
+                        <h3 class="topic-heading">SPECIAL PATIENT GROUPS</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-1" onchange="toggleMastery('t-11-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">Airway</h4>
+<h4 class="sub-label">OSA</h4>
+<h4 class="sub-label">Anaesthetic risk</h4>
+<h4 class="sub-label">VTE</h4>
+<h4 class="sub-label">Positioning</h4>
+<h4 class="sub-label">Pressure injury</h4>
+<h4 class="sub-label">Equipment/table capacity</h4>
+<h4 class="sub-label">Wound complications</h4>
+<h4 class="sub-label">Conversion risk</h4>
+<h4 class="sub-label">Diabetes</h4>
+<h4 class="sub-label">Check:</h4>
+<h4 class="sub-label">HbA1c where appropriate</h4>
+<h4 class="sub-label">Glucose</h4>
+<h4 class="sub-label">Medication</h4>
+<h4 class="sub-label">Perioperative glucose plan</h4>
+<h4 class="sub-label">Infection risk</h4>
+<h4 class="sub-label">Wound healing</h4>
+<h4 class="sub-label">Anaemia</h4>
+<h4 class="sub-label">Identify cause:</h4>
+<h4 class="sub-label">Heavy menstrual bleeding</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Malignancy</h4>
+<h4 class="sub-label">Nutritional deficiency</h4>
+<p class="standard-p">Optimise before elective surgery where possible.</p>
+<h4 class="sub-label">Anticoagulated patient</h4>
+<h4 class="sub-label">Determine:</h4>
+<h4 class="sub-label">Indication</h4>
+<h4 class="sub-label">Drug</h4>
+<h4 class="sub-label">Last dose</h4>
+<h4 class="sub-label">Renal function</h4>
+<h4 class="sub-label">Bleeding risk</h4>
+<h4 class="sub-label">Thrombotic risk</h4>
+<h4 class="sub-label">Bridging requirement</h4>
+<h4 class="sub-label">Neuraxial implications</h4>
+<p class="standard-p">Coordinate with anaesthesia/haematology where necessary.</p>
+
+                <div class="topic-row" id="topic-t-11-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">Z</span>
+                        <h3 class="topic-heading">MRCOG OSCE — THE 12-POINT PRE-OP ANSWER</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-2" onchange="toggleMastery('t-11-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">If examiner says:</h4>
+<h4 class="sub-label">&quot;How would you prepare this patient for surgery?&quot;</h4>
+<h4 class="sub-label">Use this sequence:</h4>
+
+                <div class="topic-row" id="topic-t-11-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Confirm indication</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-3" onchange="toggleMastery('t-11-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Confirm diagnosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-4" onchange="toggleMastery('t-11-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Discuss alternatives</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-5" onchange="toggleMastery('t-11-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Assess fertility wishes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-6" onchange="toggleMastery('t-11-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Full medical/surgical/anaesthetic history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-7" onchange="toggleMastery('t-11-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Medication + allergy review</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-8" onchange="toggleMastery('t-11-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Full examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-9" onchange="toggleMastery('t-11-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Review appropriate investigations/imaging/histology</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-10" onchange="toggleMastery('t-11-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Optimise comorbidities and anaemia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-11" onchange="toggleMastery('t-11-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">VTE + infection + blood-loss assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-12" onchange="toggleMastery('t-11-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Valid consent with procedure-specific risks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-13" onchange="toggleMastery('t-11-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-11-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Anaesthetic + theatre + postoperative plan</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-14" onchange="toggleMastery('t-11-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 23</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 M. BLOOD MANAGEMENT</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Procedure: Key pre-op assessment</li>
+<li class="surg-item">● Diagnostic hysteroscopy: Indication, TVUS, pregnancy exclusion, consent, pain plan</li>
+<li class="surg-item">● Operative hysteroscopy: Lesion size/location, imaging, consent, fluid-management plan</li>
+<li class="surg-item">● Polypectomy: Ultrasound/hysteroscopy, histology plan</li>
+<li class="surg-item">● Fibroid resection: Fibroid size/location, FIGO type, Hb, fluid plan</li>
+<li class="surg-item">● Endometrial ablation: Completed fertility, exclude pregnancy, assess cavity/endometrium</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 79;
+    const flashcards = [{"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Procedure</strong>?", "a": "<strong>Key pre-op assessment</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Diagnostic hysteroscopy</strong>?", "a": "<strong>Indication, TVUS, pregnancy exclusion, consent, pain plan</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Operative hysteroscopy</strong>?", "a": "<strong>Lesion size/location, imaging, consent, fluid-management plan</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Polypectomy</strong>?", "a": "<strong>Ultrasound/hysteroscopy, histology plan</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fibroid resection</strong>?", "a": "<strong>Fibroid size/location, FIGO type, Hb, fluid plan</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Endometrial ablation</strong>?", "a": "<strong>Completed fertility, exclude pregnancy, assess cavity/endometrium</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Diagnostic laparoscopy</strong>?", "a": "<strong>Indication, previous surgery, imaging, VTE, anaesthetic assessment</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ovarian cystectomy</strong>?", "a": "<strong>Ultrasound, malignancy risk, tumour markers where appropriate, fertility wishes</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Oophorectomy</strong>?", "a": "<strong>Imaging, malignancy risk, fertility/ovarian function discussion</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Salpingectomy</strong>?", "a": "<strong>Indication, fertility implications, consent</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Endometriosis surgery</strong>?", "a": "<strong>Mapping, bowel/bladder involvement, fertility, MDT if complex</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Adhesiolysis</strong>?", "a": "<strong>Previous surgery, expected adhesions, bowel/bladder injury consent</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Myomectomy</strong>?", "a": "<strong>Ultrasound/MRI, Hb, fertility plan, blood-loss plan</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Laparotomy</strong>?", "a": "<strong>Full major-surgery assessment, blood plan, VTE, bowel/bladder risks</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Abdominal hysterectomy</strong>?", "a": "<strong>Diagnosis, imaging, cervical screening, fertility consequences, ovaries</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>TLH</strong>?", "a": "<strong>Uterine size, mobility, prior surgery, laparoscopy risks, conversion plan</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vaginal hysterectomy</strong>?", "a": "<strong>Uterine mobility/size, prolapse, pelvic anatomy, urinary assessment</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Prolapse repair</strong>?", "a": "<strong>POP-Q, urinary symptoms, bowel/sexual function</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>SUI surgery</strong>?", "a": "<strong>Diagnosis, urinalysis, residual, conservative treatment, urodynamics where indicated</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>LLETZ</strong>?", "a": "<strong>HPV/cytology/colposcopy/histology, pregnancy status</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vulval biopsy</strong>?", "a": "<strong>Lesion mapping, consent, local anaesthetic, histology</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Bartholin procedure</strong>?", "a": "<strong>Abscess/cyst assessment, age, recurrent disease, malignancy concern</strong>"}, {"category": "M. BLOOD MANAGEMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Oncology surgery</strong>?", "a": "<strong>Histology, staging imaging, MDT plan, fitness, nutrition, blood/VTE plan</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Procedure ?", "options": ["Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Lesion size/location, imaging, consent, fluid-management plan", "Ultrasound/hysteroscopy, histology plan"], "correct": 0, "explanation": "Key Guideline / Fact: Key pre-op assessment (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Diagnostic hysteroscopy ?", "options": ["Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Lesion size/location, imaging, consent, fluid-management plan", "Ultrasound/hysteroscopy, histology plan"], "correct": 1, "explanation": "Key Guideline / Fact: Indication, TVUS, pregnancy exclusion, consent, pain plan (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Operative hysteroscopy ?", "options": ["Indication, TVUS, pregnancy exclusion, consent, pain plan", "Key pre-op assessment", "Lesion size/location, imaging, consent, fluid-management plan", "Ultrasound/hysteroscopy, histology plan"], "correct": 2, "explanation": "Key Guideline / Fact: Lesion size/location, imaging, consent, fluid-management plan (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Polypectomy ?", "options": ["Lesion size/location, imaging, consent, fluid-management plan", "Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Ultrasound/hysteroscopy, histology plan"], "correct": 3, "explanation": "Key Guideline / Fact: Ultrasound/hysteroscopy, histology plan (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Fibroid resection ?", "options": ["Fibroid size/location, FIGO type, Hb, fluid plan", "Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Lesion size/location, imaging, consent, fluid-management plan"], "correct": 0, "explanation": "Key Guideline / Fact: Fibroid size/location, FIGO type, Hb, fluid plan (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Endometrial ablation ?", "options": ["Key pre-op assessment", "Completed fertility, exclude pregnancy, assess cavity/endometrium", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Lesion size/location, imaging, consent, fluid-management plan"], "correct": 1, "explanation": "Key Guideline / Fact: Completed fertility, exclude pregnancy, assess cavity/endometrium (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Diagnostic laparoscopy ?", "options": ["Indication, TVUS, pregnancy exclusion, consent, pain plan", "Key pre-op assessment", "Indication, previous surgery, imaging, VTE, anaesthetic assessment", "Lesion size/location, imaging, consent, fluid-management plan"], "correct": 2, "explanation": "Key Guideline / Fact: Indication, previous surgery, imaging, VTE, anaesthetic assessment (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ovarian cystectomy ?", "options": ["Lesion size/location, imaging, consent, fluid-management plan", "Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Ultrasound, malignancy risk, tumour markers where appropriate, fertility wishes"], "correct": 3, "explanation": "Key Guideline / Fact: Ultrasound, malignancy risk, tumour markers where appropriate, fertility wishes (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Oophorectomy ?", "options": ["Imaging, malignancy risk, fertility/ovarian function discussion", "Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Lesion size/location, imaging, consent, fluid-management plan"], "correct": 0, "explanation": "Key Guideline / Fact: Imaging, malignancy risk, fertility/ovarian function discussion (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Salpingectomy ?", "options": ["Key pre-op assessment", "Indication, fertility implications, consent", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Lesion size/location, imaging, consent, fluid-management plan"], "correct": 1, "explanation": "Key Guideline / Fact: Indication, fertility implications, consent (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Endometriosis surgery ?", "options": ["Indication, TVUS, pregnancy exclusion, consent, pain plan", "Key pre-op assessment", "Mapping, bowel/bladder involvement, fertility, MDT if complex", "Lesion size/location, imaging, consent, fluid-management plan"], "correct": 2, "explanation": "Key Guideline / Fact: Mapping, bowel/bladder involvement, fertility, MDT if complex (M. BLOOD MANAGEMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Adhesiolysis ?", "options": ["Lesion size/location, imaging, consent, fluid-management plan", "Key pre-op assessment", "Indication, TVUS, pregnancy exclusion, consent, pain plan", "Previous surgery, expected adhesions, bowel/bladder injury consent"], "correct": 3, "explanation": "Key Guideline / Fact: Previous surgery, expected adhesions, bowel/bladder injury consent (M. BLOOD MANAGEMENT)."}];
+    const storageKey = 'obgyn_mastered_gynaecological_surgerypreoperative_assessment_prerequisites_and_preparation';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

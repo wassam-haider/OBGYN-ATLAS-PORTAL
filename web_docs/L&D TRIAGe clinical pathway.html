@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔴 L&amp;D TRIAGE — RED CASES — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">🔴 L&amp;D TRIAGE — RED CASES</div>
+                <div class="brand-subtitle-text">Immediate / life-threatening / cannot safely wait</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (20)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 12 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 12 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (12 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. 🔴 IMMINENT DELIVERY / ADVANCED LABOUR">1. 🔴 IMMINENT DELIVERY / ADVANCED LABOUR</a></li><li><a href="#part-3" class="part-nav-link" title="2. 🔴 MAJOR ANTEPARTUM HAEMORRHAGE">2. 🔴 MAJOR ANTEPARTUM HAEMORRHAGE</a></li><li><a href="#part-4" class="part-nav-link" title="3. 🔴 ECLAMPSIA">3. 🔴 ECLAMPSIA</a></li><li><a href="#part-5" class="part-nav-link" title="4. 🔴 SEVERE HYPERTENSIVE EMERGENCY">4. 🔴 SEVERE HYPERTENSIVE EMERGENCY</a></li><li><a href="#part-6" class="part-nav-link" title="5. 🔴 PATHOLOGICAL CTG / ACUTE FETAL COMPROMISE">5. 🔴 PATHOLOGICAL CTG / ACUTE FETAL COMPROMISE</a></li><li><a href="#part-7" class="part-nav-link" title="6. 🔴 UMBILICAL CORD PROLAPSE">6. 🔴 UMBILICAL CORD PROLAPSE</a></li><li><a href="#part-8" class="part-nav-link" title="7. 🔴 MATERNAL COLLAPSE">7. 🔴 MATERNAL COLLAPSE</a></li><li><a href="#part-9" class="part-nav-link" title="8. 🔴 SEVERE RESPIRATORY DISTRESS">8. 🔴 SEVERE RESPIRATORY DISTRESS</a></li><li><a href="#part-10" class="part-nav-link" title="9. 🔴 MASSIVE/SEVERE SEPSIS">9. 🔴 MASSIVE/SEVERE SEPSIS</a></li><li><a href="#part-11" class="part-nav-link" title="10. 🔴 ACUTE CHEST PAIN / SUSPECTED MASSIVE PE">10. 🔴 ACUTE CHEST PAIN / SUSPECTED MASSIVE PE</a></li><li><a href="#part-12" class="part-nav-link" title="12. 🔴 SHOULDER DYSTOCIA">12. 🔴 SHOULDER DYSTOCIA</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">🔴 L&amp;D TRIAGE — RED CASES</h1>
+                    <div class="reader-hero-sub">⭐ Immediate / life-threatening / cannot safely wait</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">The universal RED algorithm</h4>
+<h4 class="sub-label">For any red presentation, say:</h4>
+<p class="standard-p">“I would immediately move the woman out of routine triage to an appropriate resuscitation/labour ward area, call for senior help, assess ABCDE, obtain maternal observations and fetal assessment where appropriate, establish IV access, investigate and treat simultaneously, identify the cause, and reassess continuously.”</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Remember</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>CALL → ABCDE → MONITOR → IV ACCESS → BLOOD → FETUS → CAUSE → TREAT → DELIVERY DECISION → REASSESS → DOCUMENT</span></div>
+<p class="standard-p">RCOG specifically describes maternity triage as an emergency portal and emphasises prompt standardised assessment, symptom-specific algorithms and access to senior decision-makers.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. 🔴 IMMINENT DELIVERY / ADVANCED LABOUR</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Recognise</h4>
+<h4 class="sub-label">Red flags:</h4>
+<h4 class="sub-label">Crowning</h4>
+<h4 class="sub-label">Head visible</h4>
+<h4 class="sub-label">Fully dilated and actively pushing</h4>
+<h4 class="sub-label">Presenting part on perineum</h4>
+<h4 class="sub-label">Urge to push with advanced labour</h4>
+<h4 class="sub-label">Previous very rapid labour</h4>
+<h4 class="sub-label">Bulging perineum</h4>
+<h4 class="sub-label">Involuntary pushing</h4>
+<h4 class="sub-label">Step 1 — Call for help</h4>
+<h4 class="sub-label">Immediately call:</h4>
+<h4 class="sub-label">Senior midwife</h4>
+<h4 class="sub-label">Obstetric registrar</h4>
+<h4 class="sub-label">Consultant obstetrician if high-risk/emergency</h4>
+<h4 class="sub-label">Neonatal team if indicated</h4>
+<h4 class="sub-label">Anaesthetic team if complications anticipated</h4>
+<p class="standard-p">Do not send the woman back to routine triage.</p>
+<h4 class="sub-label">Step 2 — Rapid maternal assessment</h4>
+<h4 class="sub-label">ABCDE:</h4>
+<h4 class="sub-label">Airway</h4>
+<h4 class="sub-label">Breathing</h4>
+<h4 class="sub-label">Circulation</h4>
+<h4 class="sub-label">Disability</h4>
+<h4 class="sub-label">Exposure</h4>
+<h4 class="sub-label">Record:</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Temperature</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Consciousness</h4>
+<h4 class="sub-label">Step 3 — Obstetric assessment</h4>
+<h4 class="sub-label">Rapidly establish:</h4>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Gravida/para</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Membrane status</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Fetal movements</h4>
+<h4 class="sub-label">Fetal heart rate</h4>
+<h4 class="sub-label">Previous CS/uterine surgery</h4>
+<h4 class="sub-label">Known placenta praevia/accreta</h4>
+<h4 class="sub-label">Multiple pregnancy</h4>
+<p class="standard-p">If delivery is imminent, do not delay birth for a prolonged history.</p>
+<h4 class="sub-label">Step 4 — Prepare for birth</h4>
+<h4 class="sub-label">Prepare:</h4>
+<h4 class="sub-label">Delivery equipment</h4>
+<h4 class="sub-label">Neonatal resuscitation equipment</h4>
+<h4 class="sub-label">IV access</h4>
+<h4 class="sub-label">Blood if haemorrhage risk</h4>
+<h4 class="sub-label">Appropriate analgesia/anaesthesia</h4>
+<h4 class="sub-label">Newborn team</h4>
+<h4 class="sub-label">Step 5 — Look for complications</h4>
+<h4 class="sub-label">Immediately consider:</h4>
+<h4 class="sub-label">Cord prolapse</h4>
+<h4 class="sub-label">Shoulder dystocia</h4>
+<h4 class="sub-label">Breech delivery</h4>
+<h4 class="sub-label">Fetal bradycardia</h4>
+<h4 class="sub-label">Maternal haemorrhage</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Meconium</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">MRCOG phrase</h4>
+<p class="standard-p">“I would prioritise safe delivery over completing a routine triage assessment because the woman is in advanced labour.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">2. 🔴 MAJOR ANTEPARTUM HAEMORRHAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">RCOG defines APH as bleeding from/in the genital tract from<span class="val-pill"> 24+0 weeks</span> until birth. Major causes include placenta praevia and placental abruption.</p>
+<p class="standard-p">This is one of the most important RED presentations.</p>
+<h4 class="sub-label">Step 1 — Call it an obstetric haemorrhage</h4>
+<p class="standard-p">Do not underestimate blood loss.</p>
+<h4 class="sub-label">Call:</h4>
+<h4 class="sub-label">Senior obstetrician</h4>
+<h4 class="sub-label">Consultant</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Senior midwife</h4>
+<h4 class="sub-label">Blood bank/transfusion laboratory</h4>
+<h4 class="sub-label">Theatre team if significant</h4>
+<p class="standard-p">Neonatal team if fetal compromise/preterm birth possible</p>
+<p class="standard-p">If major haemorrhage, activate the local major obstetric haemorrhage protocol.</p>
+<h4 class="sub-label">Step 2 — ABCDE</h4>
+<h4 class="sub-label">A — Airway</h4>
+<p class="standard-p">Ensure patent airway.</p>
+<h4 class="sub-label">B — Breathing</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Respiratory effort</h4>
+<p class="standard-p">Give oxygen if clinically indicated by hypoxaemia/critical illness.</p>
+<h4 class="sub-label">C — Circulation</h4>
+<h4 class="sub-label">Immediately:</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">Capillary refill</h4>
+<h4 class="sub-label">Mental status</h4>
+<h4 class="sub-label">Estimate ongoing blood loss</h4>
+<h4 class="sub-label">Two large-bore IV cannulas if significant haemorrhage</h4>
+<h4 class="sub-label">Step 3 — Blood investigations</h4>
+<h4 class="sub-label">Send urgently:</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Group and save</h4>
+<h4 class="sub-label">Crossmatch according to severity</h4>
+<h4 class="sub-label">Coagulation screen</h4>
+<h4 class="sub-label">Fibrinogen</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">LFT when clinically appropriate</h4>
+<p class="standard-p">Repeat blood tests according to ongoing blood loss and clinical condition.</p>
+<h4 class="sub-label">Step 4 — Identify the likely cause</h4>
+<h4 class="sub-label">Placenta praevia</h4>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">Painless</h4>
+<h4 class="sub-label">Bright-red bleeding</h4>
+<h4 class="sub-label">May be recurrent</h4>
+<h4 class="sub-label">Soft, non-tender uterus</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">Painful bleeding</h4>
+<h4 class="sub-label">Abdominal/back pain</h4>
+<h4 class="sub-label">Tender/tense uterus</h4>
+<h4 class="sub-label">Frequent contractions</h4>
+<h4 class="sub-label">Fetal compromise</h4>
+<h4 class="sub-label">Concealed haemorrhage possible</h4>
+<h4 class="sub-label">Vasa praevia</h4>
+<h4 class="sub-label">Think:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ROM → vaginal bleeding + acute fetal bradycardia</span></div>
+<p class="standard-p">This is a fetal emergency.</p>
+<p class="standard-p">RCOG specifically recognises placenta praevia, abruption and vasa praevia as major obstetric haemorrhage considerations.</p>
+<h4 class="sub-label">🚨 VERY IMPORTANT: DO NOT PERFORM DIGITAL VE</h4>
+<h4 class="sub-label">If placenta praevia has not been excluded:</h4>
+<p class="standard-p">No digital vaginal examination.</p>
+<p class="standard-p">A sterile speculum examination may be considered when appropriate, but first stabilise the woman and establish the placental situation.</p>
+<h4 class="sub-label">Step 5 — Fetal assessment</h4>
+<h4 class="sub-label">If fetus is viable and maternal condition permits:</h4>
+<h4 class="sub-label">Confirm fetal heart</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Assess fetal compromise</h4>
+<h4 class="sub-label">If maternal instability or severe fetal compromise:</h4>
+<p class="standard-p">Do not delay definitive management for investigations.</p>
+<h4 class="sub-label">Step 6 — Decide: expectant management or delivery?</h4>
+<h4 class="sub-label">Deliver urgently if:</h4>
+<h4 class="sub-label">Maternal instability</h4>
+<h4 class="sub-label">Ongoing major haemorrhage</h4>
+<h4 class="sub-label">Maternal deterioration</h4>
+<h4 class="sub-label">Significant fetal compromise</h4>
+<h4 class="sub-label">Term pregnancy with indication for birth</h4>
+<h4 class="sub-label">Other obstetric indication</h4>
+<h4 class="sub-label">Mode depends on:</h4>
+<h4 class="sub-label">Gestation</h4>
+<h4 class="sub-label">Maternal condition</h4>
+<h4 class="sub-label">Fetal condition</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Cause of bleeding</h4>
+<h4 class="sub-label">Labour status</h4>
+<h4 class="sub-label">Placental location</h4>
+<h4 class="sub-label">Step 7 — Anti-D</h4>
+<h4 class="sub-label">For an RhD-negative woman:</h4>
+<h4 class="sub-label">Assess need for anti-D</h4>
+<p class="standard-p">Kleihauer testing according to gestation/local protocol</p>
+<h4 class="sub-label">Dose anti-D according to local/RCOG guidance</h4>
+<h4 class="sub-label">MRCOG GOLDEN STATEMENT</h4>
+<p class="standard-p">“In APH, maternal resuscitation takes priority, but maternal and fetal assessment occur simultaneously. I would avoid digital vaginal examination until placenta praevia has been excluded and would involve senior obstetric, anaesthetic, transfusion and neonatal teams early.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">3. 🔴 ECLAMPSIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Eclampsia = seizure in pregnancy/postpartum associated with pre-eclampsia, after excluding other causes.</p>
+<p class="standard-p">It is an immediate maternal neurological emergency.</p>
+<h4 class="sub-label">Step 1 — Call emergency team</h4>
+<h4 class="sub-label">Immediately:</h4>
+<h4 class="sub-label">Obstetrician</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Midwife</h4>
+<h4 class="sub-label">Neonatal team if appropriate</h4>
+<h4 class="sub-label">Medical/neurology support if diagnostic uncertainty</h4>
+<h4 class="sub-label">Step 2 — During seizure</h4>
+<h4 class="sub-label">Protect the woman</h4>
+<h4 class="sub-label">Do not restrain</h4>
+<h4 class="sub-label">Prevent injury</h4>
+<h4 class="sub-label">Protect airway</h4>
+<h4 class="sub-label">Position appropriately, usually lateral</h4>
+<h4 class="sub-label">Suction available</h4>
+<h4 class="sub-label">Oxygen if clinically indicated/hypoxaemic</h4>
+<p class="standard-p">Do not put anything in her mouth.</p>
+<h4 class="sub-label">Step 3 — ABC</h4>
+<h4 class="sub-label">After seizure:</h4>
+<h4 class="sub-label">Airway</h4>
+<p class="standard-p">Ensure airway.</p>
+<h4 class="sub-label">Breathing</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Aspiration</h4>
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Circulation</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">IV access</h4>
+<h4 class="sub-label">Disability</h4>
+<h4 class="sub-label">GCS</h4>
+<h4 class="sub-label">Pupils</h4>
+<h4 class="sub-label">Glucose</h4>
+<h4 class="sub-label">Neurological status</h4>
+<p class="standard-p">Check glucose because hypoglycaemia can cause seizure.</p>
+<h4 class="sub-label">Step 4 — Magnesium sulfate</h4>
+<p class="standard-p">Magnesium sulfate is the drug of choice for eclamptic seizures, according to the established RCOG/NICE obstetric emergency pathway.</p>
+<p class="standard-p">Use the local IV/IM regimen and monitoring protocol.</p>
+<h4 class="sub-label">Monitor:</h4>
+<h4 class="sub-label">Respiratory rate</h4>
+<h4 class="sub-label">Oxygen saturation</h4>
+<h4 class="sub-label">Reflexes</h4>
+<h4 class="sub-label">Urine output</h4>
+<h4 class="sub-label">Conscious level</h4>
+<h4 class="sub-label">Magnesium toxicity</h4>
+<h4 class="sub-label">Watch for:</h4>
+<h4 class="sub-label">Loss of patellar reflexes</h4>
+<h4 class="sub-label">Respiratory depression</h4>
+<h4 class="sub-label">Reduced consciousness</h4>
+<h4 class="sub-label">Oliguria</h4>
+<h4 class="sub-label">Antidote</h4>
+<h4 class="sub-label">Calcium gluconate</h4>
+<h4 class="sub-label">Step 5 — Control severe hypertension</h4>
+<h4 class="sub-label">If severe hypertension is present:</h4>
+<p class="standard-p">Treat urgently using the local pregnancy-safe antihypertensive protocol, commonly:</p>
+<h4 class="sub-label">Labetalol</h4>
+<h4 class="sub-label">Nifedipine</h4>
+<h4 class="sub-label">Hydralazine</h4>
+<p class="standard-p">Target is safe reduction, not abrupt normalization.</p>
+<h4 class="sub-label">Step 6 — Investigations</h4>
+<h4 class="sub-label">Send:</h4>
+<h4 class="sub-label">FBC/platelets</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">Creatinine/U&amp;E</h4>
+<h4 class="sub-label">Urine protein assessment</h4>
+<h4 class="sub-label">Coagulation if indicated</h4>
+<h4 class="sub-label">Glucose</h4>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">CT/MRI brain</h4>
+<h4 class="sub-label">Neurology review</h4>
+<p class="standard-p">if atypical features, persistent neurological deficit, prolonged/recurrent seizures despite treatment or another intracranial diagnosis is suspected.</p>
+<h4 class="sub-label">Step 7 — Fetal assessment</h4>
+<h4 class="sub-label">After maternal stabilisation:</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Fetal assessment</h4>
+<h4 class="sub-label">Critical MRCOG point:</h4>
+<p class="standard-p">Do NOT perform immediate caesarean solely because the woman has had an eclamptic seizure. Stabilise the mother first.</p>
+<p class="standard-p">Then decide timing and mode of birth.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">4. 🔴 SEVERE HYPERTENSIVE EMERGENCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Think RED when there is:</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">≥160 systolic and/or ≥110 diastolic</h4>
+<h4 class="sub-label">especially if persistent or associated with:</h4>
+<h4 class="sub-label">Severe headache</h4>
+<h4 class="sub-label">Visual symptoms</h4>
+<h4 class="sub-label">Epigastric/RUQ pain</h4>
+<h4 class="sub-label">Hyperreflexia/clonus</h4>
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Neurological symptoms</h4>
+<h4 class="sub-label">Abnormal laboratory results</h4>
+<h4 class="sub-label">Fetal compromise</h4>
+<h4 class="sub-label">Step 1</h4>
+<p class="standard-p">Move to high-dependency/emergency area.</p>
+<h4 class="sub-label">Call:</h4>
+<h4 class="sub-label">Senior obstetrician</h4>
+<h4 class="sub-label">Anaesthetist if severe</h4>
+<h4 class="sub-label">Medical physician if needed</h4>
+<h4 class="sub-label">Step 2 — Confirm BP</h4>
+<h4 class="sub-label">Repeat using:</h4>
+<h4 class="sub-label">Correct cuff</h4>
+<h4 class="sub-label">Correct positioning</h4>
+<h4 class="sub-label">Appropriate technique</h4>
+<p class="standard-p">But do not delay treatment if severe hypertension is confirmed and persistent.</p>
+<h4 class="sub-label">Step 3 — ABCDE</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Airway</h4>
+<h4 class="sub-label">Respiratory status</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">Neurological state</h4>
+<h4 class="sub-label">Urine output</h4>
+<p class="standard-p">Look specifically for pulmonary oedema.</p>
+<h4 class="sub-label">Step 4 — Treat BP urgently</h4>
+<p class="standard-p">Use pregnancy-compatible emergency antihypertensive therapy according to local protocol.</p>
+<h4 class="sub-label">Common agents:</h4>
+<h4 class="sub-label">Labetalol</h4>
+<h4 class="sub-label">or</h4>
+<h4 class="sub-label">Nifedipine</h4>
+<h4 class="sub-label">or</h4>
+<h4 class="sub-label">Hydralazine</h4>
+<h4 class="sub-label">Step 5 — Assess for severe pre-eclampsia/HELLP</h4>
+<h4 class="sub-label">Blood:</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Platelets</h4>
+<h4 class="sub-label">AST/ALT</h4>
+<h4 class="sub-label">Creatinine</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">Urine:</h4>
+<h4 class="sub-label">Protein assessment</h4>
+<h4 class="sub-label">Clinical:</h4>
+<h4 class="sub-label">Headache</h4>
+<h4 class="sub-label">Vision</h4>
+<h4 class="sub-label">RUQ/epigastric pain</h4>
+<h4 class="sub-label">Reflexes</h4>
+<h4 class="sub-label">Clonus</h4>
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Step 6 — Fetus</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Ultrasound when appropriate</h4>
+<h4 class="sub-label">Growth</h4>
+<h4 class="sub-label">Liquor</h4>
+<h4 class="sub-label">Dopplers where indicated</h4>
+<h4 class="sub-label">Step 7 — Magnesium sulfate?</h4>
+<p class="standard-p">Consider/use according to the severe pre-eclampsia/eclampsia protocol when there is significant risk of eclampsia or neurological features.</p>
+<h4 class="sub-label">Step 8 — Delivery decision</h4>
+<p class="standard-p">The definitive treatment for pre-eclampsia is delivery, but timing depends on:</p>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Maternal stability</h4>
+<h4 class="sub-label">Severe features</h4>
+<h4 class="sub-label">Fetal condition</h4>
+<h4 class="sub-label">Response to treatment</h4>
+<h4 class="sub-label">Cervical status</h4>
+<h4 class="sub-label">Availability of neonatal care</h4>
+<h4 class="sub-label">MRCOG phrase:</h4>
+<p class="standard-p">“I would stabilise the mother first, control severe hypertension and prevent/treat seizures, then determine the timing and mode of delivery.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">5. 🔴 PATHOLOGICAL CTG / ACUTE FETAL COMPROMISE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is a fetal emergency.</p>
+<h4 class="sub-label">Step 1 — Call for help</h4>
+<h4 class="sub-label">Immediately:</h4>
+<h4 class="sub-label">Senior midwife</h4>
+<h4 class="sub-label">Obstetric registrar</h4>
+<h4 class="sub-label">Consultant obstetrician</h4>
+<h4 class="sub-label">Anaesthetist if operative delivery likely</h4>
+<h4 class="sub-label">Neonatal team</h4>
+<h4 class="sub-label">Step 2 — Rapid maternal assessment</h4>
+<h4 class="sub-label">Check:</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Temperature</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Contractions</h4>
+<h4 class="sub-label">Step 3 — Identify reversible causes</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Maternal hypotension</h4>
+<h4 class="sub-label">Especially after:</h4>
+<h4 class="sub-label">Epidural</h4>
+<h4 class="sub-label">Spinal</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Excessive uterine activity</h4>
+<h4 class="sub-label">Oxytocin</h4>
+<h4 class="sub-label">Prostaglandins</h4>
+<h4 class="sub-label">Cord compression/prolapse</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Maternal hypoxia</h4>
+<h4 class="sub-label">Fever/sepsis</h4>
+<h4 class="sub-label">Aortocaval compression</h4>
+<h4 class="sub-label">Step 4 — Immediate corrective actions</h4>
+<h4 class="sub-label">Depending on cause:</h4>
+<h4 class="sub-label">Stop oxytocin</h4>
+<p class="standard-p">If excessive contractions/tachysystole.</p>
+<h4 class="sub-label">Correct hypotension</h4>
+<p class="standard-p">Appropriate IV fluid/vasopressor management according to anaesthetic protocol.</p>
+<h4 class="sub-label">Maternal positioning</h4>
+<p class="standard-p">Avoid supine aortocaval compression.</p>
+<h4 class="sub-label">Treat hypoxia</h4>
+<p class="standard-p">If present.</p>
+<h4 class="sub-label">Treat uterine hyperstimulation</h4>
+<p class="standard-p">Consider acute tocolysis according to local protocol.</p>
+<h4 class="sub-label">Step 5 — Vaginal examination</h4>
+<h4 class="sub-label">If indicated, assess:</h4>
+<h4 class="sub-label">Cervical dilatation</h4>
+<h4 class="sub-label">Station</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Cord prolapse</h4>
+<h4 class="sub-label">Step 6 — Decide whether birth is required</h4>
+<p class="standard-p">If fetal compromise persists despite corrective measures:</p>
+<p class="standard-p">Expedite birth.</p>
+<h4 class="sub-label">Mode depends on:</h4>
+<h4 class="sub-label">Cervical dilatation</h4>
+<h4 class="sub-label">Station</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Gestation</h4>
+<h4 class="sub-label">Clinical circumstances</h4>
+<h4 class="sub-label">Whether vaginal birth can be achieved immediately</h4>
+<h4 class="sub-label">MRCOG GOLDEN RULE</h4>
+<p class="standard-p">“A pathological CTG is not treated by staring at the CTG.”</p>
+<h4 class="sub-label">You:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Recognise → call → assess mother → identify reversible causes → correct → reassess → expedite birth if unresolved.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">6. 🔴 UMBILICAL CORD PROLAPSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">RCOG Green-top Guideline No. 50 specifically covers prevention, diagnosis and management of cord prolapse.</p>
+<h4 class="sub-label">Recognition</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Cord seen at vulva</h4>
+<h4 class="sub-label">Cord felt on vaginal examination</h4>
+<h4 class="sub-label">Sudden prolonged fetal bradycardia</h4>
+<h4 class="sub-label">Variable decelerations immediately after ROM</h4>
+<h4 class="sub-label">Sudden abnormal CTG following membrane rupture</h4>
+<h4 class="sub-label">Step 1 — Shout for help</h4>
+<h4 class="sub-label">Say:</h4>
+<p class="standard-p">“This is an obstetric emergency. I would call for immediate assistance and prepare for emergency birth.”</p>
+<h4 class="sub-label">Call:</h4>
+<h4 class="sub-label">Obstetrician</h4>
+<h4 class="sub-label">Theatre team</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Neonatal team</h4>
+<h4 class="sub-label">Step 2 — Relieve cord compression</h4>
+<h4 class="sub-label">Elevate presenting part</h4>
+<h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">Hand vaginally to elevate presenting part</h4>
+<p class="standard-p">Maintain until delivery.</p>
+<h4 class="sub-label">Step 3 — Maternal positioning</h4>
+<h4 class="sub-label">Use a position that reduces compression, e.g.:</h4>
+<h4 class="sub-label">Knee-chest</h4>
+<p class="standard-p">Left lateral with head-down/elevated pelvis as appropriate</p>
+<h4 class="sub-label">Step 4 — Do NOT manipulate the cord unnecessarily</h4>
+<h4 class="sub-label">If cord is visible:</h4>
+<p class="standard-p">Avoid excessive handling.</p>
+<p class="standard-p">Do not repeatedly push it back above the presenting part.</p>
+<h4 class="sub-label">Step 5 — Stop oxytocin</h4>
+<h4 class="sub-label">If running:</h4>
+<p class="standard-p">Stop oxytocin.</p>
+<p class="standard-p">If uterine hyperstimulation is contributing, consider acute tocolysis according to local protocol.</p>
+<h4 class="sub-label">Step 6 — CTG</h4>
+<p class="standard-p">Continuous fetal assessment while preparing for birth.</p>
+<h4 class="sub-label">Step 7 — Decide mode of birth</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Emergency caesarean birth</h4>
+<h4 class="sub-label">unless:</h4>
+<h4 class="sub-label">Vaginal birth is already imminent</h4>
+<h4 class="sub-label">Cervix fully dilated</h4>
+<h4 class="sub-label">Head sufficiently low</h4>
+<p class="standard-p">Birth can be achieved more rapidly and safely vaginally</p>
+<h4 class="sub-label">MRCOG key phrase:</h4>
+<p class="standard-p">“The objective is to minimise the interval between diagnosis and birth while maintaining maternal and fetal safety.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">7. 🔴 MATERNAL COLLAPSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">RCOG Green-top Guideline No. 56 covers maternal collapse throughout pregnancy and the puerperium and emphasises that outcome depends on prompt, effective resuscitation.</p>
+<h4 class="sub-label">Causes — think broadly</h4>
+<h4 class="sub-label">4 Hs</h4>
+<h4 class="sub-label">Hypoxia</h4>
+<h4 class="sub-label">Hypovolaemia</h4>
+<h4 class="sub-label">Hypo/hyperkalaemia/metabolic causes</h4>
+<h4 class="sub-label">Hypothermia</h4>
+<h4 class="sub-label">4 Ts</h4>
+<h4 class="sub-label">Thrombosis</h4>
+<h4 class="sub-label">Tension pneumothorax</h4>
+<h4 class="sub-label">Tamponade</h4>
+<h4 class="sub-label">Toxins</h4>
+<h4 class="sub-label">Plus obstetric causes:</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">Amniotic fluid embolism</h4>
+<h4 class="sub-label">Sepsis</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Step 1 — Call cardiac arrest/resuscitation team</h4>
+<h4 class="sub-label">Immediately activate:</h4>
+<h4 class="sub-label">Obstetric emergency</h4>
+<h4 class="sub-label">Anaesthesia</h4>
+<h4 class="sub-label">Medical/emergency resuscitation team</h4>
+<h4 class="sub-label">Neonatal team</h4>
+<h4 class="sub-label">Blood bank if haemorrhage</h4>
+<h4 class="sub-label">Step 2 — ABCDE</h4>
+<h4 class="sub-label">If cardiac arrest:</h4>
+<p class="standard-p">Start CPR immediately.</p>
+<p class="standard-p">Use standard adult ALS principles adapted to pregnancy.</p>
+<h4 class="sub-label">Step 3 — Position</h4>
+<p class="standard-p">Pregnant women require modification of resuscitation because of aortocaval compression.</p>
+<p class="standard-p">Use appropriate manual uterine displacement/left lateral tilt according to resuscitation protocol.</p>
+<h4 class="sub-label">Step 4 — IV/IO access</h4>
+<p class="standard-p">Establish rapid vascular access.</p>
+<h4 class="sub-label">Send:</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Crossmatch</h4>
+<h4 class="sub-label">Coagulation</h4>
+<h4 class="sub-label">Fibrinogen</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">Glucose</h4>
+<h4 class="sub-label">Blood gas/lactate</h4>
+<p class="standard-p">depending on cause.</p>
+<h4 class="sub-label">Step 5 — Treat the cause simultaneously</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Blood/haemorrhage protocol</span></div>
+<h4 class="sub-label">Eclampsia</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Magnesium sulfate</span></div>
+<h4 class="sub-label">PE</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ PE emergency pathway</span></div>
+<h4 class="sub-label">Sepsis</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Sepsis bundle</span></div>
+<h4 class="sub-label">Hypoglycaemia</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Glucose</span></div>
+<h4 class="sub-label">Anaphylaxis</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Immediate anaphylaxis treatment</span></div>
+<p class="standard-p">Step 6 — Perimortem caesarean/resuscitative hysterotomy</p>
+<p class="standard-p">If maternal cardiac arrest occurs in advanced pregnancy and ROSC is not rapidly achieved:</p>
+<p class="standard-p">Prepare for resuscitative hysterotomy/perimortem caesarean birth according to the current maternal resuscitation protocol.</p>
+<p class="standard-p">The RCOG material historically specifies performing this by approximately 5 minutes when indicated; current practice emphasises starting preparation immediately rather than waiting for an arbitrary timer.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">8. 🔴 SEVERE RESPIRATORY DISTRESS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">RED if:</h4>
+<h4 class="sub-label">Severe hypoxaemia</h4>
+<h4 class="sub-label">Cannot speak normally</h4>
+<h4 class="sub-label">Severe work of breathing</h4>
+<h4 class="sub-label">Cyanosis</h4>
+<h4 class="sub-label">Altered consciousness</h4>
+<h4 class="sub-label">Haemodynamic instability</h4>
+<h4 class="sub-label">Suspected massive PE</h4>
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Severe asthma</h4>
+<h4 class="sub-label">Step 1 — ABC</h4>
+<h4 class="sub-label">Airway</h4>
+<p class="standard-p">Prepare for airway intervention if deteriorating.</p>
+<h4 class="sub-label">Breathing</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Chest examination</h4>
+<h4 class="sub-label">Work of breathing</h4>
+<p class="standard-p">Give oxygen if hypoxaemic.</p>
+<h4 class="sub-label">Circulation</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">IV access</h4>
+<h4 class="sub-label">Step 2 — Differential diagnosis</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">Sudden dyspnoea</h4>
+<h4 class="sub-label">Chest pain</h4>
+<h4 class="sub-label">Tachycardia</h4>
+<h4 class="sub-label">Hypoxaemia</h4>
+<h4 class="sub-label">Syncope</h4>
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Orthopnoea</h4>
+<h4 class="sub-label">Crackles</h4>
+<h4 class="sub-label">Hypoxia</h4>
+<h4 class="sub-label">Hypertension/pre-eclampsia</h4>
+<h4 class="sub-label">Asthma</h4>
+<h4 class="sub-label">Wheeze</h4>
+<h4 class="sub-label">Previous asthma</h4>
+<h4 class="sub-label">Reduced peak flow</h4>
+<h4 class="sub-label">Pneumonia/sepsis</h4>
+<h4 class="sub-label">Fever</h4>
+<h4 class="sub-label">Cough</h4>
+<h4 class="sub-label">Focal signs</h4>
+<h4 class="sub-label">Pneumothorax</h4>
+<h4 class="sub-label">Sudden unilateral chest pain</h4>
+<h4 class="sub-label">Reduced breath sounds</h4>
+<h4 class="sub-label">Cardiac disease</h4>
+<h4 class="sub-label">Orthopnoea</h4>
+<h4 class="sub-label">PND</h4>
+<h4 class="sub-label">Oedema</h4>
+<h4 class="sub-label">Murmur</h4>
+<h4 class="sub-label">Step 3 — Investigate</h4>
+<h4 class="sub-label">Depending on clinical suspicion:</h4>
+<h4 class="sub-label">ECG</h4>
+<h4 class="sub-label">CXR</h4>
+<h4 class="sub-label">ABG/VBG</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">Troponin where appropriate</h4>
+<h4 class="sub-label">Echocardiography</h4>
+<h4 class="sub-label">CTPA/VQ according to PE pathway</h4>
+<p class="standard-p">Do not withhold necessary maternal imaging simply because she is pregnant.</p>
+<h4 class="sub-label">Step 4 — Massive PE</h4>
+<h4 class="sub-label">Massive PE with:</h4>
+<h4 class="sub-label">Shock</h4>
+<h4 class="sub-label">Severe hypoxaemia</h4>
+<h4 class="sub-label">RV dysfunction</h4>
+<p class="standard-p">is a medical emergency. RCOG recommends multidisciplinary resuscitation management, with treatment decisions including anticoagulation/thrombolysis or surgical approaches according to individual circumstances.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">9. 🔴 MASSIVE/SEVERE SEPSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">RCOG&#x27;s current Green-top Guideline No. 64 covers maternal sepsis during the antenatal, intrapartum and postpartum periods.</p>
+<h4 class="sub-label">Recognise</h4>
+<p class="standard-p">Do not wait for hypotension.</p>
+<h4 class="sub-label">Red flags:</h4>
+<h4 class="sub-label">Altered mental state</h4>
+<h4 class="sub-label">Tachypnoea</h4>
+<h4 class="sub-label">Hypoxaemia</h4>
+<h4 class="sub-label">Hypotension</h4>
+<h4 class="sub-label">Tachycardia</h4>
+<h4 class="sub-label">Fever OR hypothermia</h4>
+<h4 class="sub-label">Reduced urine output</h4>
+<h4 class="sub-label">High lactate</h4>
+<h4 class="sub-label">Severe abdominal/uterine tenderness</h4>
+<h4 class="sub-label">Foul liquor</h4>
+<h4 class="sub-label">Systemic deterioration</h4>
+<h4 class="sub-label">Step 1 — Call senior help</h4>
+<h4 class="sub-label">Obstetrician</h4>
+<h4 class="sub-label">Anaesthetist/critical care</h4>
+<h4 class="sub-label">Microbiology/infectious disease when appropriate</h4>
+<h4 class="sub-label">Neonatal team if fetal concerns</h4>
+<h4 class="sub-label">Step 2 — Sepsis assessment</h4>
+<h4 class="sub-label">ABCDE +:</h4>
+<h4 class="sub-label">Lactate</h4>
+<h4 class="sub-label">Blood cultures</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">U&amp;E</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">CRP according to local protocol</h4>
+<h4 class="sub-label">Urine</h4>
+<h4 class="sub-label">Relevant cultures</h4>
+<h4 class="sub-label">Step 3 — Antibiotics</h4>
+<p class="standard-p">Give prompt broad-spectrum IV antibiotics according to the local pregnancy-safe sepsis protocol.</p>
+<p class="standard-p">Do not delay antibiotics while waiting for cultures if the patient is clinically septic.</p>
+<h4 class="sub-label">Step 4 — Source control</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">Wound infection</h4>
+<h4 class="sub-label">Intra-abdominal infection</h4>
+<h4 class="sub-label">Retained products/postpartum infection</h4>
+<h4 class="sub-label">Step 5 — Fluids</h4>
+<p class="standard-p">Give IV crystalloid if indicated, but reassess frequently, particularly if:</p>
+<h4 class="sub-label">Pre-eclampsia</h4>
+<h4 class="sub-label">Cardiac disease</h4>
+<h4 class="sub-label">Pulmonary oedema risk</h4>
+<h4 class="sub-label">Step 6 — Fetus</h4>
+<h4 class="sub-label">If viable:</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Assess fetal condition</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Maternal stabilisation remains the priority.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">10. 🔴 ACUTE CHEST PAIN / SUSPECTED MASSIVE PE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This deserves its own RED pathway.</p>
+<h4 class="sub-label">Step 1 — ABCDE</h4>
+<h4 class="sub-label">Immediately assess:</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">Consciousness</h4>
+<h4 class="sub-label">Step 2 — PE clues</h4>
+<h4 class="sub-label">Sudden dyspnoea</h4>
+<h4 class="sub-label">Pleuritic chest pain</h4>
+<h4 class="sub-label">Haemoptysis</h4>
+<h4 class="sub-label">Tachycardia</h4>
+<h4 class="sub-label">Syncope</h4>
+<h4 class="sub-label">Hypoxia</h4>
+<h4 class="sub-label">Collapse</h4>
+<p class="standard-p">Check legs for DVT.</p>
+<h4 class="sub-label">Step 3 — If unstable</h4>
+<h4 class="sub-label">Call:</h4>
+<h4 class="sub-label">Consultant obstetrician</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Physician/critical care</h4>
+<h4 class="sub-label">Haematology</h4>
+<h4 class="sub-label">Appropriate multidisciplinary team</h4>
+<p class="standard-p">RCOG identifies massive PE with shock/refractory hypoxaemia/RV dysfunction as a medical emergency.</p>
+<h4 class="sub-label">Step 4 — Investigate urgently</h4>
+<h4 class="sub-label">Depending on stability:</h4>
+<h4 class="sub-label">ECG</h4>
+<h4 class="sub-label">CXR</h4>
+<h4 class="sub-label">ABG</h4>
+<h4 class="sub-label">Echocardiography</h4>
+<h4 class="sub-label">Compression ultrasound if DVT symptoms</h4>
+<h4 class="sub-label">CTPA/VQ according to the diagnostic pathway</h4>
+<h4 class="sub-label">Step 5 — Treatment</h4>
+<p class="standard-p">If PE is strongly suspected/confirmed, anticoagulation should not be unnecessarily delayed.</p>
+<p class="standard-p">For massive PE with haemodynamic collapse, management may require:</p>
+<h4 class="sub-label">IV unfractionated heparin</h4>
+<h4 class="sub-label">Thrombolysis</h4>
+<h4 class="sub-label">Surgical/embolectomy strategies</h4>
+<p class="standard-p">depending on the multidisciplinary decision.</p>
+
+                <div class="topic-row" id="topic-t-11-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">🔴 LABOUR + PREVIOUS CS + SUSPECTED UTERINE RUPTURE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-1" onchange="toggleMastery('t-11-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is a classic MRCOG emergency.</p>
+<h4 class="sub-label">Suspect rupture if:</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Fetal</span></div>
+                <div class="callout-body">Sudden prolonged bradycardia</div>
+            </div>
+            
+<h4 class="sub-label">Abnormal CTG</h4>
+<h4 class="sub-label">Loss of station</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Sudden severe abdominal pain</div>
+            </div>
+            
+<h4 class="sub-label">Scar tenderness</h4>
+<h4 class="sub-label">Vaginal bleeding</h4>
+<h4 class="sub-label">Haemodynamic instability</h4>
+<h4 class="sub-label">Shoulder-tip pain</h4>
+<h4 class="sub-label">Haematuria</h4>
+<h4 class="sub-label">Labour</h4>
+<h4 class="sub-label">Cessation/change in contractions</h4>
+<h4 class="sub-label">Failure of progress</h4>
+<h4 class="sub-label">Step 1</h4>
+<h4 class="sub-label">Immediately:</h4>
+<p class="standard-p">Call senior obstetrician + anaesthetist + theatre + neonatal team.</p>
+<h4 class="sub-label">Step 2 — ABC</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">IV access × 2</h4>
+<h4 class="sub-label">Bloods</h4>
+<h4 class="sub-label">Crossmatch</h4>
+<h4 class="sub-label">Step 3 — Fetal assessment</h4>
+<p class="standard-p">Continuous CTG if this does not delay definitive treatment.</p>
+<h4 class="sub-label">Step 4 — Do not delay theatre</h4>
+<h4 class="sub-label">If rupture is strongly suspected:</h4>
+<p class="standard-p">Emergency laparotomy/caesarean delivery.</p>
+<h4 class="sub-label">Step 5 — Prepare for haemorrhage</h4>
+<h4 class="sub-label">Have available:</h4>
+<h4 class="sub-label">Blood</h4>
+<h4 class="sub-label">Blood products</h4>
+<h4 class="sub-label">Major haemorrhage protocol</h4>
+<h4 class="sub-label">Anaesthetic support</h4>
+<h4 class="sub-label">Possible surgery:</h4>
+<h4 class="sub-label">Uterine repair</h4>
+<h4 class="sub-label">Hysterectomy</h4>
+<p class="standard-p">depending on extent of rupture, bleeding and future fertility considerations.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">12. 🔴 SHOULDER DYSTOCIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Although technically a delivery-room emergency rather than a triage presentation, it belongs in your RED emergency list.</p>
+<h4 class="sub-label">Recognise</h4>
+<h4 class="sub-label">After delivery of the head:</h4>
+<h4 class="sub-label">Head retracts against perineum = turtle sign</h4>
+<h4 class="sub-label">and:</h4>
+<h4 class="sub-label">Failure of restitution</h4>
+<h4 class="sub-label">Failure of shoulders to deliver with normal traction</h4>
+<h4 class="sub-label">Step 1 — Announce</h4>
+<h4 class="sub-label">“Shoulder dystocia.”</h4>
+<h4 class="sub-label">Call:</h4>
+<h4 class="sub-label">Obstetrician</h4>
+<h4 class="sub-label">Senior midwife</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Neonatal team</h4>
+<h4 class="sub-label">Step 2</h4>
+<p class="standard-p">Stop maternal pushing temporarily if instructed by team.</p>
+<p class="standard-p">Avoid excessive traction on fetal head.</p>
+<h4 class="sub-label">Step 3 — McRoberts manoeuvre</h4>
+<p class="standard-p">Hyperflex maternal hips.</p>
+<h4 class="sub-label">Step 4 — Suprapubic pressure</h4>
+<p class="standard-p">Apply appropriate suprapubic pressure.</p>
+<p class="standard-p">NOT fundal pressure.</p>
+<h4 class="sub-label">Step 5 — Internal manoeuvres if unsuccessful</h4>
+<h4 class="sub-label">Sequentially consider:</h4>
+<h4 class="sub-label">Rubin</h4>
+<h4 class="sub-label">Woods screw</h4>
+<h4 class="sub-label">Delivery of posterior arm</h4>
+<h4 class="sub-label">Step 6 — Change maternal position</h4>
+<p class="standard-p">All-fours/Gaskin manoeuvre where appropriate.</p>
+<h4 class="sub-label">Step 7 — Last-resort manoeuvres</h4>
+<h4 class="sub-label">If unresolved:</h4>
+<h4 class="sub-label">Intentional clavicular fracture</h4>
+<h4 class="sub-label">Cephalic replacement/Zavanelli</h4>
+<h4 class="sub-label">Emergency caesarean/laparotomy as appropriate</h4>
+<h4 class="sub-label">Step 8 — After delivery</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">PPH</h4>
+<h4 class="sub-label">Genital tract trauma</h4>
+<h4 class="sub-label">Uterine injury</h4>
+<h4 class="sub-label">Baby:</h4>
+<h4 class="sub-label">Neonatal resuscitation</h4>
+<h4 class="sub-label">Cord gases</h4>
+<h4 class="sub-label">Brachial plexus injury</h4>
+<h4 class="sub-label">Fractures</h4>
+<h4 class="sub-label">Hypoxic injury</h4>
+<h4 class="sub-label">🔴 13. RAPIDLY PROGRESSING PRETERM DELIVERY</h4>
+<h4 class="sub-label">A woman at very preterm gestation with:</h4>
+<h4 class="sub-label">Advanced cervical dilatation</h4>
+<h4 class="sub-label">Strong contractions</h4>
+<h4 class="sub-label">Bulging membranes</h4>
+<h4 class="sub-label">Urge to push</h4>
+<h4 class="sub-label">Fetal compromise</h4>
+<p class="standard-p">should be RED.</p>
+<h4 class="sub-label">Immediate</h4>
+<h4 class="sub-label">Call:</h4>
+<h4 class="sub-label">Senior obstetrician</h4>
+<h4 class="sub-label">Neonatologist</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Cervical dilatation</h4>
+<h4 class="sub-label">Membranes</h4>
+<h4 class="sub-label">Fetal heart</h4>
+<h4 class="sub-label">Prepare:</h4>
+<h4 class="sub-label">Neonatal resuscitation</h4>
+<h4 class="sub-label">Delivery</h4>
+<p class="standard-p">Antenatal corticosteroids if time and gestational age appropriate</p>
+<h4 class="sub-label">Magnesium sulfate for neuroprotection where indicated</h4>
+<p class="standard-p">RCOG currently recommends antenatal corticosteroids for women at 24+0–<span class="val-pill">34+6 weeks</span> when imminent preterm birth is anticipated; importantly, birth should not be delayed when maternal or fetal health requires delivery.</p>
+<h4 class="sub-label">🔴 14. VASA PRAEVIA WITH FETAL COMPROMISE</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic scenario</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ROM → painless vaginal bleeding → fetal bradycardia</span></div>
+<p class="standard-p">The mother may appear surprisingly well because the blood loss is primarily fetal.</p>
+<h4 class="sub-label">Immediate actions</h4>
+<h4 class="sub-label">Call obstetric emergency</h4>
+<h4 class="sub-label">Call neonatal team</h4>
+<h4 class="sub-label">Continuous CTG</h4>
+<h4 class="sub-label">Maternal IV access</h4>
+<h4 class="sub-label">Blood available</h4>
+<h4 class="sub-label">Do not delay birth attempting to confirm diagnosis</h4>
+<p class="standard-p">Emergency caesarean if vaginal birth is not immediately achievable</p>
+<p class="standard-p">RCOG material emphasises that fetal exsanguination can occur rapidly after rupture of vasa praevia and that delivery should not be delayed trying to confirm the diagnosis.</p>
+<h4 class="sub-label">🔴 15. EXTREME MATERNAL PAIN + COLLAPSE</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Obstetric catastrophes</h4>
+<h4 class="sub-label">Abruption</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Massive haemorrhage</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">Aortic dissection</h4>
+<h4 class="sub-label">Amniotic fluid embolism</h4>
+<h4 class="sub-label">Sepsis</h4>
+<h4 class="sub-label">Non-obstetric</h4>
+<h4 class="sub-label">Appendicitis</h4>
+<h4 class="sub-label">Renal colic</h4>
+<h4 class="sub-label">Pancreatitis</h4>
+<h4 class="sub-label">Splenic pathology</h4>
+<h4 class="sub-label">Cardiac disease</h4>
+<h4 class="sub-label">MRCOG approach</h4>
+<h4 class="sub-label">Never say:</h4>
+<h4 class="sub-label">“It is probably labour.”</h4>
+<h4 class="sub-label">Instead:</h4>
+<p class="standard-p">“I would first exclude life-threatening obstetric and medical causes.”</p>
+<h4 class="sub-label">Then:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ABCDE → maternal observations → fetal assessment → targeted examination → investigations → senior review → definitive treatment.</span></div>
+<h4 class="sub-label">🧠 THE RED-CASE MRCOG MASTER TABLE</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>RED emergency</th>
+<th>First priority</th>
+<th>Key definitive action</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Imminent delivery</strong></td>
+<td>Prepare safe birth</td>
+<td>Vaginal birth if appropriate</td>
+</tr>
+<tr>
+<td><strong>Major APH</strong></td>
+<td>ABC + haemorrhage resuscitation</td>
+<td>Delivery when indicated</td>
+</tr>
+<tr>
+<td><strong>Eclampsia</strong></td>
+<td>ABC + MgSO₄</td>
+<td>Stabilise → birth</td>
+</tr>
+<tr>
+<td><strong>Severe hypertension</strong></td>
+<td>BP control + seizure prevention</td>
+<td>Stabilise → delivery plan</td>
+</tr>
+<tr>
+<td><strong>Pathological CTG</strong></td>
+<td>Correct reversible causes</td>
+<td>Expedite birth if persistent</td>
+</tr>
+<tr>
+<td><strong>Cord prolapse</strong></td>
+<td>Relieve cord compression</td>
+<td>Immediate birth</td>
+</tr>
+<tr>
+<td><strong>Maternal collapse</strong></td>
+<td>CPR/ABCDE</td>
+<td>Treat cause ± resuscitative hysterotomy</td>
+</tr>
+<tr>
+<td><strong>Severe respiratory distress</strong></td>
+<td>ABC + oxygen/support</td>
+<td>Treat cause</td>
+</tr>
+<tr>
+<td><strong>Massive PE</strong></td>
+<td>Resuscitation</td>
+<td>Anticoagulation ± advanced therapy</td>
+</tr>
+<tr>
+<td><strong>Severe sepsis</strong></td>
+<td>Sepsis treatment</td>
+<td>Antibiotics + source control</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Resuscitation</td>
+<td>Emergency laparotomy/birth</td>
+</tr>
+<tr>
+<td><strong>Shoulder dystocia</strong></td>
+<td>McRoberts + pressure</td>
+<td>Internal manoeuvres/birth</td>
+</tr>
+<tr>
+<td><strong>Vasa praevia</strong></td>
+<td>Recognise fetal haemorrhage</td>
+<td>Immediate birth</td>
+</tr>
+<tr>
+<td><strong>Extreme pain/collapse</strong></td>
+<td>Exclude catastrophe</td>
+<td>Cause-specific emergency treatment</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 20</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 12. 🔴 SHOULDER DYSTOCIA</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● RED emergency: First priority</li>
+<li class="surg-item">● Imminent delivery: Prepare safe birth</li>
+<li class="surg-item">● Major APH: ABC + haemorrhage resuscitation</li>
+<li class="surg-item">● Eclampsia: ABC + MgSO₄</li>
+<li class="surg-item">● Severe hypertension: BP control + seizure prevention</li>
+<li class="surg-item">● Pathological CTG: Correct reversible causes</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 12;
+    const flashcards = [{"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>RED emergency</strong>?", "a": "<strong>First priority</strong><br>Key definitive action"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Imminent delivery</strong>?", "a": "<strong>Prepare safe birth</strong><br>Vaginal birth if appropriate"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Major APH</strong>?", "a": "<strong>ABC + haemorrhage resuscitation</strong><br>Delivery when indicated"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Eclampsia</strong>?", "a": "<strong>ABC + MgSO\u2084</strong><br>Stabilise \u2192 birth"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe hypertension</strong>?", "a": "<strong>BP control + seizure prevention</strong><br>Stabilise \u2192 delivery plan"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pathological CTG</strong>?", "a": "<strong>Correct reversible causes</strong><br>Expedite birth if persistent"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cord prolapse</strong>?", "a": "<strong>Relieve cord compression</strong><br>Immediate birth"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Maternal collapse</strong>?", "a": "<strong>CPR/ABCDE</strong><br>Treat cause \u00b1 resuscitative hysterotomy"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe respiratory distress</strong>?", "a": "<strong>ABC + oxygen/support</strong><br>Treat cause"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Massive PE</strong>?", "a": "<strong>Resuscitation</strong><br>Anticoagulation \u00b1 advanced therapy"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe sepsis</strong>?", "a": "<strong>Sepsis treatment</strong><br>Antibiotics + source control"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterine rupture</strong>?", "a": "<strong>Resuscitation</strong><br>Emergency laparotomy/birth"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Shoulder dystocia</strong>?", "a": "<strong>McRoberts + pressure</strong><br>Internal manoeuvres/birth"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vasa praevia</strong>?", "a": "<strong>Recognise fetal haemorrhage</strong><br>Immediate birth"}, {"category": "12. \ud83d\udd34 SHOULDER DYSTOCIA", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Extreme pain/collapse</strong>?", "a": "<strong>Exclude catastrophe</strong><br>Cause-specific emergency treatment"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>Overview &amp; Core Guidance</strong>", "a": "<strong>CALL \u2192 ABCDE \u2192 MONITOR \u2192 IV ACCESS \u2192 BLOOD \u2192 FETUS \u2192 CAUSE \u2192 TREAT \u2192 DELIVERY DECISION \u2192 REASSESS \u2192 DOCUMENT</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>2. \ud83d\udd34 MAJOR ANTEPARTUM HAEMORRHAGE</strong>", "a": "<strong>ROM \u2192 vaginal bleeding + acute fetal bradycardia</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>5. \ud83d\udd34 PATHOLOGICAL CTG / ACUTE FETAL COMPROMISE</strong>", "a": "<strong>Recognise \u2192 call \u2192 assess mother \u2192 identify reversible causes \u2192 correct \u2192 reassess \u2192 expedite birth if unresolved.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>7. \ud83d\udd34 MATERNAL COLLAPSE</strong>", "a": "<strong>\u2192 Blood/haemorrhage protocol</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>12. \ud83d\udd34 SHOULDER DYSTOCIA</strong>", "a": "<strong>ROM \u2192 painless vaginal bleeding \u2192 fetal bradycardia</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  RED emergency ?", "options": ["First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "ABC + haemorrhage resuscitation  Delivery when indicated", "ABC + MgSO\u2084  Stabilise \u2192 birth"], "correct": 0, "explanation": "Key Guideline / Fact: First priority  Key definitive action (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Imminent delivery ?", "options": ["First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "ABC + haemorrhage resuscitation  Delivery when indicated", "ABC + MgSO\u2084  Stabilise \u2192 birth"], "correct": 1, "explanation": "Key Guideline / Fact: Prepare safe birth  Vaginal birth if appropriate (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Major APH ?", "options": ["Prepare safe birth  Vaginal birth if appropriate", "First priority  Key definitive action", "ABC + haemorrhage resuscitation  Delivery when indicated", "ABC + MgSO\u2084  Stabilise \u2192 birth"], "correct": 2, "explanation": "Key Guideline / Fact: ABC + haemorrhage resuscitation  Delivery when indicated (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Eclampsia ?", "options": ["ABC + haemorrhage resuscitation  Delivery when indicated", "First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "ABC + MgSO\u2084  Stabilise \u2192 birth"], "correct": 3, "explanation": "Key Guideline / Fact: ABC + MgSO\u2084  Stabilise \u2192 birth (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Severe hypertension ?", "options": ["BP control + seizure prevention  Stabilise \u2192 delivery plan", "First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "ABC + haemorrhage resuscitation  Delivery when indicated"], "correct": 0, "explanation": "Key Guideline / Fact: BP control + seizure prevention  Stabilise \u2192 delivery plan (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Pathological CTG ?", "options": ["First priority  Key definitive action", "Correct reversible causes  Expedite birth if persistent", "Prepare safe birth  Vaginal birth if appropriate", "ABC + haemorrhage resuscitation  Delivery when indicated"], "correct": 1, "explanation": "Key Guideline / Fact: Correct reversible causes  Expedite birth if persistent (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cord prolapse ?", "options": ["Prepare safe birth  Vaginal birth if appropriate", "First priority  Key definitive action", "Relieve cord compression  Immediate birth", "ABC + haemorrhage resuscitation  Delivery when indicated"], "correct": 2, "explanation": "Key Guideline / Fact: Relieve cord compression  Immediate birth (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Maternal collapse ?", "options": ["ABC + haemorrhage resuscitation  Delivery when indicated", "First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "CPR/ABCDE  Treat cause \u00b1 resuscitative hysterotomy"], "correct": 3, "explanation": "Key Guideline / Fact: CPR/ABCDE  Treat cause \u00b1 resuscitative hysterotomy (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Severe respiratory distress ?", "options": ["ABC + oxygen/support  Treat cause", "First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "ABC + haemorrhage resuscitation  Delivery when indicated"], "correct": 0, "explanation": "Key Guideline / Fact: ABC + oxygen/support  Treat cause (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Massive PE ?", "options": ["First priority  Key definitive action", "Resuscitation  Anticoagulation \u00b1 advanced therapy", "Prepare safe birth  Vaginal birth if appropriate", "ABC + haemorrhage resuscitation  Delivery when indicated"], "correct": 1, "explanation": "Key Guideline / Fact: Resuscitation  Anticoagulation \u00b1 advanced therapy (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Severe sepsis ?", "options": ["Prepare safe birth  Vaginal birth if appropriate", "First priority  Key definitive action", "Sepsis treatment  Antibiotics + source control", "ABC + haemorrhage resuscitation  Delivery when indicated"], "correct": 2, "explanation": "Key Guideline / Fact: Sepsis treatment  Antibiotics + source control (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Uterine rupture ?", "options": ["ABC + haemorrhage resuscitation  Delivery when indicated", "First priority  Key definitive action", "Prepare safe birth  Vaginal birth if appropriate", "Resuscitation  Emergency laparotomy/birth"], "correct": 3, "explanation": "Key Guideline / Fact: Resuscitation  Emergency laparotomy/birth (12. \ud83d\udd34 SHOULDER DYSTOCIA)."}];
+    const storageKey = 'obgyn_mastered_l_d_triage_clinical_pathway';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

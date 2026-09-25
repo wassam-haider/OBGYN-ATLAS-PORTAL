@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O&amp;G CONDITIONS REQUIRING MDT INVOLVEMENT — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">O&amp;G CONDITIONS REQUIRING MDT INVOLVEME</div>
+                <div class="brand-subtitle-text">RCOG/MRCOG-oriented master list</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (8)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 29 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 25 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (25 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="I. OBSTETRIC CONDITIONS REQUIRING MDT">I. OBSTETRIC CONDITIONS REQUIRING MDT</a></li><li><a href="#part-3" class="part-nav-link" title="II. MATERNAL MEDICINE CONDITIONS">II. MATERNAL MEDICINE CONDITIONS</a></li><li><a href="#part-4" class="part-nav-link" title="III. RESPIRATORY DISEASE">III. RESPIRATORY DISEASE</a></li><li><a href="#part-5" class="part-nav-link" title="IV. RENAL DISEASE">IV. RENAL DISEASE</a></li><li><a href="#part-6" class="part-nav-link" title="V. ENDOCRINE / METABOLIC DISEASE">V. ENDOCRINE / METABOLIC DISEASE</a></li><li><a href="#part-7" class="part-nav-link" title="VI. NEUROLOGICAL CONDITIONS">VI. NEUROLOGICAL CONDITIONS</a></li><li><a href="#part-8" class="part-nav-link" title="VII. HAEMATOLOGICAL CONDITIONS">VII. HAEMATOLOGICAL CONDITIONS</a></li><li><a href="#part-9" class="part-nav-link" title="IX. INFECTIOUS DISEASE">IX. INFECTIOUS DISEASE</a></li><li><a href="#part-10" class="part-nav-link" title="X. OBSTETRIC CONDITIONS INVOLVING THE FETUS">X. OBSTETRIC CONDITIONS INVOLVING THE FETUS</a></li><li><a href="#part-11" class="part-nav-link" title="XI. MULTIPLE PREGNANCY">XI. MULTIPLE PREGNANCY</a></li><li><a href="#part-12" class="part-nav-link" title="XII. PRETERM BIRTH / EXTREME PREMATURITY">XII. PRETERM BIRTH / EXTREME PREMATURITY</a></li><li><a href="#part-13" class="part-nav-link" title="XIII. MATERNAL MALIGNANCY IN PREGNANCY">XIII. MATERNAL MALIGNANCY IN PREGNANCY</a></li><li><a href="#part-14" class="part-nav-link" title="XIV. GYNAECOLOGICAL ONCOLOGY — CLASSIC MDT CONDITIONS">XIV. GYNAECOLOGICAL ONCOLOGY — CLASSIC MDT CONDITIONS</a></li><li><a href="#part-15" class="part-nav-link" title="XV. COMPLEX BENIGN GYNAECOLOGY">XV. COMPLEX BENIGN GYNAECOLOGY</a></li><li><a href="#part-16" class="part-nav-link" title="XVI. DEEP ENDOMETRIOSIS">XVI. DEEP ENDOMETRIOSIS</a></li><li><a href="#part-17" class="part-nav-link" title="XVII. UROGYNAECOLOGY">XVII. UROGYNAECOLOGY</a></li><li><a href="#part-18" class="part-nav-link" title="XVIII. COMPLEX OBSTETRIC UROLOGICAL CONDITIONS">XVIII. COMPLEX OBSTETRIC UROLOGICAL CONDITIONS</a></li><li><a href="#part-19" class="part-nav-link" title="XIX. REPRODUCTIVE MEDICINE / FERTILITY MDT">XIX. REPRODUCTIVE MEDICINE / FERTILITY MDT</a></li><li><a href="#part-20" class="part-nav-link" title="XX. GENETIC CONDITIONS">XX. GENETIC CONDITIONS</a></li><li><a href="#part-21" class="part-nav-link" title="XXI. COMPLEX EARLY PREGNANCY">XXI. COMPLEX EARLY PREGNANCY</a></li><li><a href="#part-22" class="part-nav-link" title="XXII. GESTATIONAL TROPHOBLASTIC DISEASE">XXII. GESTATIONAL TROPHOBLASTIC DISEASE</a></li><li><a href="#part-23" class="part-nav-link" title="XXIII. SEXUAL / REPRODUCTIVE HEALTH CONDITIONS">XXIII. SEXUAL / REPRODUCTIVE HEALTH CONDITIONS</a></li><li><a href="#part-24" class="part-nav-link" title="XXIV. COMPLEX SURGICAL EMERGENCIES">XXIV. COMPLEX SURGICAL EMERGENCIES</a></li><li><a href="#part-25" class="part-nav-link" title="🔑 MDT EXAM RULE">🔑 MDT EXAM RULE</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">O&amp;G CONDITIONS REQUIRING MDT INVOLVEMENT</h1>
+                    <div class="reader-hero-sub">⭐ RCOG/MRCOG-oriented master list</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">An MDT (multidisciplinary team) is particularly important when an O&amp;G condition involves major haemorrhage, maternal organ disease, malignancy, complex pelvic surgery, fetal/neonatal risk, or another specialty beyond routine O&amp;G care. RCOG&#x27;s current framework includes four major O&amp;G subspecialties: Maternal &amp; Fetal Medicine, Gynaecological Oncology, Reproductive Medicine and Urogynaecology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">I. OBSTETRIC CONDITIONS REQUIRING MDT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Major haemorrhage / placental disorders</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Important MDT members</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Placenta accreta spectrum (accreta/increta/percreta) ⭐⭐⭐</strong></td>
+<td>Consultant obstetrician/MFM, anaesthetist, pelvic surgeon/gynae-oncologist, urologist, interventional radiology where appropriate, haematology/transfusion, neonatology, ICU</td>
+</tr>
+<tr>
+<td><strong>Placenta previa with previous CS / suspected PAS</strong></td>
+<td>MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon</td>
+</tr>
+<tr>
+<td><strong>Placenta percreta with bladder invasion</strong></td>
+<td>O&amp;G + urology + anaesthesia + transfusion + ICU ± gynae-oncology</td>
+</tr>
+<tr>
+<td><strong>Major antepartum haemorrhage</strong></td>
+<td>Senior O&amp;G, anaesthesia, haematology/transfusion, neonatology ± IR</td>
+</tr>
+<tr>
+<td><strong>Massive PPH / refractory PPH</strong></td>
+<td>Senior O&amp;G, anaesthesia, haematology/transfusion, theatre team, ICU ± IR/general surgery</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Senior obstetrician, anaesthetist, neonatal team, blood bank ± urology/general surgery</td>
+</tr>
+<tr>
+<td><strong>Morbidly adherent placenta with suspected pelvic invasion</strong></td>
+<td>Specialist pelvic surgical MDT</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">High-yield: PAS is one of the clearest examples of an obstetric MDT condition. The updated RCOG Green-top Guideline 27a specifically recommends an antenatal care plan involving an expert MDT and delivery in a specialist centre for women with a high probability of PAS.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">II. MATERNAL MEDICINE CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Cardiac disease</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">MDT required for significant maternal cardiac disease</h4>
+<h4 class="sub-label">Complex congenital heart disease</h4>
+<h4 class="sub-label">Pulmonary hypertension</h4>
+<h4 class="sub-label">Cyanotic heart disease</h4>
+<h4 class="sub-label">Significant valvular disease</h4>
+<h4 class="sub-label">Severe aortic stenosis</h4>
+<h4 class="sub-label">Cardiomyopathy</h4>
+<h4 class="sub-label">Previous peripartum cardiomyopathy</h4>
+<h4 class="sub-label">Significant arrhythmias</h4>
+<h4 class="sub-label">Aortic dilatation/aortopathy</h4>
+<h4 class="sub-label">Marfan syndrome with significant aortic disease</h4>
+<h4 class="sub-label">Mechanical prosthetic heart valve</h4>
+<h4 class="sub-label">Severe heart failure</h4>
+<h4 class="sub-label">Eisenmenger syndrome</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">O&amp;G/MFM + cardiology + anaesthesia ± cardiac surgery + neonatology + haematology</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">III. RESPIRATORY DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex/severe:</h4>
+<h4 class="sub-label">Severe asthma</h4>
+<h4 class="sub-label">Cystic fibrosis</h4>
+<h4 class="sub-label">Pulmonary hypertension</h4>
+<h4 class="sub-label">Interstitial lung disease</h4>
+<h4 class="sub-label">Severe respiratory failure</h4>
+<h4 class="sub-label">Significant obstructive/restrictive lung disease</h4>
+<h4 class="sub-label">Oxygen-dependent respiratory disease</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + respiratory physician + anaesthesia + ICU ± neonatology</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">IV. RENAL DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Particularly:</h4>
+<h4 class="sub-label">CKD stage 3–5</h4>
+<h4 class="sub-label">Nephrotic syndrome</h4>
+<h4 class="sub-label">Significant proteinuria</h4>
+<h4 class="sub-label">Dialysis in pregnancy</h4>
+<h4 class="sub-label">Renal transplant</h4>
+<h4 class="sub-label">Severe hypertension associated with renal disease</h4>
+<h4 class="sub-label">Lupus nephritis</h4>
+<h4 class="sub-label">Renal disease with deteriorating renal function</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + nephrology + anaesthesia + renal transplant team where relevant + neonatology</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">V. ENDOCRINE / METABOLIC DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex diabetes</h4>
+<h4 class="sub-label">Type 1 diabetes with complications</h4>
+<h4 class="sub-label">Type 2 diabetes with complications</h4>
+<h4 class="sub-label">Diabetic nephropathy</h4>
+<h4 class="sub-label">Diabetic retinopathy</h4>
+<h4 class="sub-label">Difficult-to-control diabetes</h4>
+<h4 class="sub-label">Recurrent severe hypoglycaemia</h4>
+<h4 class="sub-label">Diabetic ketoacidosis</h4>
+<h4 class="sub-label">Significant fetal complications secondary to diabetes</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + endocrinology/diabetes team + dietitian + ophthalmology ± nephrology + neonatology</p>
+<h4 class="sub-label">Thyroid disease</h4>
+<h4 class="sub-label">Complex cases:</h4>
+<h4 class="sub-label">Thyrotoxicosis difficult to control</h4>
+<h4 class="sub-label">Thyroid storm</h4>
+<h4 class="sub-label">Severe hypothyroidism</h4>
+<h4 class="sub-label">Thyroid cancer during pregnancy</h4>
+<h4 class="sub-label">Large compressive goitre</h4>
+<p class="standard-p">MDT: MFM + endocrinology ± oncology/surgery + anaesthesia + neonatology.</p>
+<h4 class="sub-label">Adrenal disease</h4>
+<h4 class="sub-label">Addison disease</h4>
+<h4 class="sub-label">Cushing syndrome</h4>
+<h4 class="sub-label">Phaeochromocytoma</h4>
+<h4 class="sub-label">Significant adrenal tumour</h4>
+<p class="standard-p">MDT: MFM + endocrinology + anaesthesia ± endocrine surgery + ICU.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">VI. NEUROLOGICAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex:</h4>
+<h4 class="sub-label">Epilepsy difficult to control</h4>
+<h4 class="sub-label">Status epilepticus</h4>
+<h4 class="sub-label">Multiple sclerosis with significant disability</h4>
+<h4 class="sub-label">Myasthenia gravis</h4>
+<h4 class="sub-label">Intracranial tumour</h4>
+<h4 class="sub-label">Cerebral aneurysm/AVM</h4>
+<h4 class="sub-label">Previous stroke</h4>
+<h4 class="sub-label">Significant neuromuscular disease</h4>
+<h4 class="sub-label">Spinal cord injury</h4>
+<h4 class="sub-label">Raised intracranial pressure</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + neurology/neurosurgery + anaesthesia ± ICU + neonatology</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">VII. HAEMATOLOGICAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Thrombophilia / VTE</h4>
+<h4 class="sub-label">Previous VTE requiring complex anticoagulation</h4>
+<h4 class="sub-label">Recurrent VTE</h4>
+<h4 class="sub-label">Antiphospholipid syndrome</h4>
+<h4 class="sub-label">Mechanical heart valve requiring anticoagulation</h4>
+<h4 class="sub-label">Severe thrombophilia</h4>
+<h4 class="sub-label">Acute VTE in pregnancy</h4>
+<p class="standard-p">MDT: MFM + haematology + anaesthesia ± cardiology.</p>
+<h4 class="sub-label">Bleeding disorders</h4>
+<h4 class="sub-label">Haemophilia carrier with significant risk</h4>
+<h4 class="sub-label">von Willebrand disease</h4>
+<h4 class="sub-label">Platelet disorders</h4>
+<h4 class="sub-label">Immune thrombocytopenia requiring complex treatment</h4>
+<h4 class="sub-label">Severe thrombocytopenia</h4>
+<h4 class="sub-label">Rare coagulation disorders</h4>
+<p class="standard-p">MDT: MFM + haematology + anaesthesia + transfusion medicine + neonatology.</p>
+<h4 class="sub-label">VIII. AUTOIMMUNE / CONNECTIVE-TISSUE DISEASE</h4>
+<h4 class="sub-label">Particularly:</h4>
+<h4 class="sub-label">SLE</h4>
+<h4 class="sub-label">Lupus nephritis</h4>
+<h4 class="sub-label">Antiphospholipid syndrome</h4>
+<h4 class="sub-label">Systemic sclerosis</h4>
+<h4 class="sub-label">Rheumatoid arthritis with major systemic involvement</h4>
+<h4 class="sub-label">Vasculitis</h4>
+<h4 class="sub-label">Sjögren syndrome with significant fetal risk</h4>
+<h4 class="sub-label">Inflammatory myopathies</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + rheumatology ± nephrology + cardiology + haematology + neonatology</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">IX. INFECTIOUS DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex maternal infection:</h4>
+<h4 class="sub-label">HIV</h4>
+<h4 class="sub-label">Tuberculosis</h4>
+<h4 class="sub-label">Active syphilis with complications</h4>
+<h4 class="sub-label">Hepatitis B/C with significant disease</h4>
+<h4 class="sub-label">Severe COVID/respiratory infection</h4>
+<h4 class="sub-label">Malaria</h4>
+<h4 class="sub-label">Toxoplasmosis with fetal involvement</h4>
+<h4 class="sub-label">CMV infection with suspected fetal disease</h4>
+<h4 class="sub-label">Rubella infection</h4>
+<h4 class="sub-label">Varicella infection with maternal/fetal complications</h4>
+<h4 class="sub-label">Severe sepsis</h4>
+<h4 class="sub-label">Chorioamnionitis with maternal deterioration</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + infectious disease/microbiology + neonatology ± respiratory/ICU</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">X. OBSTETRIC CONDITIONS INVOLVING THE FETUS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Fetal medicine MDT</h4>
+<h4 class="sub-label">Major fetal anomaly</h4>
+<h4 class="sub-label">Multiple congenital anomalies</h4>
+<h4 class="sub-label">Suspected chromosomal abnormality</h4>
+<h4 class="sub-label">Severe fetal growth restriction</h4>
+<h4 class="sub-label">Fetal hydrops</h4>
+<h4 class="sub-label">Fetal anaemia</h4>
+<h4 class="sub-label">Fetal arrhythmia</h4>
+<h4 class="sub-label">Complex congenital heart disease</h4>
+<h4 class="sub-label">Twin-to-twin transfusion syndrome</h4>
+<h4 class="sub-label">TAPS</h4>
+<h4 class="sub-label">TRAP sequence</h4>
+<p class="standard-p">Selective fetal growth restriction in monochorionic twins</p>
+<h4 class="sub-label">Twin reversed arterial perfusion</h4>
+<p class="standard-p">Severe oligohydramnios/polyhydramnios with underlying pathology</p>
+<h4 class="sub-label">Severe fetal skeletal dysplasia</h4>
+<h4 class="sub-label">Neural tube defects</h4>
+<h4 class="sub-label">Congenital diaphragmatic hernia</h4>
+<h4 class="sub-label">Complex CNS abnormality</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM/fetal medicine + specialist sonographer + genetics + neonatology + paediatric cardiology/surgery ± fetal therapy team</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">XI. MULTIPLE PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Especially:</h4>
+<h4 class="sub-label">Monochorionic diamniotic twins</h4>
+<h4 class="sub-label">Monochorionic monoamniotic twins</h4>
+<h4 class="sub-label">TTTS</h4>
+<h4 class="sub-label">TAPS</h4>
+<h4 class="sub-label">TRAP</h4>
+<h4 class="sub-label">sFGR</h4>
+<h4 class="sub-label">Higher-order multiple pregnancy</h4>
+<h4 class="sub-label">Conjoined twins</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + fetal medicine + neonatology + paediatric surgery ± fetal intervention team</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">XII. PRETERM BIRTH / EXTREME PREMATURITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex cases involving:</h4>
+<h4 class="sub-label">Extremely preterm birth</h4>
+<h4 class="sub-label">PPROM at very early gestation</h4>
+<h4 class="sub-label">Severe fetal growth restriction with prematurity</h4>
+<h4 class="sub-label">Severe maternal disease requiring early delivery</h4>
+<h4 class="sub-label">Periviable birth</h4>
+<h4 class="sub-label">Major fetal anomaly</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM + neonatology + anaesthesia ± relevant maternal specialty</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">XIII. MATERNAL MALIGNANCY IN PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Breast cancer</h4>
+<h4 class="sub-label">Ovarian cancer</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Haematological malignancy</h4>
+<h4 class="sub-label">Melanoma</h4>
+<h4 class="sub-label">Other metastatic malignancies</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">O&amp;G/MFM + oncologist + gynae-oncologist/surgeon + radiology + pathology + anaesthesia + neonatology</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">XIV. GYNAECOLOGICAL ONCOLOGY — CLASSIC MDT CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Virtually all suspected/confirmed gynaecological cancers should be managed through a specialist cancer MDT.</p>
+
+                <div class="topic-row" id="topic-t-14-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Cervical cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-1" onchange="toggleMastery('t-14-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Abnormal cervical biopsy suggesting invasive cancer</h4>
+<h4 class="sub-label">Microinvasive/invasive cervical carcinoma</h4>
+<h4 class="sub-label">Locally advanced cervical cancer</h4>
+<h4 class="sub-label">Cervical cancer in pregnancy</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Gynae-oncologist + radiologist + pathologist + clinical oncologist + O&amp;G ± fertility specialist</p>
+
+                <div class="topic-row" id="topic-t-14-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Endometrial cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-2" onchange="toggleMastery('t-14-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Atypical hyperplasia/EIN requiring complex management</h4>
+<h4 class="sub-label">Endometrial carcinoma</h4>
+<h4 class="sub-label">High-grade carcinoma</h4>
+<h4 class="sub-label">Advanced disease</h4>
+<p class="standard-p">Fertility-sparing cases requiring specialist decision-making</p>
+
+                <div class="topic-row" id="topic-t-14-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Ovarian cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-3" onchange="toggleMastery('t-14-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Suspicious complex adnexal mass</h4>
+<h4 class="sub-label">Epithelial ovarian cancer</h4>
+<h4 class="sub-label">Borderline ovarian tumour</h4>
+<h4 class="sub-label">Advanced ovarian cancer</h4>
+<h4 class="sub-label">Germ-cell tumour</h4>
+<h4 class="sub-label">Sex-cord stromal tumour</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Gynae-oncology + radiology + pathology + oncology + genetics ± colorectal/urology/upper GI surgery</p>
+
+                <div class="topic-row" id="topic-t-14-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Vulval cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-4" onchange="toggleMastery('t-14-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">VIN with suspected invasion</h4>
+<h4 class="sub-label">Vulval carcinoma</h4>
+<h4 class="sub-label">Advanced vulval cancer</h4>
+<h4 class="sub-label">Groin-node involvement</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Gynae-oncology + pathology + radiology + clinical oncology ± plastic/reconstructive surgery</p>
+
+                <div class="topic-row" id="topic-t-14-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Vaginal cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-5" onchange="toggleMastery('t-14-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Primary vaginal carcinoma</h4>
+<h4 class="sub-label">Advanced vaginal tumour</h4>
+<h4 class="sub-label">Recurrent vaginal cancer</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">XV. COMPLEX BENIGN GYNAECOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Large/complex pelvic masses</h4>
+<h4 class="sub-label">Huge ovarian cyst</h4>
+<h4 class="sub-label">Suspicious adnexal mass</h4>
+<h4 class="sub-label">Large fibroid with organ compression</h4>
+<h4 class="sub-label">Complex pelvic tumour</h4>
+<h4 class="sub-label">Retroperitoneal pelvic mass</h4>
+<h4 class="sub-label">Mass involving bowel/bladder/ureter</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Gynaecologist + gynae-oncologist ± urologist + colorectal surgeon + radiologist</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">XVI. DEEP ENDOMETRIOSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">MDT particularly when there is:</h4>
+<h4 class="sub-label">Bowel endometriosis</h4>
+<h4 class="sub-label">Bladder endometriosis</h4>
+<h4 class="sub-label">Ureteric endometriosis</h4>
+<h4 class="sub-label">Severe deep infiltrating endometriosis</h4>
+<h4 class="sub-label">Complex pelvic adhesions</h4>
+<h4 class="sub-label">Endometriosis requiring multidisciplinary surgery</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Endometriosis specialist + colorectal surgeon + urologist + radiologist ± fertility specialist</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">XVII. UROGYNAECOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex pelvic floor disorders</h4>
+<h4 class="sub-label">Advanced pelvic organ prolapse</h4>
+<h4 class="sub-label">Recurrent prolapse</h4>
+<h4 class="sub-label">Complex urinary incontinence</h4>
+<h4 class="sub-label">Recurrent stress incontinence</h4>
+<h4 class="sub-label">Refractory overactive bladder</h4>
+<h4 class="sub-label">Voiding dysfunction</h4>
+<h4 class="sub-label">Vesicovaginal fistula</h4>
+<h4 class="sub-label">Ureterovaginal fistula</h4>
+<h4 class="sub-label">Rectovaginal fistula</h4>
+<h4 class="sub-label">Complex obstetric fistula</h4>
+<h4 class="sub-label">Recurrent fistula</h4>
+<h4 class="sub-label">Neurogenic bladder</h4>
+<h4 class="sub-label">Significant mesh complications</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Urogynaecologist + urologist + colorectal surgeon ± physiotherapist ± radiologist</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">XVIII. COMPLEX OBSTETRIC UROLOGICAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Particularly:</h4>
+<h4 class="sub-label">Placenta percreta invading bladder</h4>
+<h4 class="sub-label">Ureteric injury</h4>
+<h4 class="sub-label">Bladder injury</h4>
+<h4 class="sub-label">Vesicouterine fistula</h4>
+<h4 class="sub-label">Vesicovaginal fistula</h4>
+<h4 class="sub-label">Ureteric obstruction in pregnancy</h4>
+<h4 class="sub-label">Severe hydronephrosis with obstruction</h4>
+<h4 class="sub-label">Complex urinary tract anomaly</h4>
+<p class="standard-p">MDT: O&amp;G + urology + anaesthesia ± radiology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">XIX. REPRODUCTIVE MEDICINE / FERTILITY MDT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex infertility</h4>
+<h4 class="sub-label">Repeated implantation failure</h4>
+<h4 class="sub-label">Recurrent miscarriage</h4>
+<h4 class="sub-label">Severe diminished ovarian reserve</h4>
+<h4 class="sub-label">Premature ovarian insufficiency</h4>
+<h4 class="sub-label">Severe male factor infertility</h4>
+<h4 class="sub-label">Azoospermia</h4>
+<h4 class="sub-label">Genetic infertility</h4>
+<h4 class="sub-label">Complex PCOS requiring fertility treatment</h4>
+<h4 class="sub-label">Endometriosis-associated infertility</h4>
+<h4 class="sub-label">Complex uterine anomaly</h4>
+<h4 class="sub-label">Recurrent IVF failure</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Reproductive medicine specialist + embryologist + andrologist/urologist + genetics ± psychologist</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">XX. GENETIC CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">MDT required for:</h4>
+<h4 class="sub-label">Known parental genetic disorder</h4>
+<h4 class="sub-label">Previous affected child</h4>
+<h4 class="sub-label">Recurrent chromosomal abnormality</h4>
+<h4 class="sub-label">Abnormal NIPT</h4>
+<h4 class="sub-label">Abnormal diagnostic genetic test</h4>
+<h4 class="sub-label">Major fetal structural abnormality</h4>
+<h4 class="sub-label">Consanguinity with significant genetic risk</h4>
+<h4 class="sub-label">Carrier couples for severe inherited disorders</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">MFM/fetal medicine + clinical genetics + genetic counsellor + neonatology ± paediatric specialist</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">XXI. COMPLEX EARLY PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">MDT/specialist referral may be needed for:</h4>
+<h4 class="sub-label">Caesarean scar pregnancy</h4>
+<h4 class="sub-label">Interstitial pregnancy</h4>
+<h4 class="sub-label">Cervical pregnancy</h4>
+<h4 class="sub-label">Abdominal pregnancy</h4>
+<h4 class="sub-label">Heterotopic pregnancy</h4>
+<h4 class="sub-label">Cornual/interstitial ectopic pregnancy</h4>
+<h4 class="sub-label">Ectopic pregnancy with major surgical complexity</h4>
+<p class="standard-p">Pregnancy of unknown location with diagnostic uncertainty</p>
+<h4 class="sub-label">Persistent trophoblastic disease</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">XXII. GESTATIONAL TROPHOBLASTIC DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complete molar pregnancy</h4>
+<h4 class="sub-label">Partial molar pregnancy requiring specialist follow-up</h4>
+<h4 class="sub-label">Persistent gestational trophoblastic neoplasia</h4>
+<h4 class="sub-label">Invasive mole</h4>
+<h4 class="sub-label">Choriocarcinoma</h4>
+<h4 class="sub-label">Placental-site trophoblastic tumour</h4>
+<h4 class="sub-label">Epithelioid trophoblastic tumour</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Gynaecologist + trophoblastic disease specialist + oncology + pathology + radiology ± fertility specialist</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">XXIII. SEXUAL / REPRODUCTIVE HEALTH CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complex cases may require MDT involvement:</h4>
+<h4 class="sub-label">Female genital mutilation with obstetric complications</h4>
+<h4 class="sub-label">Complex sexual dysfunction</h4>
+<h4 class="sub-label">Severe vaginismus</h4>
+<h4 class="sub-label">Complex psychosexual disorders</h4>
+<h4 class="sub-label">Sexual trauma affecting examination/treatment</h4>
+<p class="standard-p">Gender-related reproductive care where specialist services are required</p>
+<h4 class="sub-label">Possible team:</h4>
+<p class="standard-p">O&amp;G + specialist nurse/midwife + psychosexual therapist/psychologist ± relevant surgical specialty</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">XXIV. COMPLEX SURGICAL EMERGENCIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">MDT activation may be required for:</h4>
+<h4 class="sub-label">Major PPH</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Broad-ligament haematoma</h4>
+<h4 class="sub-label">Major pelvic vascular injury</h4>
+<h4 class="sub-label">Bowel injury</h4>
+<h4 class="sub-label">Bladder/ureteric injury</h4>
+<h4 class="sub-label">Major intra-abdominal haemorrhage</h4>
+<h4 class="sub-label">Severe sepsis</h4>
+<h4 class="sub-label">Necrotising pelvic infection</h4>
+<h4 class="sub-label">Complications requiring ICU</h4>
+<h4 class="sub-label">Possible team:</h4>
+<p class="standard-p">Senior O&amp;G + anaesthesia + theatre + transfusion + ICU + general surgery/urology/vascular surgery as required.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ HIGH-YIELD MRCOG MDT LIST</span></div>
+                
+            </div>
+            
+<p class="standard-p">If you need to rapidly identify conditions where &quot;think MDT&quot;, remember:</p>
+<h4 class="sub-label">OBSTETRICS</h4>
+<h4 class="sub-label">Placenta accreta spectrum</h4>
+<h4 class="sub-label">Placenta percreta/bladder invasion</h4>
+<h4 class="sub-label">Major obstetric haemorrhage</h4>
+<h4 class="sub-label">Complex maternal cardiac disease</h4>
+<h4 class="sub-label">Severe renal disease</h4>
+<h4 class="sub-label">Complex diabetes</h4>
+<h4 class="sub-label">Severe autoimmune disease</h4>
+<h4 class="sub-label">Complex haematological disease</h4>
+<h4 class="sub-label">Maternal malignancy</h4>
+<h4 class="sub-label">Severe neurological disease</h4>
+<h4 class="sub-label">Complex infectious disease</h4>
+<h4 class="sub-label">Major fetal anomaly</h4>
+<h4 class="sub-label">Fetal cardiac anomaly</h4>
+<h4 class="sub-label">Fetal hydrops</h4>
+<h4 class="sub-label">Severe FGR</h4>
+<h4 class="sub-label">Complex monochorionic twins</h4>
+<h4 class="sub-label">TTTS/TAPS/TRAP</h4>
+<h4 class="sub-label">Extreme prematurity/periviability</h4>
+<h4 class="sub-label">GYNAECOLOGY</h4>
+<h4 class="sub-label">Suspected gynaecological malignancy</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Ovarian cancer</h4>
+<h4 class="sub-label">Vulval/vaginal cancer</h4>
+<h4 class="sub-label">Complex adnexal mass</h4>
+<h4 class="sub-label">Deep infiltrating endometriosis</h4>
+<h4 class="sub-label">Complex pelvic organ prolapse</h4>
+<h4 class="sub-label">Complex urinary incontinence</h4>
+<h4 class="sub-label">Vesicovaginal/rectovaginal fistula</h4>
+<h4 class="sub-label">Complex pelvic mass involving bowel/bladder/ureter</h4>
+<h4 class="sub-label">Complex infertility/IVF</h4>
+<h4 class="sub-label">Genetic disease/recurrent genetic problems</h4>
+<h4 class="sub-label">Gestational trophoblastic neoplasia</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">🔑 MDT EXAM RULE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">When deciding whether MDT is needed, ask:</h4>
+<p class="standard-p">Does the condition involve &gt;1 organ system, major haemorrhage, malignancy, major fetal abnormality, severe maternal disease, complex surgery, or specialist treatment?</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>If yes → specialist MDT should be considered/activated.</span></div>
+<h4 class="sub-label">For example:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Placenta percreta → O&amp;G/MFM + anaesthesia + blood bank/transfusion + urology + pelvic surgeon ± IR + ICU + neonatology.</span></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 8</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 7</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 I. OBSTETRIC CONDITIONS REQUIRING MDT</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Placenta accreta spectrum (accreta/increta/percreta) ⭐⭐⭐: Consultant obstetrician/MFM, anaesthetist, pelvic surgeon/gynae-oncologist, urologist, interventional radiology where appropriate, haematology/transfusion, neonatology, ICU</li>
+<li class="surg-item">● Placenta previa with previous CS / suspected PAS: MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon</li>
+<li class="surg-item">● Placenta percreta with bladder invasion: O&amp;G + urology + anaesthesia + transfusion + ICU ± gynae-oncology</li>
+<li class="surg-item">● Major antepartum haemorrhage: Senior O&amp;G, anaesthesia, haematology/transfusion, neonatology ± IR</li>
+<li class="surg-item">● Massive PPH / refractory PPH: Senior O&amp;G, anaesthesia, haematology/transfusion, theatre team, ICU ± IR/general surgery</li>
+<li class="surg-item">● Uterine rupture: Senior obstetrician, anaesthetist, neonatal team, blood bank ± urology/general surgery</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 29;
+    const flashcards = [{"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta accreta spectrum (accreta/increta/percreta) \u2b50\u2b50\u2b50</strong>?", "a": "<strong>Consultant obstetrician/MFM, anaesthetist, pelvic surgeon/gynae-oncologist, urologist, interventional radiology where appropriate, haematology/transfusion, neonatology, ICU</strong>"}, {"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta previa with previous CS / suspected PAS</strong>?", "a": "<strong>MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon</strong>"}, {"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta percreta with bladder invasion</strong>?", "a": "<strong>O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology</strong>"}, {"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Major antepartum haemorrhage</strong>?", "a": "<strong>Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR</strong>"}, {"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Massive PPH / refractory PPH</strong>?", "a": "<strong>Senior O&G, anaesthesia, haematology/transfusion, theatre team, ICU \u00b1 IR/general surgery</strong>"}, {"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterine rupture</strong>?", "a": "<strong>Senior obstetrician, anaesthetist, neonatal team, blood bank \u00b1 urology/general surgery</strong>"}, {"category": "I. OBSTETRIC CONDITIONS REQUIR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Morbidly adherent placenta with suspected pelvic invasion</strong>?", "a": "<strong>Specialist pelvic surgical MDT</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>\ud83d\udd11 MDT EXAM RULE</strong>", "a": "<strong>If yes \u2192 specialist MDT should be considered/activated.</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Placenta previa with previous CS / suspected PAS ?", "options": ["MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR", "Senior O&G, anaesthesia, haematology/transfusion, theatre team, ICU \u00b1 IR/general surgery"], "correct": 0, "explanation": "Key Guideline / Fact: MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon (I. OBSTETRIC CONDITIONS REQUIR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Placenta percreta with bladder invasion ?", "options": ["MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR", "Senior O&G, anaesthesia, haematology/transfusion, theatre team, ICU \u00b1 IR/general surgery"], "correct": 1, "explanation": "Key Guideline / Fact: O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology (I. OBSTETRIC CONDITIONS REQUIR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Major antepartum haemorrhage ?", "options": ["O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR", "Senior O&G, anaesthesia, haematology/transfusion, theatre team, ICU \u00b1 IR/general surgery"], "correct": 2, "explanation": "Key Guideline / Fact: Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR (I. OBSTETRIC CONDITIONS REQUIR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Massive PPH / refractory PPH ?", "options": ["Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR", "MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "Senior O&G, anaesthesia, haematology/transfusion, theatre team, ICU \u00b1 IR/general surgery"], "correct": 3, "explanation": "Key Guideline / Fact: Senior O&G, anaesthesia, haematology/transfusion, theatre team, ICU \u00b1 IR/general surgery (I. OBSTETRIC CONDITIONS REQUIR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Uterine rupture ?", "options": ["Senior obstetrician, anaesthetist, neonatal team, blood bank \u00b1 urology/general surgery", "MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR"], "correct": 0, "explanation": "Key Guideline / Fact: Senior obstetrician, anaesthetist, neonatal team, blood bank \u00b1 urology/general surgery (I. OBSTETRIC CONDITIONS REQUIR)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Morbidly adherent placenta with suspected pelvic invasion ?", "options": ["MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "Specialist pelvic surgical MDT", "O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR"], "correct": 1, "explanation": "Key Guideline / Fact: Specialist pelvic surgical MDT (I. OBSTETRIC CONDITIONS REQUIR)."}, {"q": "Describe the key sequence or progression in:  \ud83d\udd11 MDT EXAM RULE", "options": ["O&G + urology + anaesthesia + transfusion + ICU \u00b1 gynae-oncology", "MFM, senior obstetrician, anaesthesia, blood bank/transfusion, pelvic surgeon", "If yes \u2192 specialist MDT should be considered/activated.", "Senior O&G, anaesthesia, haematology/transfusion, neonatology \u00b1 IR"], "correct": 2, "explanation": "Key Guideline / Fact: If yes \u2192 specialist MDT should be considered/activated. (Clinical Sequence)."}];
+    const storageKey = 'obgyn_mastered_o_g_conditions_requiring_mdt_involvement';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

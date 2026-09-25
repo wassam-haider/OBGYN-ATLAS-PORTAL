@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPRODUCTIVE MEDICINE — MRCOG PART 3 OSCE ATLAS — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">REPRODUCTIVE MEDICINE — MRCOG PART 3 O</div>
+                <div class="brand-subtitle-text">This is structured as an MRCOG Part 3 station guid</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 53 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 52 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (52 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. INFERTILITY / SUBFERTILITY">1. INFERTILITY / SUBFERTILITY</a></li><li><a href="#part-3" class="part-nav-link" title="2. INFERTILITY OSCE — HISTORY">2. INFERTILITY OSCE — HISTORY</a></li><li><a href="#part-4" class="part-nav-link" title="3. MENSTRUAL HISTORY">3. MENSTRUAL HISTORY</a></li><li><a href="#part-5" class="part-nav-link" title="4. OVULATION ASSESSMENT">4. OVULATION ASSESSMENT</a></li><li><a href="#part-6" class="part-nav-link" title="5. BASAL BODY TEMPERATURE">5. BASAL BODY TEMPERATURE</a></li><li><a href="#part-7" class="part-nav-link" title="6. INFERTILITY EXAMINATION">6. INFERTILITY EXAMINATION</a></li><li><a href="#part-8" class="part-nav-link" title="7. BASIC INFERTILITY INVESTIGATIONS">7. BASIC INFERTILITY INVESTIGATIONS</a></li><li><a href="#part-9" class="part-nav-link" title="8. OVARIAN RESERVE">8. OVARIAN RESERVE</a></li><li><a href="#part-10" class="part-nav-link" title="9. ANTRAL FOLLICLE COUNT — AFC">9. ANTRAL FOLLICLE COUNT — AFC</a></li><li><a href="#part-11" class="part-nav-link" title="10. FSH / ESTRADIOL">10. FSH / ESTRADIOL</a></li><li><a href="#part-12" class="part-nav-link" title="11. TUBAL FACTOR">11. TUBAL FACTOR</a></li><li><a href="#part-13" class="part-nav-link" title="12. MALE INFERTILITY">12. MALE INFERTILITY</a></li><li><a href="#part-14" class="part-nav-link" title="13. SEMEN SAMPLE TECHNIQUE">13. SEMEN SAMPLE TECHNIQUE</a></li><li><a href="#part-15" class="part-nav-link" title="14. AZOOSPERMIA">14. AZOOSPERMIA</a></li><li><a href="#part-16" class="part-nav-link" title="15. MALE INFERTILITY — EXAMINATION">15. MALE INFERTILITY — EXAMINATION</a></li><li><a href="#part-17" class="part-nav-link" title="16. VARICOCELE">16. VARICOCELE</a></li><li><a href="#part-18" class="part-nav-link" title="17. PCOS">17. PCOS</a></li><li><a href="#part-19" class="part-nav-link" title="18. PCOS — HISTORY">18. PCOS — HISTORY</a></li><li><a href="#part-20" class="part-nav-link" title="19. PCOS EXAMINATION">19. PCOS EXAMINATION</a></li><li><a href="#part-21" class="part-nav-link" title="20. HIRSUTISM">20. HIRSUTISM</a></li><li><a href="#part-22" class="part-nav-link" title="22. PCOS LABS">22. PCOS LABS</a></li><li><a href="#part-23" class="part-nav-link" title="23. PCOS ULTRASOUND">23. PCOS ULTRASOUND</a></li><li><a href="#part-24" class="part-nav-link" title="24. PCOS METABOLIC SCREENING">24. PCOS METABOLIC SCREENING</a></li><li><a href="#part-25" class="part-nav-link" title="25. PCOS INFERTILITY MANAGEMENT">25. PCOS INFERTILITY MANAGEMENT</a></li><li><a href="#part-26" class="part-nav-link" title="26. SECOND-LINE PCOS OVULATION INDUCTION">26. SECOND-LINE PCOS OVULATION INDUCTION</a></li><li><a href="#part-27" class="part-nav-link" title="27. AMENORRHOEA — OSCE">27. AMENORRHOEA — OSCE</a></li><li><a href="#part-28" class="part-nav-link" title="28. AMENORRHOEA INVESTIGATIONS">28. AMENORRHOEA INVESTIGATIONS</a></li><li><a href="#part-29" class="part-nav-link" title="29. FSH INTERPRETATION">29. FSH INTERPRETATION</a></li><li><a href="#part-30" class="part-nav-link" title="30. HYPERPROLACTINAEMIA">30. HYPERPROLACTINAEMIA</a></li><li><a href="#part-31" class="part-nav-link" title="31. PROLACTIN — CAUSES">31. PROLACTIN — CAUSES</a></li><li><a href="#part-32" class="part-nav-link" title="32. PROLACTIN — OSCE TECHNIQUE">32. PROLACTIN — OSCE TECHNIQUE</a></li><li><a href="#part-33" class="part-nav-link" title="33. PROLACTINOMA">33. PROLACTINOMA</a></li><li><a href="#part-34" class="part-nav-link" title="34. VISUAL FIELD DEFECT">34. VISUAL FIELD DEFECT</a></li><li><a href="#part-35" class="part-nav-link" title="35. PREMATURE OVARIAN INSUFFICIENCY — POI">35. PREMATURE OVARIAN INSUFFICIENCY — POI</a></li><li><a href="#part-36" class="part-nav-link" title="36. POI CAUSES">36. POI CAUSES</a></li><li><a href="#part-37" class="part-nav-link" title="37. POI INVESTIGATION">37. POI INVESTIGATION</a></li><li><a href="#part-38" class="part-nav-link" title="38. POI COUNSELLING">38. POI COUNSELLING</a></li><li><a href="#part-39" class="part-nav-link" title="39. POI AND FERTILITY">39. POI AND FERTILITY</a></li><li><a href="#part-40" class="part-nav-link" title="40. ENDOMETRIOSIS AND INFERTILITY">40. ENDOMETRIOSIS AND INFERTILITY</a></li><li><a href="#part-41" class="part-nav-link" title="41. ENDOMETRIOSIS HISTORY">41. ENDOMETRIOSIS HISTORY</a></li><li><a href="#part-42" class="part-nav-link" title="42. ENDOMETRIOSIS EXAMINATION">42. ENDOMETRIOSIS EXAMINATION</a></li><li><a href="#part-43" class="part-nav-link" title="43. ENDOMETRIOMA">43. ENDOMETRIOMA</a></li><li><a href="#part-44" class="part-nav-link" title="44. ENDOMETRIOSIS — INVESTIGATION">44. ENDOMETRIOSIS — INVESTIGATION</a></li><li><a href="#part-45" class="part-nav-link" title="46. ENDOMETRIOSIS SURGERY">46. ENDOMETRIOSIS SURGERY</a></li><li><a href="#part-46" class="part-nav-link" title="47. IVF IN ENDOMETRIOSIS">47. IVF IN ENDOMETRIOSIS</a></li><li><a href="#part-47" class="part-nav-link" title="48. UNEXPLAINED INFERTILITY">48. UNEXPLAINED INFERTILITY</a></li><li><a href="#part-48" class="part-nav-link" title="49. IMPORTANT FERTILITY NUMBERS — RAPID REVISION">49. IMPORTANT FERTILITY NUMBERS — RAPID REVISION</a></li><li><a href="#part-49" class="part-nav-link" title="51. INFERTILITY OSCE — COMPLETE STATION ALGORITHM">51. INFERTILITY OSCE — COMPLETE STATION ALGORITHM</a></li><li><a href="#part-50" class="part-nav-link" title="52. HIGH-YIELD MRCOG COUNSELLING PHRASES">52. HIGH-YIELD MRCOG COUNSELLING PHRASES</a></li><li><a href="#part-51" class="part-nav-link" title="53. MRCOG PART 3 — COMMON EXAMINER TRAPS">53. MRCOG PART 3 — COMMON EXAMINER TRAPS</a></li><li><a href="#part-52" class="part-nav-link" title="54. ONE-MINUTE REPRODUCTIVE MEDICINE MAP">54. ONE-MINUTE REPRODUCTIVE MEDICINE MAP</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">REPRODUCTIVE MEDICINE — MRCOG PART 3 OSCE ATLAS</h1>
+                    <div class="reader-hero-sub">⭐ This is structured as an MRCOG Part 3 station guide: what to ask, what to examine, what numbers to know, how to interpret results, common differentials, investigations, management, counselling, and the “why?” behind each finding.</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Exam principle: In reproductive medicine, do not jump directly to “ovarian reserve” or IVF. Demonstrate a couple-based, systematic fertility assessment: ovulation → ovarian reserve/age → tubal/uterine factors → endometriosis → male factor → endocrine causes → treatment according to cause and duration. NICE specifically recommends assessing both partners and using the clinical history to guide investigations.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. INFERTILITY / SUBFERTILITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                <div class="callout-body">Primary infertility</div>
+            </div>
+            
+<p class="standard-p">No previous pregnancy despite regular unprotected intercourse.</p>
+<h4 class="sub-label">Secondary infertility</h4>
+<p class="standard-p">Difficulty conceiving after a previous pregnancy, regardless of outcome.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE definition</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Traditionally:</h4>
+<p class="standard-p">12 months of regular unprotected intercourse without conception.</p>
+<p class="standard-p">But investigate earlier when there are risk factors such as:</p>
+<h4 class="sub-label">age ≥36 years</h4>
+<h4 class="sub-label">irregular/absent periods</h4>
+<h4 class="sub-label">previous pelvic infection</h4>
+<h4 class="sub-label">previous ectopic pregnancy</h4>
+<h4 class="sub-label">previous pelvic surgery</h4>
+<h4 class="sub-label">known endometriosis</h4>
+<h4 class="sub-label">previous chemotherapy/radiotherapy</h4>
+<h4 class="sub-label">suspected male-factor infertility</h4>
+<p class="standard-p">sexual dysfunction.</p>
+<h4 class="sub-label">Frequency of intercourse</h4>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">How often?</h4>
+<h4 class="sub-label">Timing relative to ovulation?</h4>
+<h4 class="sub-label">Any dyspareunia?</h4>
+<h4 class="sub-label">Erectile/ejaculatory problems?</h4>
+<h4 class="sub-label">Use of lubricants?</h4>
+<h4 class="sub-label">Previous contraception?</h4>
+<h4 class="sub-label">A practical recommendation:</h4>
+<p class="standard-p">intercourse every 2–<span class="val-pill">3 days</span> throughout the cycle optimises chance of conception.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">2. INFERTILITY OSCE — HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Couple details</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Ask both partners.</p>
+<h4 class="sub-label">Female</h4>
+<h4 class="sub-label">Age</h4>
+<h4 class="sub-label">Duration of trying</h4>
+<h4 class="sub-label">Primary/secondary infertility</h4>
+<h4 class="sub-label">Previous pregnancies</h4>
+<h4 class="sub-label">Previous ectopic</h4>
+<h4 class="sub-label">Previous miscarriages</h4>
+<h4 class="sub-label">Previous live births</h4>
+<h4 class="sub-label">Menstrual pattern</h4>
+<h4 class="sub-label">Ovulation symptoms</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<h4 class="sub-label">Deep dyspareunia</h4>
+<h4 class="sub-label">Chronic pelvic pain</h4>
+<h4 class="sub-label">Previous PID/STIs</h4>
+<h4 class="sub-label">Previous pelvic surgery</h4>
+<h4 class="sub-label">Previous chemotherapy/radiotherapy</h4>
+<h4 class="sub-label">Galactorrhoea</h4>
+<h4 class="sub-label">Thyroid symptoms</h4>
+<h4 class="sub-label">Hyperandrogenic symptoms</h4>
+<h4 class="sub-label">Weight change</h4>
+<h4 class="sub-label">Exercise</h4>
+<h4 class="sub-label">Eating disorder</h4>
+<h4 class="sub-label">Medications</h4>
+<h4 class="sub-label">Smoking/alcohol/drugs</h4>
+<h4 class="sub-label">Previous fertility treatment</h4>
+<h4 class="sub-label">Male</h4>
+<h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">Previous pregnancies with any partner</h4>
+<h4 class="sub-label">Duration trying</h4>
+<h4 class="sub-label">Erectile dysfunction</h4>
+<h4 class="sub-label">Ejaculatory dysfunction</h4>
+<h4 class="sub-label">Libido</h4>
+<h4 class="sub-label">Frequency of intercourse</h4>
+<h4 class="sub-label">Testicular trauma</h4>
+<h4 class="sub-label">Mumps orchitis</h4>
+<h4 class="sub-label">Cryptorchidism</h4>
+<h4 class="sub-label">Testicular torsion</h4>
+<h4 class="sub-label">Varicocele</h4>
+<h4 class="sub-label">Testicular surgery</h4>
+<h4 class="sub-label">Hernia surgery</h4>
+<h4 class="sub-label">STI</h4>
+<h4 class="sub-label">Chemotherapy/radiotherapy</h4>
+<h4 class="sub-label">Anabolic steroids</h4>
+<h4 class="sub-label">Testosterone therapy</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Cannabis</h4>
+<h4 class="sub-label">Alcohol</h4>
+<h4 class="sub-label">Heat exposure</h4>
+<h4 class="sub-label">Occupational toxins</h4>
+<p class="standard-p">Medications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">3. MENSTRUAL HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Age at menarche</h4>
+<h4 class="sub-label">Cycle length</h4>
+<h4 class="sub-label">Cycle regularity</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Flow</h4>
+<h4 class="sub-label">Intermenstrual bleeding</h4>
+<h4 class="sub-label">Postcoital bleeding</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<h4 class="sub-label">Premenstrual symptoms</h4>
+<h4 class="sub-label">Last menstrual period</h4>
+<p class="standard-p">Change in pattern.</p>
+<h4 class="sub-label">Interpretation</h4>
+<h4 class="sub-label">Normal cycle:</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">21–35 days</h4>
+<p class="standard-p">reasonably predictable.</p>
+<h4 class="sub-label">Oligomenorrhoea</h4>
+<h4 class="sub-label">Typically:</h4>
+<p class="standard-p">cycles &gt;<span class="val-pill">35 days</span>.</p>
+<h4 class="sub-label">Amenorrhoea</h4>
+<p class="standard-p">Primary: no menarche by expected developmental age.</p>
+<p class="standard-p">Secondary: previously menstruating woman with absence of periods for ≥3 months if previously regular, or ≥6 months if irregular.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">4. OVULATION ASSESSMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">History</h4>
+<h4 class="sub-label">Evidence suggesting ovulation:</h4>
+<h4 class="sub-label">regular cycles</h4>
+<h4 class="sub-label">premenstrual symptoms</h4>
+<h4 class="sub-label">mittelschmerz</h4>
+<h4 class="sub-label">cyclical breast tenderness</h4>
+<p class="standard-p">cervical mucus changes.</p>
+<p class="standard-p">But symptoms alone do not prove ovulation.</p>
+<h4 class="sub-label">Mid-luteal progesterone</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic OSCE point</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Day 21 progesterone</h4>
+<h4 class="sub-label">Only appropriate for:</h4>
+<p class="standard-p">28-day cycle.</p>
+<h4 class="sub-label">For other cycles:</h4>
+<p class="standard-p">Measure approximately<span class="val-pill"> 7 days</span> before the expected next period.</p>
+<h4 class="sub-label">Examples:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Cycle</th>
+<th>Approximate progesterone timing</th>
+</tr></thead><tbody>
+<tr>
+<td><strong><span class="val-pill">28 days</span></strong></td>
+<td>Day 21</td>
+</tr>
+<tr>
+<td><strong><span class="val-pill">30 days</span></strong></td>
+<td>Day 23</td>
+</tr>
+<tr>
+<td><strong><span class="val-pill">35 days</span></strong></td>
+<td>Day 28</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">NICE specifically recommends timing progesterone according to cycle length rather than blindly using day 21 in women with prolonged/irregular cycles.</p>
+<h4 class="sub-label">Interpretation</h4>
+<p class="standard-p">A clearly elevated mid-luteal progesterone supports ovulation.</p>
+<h4 class="sub-label">Common exam teaching:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>&gt;30 nmol/L → strong evidence of ovulation.</span></div>
+<p class="standard-p">Lower values do not necessarily mean anovulation if sampling was mistimed.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important MRCOG point</span></div>
+                <div class="callout-body">do not interpret one low progesterone as definitive anovulation.</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">5. BASAL BODY TEMPERATURE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Do not recommend routinely.</p>
+<h4 class="sub-label">Reason:</h4>
+<h4 class="sub-label">poor reliability</h4>
+<h4 class="sub-label">retrospective rather than predictive</h4>
+<p class="standard-p">does not reliably confirm ovulation.</p>
+<p class="standard-p">NICE specifically states that basal body temperature charts should not be used to confirm ovulation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">6. INFERTILITY EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General examination</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">obesity</h4>
+<h4 class="sub-label">underweight</h4>
+<h4 class="sub-label">acne</h4>
+<h4 class="sub-label">hirsutism</h4>
+<h4 class="sub-label">alopecia</h4>
+<h4 class="sub-label">thyroid enlargement</h4>
+<h4 class="sub-label">galactorrhoea</h4>
+<h4 class="sub-label">cushingoid features</h4>
+<p class="standard-p">virilisation.</p>
+<h4 class="sub-label">Abdominal examination</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">scars</h4>
+<h4 class="sub-label">masses</h4>
+<h4 class="sub-label">tenderness</h4>
+<h4 class="sub-label">hepatomegaly</h4>
+<p class="standard-p">ascites.</p>
+<h4 class="sub-label">Pelvic examination</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">vulva</h4>
+<h4 class="sub-label">vagina</h4>
+<h4 class="sub-label">cervix</h4>
+<h4 class="sub-label">discharge</h4>
+<h4 class="sub-label">cervical motion tenderness</h4>
+<h4 class="sub-label">uterine size</h4>
+<h4 class="sub-label">uterine mobility</h4>
+<h4 class="sub-label">adnexal masses</h4>
+<h4 class="sub-label">adnexal tenderness</h4>
+<h4 class="sub-label">nodularity in posterior fornix</h4>
+<p class="standard-p">fixed retroverted uterus.</p>
+<h4 class="sub-label">Endometriosis clues</h4>
+<h4 class="sub-label">uterosacral nodularity</h4>
+<h4 class="sub-label">reduced uterine mobility</h4>
+<h4 class="sub-label">fixed retroversion</h4>
+<h4 class="sub-label">adnexal tenderness</h4>
+<p class="standard-p">ovarian mass/endometrioma.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">7. BASIC INFERTILITY INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Female</h4>
+<h4 class="sub-label">First-line</h4>
+<h4 class="sub-label">pregnancy test</h4>
+<h4 class="sub-label">ovulation assessment</h4>
+<h4 class="sub-label">pelvic ultrasound</h4>
+<h4 class="sub-label">tubal assessment when indicated</h4>
+<p class="standard-p">targeted endocrine investigations.</p>
+<h4 class="sub-label">Blood tests</h4>
+<h4 class="sub-label">Depending on presentation:</h4>
+<h4 class="sub-label">FSH</h4>
+<h4 class="sub-label">LH</h4>
+<h4 class="sub-label">estradiol</h4>
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">prolactin if indicated</h4>
+<h4 class="sub-label">testosterone/androgens</h4>
+<h4 class="sub-label">SHBG</h4>
+<h4 class="sub-label">17-OHP if indicated</h4>
+<p class="standard-p">AMH in appropriate fertility-treatment contexts.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">8. OVARIAN RESERVE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">AMH</h4>
+<h4 class="sub-label">Anti-Müllerian hormone reflects:</h4>
+<h4 class="sub-label">pool of growing follicles</h4>
+<p class="standard-p">ovarian response to stimulation.</p>
+<h4 class="sub-label">Low AMH</h4>
+<h4 class="sub-label">Suggests:</h4>
+<p class="standard-p">reduced ovarian reserve.</p>
+<h4 class="sub-label">Possible causes:</h4>
+<h4 class="sub-label">increasing age</h4>
+<h4 class="sub-label">POI</h4>
+<h4 class="sub-label">previous ovarian surgery</h4>
+<h4 class="sub-label">chemotherapy</h4>
+<p class="standard-p">radiotherapy.</p>
+<h4 class="sub-label">High AMH</h4>
+<h4 class="sub-label">Common in:</h4>
+<p class="standard-p">PCOS.</p>
+<h4 class="sub-label">Crucial OSCE distinction</h4>
+<p class="standard-p">AMH does NOT reliably predict natural fertility.</p>
+<h4 class="sub-label">It is primarily useful for:</h4>
+<h4 class="sub-label">predicting ovarian response to stimulation</h4>
+<h4 class="sub-label">identifying risk of excessive response/OHSS</h4>
+<p class="standard-p">planning ART.</p>
+<h4 class="sub-label">Do not tell a patient:</h4>
+<h4 class="sub-label">“Your AMH is low, therefore you cannot get pregnant.”</h4>
+<p class="standard-p">That is incorrect.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">9. ANTRAL FOLLICLE COUNT — AFC</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Transvaginal ultrasound.</p>
+<h4 class="sub-label">Count small antral follicles, traditionally:</h4>
+<p class="standard-p">approximately 2–<span class="val-pill">9 mm</span>.</p>
+<p class="standard-p">A low AFC suggests reduced ovarian reserve.</p>
+<h4 class="sub-label">A high AFC can occur in:</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">high ovarian reserve</h4>
+<p class="standard-p">increased OHSS risk.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">10. FSH / ESTRADIOL</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Usually measured:</h4>
+<p class="standard-p">early follicular phase, classically day 2–5.</p>
+<h4 class="sub-label">High FSH</h4>
+<h4 class="sub-label">Suggests:</h4>
+<h4 class="sub-label">reduced ovarian feedback</h4>
+<h4 class="sub-label">diminished ovarian reserve</h4>
+<p class="standard-p">ovarian insufficiency.</p>
+<h4 class="sub-label">Low/normal FSH + low estradiol</h4>
+<h4 class="sub-label">Think:</h4>
+<p class="standard-p">hypothalamic/pituitary dysfunction.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">11. TUBAL FACTOR</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Consider with:</h4>
+<h4 class="sub-label">previous PID</h4>
+<h4 class="sub-label">chlamydia</h4>
+<h4 class="sub-label">gonorrhoea</h4>
+<h4 class="sub-label">previous ectopic</h4>
+<h4 class="sub-label">previous pelvic surgery</h4>
+<h4 class="sub-label">endometriosis</h4>
+<h4 class="sub-label">hydrosalpinx</h4>
+<p class="standard-p">abdominal TB depending on epidemiology.</p>
+<h4 class="sub-label">Tests</h4>
+<h4 class="sub-label">HSG</h4>
+<p class="standard-p">Hysterosalpingography.</p>
+<h4 class="sub-label">Shows:</h4>
+<h4 class="sub-label">uterine cavity</h4>
+<p class="standard-p">tubal patency.</p>
+<h4 class="sub-label">HyCoSy</h4>
+<p class="standard-p">Ultrasound contrast assessment.</p>
+<h4 class="sub-label">Advantages:</h4>
+<h4 class="sub-label">no ionising radiation</h4>
+<p class="standard-p">can assess uterine cavity and tubes.</p>
+<h4 class="sub-label">Laparoscopy + dye</h4>
+<h4 class="sub-label">Provides:</h4>
+<h4 class="sub-label">direct pelvic assessment</h4>
+<h4 class="sub-label">tubal patency</h4>
+<h4 class="sub-label">diagnosis/treatment of endometriosis</h4>
+<p class="standard-p">adhesiolysis.</p>
+<p class="standard-p">But it is invasive and is not automatically required in every woman.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">12. MALE INFERTILITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Semen analysis</h4>
+<p class="standard-p">First-line male investigation.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important parameters</span></div>
+                
+            </div>
+            
+<p class="standard-p">Current WHO reference limits vary with edition/laboratory; for MRCOG, know the commonly used WHO 2021 lower reference limits:</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>Lower reference value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Volume</strong></td>
+<td><span class="val-pill">≥1.4 mL</span></td>
+</tr>
+<tr>
+<td><strong>Sperm concentration</strong></td>
+<td>≥16 million/mL</td>
+</tr>
+<tr>
+<td><strong>Total sperm number</strong></td>
+<td>≥39 million/ejaculate</td>
+</tr>
+<tr>
+<td><strong>Total motility</strong></td>
+<td><span class="val-pill">≥42%</span></td>
+</tr>
+<tr>
+<td><strong>Progressive motility</strong></td>
+<td><span class="val-pill">≥30%</span></td>
+</tr>
+<tr>
+<td><strong>Normal morphology</strong></td>
+<td><span class="val-pill">≥4%</span></td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td><span class="val-pill">≥54%</span></td>
+</tr>
+<tr>
+<td><strong>pH</strong></td>
+<td>≥7.2</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">OSCE warning</h4>
+<p class="standard-p">These are reference limits, not a fertility/infertility cut-off.</p>
+<p class="standard-p">A man below a reference value can still father a child, and a man above all values can still be infertile.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">13. SEMEN SAMPLE TECHNIQUE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Tell the patient:</h4>
+<h4 class="sub-label">abstinence approximately 2–7 days</h4>
+<h4 class="sub-label">collect entire ejaculate</h4>
+<h4 class="sub-label">preferably by masturbation</h4>
+<h4 class="sub-label">sterile container</h4>
+<h4 class="sub-label">avoid lubricants unless fertility-safe</h4>
+<h4 class="sub-label">deliver promptly according to laboratory instructions</h4>
+<p class="standard-p">keep sample near body temperature.</p>
+<h4 class="sub-label">If abnormal:</h4>
+<p class="standard-p">Repeat semen analysis, generally after approximately 3 months, because spermatogenesis takes about<span class="val-pill"> 74 days</span>.</p>
+<h4 class="sub-label">If severe abnormality:</h4>
+<h4 class="sub-label">repeat sooner according to fertility-service protocol</h4>
+<h4 class="sub-label">examine testes</h4>
+<h4 class="sub-label">hormonal testing</h4>
+<p class="standard-p">consider genetic testing.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">14. AZOOSPERMIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">No spermatozoa in ejaculate.</p>
+<h4 class="sub-label">Differentiate:</h4>
+<h4 class="sub-label">Obstructive azoospermia</h4>
+<p class="standard-p">Sperm production occurs but sperm cannot reach ejaculate.</p>
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">vasectomy</h4>
+<h4 class="sub-label">congenital absence of vas deferens</h4>
+<h4 class="sub-label">epididymal obstruction</h4>
+<h4 class="sub-label">infection</h4>
+<p class="standard-p">previous surgery.</p>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">normal-sized testes</h4>
+<p class="standard-p">sometimes normal FSH.</p>
+<h4 class="sub-label">Non-obstructive azoospermia</h4>
+<p class="standard-p">Failure of sperm production.</p>
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">testicular failure</h4>
+<h4 class="sub-label">genetic disease</h4>
+<h4 class="sub-label">chemotherapy</h4>
+<h4 class="sub-label">radiotherapy</h4>
+<p class="standard-p">severe hormonal dysfunction.</p>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">small testes</h4>
+<p class="standard-p">raised FSH.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">15. MALE INFERTILITY — EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">body habitus</h4>
+<h4 class="sub-label">gynaecomastia</h4>
+<h4 class="sub-label">reduced body hair</h4>
+<h4 class="sub-label">muscle mass</h4>
+<p class="standard-p">anosmia if hypogonadism suspected.</p>
+<h4 class="sub-label">Genital examination</h4>
+<h4 class="sub-label">Inspect/palpate:</h4>
+<h4 class="sub-label">penis</h4>
+<h4 class="sub-label">testes</h4>
+<h4 class="sub-label">epididymis</h4>
+<h4 class="sub-label">vas deferens</h4>
+<h4 class="sub-label">scrotum</h4>
+<p class="standard-p">varicocele.</p>
+<h4 class="sub-label">Testicular volume</h4>
+<h4 class="sub-label">Adult normal approximately:</h4>
+<p class="standard-p">15–<span class="val-pill">25 mL</span> per testis.</p>
+<h4 class="sub-label">Small testes:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ impaired spermatogenesis/hypogonadism.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">16. VARICOCELE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">left-sided</h4>
+<h4 class="sub-label">“bag of worms”</h4>
+<h4 class="sub-label">increases with standing/Valsalva</h4>
+<p class="standard-p">may disappear when supine.</p>
+<h4 class="sub-label">Can cause:</h4>
+<h4 class="sub-label">increased scrotal temperature</h4>
+<h4 class="sub-label">oxidative stress</h4>
+<p class="standard-p">impaired spermatogenesis.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">17. PCOS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Royal College of Obstetricians and Gynaecologists endorses the international evidence-based PCOS guideline; the<span class="val-pill"> 2023 g</span>uideline is specifically listed by RCOG.</p>
+<h4 class="sub-label">Rotterdam diagnostic framework</h4>
+<p class="standard-p">Diagnosis requires 2 of 3, after exclusion of other causes:</p>
+<h4 class="sub-label">oligo-/anovulation</h4>
+<h4 class="sub-label">clinical/biochemical hyperandrogenism</h4>
+<p class="standard-p">polycystic ovarian morphology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">18. PCOS — HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">Menstrual</h4>
+<h4 class="sub-label">oligomenorrhoea</h4>
+<h4 class="sub-label">amenorrhoea</h4>
+<h4 class="sub-label">irregular cycles</h4>
+<p class="standard-p">infertility.</p>
+<h4 class="sub-label">Hyperandrogenism</h4>
+<h4 class="sub-label">hirsutism</h4>
+<h4 class="sub-label">acne</h4>
+<h4 class="sub-label">androgenic alopecia</h4>
+<p class="standard-p">rapid virilisation.</p>
+<h4 class="sub-label">Metabolic</h4>
+<h4 class="sub-label">weight gain</h4>
+<h4 class="sub-label">insulin resistance</h4>
+<h4 class="sub-label">hypertension</h4>
+<h4 class="sub-label">dyslipidaemia</h4>
+<p class="standard-p">diabetes symptoms.</p>
+<h4 class="sub-label">Psychological</h4>
+<h4 class="sub-label">anxiety</h4>
+<h4 class="sub-label">depression</h4>
+<h4 class="sub-label">eating disorder</h4>
+<p class="standard-p">body-image distress.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">19. PCOS EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Calculate BMI</h4>
+<h4 class="sub-label">$$ BMI = weight(kg)/height(m)^2 $$</h4>
+<h4 class="sub-label">Categories</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>18.5–24.9 → normal</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>25–29.9 → overweight</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>≥30 → obesity.</span></div>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">central obesity</h4>
+<h4 class="sub-label">acanthosis nigricans</h4>
+<h4 class="sub-label">hirsutism</h4>
+<h4 class="sub-label">acne</h4>
+<h4 class="sub-label">alopecia</h4>
+<p class="standard-p">hypertension.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">20. HIRSUTISM</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">Modified Ferriman–Gallwey score</h4>
+<p class="standard-p">Assess androgen-sensitive areas.</p>
+<h4 class="sub-label">Commonly:</h4>
+<p class="standard-p">score ≥8 traditionally suggests hirsutism.</p>
+<p class="standard-p">Threshold varies by ethnicity.</p>
+<h4 class="sub-label">Causes</h4>
+<p class="standard-p">PCOS most common.</p>
+<h4 class="sub-label">Other causes:</h4>
+<h4 class="sub-label">non-classical CAH</h4>
+<h4 class="sub-label">Cushing syndrome</h4>
+<h4 class="sub-label">androgen-secreting tumour</h4>
+<h4 class="sub-label">medications</h4>
+<p class="standard-p">idiopathic hirsutism.</p>
+
+                <div class="topic-row" id="topic-t-21-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">VIRILISATION = RED FLAG</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-21-1" onchange="toggleMastery('t-21-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">deep voice</h4>
+<h4 class="sub-label">clitoromegaly</h4>
+<h4 class="sub-label">rapid severe hirsutism</h4>
+<h4 class="sub-label">increased muscle mass</h4>
+<h4 class="sub-label">male-pattern alopecia</h4>
+<p class="standard-p">rapid onset.</p>
+<h4 class="sub-label">Think:</h4>
+<p class="standard-p">Androgen-secreting ovarian/adrenal tumour until proven otherwise.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">22. PCOS LABS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Possible tests:</h4>
+<h4 class="sub-label">total testosterone</h4>
+<h4 class="sub-label">free testosterone/free androgen index</h4>
+<h4 class="sub-label">SHBG</h4>
+<h4 class="sub-label">DHEAS when adrenal source suspected</h4>
+<h4 class="sub-label">17-hydroxyprogesterone</h4>
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">prolactin when indicated</h4>
+<p class="standard-p">pregnancy test.</p>
+<h4 class="sub-label">Exclude mimics</h4>
+<h4 class="sub-label">pregnancy</h4>
+<h4 class="sub-label">thyroid disease</h4>
+<h4 class="sub-label">hyperprolactinaemia</h4>
+<h4 class="sub-label">hypothalamic amenorrhoea</h4>
+<h4 class="sub-label">POI</h4>
+<h4 class="sub-label">Cushing syndrome</h4>
+<h4 class="sub-label">androgen-secreting tumour</h4>
+<p class="standard-p">non-classical CAH.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">23. PCOS ULTRASOUND</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Polycystic ovarian morphology is not synonymous with PCOS.</p>
+<h4 class="sub-label">Modern ultrasound criteria depend on:</h4>
+<h4 class="sub-label">transducer frequency</h4>
+<h4 class="sub-label">ovarian morphology</h4>
+<h4 class="sub-label">follicle count</h4>
+<p class="standard-p">ovarian volume.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic teaching</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">increased follicle number and/or</h4>
+<p class="standard-p">ovarian volume <span class="val-pill">≥10 mL</span>.</p>
+<p class="standard-p">The exact follicle-number threshold has changed with improved ultrasound technology, so in an MRCOG station state:</p>
+<p class="standard-p">“I would apply the current ultrasound threshold appropriate to the equipment and guideline rather than relying on an outdated fixed follicle count.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">24. PCOS METABOLIC SCREENING</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">BMI/waist</h4>
+<h4 class="sub-label">glucose status</h4>
+<p class="standard-p">lipid profile.</p>
+<h4 class="sub-label">OGTT</h4>
+<p class="standard-p">Particularly important where diabetes risk is high.</p>
+<h4 class="sub-label">PCOS is associated with:</h4>
+<h4 class="sub-label">insulin resistance</h4>
+<h4 class="sub-label">impaired glucose tolerance</h4>
+<h4 class="sub-label">type 2 diabetes</h4>
+<h4 class="sub-label">dyslipidaemia</h4>
+<h4 class="sub-label">hypertension</h4>
+<p class="standard-p">obstructive sleep apnoea.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">25. PCOS INFERTILITY MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Stepwise</h4>
+
+                <div class="topic-row" id="topic-t-25-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Lifestyle</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-1" onchange="toggleMastery('t-25-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">nutrition</h4>
+<h4 class="sub-label">physical activity</h4>
+<h4 class="sub-label">weight management</h4>
+<h4 class="sub-label">sleep</h4>
+<p class="standard-p">psychological support.</p>
+
+                <div class="topic-row" id="topic-t-25-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Ovulation induction</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-2" onchange="toggleMastery('t-25-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Current international guidance generally favours:</h4>
+<p class="standard-p">Letrozole as first-line pharmacological ovulation induction for anovulatory infertility in PCOS when there are no other infertility factors.</p>
+<p class="standard-p">Older MRCOG material may mention clomifene as first-line, so know the distinction between older NICE evidence and current international practice. NICE&#x27;s older fertility evidence describes clomifene/metformin strategies, whereas contemporary PCOS guidance has moved toward letrozole.</p>
+<h4 class="sub-label">Letrozole</h4>
+<h4 class="sub-label">Common regimen:</h4>
+<h4 class="sub-label">2.5–5 mg daily</h4>
+<h4 class="sub-label">usually for 5 days early in cycle</h4>
+<p class="standard-p">dose adjusted according to response.</p>
+<h4 class="sub-label">Clomifene</h4>
+<h4 class="sub-label">Traditional regimen:</h4>
+<h4 class="sub-label">50 mg daily × 5 days</h4>
+<p class="standard-p">increase to 100–<span class="val-pill">150 mg</span> if necessary.</p>
+<h4 class="sub-label">Clomifene can cause:</h4>
+<h4 class="sub-label">multiple pregnancy</h4>
+<h4 class="sub-label">ovarian enlargement</h4>
+<p class="standard-p">anti-oestrogenic endometrial/cervical effects.</p>
+<p class="standard-p">Older NICE evidence notes approximately<span class="val-pill"> 10%</span> multiple pregnancy risk with clomifene and recommends ultrasound monitoring particularly in the first cycle.</p>
+<h4 class="sub-label">Metformin</h4>
+<h4 class="sub-label">Useful particularly when:</h4>
+<h4 class="sub-label">insulin resistance/metabolic features</h4>
+<h4 class="sub-label">glucose intolerance</h4>
+<p class="standard-p">PCOS.</p>
+<p class="standard-p">But it is not the most effective ovulation-induction drug compared with letrozole.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">26. SECOND-LINE PCOS OVULATION INDUCTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-26" onchange="toggleMastery('sec-26')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">If oral ovulation induction fails:</h4>
+<h4 class="sub-label">gonadotrophins</h4>
+<h4 class="sub-label">laparoscopic ovarian drilling in selected patients</h4>
+<p class="standard-p">IVF where appropriate.</p>
+<h4 class="sub-label">Gonadotrophins</h4>
+<h4 class="sub-label">Risks:</h4>
+<h4 class="sub-label">multiple pregnancy</h4>
+<p class="standard-p">OHSS.</p>
+<h4 class="sub-label">Need:</h4>
+<h4 class="sub-label">ultrasound monitoring</h4>
+<h4 class="sub-label">follicular tracking</h4>
+<p class="standard-p">careful dose adjustment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">27. AMENORRHOEA — OSCE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First question</h4>
+<h4 class="sub-label">“Could you be pregnant?”</h4>
+<p class="standard-p">Always exclude pregnancy first.</p>
+<h4 class="sub-label">Causes</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Hypothalamus</h4>
+<h4 class="sub-label">weight loss</h4>
+<h4 class="sub-label">excessive exercise</h4>
+<h4 class="sub-label">stress</h4>
+<h4 class="sub-label">chronic illness</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Pituitary</h4>
+<h4 class="sub-label">hyperprolactinaemia</h4>
+<h4 class="sub-label">pituitary tumour</h4>
+<h4 class="sub-label">Sheehan syndrome</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Ovary</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">POI</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Uterus/outflow</h4>
+<h4 class="sub-label">Asherman syndrome</h4>
+<h4 class="sub-label">cervical stenosis</h4>
+<p class="standard-p">Müllerian anomalies.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">28. AMENORRHOEA INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First-line</h4>
+<h4 class="sub-label">urine/serum β-hCG</h4>
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">prolactin when indicated</h4>
+<h4 class="sub-label">FSH/LH</h4>
+<h4 class="sub-label">estradiol</h4>
+<p class="standard-p">pelvic ultrasound.</p>
+<h4 class="sub-label">Further tests according to findings:</h4>
+<h4 class="sub-label">testosterone</h4>
+<h4 class="sub-label">DHEAS</h4>
+<h4 class="sub-label">17-OHP</h4>
+<h4 class="sub-label">pituitary MRI</h4>
+<h4 class="sub-label">karyotype</h4>
+<h4 class="sub-label">AMH</h4>
+<p class="standard-p">progesterone withdrawal testing in selected situations.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">29. FSH INTERPRETATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-29" onchange="toggleMastery('sec-29')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">High FSH + low estradiol</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ovarian failure/POI.</span></div>
+<h4 class="sub-label">Low/normal FSH + low estradiol</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ hypothalamic/pituitary hypogonadism.</span></div>
+<h4 class="sub-label">Normal/low FSH + normal/high androgen</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ consider PCOS.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">30. HYPERPROLACTINAEMIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">amenorrhoea</h4>
+<h4 class="sub-label">oligomenorrhoea</h4>
+<h4 class="sub-label">infertility</h4>
+<h4 class="sub-label">galactorrhoea</h4>
+<h4 class="sub-label">reduced libido</h4>
+<p class="standard-p">vaginal dryness.</p>
+<h4 class="sub-label">Mass effect:</h4>
+<h4 class="sub-label">headache</h4>
+<p class="standard-p">visual field defect.</p>
+<p class="standard-p">NICE notes that hyperprolactinaemia can produce galactorrhoea, menstrual disturbance and infertility and that prolactin testing should be targeted to women with symptoms of ovulatory disorder, galactorrhoea or suspected pituitary tumour.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">31. PROLACTIN — CAUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-31" onchange="toggleMastery('sec-31')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Physiological</h4>
+<h4 class="sub-label">pregnancy</h4>
+<h4 class="sub-label">breastfeeding</h4>
+<h4 class="sub-label">sleep</h4>
+<h4 class="sub-label">stress</h4>
+<p class="standard-p">nipple stimulation.</p>
+<h4 class="sub-label">Pathological</h4>
+<h4 class="sub-label">prolactinoma</h4>
+<h4 class="sub-label">hypothyroidism</h4>
+<h4 class="sub-label">renal failure</h4>
+<h4 class="sub-label">liver disease</h4>
+<p class="standard-p">chest-wall stimulation/pathology.</p>
+<h4 class="sub-label">Drugs</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic causes</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">antipsychotics</h4>
+<h4 class="sub-label">metoclopramide</h4>
+<h4 class="sub-label">domperidone</h4>
+<h4 class="sub-label">some antidepressants</h4>
+<p class="standard-p">opioids.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">32. PROLACTIN — OSCE TECHNIQUE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-32" onchange="toggleMastery('sec-32')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">If mildly raised:</h4>
+<p class="standard-p">Repeat prolactin.</p>
+<p class="standard-p">Avoid excessive stress.</p>
+<p class="standard-p">Consider timing.</p>
+<p class="standard-p">Review medication.</p>
+<p class="standard-p">Check pregnancy.</p>
+<p class="standard-p">Check TSH.</p>
+<p class="standard-p">Consider macroprolactin.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>If persistent/significant → endocrinology assessment ± MRI.</span></div>
+<h4 class="sub-label">Macroprolactin</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important cause of apparent biochemical hyperprolactinaemia.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Often:</h4>
+<h4 class="sub-label">high laboratory prolactin</h4>
+<p class="standard-p">relatively few clinical symptoms.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">33. PROLACTINOMA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-33" onchange="toggleMastery('sec-33')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Microadenoma</h4>
+<p class="standard-p">&lt;<span class="val-pill">10 mm</span>.</p>
+<h4 class="sub-label">Macroadenoma</h4>
+<p class="standard-p"><span class="val-pill">≥10 mm</span>.</p>
+<h4 class="sub-label">Possible macroadenoma symptoms:</h4>
+<h4 class="sub-label">headache</h4>
+<h4 class="sub-label">visual field defect</h4>
+<p class="standard-p">cranial nerve symptoms.</p>
+<h4 class="sub-label">Treatment</h4>
+<h4 class="sub-label">First-line:</h4>
+<h4 class="sub-label">Dopamine agonist</h4>
+<h4 class="sub-label">Usually:</h4>
+<p class="standard-p">cabergoline.</p>
+<h4 class="sub-label">Alternative:</h4>
+<p class="standard-p">bromocriptine.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE identifies dopamine agonists as treatment for hyperprolactinaemia.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">34. VISUAL FIELD DEFECT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-34" onchange="toggleMastery('sec-34')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pituitary macroadenoma can compress:</h4>
+<h4 class="sub-label">optic chiasm</h4>
+<h4 class="sub-label">producing:</h4>
+<p class="standard-p">bitemporal hemianopia.</p>
+<h4 class="sub-label">OSCE:</h4>
+<h4 class="sub-label">ask about visual symptoms</h4>
+<h4 class="sub-label">formal visual fields if indicated</h4>
+<p class="standard-p">urgent imaging if neurological/visual symptoms.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">35. PREMATURE OVARIAN INSUFFICIENCY — POI</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Loss of ovarian activity before age 40.</p>
+<h4 class="sub-label">Presentation:</h4>
+<h4 class="sub-label">amenorrhoea</h4>
+<h4 class="sub-label">oligomenorrhoea</h4>
+<h4 class="sub-label">infertility</h4>
+<h4 class="sub-label">hot flushes</h4>
+<h4 class="sub-label">night sweats</h4>
+<h4 class="sub-label">vaginal dryness</h4>
+<p class="standard-p">reduced libido.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">36. POI CAUSES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Genetic</h4>
+<h4 class="sub-label">Turner syndrome</h4>
+<h4 class="sub-label">mosaic Turner</h4>
+<p class="standard-p">FMR1 premutation.</p>
+<h4 class="sub-label">Autoimmune</h4>
+<h4 class="sub-label">autoimmune thyroid disease</h4>
+<h4 class="sub-label">Addison disease</h4>
+<p class="standard-p">other autoimmune disorders.</p>
+<h4 class="sub-label">Iatrogenic</h4>
+<h4 class="sub-label">chemotherapy</h4>
+<h4 class="sub-label">radiotherapy</h4>
+<p class="standard-p">ovarian surgery.</p>
+<h4 class="sub-label">Infectious/metabolic</h4>
+<p class="standard-p">Less common.</p>
+<h4 class="sub-label">Idiopathic</h4>
+<p class="standard-p">Common.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">37. POI INVESTIGATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">repeatedly raised FSH</h4>
+<p class="standard-p">low estradiol.</p>
+<p class="standard-p">Current diagnostic approaches generally require two elevated FSH measurements, separated by at least 4–<span class="val-pill">6 weeks</span>, in the appropriate clinical setting.</p>
+<h4 class="sub-label">Do not diagnose POI from:</h4>
+<p class="standard-p">one random FSH alone.</p>
+<h4 class="sub-label">Investigate:</h4>
+<h4 class="sub-label">pregnancy</h4>
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">prolactin when indicated</h4>
+<h4 class="sub-label">karyotype</h4>
+<h4 class="sub-label">FMR1 premutation</h4>
+<p class="standard-p">autoimmune testing according to clinical context.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">38. POI COUNSELLING</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Major consequences:</h4>
+<h4 class="sub-label">Fertility</h4>
+<p class="standard-p">Spontaneous intermittent ovarian activity can occur.</p>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">POI ≠ absolute sterility.</p>
+<p class="standard-p">But natural conception is significantly reduced.</p>
+<h4 class="sub-label">Long-term consequences</h4>
+<h4 class="sub-label">osteoporosis</h4>
+<h4 class="sub-label">cardiovascular disease</h4>
+<h4 class="sub-label">urogenital atrophy</h4>
+<p class="standard-p">psychological impact.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Unless contraindicated:</h4>
+<p class="standard-p">Hormone replacement until approximately the natural age of menopause.</p>
+<h4 class="sub-label">Also:</h4>
+<h4 class="sub-label">calcium/vitamin D adequacy</h4>
+<h4 class="sub-label">weight-bearing exercise</h4>
+<h4 class="sub-label">smoking cessation</h4>
+<h4 class="sub-label">cardiovascular risk assessment</h4>
+<h4 class="sub-label">bone health</h4>
+<p class="standard-p">fertility counselling.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">39. POI AND FERTILITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Most effective established fertility option when ovarian reserve is severely compromised:</p>
+<p class="standard-p">oocyte donation IVF.</p>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">donor eggs</h4>
+<h4 class="sub-label">embryo donation where appropriate</h4>
+<h4 class="sub-label">adoption</h4>
+<p class="standard-p">fertility preservation before gonadotoxic treatment where possible.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">40. ENDOMETRIOSIS AND INFERTILITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Endometriosis may cause infertility through:</h4>
+<h4 class="sub-label">inflammation</h4>
+<h4 class="sub-label">altered pelvic anatomy</h4>
+<h4 class="sub-label">adhesions</h4>
+<h4 class="sub-label">tubal dysfunction</h4>
+<h4 class="sub-label">impaired ovarian reserve</h4>
+<h4 class="sub-label">endometrioma</h4>
+<h4 class="sub-label">altered sperm–oocyte interaction</h4>
+<p class="standard-p">implantation effects.</p>
+<p class="standard-p">RCOG notes that endometriosis is associated with infertility and may present with dysmenorrhoea, deep dyspareunia, bowel/bladder pain and difficulty conceiving.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-41" data-part-index="41">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 41</span>
+                    <h2 class="part-title">41. ENDOMETRIOSIS HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-41" onchange="toggleMastery('sec-41')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-41')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-41')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">dysmenorrhoea</h4>
+<h4 class="sub-label">chronic pelvic pain</h4>
+<h4 class="sub-label">deep dyspareunia</h4>
+<h4 class="sub-label">dyschezia</h4>
+<h4 class="sub-label">cyclical rectal pain</h4>
+<h4 class="sub-label">cyclical haematuria</h4>
+<p class="standard-p">cyclical urinary symptoms.</p>
+<h4 class="sub-label">Fertility</h4>
+<h4 class="sub-label">duration trying</h4>
+<h4 class="sub-label">previous infertility</h4>
+<h4 class="sub-label">previous surgery</h4>
+<p class="standard-p">previous IVF.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-42" data-part-index="42">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 42</span>
+                    <h2 class="part-title">42. ENDOMETRIOSIS EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-42" onchange="toggleMastery('sec-42')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-42')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-42')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">uterosacral nodularity</h4>
+<h4 class="sub-label">fixed retroverted uterus</h4>
+<h4 class="sub-label">reduced uterine mobility</h4>
+<h4 class="sub-label">adnexal mass</h4>
+<p class="standard-p">posterior fornix tenderness.</p>
+<h4 class="sub-label">But:</h4>
+<p class="standard-p">Normal examination does NOT exclude endometriosis.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-43" data-part-index="43">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 43</span>
+                    <h2 class="part-title">43. ENDOMETRIOMA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-43" onchange="toggleMastery('sec-43')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-43')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-43')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ultrasound typically:</h4>
+<h4 class="sub-label">homogeneous low-level internal echoes</h4>
+<h4 class="sub-label">“ground-glass” appearance</h4>
+<p class="standard-p">ovarian cyst.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important fertility issue</span></div>
+                
+            </div>
+            
+<p class="standard-p">Both endometriosis itself and ovarian surgery can reduce ovarian reserve.</p>
+<p class="standard-p">RCOG specifically highlights the fertility implications of surgery for endometriomas.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-44" data-part-index="44">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 44</span>
+                    <h2 class="part-title">44. ENDOMETRIOSIS — INVESTIGATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-44')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-44')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First-line imaging</h4>
+<p class="standard-p">transvaginal ultrasound.</p>
+<h4 class="sub-label">MRI:</h4>
+<h4 class="sub-label">useful for deep infiltrating disease</h4>
+<h4 class="sub-label">surgical planning</h4>
+<p class="standard-p">complex anatomy.</p>
+<h4 class="sub-label">Laparoscopy</h4>
+<p class="standard-p">Historically diagnostic gold standard.</p>
+<h4 class="sub-label">However, modern management increasingly uses:</h4>
+<h4 class="sub-label">symptoms</h4>
+<h4 class="sub-label">clinical examination</h4>
+<h4 class="sub-label">ultrasound</h4>
+<h4 class="sub-label">MRI where indicated</h4>
+<p class="standard-p">rather than requiring diagnostic laparoscopy for every patient.</p>
+
+                <div class="topic-row" id="topic-t-44-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">45</span>
+                        <h3 class="topic-heading">ENDOMETRIOSIS + INFERTILITY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-44-1" onchange="toggleMastery('t-44-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Management depends on:</h4>
+<h4 class="sub-label">age</h4>
+<h4 class="sub-label">ovarian reserve</h4>
+<h4 class="sub-label">severity</h4>
+<h4 class="sub-label">symptoms</h4>
+<h4 class="sub-label">duration infertility</h4>
+<h4 class="sub-label">tubal status</h4>
+<h4 class="sub-label">semen analysis</h4>
+<h4 class="sub-label">previous surgery</h4>
+<h4 class="sub-label">endometrioma size</h4>
+<p class="standard-p">previous treatment.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE principle</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">If the primary goal is conception:</h4>
+<p class="standard-p">Do not automatically suppress ovulation with hormonal treatment.</p>
+<h4 class="sub-label">Hormonal suppression:</h4>
+<h4 class="sub-label">improves pain</h4>
+<h4 class="sub-label">prevents ovulation</h4>
+<p class="standard-p">therefore does not treat infertility itself.</p>
+<p class="standard-p">NICE/RCOG evidence notes that medical treatment without pelvic pain is not an appropriate fertility strategy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-45" data-part-index="45">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 45</span>
+                    <h2 class="part-title">46. ENDOMETRIOSIS SURGERY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-45" onchange="toggleMastery('sec-45')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-45')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-45')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Possible:</h4>
+<h4 class="sub-label">ablation/excision</h4>
+<h4 class="sub-label">adhesiolysis</h4>
+<p class="standard-p">endometrioma surgery.</p>
+<h4 class="sub-label">But counselling must include:</h4>
+<h4 class="sub-label">reduced ovarian reserve</h4>
+<h4 class="sub-label">ovarian damage</h4>
+<h4 class="sub-label">adhesions</h4>
+<h4 class="sub-label">recurrence</h4>
+<p class="standard-p">surgical complications.</p>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">fertility-preservation implications must be discussed before ovarian surgery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-46" data-part-index="46">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 46</span>
+                    <h2 class="part-title">47. IVF IN ENDOMETRIOSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-46" onchange="toggleMastery('sec-46')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-46')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-46')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Consider IVF when:</h4>
+<h4 class="sub-label">tubal damage</h4>
+<h4 class="sub-label">significant male factor</h4>
+<h4 class="sub-label">advanced age</h4>
+<h4 class="sub-label">prolonged infertility</h4>
+<h4 class="sub-label">reduced ovarian reserve</h4>
+<h4 class="sub-label">previous unsuccessful treatment</h4>
+<p class="standard-p">severe disease.</p>
+<p class="standard-p">The decision should be individualised.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-47" data-part-index="47">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 47</span>
+                    <h2 class="part-title">48. UNEXPLAINED INFERTILITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-47" onchange="toggleMastery('sec-47')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-47')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-47')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Diagnosis only after:</h4>
+<h4 class="sub-label">ovulation established</h4>
+<h4 class="sub-label">tubes patent</h4>
+<h4 class="sub-label">semen reasonably satisfactory</h4>
+<p class="standard-p">no obvious pelvic pathology.</p>
+<h4 class="sub-label">Do not say:</h4>
+<h4 class="sub-label">“Everything is normal.”</h4>
+<h4 class="sub-label">Instead:</h4>
+<h4 class="sub-label">“Standard investigations have not identified a cause.”</h4>
+<p class="standard-p">This is more accurate.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-48" data-part-index="48">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 48</span>
+                    <h2 class="part-title">49. IMPORTANT FERTILITY NUMBERS — RAPID REVISION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-48')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-48')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>High-yield number</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Infertility definition</strong></td>
+<td>12 months</td>
+</tr>
+<tr>
+<td><strong>Normal menstrual cycle</strong></td>
+<td>~21–<span class="val-pill">35 days</span></td>
+</tr>
+<tr>
+<td><strong>Mid-luteal progesterone</strong></td>
+<td><span class="val-pill">~7 days</span> before expected period</td>
+</tr>
+<tr>
+<td><strong>Strong evidence of ovulation</strong></td>
+<td>commonly &gt;30 nmol/L</td>
+</tr>
+<tr>
+<td><strong>PCOS diagnostic features</strong></td>
+<td>2 of 3</td>
+</tr>
+<tr>
+<td><strong>PCOS classic ovarian volume</strong></td>
+<td><span class="val-pill">≥10 mL</span></td>
+</tr>
+<tr>
+<td><strong>Hirsutism mFG</strong></td>
+<td>traditionally ≥8</td>
+</tr>
+<tr>
+<td><strong>POI age</strong></td>
+<td>&lt;40 years</td>
+</tr>
+<tr>
+<td><strong>Prolactinoma microadenoma</strong></td>
+<td>&lt;<span class="val-pill">10 mm</span></td>
+</tr>
+<tr>
+<td><strong>Prolactinoma macroadenoma</strong></td>
+<td><span class="val-pill">≥10 mm</span></td>
+</tr>
+<tr>
+<td><strong>Semen volume</strong></td>
+<td><span class="val-pill">≥1.4 mL</span></td>
+</tr>
+<tr>
+<td><strong>Sperm concentration</strong></td>
+<td>≥16 million/mL</td>
+</tr>
+<tr>
+<td><strong>Total sperm number</strong></td>
+<td>≥39 million</td>
+</tr>
+<tr>
+<td><strong>Total motility</strong></td>
+<td><span class="val-pill">≥42%</span></td>
+</tr>
+<tr>
+<td><strong>Progressive motility</strong></td>
+<td><span class="val-pill">≥30%</span></td>
+</tr>
+<tr>
+<td><strong>Normal morphology</strong></td>
+<td><span class="val-pill">≥4%</span></td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td><span class="val-pill">≥54%</span></td>
+</tr>
+<tr>
+<td><strong>Adult testicular volume</strong></td>
+<td>~15–<span class="val-pill">25 mL</span></td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-48-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">50</span>
+                        <h3 class="topic-heading">MRCOG PART 3 — “ABNORMAL RESULT → CAUSE”</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-48-1" onchange="toggleMastery('t-48-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">FSH HIGH + E2 LOW</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">POI</h4>
+<p class="standard-p">ovarian failure.</p>
+<h4 class="sub-label">FSH LOW/NORMAL + E2 LOW</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">hypothalamic amenorrhoea</h4>
+<p class="standard-p">pituitary disease.</p>
+<h4 class="sub-label">PROLACTIN HIGH</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">pregnancy</h4>
+<h4 class="sub-label">drugs</h4>
+<h4 class="sub-label">hypothyroidism</h4>
+<h4 class="sub-label">prolactinoma</h4>
+<h4 class="sub-label">renal disease</h4>
+<h4 class="sub-label">macroprolactin</h4>
+<p class="standard-p">physiological stress.</p>
+<h4 class="sub-label">TESTOSTERONE HIGH</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">androgen-secreting tumour</h4>
+<h4 class="sub-label">CAH</h4>
+<p class="standard-p">exogenous androgen.</p>
+<h4 class="sub-label">Rapid virilisation:</h4>
+<p class="standard-p">tumour until proven otherwise.</p>
+<h4 class="sub-label">DHEAS HIGH</h4>
+<h4 class="sub-label">Think:</h4>
+<p class="standard-p">adrenal androgen excess.</p>
+<h4 class="sub-label">Very high levels:</h4>
+<p class="standard-p">adrenal tumour must be considered.</p>
+<h4 class="sub-label">HIGH AMH</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">large follicular pool</h4>
+<p class="standard-p">increased response to stimulation.</p>
+<h4 class="sub-label">LOW AMH</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">diminished ovarian reserve</h4>
+<h4 class="sub-label">increasing age</h4>
+<h4 class="sub-label">POI</h4>
+<h4 class="sub-label">ovarian surgery</h4>
+<p class="standard-p">chemotherapy.</p>
+<h4 class="sub-label">But:</h4>
+<p class="standard-p">low AMH ≠ no natural pregnancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-49" data-part-index="49">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 49</span>
+                    <h2 class="part-title">51. INFERTILITY OSCE — COMPLETE STATION ALGORITHM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-49" onchange="toggleMastery('sec-49')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-49')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-49')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">If examiner says:</h4>
+<p class="standard-p">“A 32-year-old woman has been trying to conceive for 18 months. Assess her.”</p>
+<h4 class="sub-label">Say:</h4>
+<h4 class="sub-label">Step 1 — Establish the problem</h4>
+<h4 class="sub-label">duration</h4>
+<h4 class="sub-label">primary/secondary</h4>
+<h4 class="sub-label">intercourse frequency</h4>
+<h4 class="sub-label">contraception</h4>
+<p class="standard-p">age of both partners.</p>
+<h4 class="sub-label">Step 2 — Menstrual history</h4>
+<h4 class="sub-label">cycle length</h4>
+<h4 class="sub-label">regularity</h4>
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">dysmenorrhoea</h4>
+<h4 class="sub-label">amenorrhoea</h4>
+<p class="standard-p">ovulatory symptoms.</p>
+<h4 class="sub-label">Step 3 — Look for specific causes</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">endometriosis</h4>
+<h4 class="sub-label">tubal disease</h4>
+<h4 class="sub-label">POI</h4>
+<h4 class="sub-label">hyperprolactinaemia</h4>
+<p class="standard-p">uterine pathology.</p>
+<h4 class="sub-label">Step 4 — Sexual history</h4>
+<h4 class="sub-label">frequency</h4>
+<h4 class="sub-label">timing</h4>
+<h4 class="sub-label">erectile dysfunction</h4>
+<h4 class="sub-label">ejaculation</h4>
+<h4 class="sub-label">dyspareunia</h4>
+<p class="standard-p">libido.</p>
+<h4 class="sub-label">Step 5 — Previous history</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">STI</h4>
+<h4 class="sub-label">ectopic</h4>
+<h4 class="sub-label">surgery</h4>
+<h4 class="sub-label">chemotherapy</h4>
+<h4 class="sub-label">radiotherapy</h4>
+<p class="standard-p">endometriosis.</p>
+<h4 class="sub-label">Step 6 — Examination</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">hirsutism/acne</h4>
+<h4 class="sub-label">thyroid</h4>
+<h4 class="sub-label">galactorrhoea</h4>
+<h4 class="sub-label">abdominal examination</h4>
+<p class="standard-p">pelvic examination.</p>
+<h4 class="sub-label">Step 7 — Investigations</h4>
+<h4 class="sub-label">Woman:</h4>
+<h4 class="sub-label">ovulation</h4>
+<h4 class="sub-label">ultrasound</h4>
+<h4 class="sub-label">targeted hormones</h4>
+<p class="standard-p">tubal assessment.</p>
+<h4 class="sub-label">Man:</h4>
+<p class="standard-p">semen analysis.</p>
+<h4 class="sub-label">Step 8 — Management</h4>
+<h4 class="sub-label">Treat the identified cause:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PCOS → ovulation induction</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>tubal disease → surgery/IVF depending on severity</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>severe male factor → ICSI</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>endometriosis → individualised surgery/ART</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>POI → donor-oocyte IVF</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>hyperprolactinaemia → dopamine agonist</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>unexplained infertility → fertility-service management according to age/duration.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-50" data-part-index="50">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 50</span>
+                    <h2 class="part-title">52. HIGH-YIELD MRCOG COUNSELLING PHRASES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-50" onchange="toggleMastery('sec-50')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-50')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-50')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">When AMH is low</h4>
+<p class="standard-p">“AMH is primarily a marker of ovarian reserve and expected response to ovarian stimulation. It does not by itself diagnose infertility or predict whether you can conceive naturally.”</p>
+<h4 class="sub-label">When PCOS is diagnosed</h4>
+<p class="standard-p">“PCOS is a diagnosis of exclusion. I would ensure alternative causes of menstrual irregularity and androgen excess have been considered.”</p>
+<h4 class="sub-label">When prolactin is raised</h4>
+<p class="standard-p">“I would first confirm the abnormality and exclude physiological, drug-related and secondary causes before assuming a prolactinoma.”</p>
+<h4 class="sub-label">When semen analysis is abnormal</h4>
+<p class="standard-p">“A single abnormal semen analysis does not establish permanent male infertility; I would repeat the test and assess the man clinically.”</p>
+<h4 class="sub-label">With endometriosis</h4>
+<p class="standard-p">“I would balance symptom control with reproductive goals and avoid unnecessary ovarian surgery where it could compromise ovarian reserve.”</p>
+<h4 class="sub-label">With POI</h4>
+<p class="standard-p">“POI significantly reduces fertility but does not mean spontaneous conception is impossible because intermittent ovarian activity can occur.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-51" data-part-index="51">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 51</span>
+                    <h2 class="part-title">53. MRCOG PART 3 — COMMON EXAMINER TRAPS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-51" onchange="toggleMastery('sec-51')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-51')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-51')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Trap 1</h4>
+<h4 class="sub-label">“AMH 0.8 = infertile.”</h4>
+<p class="standard-p">❌ Wrong.</p>
+<h4 class="sub-label">Trap 2</h4>
+<h4 class="sub-label">“Day 21 progesterone for everyone.”</h4>
+<p class="standard-p">❌ Wrong.</p>
+<p class="standard-p">Use approximately<span class="val-pill"> 7 days</span> before the expected next period.</p>
+<h4 class="sub-label">Trap 3</h4>
+<h4 class="sub-label">“Polycystic ovaries = PCOS.”</h4>
+<p class="standard-p">❌ Wrong.</p>
+<p class="standard-p">Need the appropriate diagnostic criteria and exclusion of other causes.</p>
+<h4 class="sub-label">Trap 4</h4>
+<h4 class="sub-label">“High prolactin = prolactinoma.”</h4>
+<p class="standard-p">❌ Wrong.</p>
+<p class="standard-p">Check pregnancy, medications, hypothyroidism, macroprolactin and other causes.</p>
+<h4 class="sub-label">Trap 5</h4>
+<h4 class="sub-label">“Normal semen analysis excludes male infertility.”</h4>
+<p class="standard-p">❌ Wrong.</p>
+<p class="standard-p">Male fertility is multifactorial.</p>
+<h4 class="sub-label">Trap 6</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>“Endometriosis → laparoscopy immediately.”</span></div>
+<p class="standard-p">❌ Not necessarily.</p>
+<p class="standard-p">Use appropriate imaging and individualised management.</p>
+<h4 class="sub-label">Trap 7</h4>
+<h4 class="sub-label">“POI means no chance of pregnancy.”</h4>
+<p class="standard-p">❌ Wrong.</p>
+<p class="standard-p">Intermittent ovarian activity can occur, although fertility is markedly reduced.</p>
+<h4 class="sub-label">Trap 8</h4>
+<h4 class="sub-label">“Infertility is the woman&#x27;s problem.”</h4>
+<p class="standard-p">❌ Major MRCOG communication error.</p>
+<p class="standard-p">Always assess both partners.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-52" data-part-index="52">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 52</span>
+                    <h2 class="part-title">54. ONE-MINUTE REPRODUCTIVE MEDICINE MAP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-52" onchange="toggleMastery('sec-52')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-52')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-52')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">INFERTILITY</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Ovulation</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Tubes</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Uterus</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Ovarian reserve</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Endometriosis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Male factor</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Endocrine factors</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Sexual factors</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Lifestyle/age</span></div>
+<h4 class="sub-label">PCOS</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ 2/3 Rotterdam</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ exclude mimics</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ metabolic assessment</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ lifestyle</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ letrozole for anovulatory infertility</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ gonadotrophins/LOD</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ IVF if indicated</span></div>
+<h4 class="sub-label">AMENORRHOEA</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ pregnancy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FSH/E2</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TSH</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ prolactin</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ androgen profile</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ultrasound</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ hypothalamic vs pituitary vs ovarian vs outflow</span></div>
+<h4 class="sub-label">HYPERPROLACTINAEMIA</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ repeat/confirm</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ pregnancy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ drugs</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TSH</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ macroprolactin</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ pituitary imaging if indicated</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ dopamine agonist</span></div>
+<h4 class="sub-label">POI</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ &lt;40</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FSH repeatedly raised</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ low oestrogen</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ genetic/autoimmune/iatrogenic causes</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ HRT</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ bone/CV protection</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ donor-oocyte IVF</span></div>
+<h4 class="sub-label">ENDOMETRIOSIS</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ dysmenorrhoea</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ dyspareunia</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ bowel/bladder cyclical symptoms</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ infertility</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TVUS ± MRI</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ fertility goals</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ avoid unnecessary ovarian damage</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ surgery/ART according to case</span></div>
+<h4 class="sub-label">MALE INFERTILITY</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ semen analysis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ repeat if abnormal</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ history/examination</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FSH/testosterone ± other hormones</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ genetics in severe cases</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ obstruction vs production failure</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ IVF/ICSI where indicated.</span></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 4. OVULATION ASSESSMENT</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Cycle: Approximate progesterone timing</li>
+<li class="surg-item">● 28 days: Day 21</li>
+<li class="surg-item">● 30 days: Day 23</li>
+<li class="surg-item">● 35 days: Day 28</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 53;
+    const flashcards = [{"category": "4. OVULATION ASSESSMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cycle</strong>?", "a": "<strong>Approximate progesterone timing</strong>"}, {"category": "4. OVULATION ASSESSMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>28 days</strong>?", "a": "<strong>Day 21</strong>"}, {"category": "4. OVULATION ASSESSMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>30 days</strong>?", "a": "<strong>Day 23</strong>"}, {"category": "4. OVULATION ASSESSMENT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>35 days</strong>?", "a": "<strong>Day 28</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Parameter</strong>?", "a": "<strong>Lower reference value</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Volume</strong>?", "a": "<strong>\u22651.4 mL</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Sperm concentration</strong>?", "a": "<strong>\u226516 million/mL</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Total sperm number</strong>?", "a": "<strong>\u226539 million/ejaculate</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Total motility</strong>?", "a": "<strong>\u226542%</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Progressive motility</strong>?", "a": "<strong>\u226530%</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal morphology</strong>?", "a": "<strong>\u22654%</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vitality</strong>?", "a": "<strong>\u226554%</strong>"}, {"category": "12. MALE INFERTILITY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>pH</strong>?", "a": "<strong>\u22657.2</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Infertility definition</strong>?", "a": "<strong>12 months</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal menstrual cycle</strong>?", "a": "<strong>~21\u201335 days</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mid-luteal progesterone</strong>?", "a": "<strong>~7 days before expected period</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Strong evidence of ovulation</strong>?", "a": "<strong>commonly >30 nmol/L</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>PCOS diagnostic features</strong>?", "a": "<strong>2 of 3</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>PCOS classic ovarian volume</strong>?", "a": "<strong>\u226510 mL</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Hirsutism mFG</strong>?", "a": "<strong>traditionally \u22658</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>POI age</strong>?", "a": "<strong><40 years</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Prolactinoma microadenoma</strong>?", "a": "<strong><10 mm</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Prolactinoma macroadenoma</strong>?", "a": "<strong>\u226510 mm</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Semen volume</strong>?", "a": "<strong>\u22651.4 mL</strong>"}, {"category": "RAPID REVISION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Adult testicular volume</strong>?", "a": "<strong>~15\u201325 mL</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cycle ?", "options": ["Approximate progesterone timing", "Day 21", "Day 23", "Day 28"], "correct": 0, "explanation": "Key Guideline / Fact: Approximate progesterone timing (4. OVULATION ASSESSMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  28 days ?", "options": ["Approximate progesterone timing", "Day 21", "Day 23", "Day 28"], "correct": 1, "explanation": "Key Guideline / Fact: Day 21 (4. OVULATION ASSESSMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  30 days ?", "options": ["Day 21", "Approximate progesterone timing", "Day 23", "Day 28"], "correct": 2, "explanation": "Key Guideline / Fact: Day 23 (4. OVULATION ASSESSMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  35 days ?", "options": ["Day 23", "Approximate progesterone timing", "Day 21", "Day 28"], "correct": 3, "explanation": "Key Guideline / Fact: Day 28 (4. OVULATION ASSESSMENT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Parameter ?", "options": ["Lower reference value", "Approximate progesterone timing", "Day 21", "Day 23"], "correct": 0, "explanation": "Key Guideline / Fact: Lower reference value (12. MALE INFERTILITY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Volume ?", "options": ["Approximate progesterone timing", "\u22651.4 mL", "Day 21", "Day 23"], "correct": 1, "explanation": "Key Guideline / Fact: \u22651.4 mL (12. MALE INFERTILITY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Sperm concentration ?", "options": ["Day 21", "Approximate progesterone timing", "\u226516 million/mL", "Day 23"], "correct": 2, "explanation": "Key Guideline / Fact: \u226516 million/mL (12. MALE INFERTILITY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Total sperm number ?", "options": ["Day 23", "Approximate progesterone timing", "Day 21", "\u226539 million/ejaculate"], "correct": 3, "explanation": "Key Guideline / Fact: \u226539 million/ejaculate (12. MALE INFERTILITY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Infertility definition ?", "options": ["12 months", "Approximate progesterone timing", "Day 21", "Day 23"], "correct": 0, "explanation": "Key Guideline / Fact: 12 months (RAPID REVISION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Normal menstrual cycle ?", "options": ["Approximate progesterone timing", "~21\u201335 days", "Day 21", "Day 23"], "correct": 1, "explanation": "Key Guideline / Fact: ~21\u201335 days (RAPID REVISION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Mid-luteal progesterone ?", "options": ["Day 21", "Approximate progesterone timing", "~7 days before expected period", "Day 23"], "correct": 2, "explanation": "Key Guideline / Fact: ~7 days before expected period (RAPID REVISION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Strong evidence of ovulation ?", "options": ["Day 23", "Approximate progesterone timing", "Day 21", "commonly >30 nmol/L"], "correct": 3, "explanation": "Key Guideline / Fact: commonly >30 nmol/L (RAPID REVISION)."}];
+    const storageKey = 'obgyn_mastered_reproductive_medicine___mrcog_part_3_osce_atlas';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

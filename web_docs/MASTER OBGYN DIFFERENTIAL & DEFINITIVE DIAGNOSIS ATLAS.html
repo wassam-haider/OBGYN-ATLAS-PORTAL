@@ -1,0 +1,3112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER OBGYN DIFFERENTIAL &amp; DEFINITIVE DIAGNOSIS ATLAS — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MASTER OBGYN DIFFERENTIAL &amp; DEFINITIVE</div>
+                <div class="brand-subtitle-text">MRCOG / FCPS OBGYN — high-yield comprehensive list</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 74 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 6 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (6 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="PART I — OBSTETRICS">PART I — OBSTETRICS</a></li><li><a href="#part-3" class="part-nav-link" title="PART II — GYNAECOLOGY">PART II — GYNAECOLOGY</a></li><li><a href="#part-4" class="part-nav-link" title="28. PCOS">28. PCOS</a></li><li><a href="#part-5" class="part-nav-link" title="64. THE “DEFINITIVE DIAGNOSIS” EXAM RULES">64. THE “DEFINITIVE DIAGNOSIS” EXAM RULES</a></li><li><a href="#part-6" class="part-nav-link" title="65. MASTER DIAGNOSTIC SEQUENCE FOR ANY OBGYN CASE">65. MASTER DIAGNOSTIC SEQUENCE FOR ANY OBGYN CASE</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MASTER OBGYN DIFFERENTIAL &amp; DEFINITIVE DIAGNOSIS ATLAS</h1>
+                    <div class="reader-hero-sub">⭐ MRCOG / FCPS OBGYN — high-yield comprehensive list</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">A useful exam framework is:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Clinical presentation → Initial/working diagnosis → Differential diagnoses → Definitive diagnosis / confirmatory test</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">In many OBGYN conditions, there is no single “definitive test.” The diagnosis is established by a combination of history + examination + laboratory/imaging findings, with histopathology being definitive for many neoplastic conditions.</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">PART I — OBSTETRICS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Early pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Typical presentation / initial diagnosis</th>
+<th>Important differentials</th>
+<th>Definitive/confirmatory diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Normal intrauterine pregnancy</strong></td>
+<td>Positive pregnancy test</td>
+<td>Ectopic, miscarriage, pregnancy of unknown location</td>
+<td>TVUS showing intrauterine gestational sac + yolk sac/embryo, appropriate development</td>
+</tr>
+<tr>
+<td><strong>Pregnancy of unknown location (PUL)</strong></td>
+<td>Positive β-hCG, no pregnancy seen on TVUS</td>
+<td>Very early IUP, ectopic, completed miscarriage</td>
+<td>Serial β-hCG + repeat TVUS; location ultimately established</td>
+</tr>
+<tr>
+<td><strong>Ectopic pregnancy</strong></td>
+<td>Pain ± bleeding + positive pregnancy test</td>
+<td>Threatened miscarriage, miscarriage, corpus luteum cyst, torsion, appendicitis</td>
+<td>TVUS demonstrating extrauterine pregnancy; extrauterine yolk sac/embryo ± cardiac activity is diagnostic</td>
+</tr>
+<tr>
+<td><strong>Tubal ectopic</strong></td>
+<td>Adnexal pain/mass</td>
+<td>Corpus luteum, hemorrhagic cyst</td>
+<td>TVUS ± laparoscopy</td>
+</tr>
+<tr>
+<td><strong>Cervical ectopic</strong></td>
+<td>Bleeding, gestational sac in cervix</td>
+<td>Cervical miscarriage</td>
+<td>TVUS</td>
+</tr>
+<tr>
+<td><strong>Caesarean-scar pregnancy</strong></td>
+<td>Early pregnancy with previous CS</td>
+<td>Cervical pregnancy, miscarriage</td>
+<td>TVUS showing implantation in CS scar</td>
+</tr>
+<tr>
+<td><strong>Interstitial pregnancy</strong></td>
+<td>Pain/bleeding</td>
+<td>Tubal ectopic</td>
+<td>TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line</td>
+</tr>
+<tr>
+<td><strong>Heterotopic pregnancy</strong></td>
+<td>IUP + persistent pain/adnexal findings</td>
+<td>Corpus luteum, torsion</td>
+<td>TVUS demonstrating simultaneous IUP and ectopic pregnancy</td>
+</tr>
+<tr>
+<td><strong>Threatened miscarriage</strong></td>
+<td>Bleeding, closed cervix, viable pregnancy</td>
+<td>Ectopic, implantation bleeding, cervical pathology</td>
+<td>TVUS confirming viable IUP with closed cervix</td>
+</tr>
+<tr>
+<td><strong>Inevitable miscarriage</strong></td>
+<td>Bleeding + open cervix</td>
+<td>Incomplete miscarriage</td>
+<td>Clinical examination/US</td>
+</tr>
+<tr>
+<td><strong>Incomplete miscarriage</strong></td>
+<td>Bleeding + open cervix + retained products</td>
+<td>Inevitable miscarriage, ectopic</td>
+<td>TVUS showing retained intrauterine products</td>
+</tr>
+<tr>
+<td><strong>Complete miscarriage</strong></td>
+<td>Previous pregnancy symptoms/bleeding; uterus empty</td>
+<td>PUL, ectopic</td>
+<td>Empty uterus with appropriate β-hCG decline and clinical history</td>
+</tr>
+<tr>
+<td><strong>Missed miscarriage</strong></td>
+<td>Nonviable pregnancy without expulsion</td>
+<td>Pregnancy of uncertain viability</td>
+<td>TVUS meeting accepted nonviability criteria</td>
+</tr>
+<tr>
+<td><strong>Anembryonic pregnancy</strong></td>
+<td>Empty gestational sac</td>
+<td>Very early IUP</td>
+<td>TVUS criteria for failed pregnancy</td>
+</tr>
+<tr>
+<td><strong>Recurrent miscarriage</strong></td>
+<td>≥2 clinically recognized pregnancy losses</td>
+<td>Antiphospholipid syndrome, uterine anomaly, genetic causes, endocrine causes</td>
+<td>Directed recurrent pregnancy-loss evaluation</td>
+</tr>
+<tr>
+<td><strong>Molar pregnancy</strong></td>
+<td>Bleeding, excessive uterine size, hyperemesis, very high β-hCG</td>
+<td>Multiple pregnancy, miscarriage</td>
+<td>TVUS + histopathology after evacuation</td>
+</tr>
+<tr>
+<td><strong>Complete mole</strong></td>
+<td>Very high β-hCG, no fetus</td>
+<td>Partial mole</td>
+<td>Histopathology ± molecular/genetic assessment</td>
+</tr>
+<tr>
+<td><strong>Partial mole</strong></td>
+<td>Abnormal pregnancy ± fetal tissue</td>
+<td>Missed miscarriage</td>
+<td>Histopathology ± p57/ploidy/molecular testing</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Pregnancy bleeding</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">First trimester</h4>
+<h4 class="sub-label">Main differential for vaginal bleeding</h4>
+<h4 class="sub-label">Threatened miscarriage</h4>
+<h4 class="sub-label">Inevitable miscarriage</h4>
+<h4 class="sub-label">Incomplete miscarriage</h4>
+<h4 class="sub-label">Complete miscarriage</h4>
+<h4 class="sub-label">Missed miscarriage</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Molar pregnancy</h4>
+<h4 class="sub-label">Cervical ectropion</h4>
+<h4 class="sub-label">Cervical polyp</h4>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">Vaginal trauma</h4>
+<h4 class="sub-label">Implantation-related bleeding</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key diagnostic approach</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Pregnancy test → maternal stability → speculum examination when appropriate → TVUS → serial β-hCG when required.</span></div>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Second/third-trimester antepartum haemorrhage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Initial diagnosis</th>
+<th>Main differential</th>
+<th>Definitive/confirmatory diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Placenta praevia</strong></td>
+<td>Painless APH</td>
+<td>Abruption, vasa praevia, local genital tract bleeding</td>
+<td>TVUS/transvaginal ultrasound locating placenta</td>
+</tr>
+<tr>
+<td><strong>Placental abruption</strong></td>
+<td>Painful bleeding ± uterine tenderness/hypertonus</td>
+<td>Placenta praevia, uterine rupture, labour</td>
+<td>Primarily clinical diagnosis; ultrasound may support but does not exclude it</td>
+</tr>
+<tr>
+<td><strong>Vasa praevia</strong></td>
+<td>Bleeding after ROM + fetal compromise</td>
+<td>Abruption, fetal scalp bleeding</td>
+<td>TVUS with colour Doppler demonstrating fetal vessels near/over internal os</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Sudden pain, fetal bradycardia, maternal shock/loss of station</td>
+<td>Abruption, scar dehiscence</td>
+<td>Laparotomy/operative findings</td>
+</tr>
+<tr>
+<td><strong>Cervical/vaginal cause</strong></td>
+<td>Bleeding on examination</td>
+<td>APH</td>
+<td>Speculum examination</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic distinction</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Placenta praevia</h4>
+<h4 class="sub-label">Usually painless</h4>
+<h4 class="sub-label">Bright-red bleeding</h4>
+<h4 class="sub-label">Soft uterus</h4>
+<h4 class="sub-label">Malpresentation common</h4>
+<h4 class="sub-label">Abruption</h4>
+<h4 class="sub-label">Painful bleeding</h4>
+<h4 class="sub-label">Tender/tense uterus</h4>
+<h4 class="sub-label">Fetal compromise common</h4>
+<h4 class="sub-label">Visible bleeding may underestimate actual blood loss</h4>
+<h4 class="sub-label">Vasa praevia</h4>
+<h4 class="sub-label">Bleeding particularly after membrane rupture</h4>
+<h4 class="sub-label">Rapid fetal deterioration</h4>
+<h4 class="sub-label">Maternal condition may initially remain stable</h4>
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Hypertensive disorders of pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Initial diagnosis</th>
+<th>Differential</th>
+<th>Definitive diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Chronic hypertension</strong></td>
+<td>Hypertension before pregnancy/early pregnancy</td>
+<td>Gestational HTN, white-coat HTN</td>
+<td>BP history/records ± repeated BP</td>
+</tr>
+<tr>
+<td><strong>Gestational hypertension</strong></td>
+<td>New hypertension after<span class="val-pill"> 20 weeks</span> without proteinuria/severe features</td>
+<td>Pre-eclampsia, chronic HTN</td>
+<td>Persistent pregnancy hypertension with assessment excluding pre-eclampsia</td>
+</tr>
+<tr>
+<td><strong>Pre-eclampsia</strong></td>
+<td>New hypertension after<span class="val-pill"> 20 weeks</span> + proteinuria or maternal organ dysfunction</td>
+<td>Gestational HTN, chronic HTN</td>
+<td>BP + proteinuria and/or maternal organ dysfunction</td>
+</tr>
+<tr>
+<td><strong>Pre-eclampsia with severe features</strong></td>
+<td>Severe hypertension and/or severe maternal/fetal features</td>
+<td>HELLP, TTP, AFLP</td>
+<td>Clinical + laboratory assessment</td>
+</tr>
+<tr>
+<td><strong>HELLP syndrome</strong></td>
+<td>HTN/abdominal pain + haemolysis, elevated LFTs, low platelets</td>
+<td>AFLP, TTP, HUS, hepatitis</td>
+<td>CBC/platelets + haemolysis markers + LFTs</td>
+</tr>
+<tr>
+<td><strong>Eclampsia</strong></td>
+<td>Seizure in pregnancy/postpartum associated with pre-eclampsia</td>
+<td>Epilepsy, cerebral thrombosis, intracranial haemorrhage, hypoglycaemia</td>
+<td>Clinical diagnosis after excluding alternative causes</td>
+</tr>
+<tr>
+<td><strong>Superimposed pre-eclampsia</strong></td>
+<td>Chronic HTN + new proteinuria/organ dysfunction</td>
+<td>Chronic HTN progression</td>
+<td>Clinical/laboratory criteria</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Diabetes in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-5" onchange="toggleMastery('t-2-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Differential</th>
+<th>Definitive diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Gestational diabetes mellitus</strong></td>
+<td>Pre-existing diabetes, stress hyperglycaemia</td>
+<td>Pregnancy-specific OGTT diagnostic criteria</td>
+</tr>
+<tr>
+<td><strong>Pre-existing type 1 diabetes</strong></td>
+<td>GDM, type 2 diabetes</td>
+<td>History + diagnostic glucose criteria ± autoimmune context</td>
+</tr>
+<tr>
+<td><strong>Pre-existing type 2 diabetes</strong></td>
+<td>GDM</td>
+<td>Diagnostic glucose/HbA1c criteria outside pregnancy/appropriate early pregnancy testing</td>
+</tr>
+<tr>
+<td><strong>Diabetic ketoacidosis</strong></td>
+<td>Sepsis, starvation ketosis, hyperemesis</td>
+<td>Hyperglycaemia or sometimes euglycaemia + ketonaemia/acidosis</td>
+</tr>
+<tr>
+<td><strong>Hypoglycaemia</strong></td>
+<td>Syncope, seizure</td>
+<td>Low plasma glucose with clinical correlation</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Preterm labour and membrane disorders</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-6" onchange="toggleMastery('t-2-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Initial diagnosis</th>
+<th>Differential</th>
+<th>Definitive/confirmatory diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Preterm labour</strong></td>
+<td>Regular contractions + cervical change before term</td>
+<td>Braxton Hicks, cervical insufficiency, abruption</td>
+<td>Clinical diagnosis based on contractions + cervical change</td>
+</tr>
+<tr>
+<td><strong>Threatened preterm labour</strong></td>
+<td>Symptoms without established labour</td>
+<td>UTI, abruption, Braxton Hicks</td>
+<td>Cervical assessment ± fetal fibronectin/TVUS cervical length depending on pathway</td>
+</tr>
+<tr>
+<td><strong>PPROM</strong></td>
+<td>Fluid leakage before labour and before<span class="val-pill"> 37 weeks</span></td>
+<td>Urinary incontinence, vaginal discharge</td>
+<td>Sterile speculum examination demonstrating amniotic fluid; validated biochemical tests if needed</td>
+</tr>
+<tr>
+<td><strong>PROM at term</strong></td>
+<td>ROM before labour at <span class="val-pill">≥37 weeks</span></td>
+<td>Urinary leakage, discharge</td>
+<td>Speculum examination</td>
+</tr>
+<tr>
+<td><strong>Chorioamnionitis / intra-amniotic infection</strong></td>
+<td>Maternal fever + uterine tenderness/fetal tachycardia</td>
+<td>UTI, pyelonephritis, epidural fever, viral infection</td>
+<td>Clinical diagnosis; amniotic fluid/placental microbiology or histology may confirm</td>
+</tr>
+<tr>
+<td><strong>Cervical insufficiency</strong></td>
+<td>Painless cervical dilatation in mid-trimester</td>
+<td>Preterm labour, PPROM</td>
+<td>Serial TVUS cervical assessment + clinical findings</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Fetal growth abnormalities</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-7" onchange="toggleMastery('t-2-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Initial diagnosis</th>
+<th>Differential</th>
+<th>Definitive/confirmatory assessment</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Fetal growth restriction (FGR)</strong></td>
+<td>Small fundal height/US estimated fetal weight</td>
+<td>Constitutionally small fetus, wrong dates</td>
+<td>Serial ultrasound growth + Doppler + clinical context</td>
+</tr>
+<tr>
+<td><strong>Small for gestational age (SGA)</strong></td>
+<td>EFW/AC below threshold</td>
+<td>FGR, wrong dates</td>
+<td>Accurate gestational dating + ultrasound</td>
+</tr>
+<tr>
+<td><strong>Macrosomia / LGA</strong></td>
+<td>Large fundal height/US</td>
+<td>Wrong dates, polyhydramnios</td>
+<td>Ultrasound EFW; true birthweight only known after delivery</td>
+</tr>
+<tr>
+<td><strong>Oligohydramnios</strong></td>
+<td>Reduced liquor</td>
+<td>PPROM, FGR, post-term pregnancy</td>
+<td>Ultrasound AF assessment</td>
+</tr>
+<tr>
+<td><strong>Polyhydramnios</strong></td>
+<td>Excess liquor</td>
+<td>Diabetes, fetal anomaly, multiple pregnancy</td>
+<td>Ultrasound AFI/DVP</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Multiple pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-8" onchange="toggleMastery('t-2-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Differential</th>
+<th>Definitive diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Twin pregnancy</strong></td>
+<td>Singleton + large uterus, fibroids, molar pregnancy</td>
+<td>Ultrasound</td>
+</tr>
+<tr>
+<td><strong>Dichorionic diamniotic twins</strong></td>
+<td>Monochorionic twins</td>
+<td>First-trimester ultrasound chorionicity</td>
+</tr>
+<tr>
+<td><strong>Monochorionic diamniotic twins</strong></td>
+<td>Dichorionic twins</td>
+<td>Ultrasound chorionicity</td>
+</tr>
+<tr>
+<td><strong>Monochorionic monoamniotic twins</strong></td>
+<td>MCDA</td>
+<td>Ultrasound demonstrating one amniotic sac</td>
+</tr>
+<tr>
+<td><strong>Twin-to-twin transfusion syndrome</strong></td>
+<td>Selective FGR, TAPS</td>
+<td>Ultrasound findings demonstrating donor/recipient sequence</td>
+</tr>
+<tr>
+<td><strong>Twin anaemia-polycythaemia sequence (TAPS)</strong></td>
+<td>TTTS, sFGR</td>
+<td>MCA Doppler discordance</td>
+</tr>
+<tr>
+<td><strong>Twin reversed arterial perfusion (TRAP)</strong></td>
+<td>Anomalous twin</td>
+<td>Ultrasound + Doppler</td>
+</tr>
+<tr>
+<td><strong>Selective fetal growth restriction</strong></td>
+<td>TTTS</td>
+<td>Discordant growth + Doppler findings</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Fetal abnormalities</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-9" onchange="toggleMastery('t-2-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">CNS</h4>
+<h4 class="sub-label">Anencephaly</h4>
+<h4 class="sub-label">Neural tube defects</h4>
+<h4 class="sub-label">Hydrocephalus</h4>
+<h4 class="sub-label">Ventriculomegaly</h4>
+<h4 class="sub-label">Agenesis of corpus callosum</h4>
+<h4 class="sub-label">Holoprosencephaly</h4>
+<h4 class="sub-label">Spina bifida</h4>
+<h4 class="sub-label">Dandy-Walker spectrum</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                <div class="callout-body">targeted ultrasound ± fetal MRI ± genetic testing where indicated.</div>
+            </div>
+            
+<h4 class="sub-label">Cardiac</h4>
+<h4 class="sub-label">VSD</h4>
+<h4 class="sub-label">ASD</h4>
+<h4 class="sub-label">AVSD</h4>
+<h4 class="sub-label">Tetralogy of Fallot</h4>
+<h4 class="sub-label">Transposition of great arteries</h4>
+<h4 class="sub-label">Coarctation</h4>
+<h4 class="sub-label">Hypoplastic left heart</h4>
+<h4 class="sub-label">Truncus arteriosus</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive investigation</span></div>
+                <div class="callout-body">fetal echocardiography.</div>
+            </div>
+            
+<h4 class="sub-label">Chromosomal disorders</h4>
+<h4 class="sub-label">Down syndrome</h4>
+<h4 class="sub-label">Differentials:</h4>
+<h4 class="sub-label">Other aneuploidies</h4>
+<h4 class="sub-label">Structural abnormalities</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<h4 class="sub-label">Screening: combined test/NIPT</h4>
+<p class="standard-p">Diagnostic: CVS or amniocentesis with chromosomal analysis.</p>
+<h4 class="sub-label">Edwards syndrome</h4>
+<h4 class="sub-label">Patau syndrome</h4>
+<h4 class="sub-label">Turner syndrome</h4>
+<h4 class="sub-label">Klinefelter syndrome</h4>
+<p class="standard-p">Diagnostic confirmation: invasive fetal testing with karyotype/chromosomal microarray as appropriate.</p>
+
+                <div class="topic-row" id="topic-t-2-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Fetal compromise</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-10" onchange="toggleMastery('t-2-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Initial diagnosis</th>
+<th>Differential</th>
+<th>Definitive assessment</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Reduced fetal movements</strong></td>
+<td>Maternal report</td>
+<td>Normal variation, sleep cycle, FGR, hypoxia</td>
+<td>CTG + ultrasound/Doppler when indicated</td>
+</tr>
+<tr>
+<td><strong>Fetal hypoxia/acidosis</strong></td>
+<td>Abnormal CTG</td>
+<td>Maternal fever, drugs, prematurity, artefact</td>
+<td>Clinical assessment + CTG; fetal scalp sampling/lactate in selected intrapartum settings</td>
+</tr>
+<tr>
+<td><strong>Non-reassuring CTG</strong></td>
+<td>Abnormal CTG</td>
+<td>Artefact, maternal tachycardia</td>
+<td>Correct interpretation + clinical correlation</td>
+</tr>
+<tr>
+<td><strong>Fetal demise</strong></td>
+<td>Absent fetal movements/heart sounds</td>
+<td>Severe maternal/fetal compromise</td>
+<td>Ultrasound demonstrating absent fetal cardiac activity</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Labour abnormalities</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-11" onchange="toggleMastery('t-2-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Abnormal labour</h4>
+<h4 class="sub-label">Differential for slow progress</h4>
+<h4 class="sub-label">Poor uterine contractions</h4>
+<h4 class="sub-label">Malposition</h4>
+<h4 class="sub-label">Malpresentation</h4>
+<h4 class="sub-label">Cephalopelvic disproportion</h4>
+<h4 class="sub-label">Large fetus</h4>
+<h4 class="sub-label">Full bladder</h4>
+<h4 class="sub-label">Cervical oedema</h4>
+<h4 class="sub-label">Obstructed labour</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive assessment</span></div>
+                
+            </div>
+            
+<p class="standard-p">Serial cervical examination + contraction assessment + fetal position/station + maternal/fetal condition.</p>
+
+                <div class="topic-row" id="topic-t-2-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Malpresentation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-12" onchange="toggleMastery('t-2-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Diagnosis</th>
+<th>Confirmation</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Breech</strong></td>
+<td>Abdominal examination</td>
+<td>Ultrasound</td>
+</tr>
+<tr>
+<td><strong>Transverse lie</strong></td>
+<td>Abdominal examination</td>
+<td>Ultrasound</td>
+</tr>
+<tr>
+<td><strong>Oblique lie</strong></td>
+<td>Abdominal examination</td>
+<td>Ultrasound</td>
+</tr>
+<tr>
+<td><strong>Face presentation</strong></td>
+<td>Vaginal examination</td>
+<td>Ultrasound if uncertain</td>
+</tr>
+<tr>
+<td><strong>Brow presentation</strong></td>
+<td>Vaginal examination</td>
+<td>Ultrasound</td>
+</tr>
+<tr>
+<td><strong>Compound presentation</strong></td>
+<td>Vaginal examination</td>
+<td>Ultrasound</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-2-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Breech subtypes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-13" onchange="toggleMastery('t-2-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Frank breech</h4>
+<h4 class="sub-label">Complete breech</h4>
+<h4 class="sub-label">Footling breech</h4>
+<h4 class="sub-label">Kneeling breech</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive</span></div>
+                <div class="callout-body">ultrasound.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Shoulder dystocia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-14" onchange="toggleMastery('t-2-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Initial diagnosis</h4>
+<p class="standard-p">Failure of delivery of shoulders after delivery of fetal head.</p>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Normal slow delivery</h4>
+<h4 class="sub-label">Malposition</h4>
+<h4 class="sub-label">Cord complications</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Clinical diagnosis at delivery.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important signs</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Turtle sign</h4>
+<h4 class="sub-label">Difficulty with restitution</h4>
+<p class="standard-p">Failure of shoulders to deliver with usual gentle traction</p>
+
+                <div class="topic-row" id="topic-t-2-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">Cord complications</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-15" onchange="toggleMastery('t-2-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Cord prolapse</h4>
+<h4 class="sub-label">Differentials</h4>
+<h4 class="sub-label">Cord presentation</h4>
+<h4 class="sub-label">Fetal hand/foot</h4>
+<h4 class="sub-label">Placental tissue</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">Visible/palpable cord</h4>
+<h4 class="sub-label">Fetal bradycardia/variable decelerations</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive</span></div>
+                <div class="callout-body">visualization/palpation of prolapsed cord.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">Postpartum haemorrhage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-16" onchange="toggleMastery('t-2-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Primary PPH</h4>
+<h4 class="sub-label">Think 4 Ts:</h4>
+<h4 class="sub-label">Tone</h4>
+<h4 class="sub-label">Uterine atony</h4>
+<h4 class="sub-label">Trauma</h4>
+<h4 class="sub-label">Cervical/vaginal tears</h4>
+<h4 class="sub-label">Perineal trauma</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Inversion</h4>
+<h4 class="sub-label">Tissue</h4>
+<h4 class="sub-label">Retained placenta</h4>
+<h4 class="sub-label">Retained products</h4>
+<h4 class="sub-label">Placenta accreta spectrum</h4>
+<h4 class="sub-label">Thrombin</h4>
+<h4 class="sub-label">Coagulopathy</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Clinical examination + uterine assessment + inspection of placenta/birth canal + laboratory coagulation assessment + ultrasound where indicated.</p>
+
+                <div class="topic-row" id="topic-t-2-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">Retained placenta</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-17" onchange="toggleMastery('t-2-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Placenta accreta spectrum</h4>
+<h4 class="sub-label">Trapped placenta</h4>
+<h4 class="sub-label">Uterine atony</h4>
+<h4 class="sub-label">Placental fragments</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Failure of placental delivery within the relevant clinical timeframe.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive</span></div>
+                <div class="callout-body">manual examination/removal and/or operative findings; histology may establish accreta.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-18">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">Placenta accreta spectrum</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-18" onchange="toggleMastery('t-2-18')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Diagnosis</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Placenta accreta</strong></td>
+<td>Abnormal adherence</td>
+</tr>
+<tr>
+<td><strong>Placenta increta</strong></td>
+<td>Myometrial invasion</td>
+</tr>
+<tr>
+<td><strong>Placenta percreta</strong></td>
+<td>Through myometrium/serosa ± adjacent organs</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Differentials</h4>
+<h4 class="sub-label">Placenta praevia without accreta</h4>
+<h4 class="sub-label">Retained placenta</h4>
+<h4 class="sub-label">Uterine atony</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Expert ultrasound with colour Doppler is the principal antenatal diagnostic test.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive pathological diagnosis</span></div>
+                <div class="callout-body">placental invasion on histopathology when specimen is available, although management should not wait for histology when clinical/imaging diagnosis is strong.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-2-19">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">19</span>
+                        <h3 class="topic-heading">Puerperal fever</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-19" onchange="toggleMastery('t-2-19')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential diagnosis</h4>
+<h4 class="sub-label">5 major sources</h4>
+<h4 class="sub-label">Endometritis</h4>
+<h4 class="sub-label">UTI/pyelonephritis</h4>
+<h4 class="sub-label">Wound infection</h4>
+<h4 class="sub-label">Mastitis/breast abscess</h4>
+<h4 class="sub-label">Intra-abdominal/pelvic infection</h4>
+<h4 class="sub-label">Other:</h4>
+<h4 class="sub-label">Septic pelvic thrombophlebitis</h4>
+<h4 class="sub-label">Retained products</h4>
+<h4 class="sub-label">Respiratory infection</h4>
+<h4 class="sub-label">Viral infection</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive assessment</span></div>
+                
+            </div>
+            
+<p class="standard-p">History + examination + urine/culture + blood tests/cultures + imaging according to suspected source.</p>
+
+                <div class="topic-row" id="topic-t-2-20">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">20</span>
+                        <h3 class="topic-heading">Postpartum endometritis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-20" onchange="toggleMastery('t-2-20')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Retained products</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">Caesarean wound infection</h4>
+<h4 class="sub-label">Pelvic abscess</h4>
+<h4 class="sub-label">Septic pelvic thrombophlebitis</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">Clinical:</h4>
+<h4 class="sub-label">Fever</h4>
+<h4 class="sub-label">Uterine tenderness</h4>
+<h4 class="sub-label">Foul lochia</h4>
+<h4 class="sub-label">Maternal systemic illness</h4>
+<p class="standard-p">No single test is required in uncomplicated cases.</p>
+
+                <div class="topic-row" id="topic-t-2-21">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">Venous thromboembolism</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-21" onchange="toggleMastery('t-2-21')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">DVT</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Cellulitis</h4>
+<h4 class="sub-label">Musculoskeletal injury</h4>
+<h4 class="sub-label">Superficial thrombophlebitis</h4>
+<h4 class="sub-label">Lymphoedema</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive</span></div>
+                
+            </div>
+            
+<p class="standard-p">Compression duplex ultrasound.</p>
+<h4 class="sub-label">Pulmonary embolism</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Pneumothorax</h4>
+<h4 class="sub-label">Peripartum cardiomyopathy</h4>
+<h4 class="sub-label">Amniotic fluid embolism</h4>
+<h4 class="sub-label">Anxiety</h4>
+<h4 class="sub-label">Asthma</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Clinical probability + ECG/CXR as appropriate + definitive imaging such as CTPA or V/Q according to circumstances.</p>
+
+                <div class="topic-row" id="topic-t-2-22">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">22</span>
+                        <h3 class="topic-heading">Amniotic fluid embolism</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-22" onchange="toggleMastery('t-2-22')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Pulmonary embolism</h4>
+<h4 class="sub-label">Massive haemorrhage</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">Sepsis</h4>
+<h4 class="sub-label">Anaphylaxis</h4>
+<h4 class="sub-label">Peripartum cardiomyopathy</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Clinical diagnosis of sudden maternal cardiovascular/respiratory collapse ± DIC during labour or shortly after delivery.</p>
+<p class="standard-p">No routine test definitively confirms AFE.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">PART II — GYNAECOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">23</span>
+                        <h3 class="topic-heading">Abnormal uterine bleeding</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">PALM-COEIN</h4>
+<h4 class="sub-label">Structural</h4>
+<h4 class="sub-label">P — Polyp</h4>
+<h4 class="sub-label">A — Adenomyosis</h4>
+<h4 class="sub-label">L — Leiomyoma</h4>
+<h4 class="sub-label">M — Malignancy/hyperplasia</h4>
+<h4 class="sub-label">Non-structural</h4>
+<h4 class="sub-label">C — Coagulopathy</h4>
+<h4 class="sub-label">O — Ovulatory dysfunction</h4>
+<h4 class="sub-label">E — Endometrial</h4>
+<h4 class="sub-label">I — Iatrogenic</h4>
+<h4 class="sub-label">N — Not otherwise classified</h4>
+<h4 class="sub-label">Differential diagnosis of heavy menstrual bleeding</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Endometrial polyp</h4>
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Ovulatory dysfunction</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Coagulopathy</h4>
+<h4 class="sub-label">Thyroid disease</h4>
+<h4 class="sub-label">Medication-related bleeding</h4>
+<h4 class="sub-label">Pregnancy-related bleeding</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis depends on cause</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>TVUS → hysteroscopy → endometrial biopsy/histology where indicated.</span></div>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">Fibroid uterus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Heavy menstrual bleeding</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<h4 class="sub-label">Pressure symptoms</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Recurrent miscarriage</h4>
+<h4 class="sub-label">Enlarged irregular uterus</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Ovarian tumour</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Endometrial pathology</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Pelvic ultrasound.</p>
+<p class="standard-p">MRI is useful for mapping complex fibroids or treatment planning.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive histological diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Leiomyoma on histopathology after removal.</p>
+
+                <div class="topic-row" id="topic-t-3-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">Adenomyosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-3" onchange="toggleMastery('t-3-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Heavy menstrual bleeding</h4>
+<h4 class="sub-label">Progressive dysmenorrhoea</h4>
+<h4 class="sub-label">Chronic pelvic pain</h4>
+<h4 class="sub-label">Globular tender uterus</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Endometrial pathology</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">TVUS ± MRI.</p>
+<p class="standard-p">Histology after hysterectomy is traditionally definitive.</p>
+
+                <div class="topic-row" id="topic-t-3-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">26</span>
+                        <h3 class="topic-heading">Endometriosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-4" onchange="toggleMastery('t-3-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<h4 class="sub-label">Deep dyspareunia</h4>
+<h4 class="sub-label">Chronic pelvic pain</h4>
+<h4 class="sub-label">Dyschezia</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Cyclical bowel/bladder symptoms</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">IBS</h4>
+<h4 class="sub-label">Interstitial cystitis</h4>
+<h4 class="sub-label">Ovarian cyst</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Pelvic adhesions</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">Clinical assessment</h4>
+<h4 class="sub-label">TVUS, especially for endometrioma/deep disease</h4>
+<h4 class="sub-label">MRI in selected cases</h4>
+<p class="standard-p">Laparoscopy with histological confirmation can establish the diagnosis, but modern management does not necessarily require diagnostic laparoscopy in every patient.</p>
+
+                <div class="topic-row" id="topic-t-3-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">Endometrioma</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-5" onchange="toggleMastery('t-3-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Hemorrhagic ovarian cyst</h4>
+<h4 class="sub-label">Dermoid</h4>
+<h4 class="sub-label">Tubo-ovarian abscess</h4>
+<h4 class="sub-label">Ovarian malignancy</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">TVUS with characteristic features.</p>
+<p class="standard-p">Histology after surgery provides pathological confirmation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">28. PCOS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Oligo/anovulation</h4>
+<h4 class="sub-label">Hyperandrogenism</h4>
+<h4 class="sub-label">Polycystic ovarian morphology</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Always exclude:</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Hyperprolactinaemia</h4>
+<h4 class="sub-label">Thyroid disease</h4>
+<h4 class="sub-label">Non-classic CAH</h4>
+<h4 class="sub-label">Cushing syndrome</h4>
+<h4 class="sub-label">Androgen-secreting tumour</h4>
+<h4 class="sub-label">Hypothalamic amenorrhoea</h4>
+<h4 class="sub-label">Premature ovarian insufficiency</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Rotterdam framework: 2 of 3 after exclusion of other causes:</p>
+<h4 class="sub-label">Oligo/anovulation</h4>
+<h4 class="sub-label">Clinical/biochemical hyperandrogenism</h4>
+<h4 class="sub-label">Polycystic ovarian morphology</h4>
+
+                <div class="topic-row" id="topic-t-4-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">Amenorrhoea</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-1" onchange="toggleMastery('t-4-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Primary amenorrhoea</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Normal/constitutional</h4>
+<h4 class="sub-label">Delayed puberty</h4>
+<h4 class="sub-label">Outflow obstruction</h4>
+<h4 class="sub-label">Imperforate hymen</h4>
+<h4 class="sub-label">Transverse vaginal septum</h4>
+<h4 class="sub-label">Müllerian abnormalities</h4>
+<h4 class="sub-label">MRKH syndrome</h4>
+<h4 class="sub-label">Gonadal</h4>
+<h4 class="sub-label">Turner syndrome</h4>
+<h4 class="sub-label">Gonadal dysgenesis</h4>
+<h4 class="sub-label">Androgen</h4>
+<h4 class="sub-label">Complete androgen insensitivity</h4>
+<h4 class="sub-label">Hypothalamic/pituitary</h4>
+<h4 class="sub-label">Functional hypothalamic amenorrhoea</h4>
+<h4 class="sub-label">Pituitary disease</h4>
+<h4 class="sub-label">Initial investigations</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Pregnancy test → FSH/LH → prolactin → TSH → pelvic ultrasound ± karyotype.</span></div>
+<h4 class="sub-label">Secondary amenorrhoea</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Hyperprolactinaemia</h4>
+<h4 class="sub-label">Thyroid disease</h4>
+<h4 class="sub-label">Functional hypothalamic amenorrhoea</h4>
+<h4 class="sub-label">Premature ovarian insufficiency</h4>
+<h4 class="sub-label">Asherman syndrome</h4>
+<h4 class="sub-label">Hypothalamic/pituitary tumour</h4>
+<h4 class="sub-label">Medications</h4>
+<h4 class="sub-label">Menopause</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Depends on cause.</p>
+
+                <div class="topic-row" id="topic-t-4-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">30</span>
+                        <h3 class="topic-heading">Premature ovarian insufficiency</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-2" onchange="toggleMastery('t-4-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Hypothalamic amenorrhoea</h4>
+<h4 class="sub-label">Hyperprolactinaemia</h4>
+<h4 class="sub-label">Thyroid disease</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Disordered/absent ovarian function with elevated FSH on appropriate repeat testing, according to current diagnostic criteria.</p>
+<h4 class="sub-label">Additional evaluation:</h4>
+<h4 class="sub-label">Karyotype where appropriate</h4>
+<h4 class="sub-label">FMR1 premutation testing</h4>
+<h4 class="sub-label">Autoimmune evaluation where clinically indicated</h4>
+
+                <div class="topic-row" id="topic-t-4-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">31</span>
+                        <h3 class="topic-heading">Hyperprolactinaemia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-3" onchange="toggleMastery('t-4-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Lactation</h4>
+<h4 class="sub-label">Prolactinoma</h4>
+<h4 class="sub-label">Hypothyroidism</h4>
+<h4 class="sub-label">Drugs</h4>
+<h4 class="sub-label">Renal disease</h4>
+<h4 class="sub-label">Liver disease</h4>
+<h4 class="sub-label">PCOS-associated mild elevation</h4>
+<h4 class="sub-label">Macroprolactinaemia</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Repeat prolactin + exclude physiological/drug causes ± macroprolactin.</p>
+<p class="standard-p">MRI pituitary when prolactinoma is suspected/indicated.</p>
+
+                <div class="topic-row" id="topic-t-4-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">32</span>
+                        <h3 class="topic-heading">Hirsutism</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-4" onchange="toggleMastery('t-4-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Idiopathic hirsutism</h4>
+<h4 class="sub-label">Congenital adrenal hyperplasia</h4>
+<h4 class="sub-label">Cushing syndrome</h4>
+<h4 class="sub-label">Androgen-secreting ovarian tumour</h4>
+<h4 class="sub-label">Adrenal tumour</h4>
+<h4 class="sub-label">Drugs</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive work-up</span></div>
+                <div class="callout-body">Testosterone</div>
+            </div>
+            
+<h4 class="sub-label">SHBG/free androgen assessment</h4>
+<h4 class="sub-label">DHEAS where indicated</h4>
+<h4 class="sub-label">17-hydroxyprogesterone</h4>
+<h4 class="sub-label">Cortisol testing when indicated</h4>
+<h4 class="sub-label">Pelvic/adrenal imaging if tumour suspected</h4>
+
+                <div class="topic-row" id="topic-t-4-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">33</span>
+                        <h3 class="topic-heading">Postmenopausal bleeding</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-5" onchange="toggleMastery('t-4-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Common</h4>
+<h4 class="sub-label">Endometrial atrophy</h4>
+<h4 class="sub-label">Vaginal/cervical atrophy</h4>
+<h4 class="sub-label">Endometrial polyp</h4>
+<h4 class="sub-label">HRT-related bleeding</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">Endometrial carcinoma</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Vaginal/vulval cancer</h4>
+<h4 class="sub-label">Diagnostic pathway</h4>
+<p class="standard-p">TVUS ± endometrial sampling/hysteroscopy depending on clinical circumstances.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">34</span>
+                        <h3 class="topic-heading">Vulval conditions</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-6" onchange="toggleMastery('t-4-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Vulval ulcer</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Herpes simplex</h4>
+<h4 class="sub-label">Syphilis</h4>
+<h4 class="sub-label">Behçet disease</h4>
+<h4 class="sub-label">Aphthous ulcer</h4>
+<h4 class="sub-label">Crohn disease</h4>
+<h4 class="sub-label">Trauma</h4>
+<h4 class="sub-label">Fixed drug eruption</h4>
+<h4 class="sub-label">Vulval malignancy</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Swab/PCR or serology where infectious cause suspected; biopsy for persistent/atypical lesions.</p>
+<h4 class="sub-label">Vulval itching</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Candida</h4>
+<h4 class="sub-label">Lichen sclerosus</h4>
+<h4 class="sub-label">Lichen planus</h4>
+<h4 class="sub-label">Contact dermatitis</h4>
+<h4 class="sub-label">Vulval intraepithelial neoplasia</h4>
+<h4 class="sub-label">Psoriasis</h4>
+<h4 class="sub-label">Atrophy</h4>
+<h4 class="sub-label">Pinworm infestation</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Clinical examination ± vulval biopsy.</p>
+
+                <div class="topic-row" id="topic-t-4-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">35</span>
+                        <h3 class="topic-heading">Lichen sclerosus</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-7" onchange="toggleMastery('t-4-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Lichen planus</h4>
+<h4 class="sub-label">Chronic dermatitis</h4>
+<h4 class="sub-label">Candida</h4>
+<h4 class="sub-label">VIN</h4>
+<h4 class="sub-label">Vulval psoriasis</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Usually clinical.</p>
+<p class="standard-p">Biopsy if diagnosis uncertain, lesion is atypical, or malignancy is suspected.</p>
+
+                <div class="topic-row" id="topic-t-4-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">36</span>
+                        <h3 class="topic-heading">Vulval cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-8" onchange="toggleMastery('t-4-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Bartholin cyst/abscess</h4>
+<h4 class="sub-label">VIN</h4>
+<h4 class="sub-label">Lichen sclerosus</h4>
+<h4 class="sub-label">Benign vulval lesion</h4>
+<h4 class="sub-label">Infective ulcer</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Vulval biopsy + histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">37</span>
+                        <h3 class="topic-heading">Bartholin gland disease</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-9" onchange="toggleMastery('t-4-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Bartholin cyst</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Vulval inclusion cyst</h4>
+<h4 class="sub-label">Gartner cyst</h4>
+<h4 class="sub-label">Lipoma</h4>
+<h4 class="sub-label">Abscess</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<h4 class="sub-label">Clinical examination</h4>
+<h4 class="sub-label">Bartholin abscess</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Infected cyst</h4>
+<h4 class="sub-label">Hidradenitis</h4>
+<h4 class="sub-label">Other vulval abscess</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<h4 class="sub-label">Clinical examination</h4>
+<h4 class="sub-label">Bartholin gland carcinoma</h4>
+<p class="standard-p">Any suspicious new Bartholin mass in an older/postmenopausal patient requires evaluation/biopsy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive</span></div>
+                <div class="callout-body">Histopathology.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-4-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">38</span>
+                        <h3 class="topic-heading">Vaginal discharge</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-10" onchange="toggleMastery('t-4-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Main differential</h4>
+<h4 class="sub-label">Physiological</h4>
+<h4 class="sub-label">Normal leucorrhoea</h4>
+<h4 class="sub-label">Infective</h4>
+<h4 class="sub-label">Bacterial vaginosis</h4>
+<h4 class="sub-label">Vulvovaginal candidiasis</h4>
+<h4 class="sub-label">Trichomoniasis</h4>
+<h4 class="sub-label">Gonorrhoea</h4>
+<h4 class="sub-label">Chlamydia</h4>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">Noninfective</h4>
+<h4 class="sub-label">Foreign body</h4>
+<h4 class="sub-label">Atrophic vaginitis</h4>
+<h4 class="sub-label">Malignancy</h4>
+<h4 class="sub-label">Fistula</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Speculum examination + vaginal pH + microscopy/NAAT/culture as indicated.</p>
+
+                <div class="topic-row" id="topic-t-4-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">39</span>
+                        <h3 class="topic-heading">Pelvic inflammatory disease</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-11" onchange="toggleMastery('t-4-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Appendicitis</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Ovarian torsion</h4>
+<h4 class="sub-label">Ruptured ovarian cyst</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">IBS</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Primarily clinical.</p>
+<h4 class="sub-label">Supportive:</h4>
+<h4 class="sub-label">Cervical motion tenderness</h4>
+<h4 class="sub-label">Uterine tenderness</h4>
+<h4 class="sub-label">Adnexal tenderness</h4>
+<h4 class="sub-label">Investigations:</h4>
+<h4 class="sub-label">Pregnancy test</h4>
+<h4 class="sub-label">STI NAAT</h4>
+<h4 class="sub-label">FBC/CRP</h4>
+<p class="standard-p">Ultrasound if complicated/alternative diagnosis suspected</p>
+
+                <div class="topic-row" id="topic-t-4-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">40</span>
+                        <h3 class="topic-heading">Tubo-ovarian abscess</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-12" onchange="toggleMastery('t-4-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Ovarian torsion</h4>
+<h4 class="sub-label">Ovarian tumour</h4>
+<h4 class="sub-label">Appendicular abscess</h4>
+<h4 class="sub-label">Definitive/confirmatory</h4>
+<p class="standard-p">TVUS ± CT/MRI showing complex tubo-adnexal inflammatory mass, with clinical PID context.</p>
+
+                <div class="topic-row" id="topic-t-4-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">41</span>
+                        <h3 class="topic-heading">Chronic pelvic pain</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-13" onchange="toggleMastery('t-4-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Major differential</h4>
+<h4 class="sub-label">Gynaecological</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Chronic PID</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Ovarian cyst</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">GI</h4>
+<h4 class="sub-label">IBS</h4>
+<h4 class="sub-label">IBD</h4>
+<h4 class="sub-label">Appendiceal disease</h4>
+<h4 class="sub-label">Urinary</h4>
+<h4 class="sub-label">Interstitial cystitis</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">Musculoskeletal</h4>
+<h4 class="sub-label">Pelvic floor dysfunction</h4>
+<h4 class="sub-label">Abdominal wall pain</h4>
+<h4 class="sub-label">Psychological/neuropathic</h4>
+<h4 class="sub-label">Central sensitisation</h4>
+<h4 class="sub-label">Neuropathic pain</h4>
+<p class="standard-p">Diagnosis requires a structured clinical assessment rather than one universal definitive test.</p>
+
+                <div class="topic-row" id="topic-t-4-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">42</span>
+                        <h3 class="topic-heading">Dyspareunia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-14" onchange="toggleMastery('t-4-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Superficial dyspareunia</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Vulvodynia</h4>
+<h4 class="sub-label">Vaginitis</h4>
+<h4 class="sub-label">Atrophy</h4>
+<h4 class="sub-label">Vulval dermatosis</h4>
+<h4 class="sub-label">Vestibulodynia</h4>
+<h4 class="sub-label">Pelvic floor dysfunction</h4>
+<h4 class="sub-label">Deep dyspareunia</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Ovarian cyst</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Pelvic mass</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<p class="standard-p">Clinical examination + targeted investigations.</p>
+
+                <div class="topic-row" id="topic-t-4-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">43</span>
+                        <h3 class="topic-heading">Vulvodynia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-15" onchange="toggleMastery('t-4-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Candida</h4>
+<h4 class="sub-label">Herpes</h4>
+<h4 class="sub-label">Lichen sclerosus</h4>
+<h4 class="sub-label">Lichen planus</h4>
+<h4 class="sub-label">Dermatitis</h4>
+<h4 class="sub-label">Neuropathic pain</h4>
+<h4 class="sub-label">Pelvic floor dysfunction</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Clinical diagnosis after exclusion of other causes.</p>
+
+                <div class="topic-row" id="topic-t-4-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">44</span>
+                        <h3 class="topic-heading">Vaginal prolapse / pelvic organ prolapse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-16" onchange="toggleMastery('t-4-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Types</h4>
+<h4 class="sub-label">Cystocele</h4>
+<h4 class="sub-label">Rectocele</h4>
+<h4 class="sub-label">Uterine prolapse</h4>
+<h4 class="sub-label">Vault prolapse</h4>
+<h4 class="sub-label">Enterocele</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Vaginal mass</h4>
+<h4 class="sub-label">Cervical polyp</h4>
+<h4 class="sub-label">Inverted uterus</h4>
+<h4 class="sub-label">Bartholin pathology</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Pelvic examination, commonly documented using POP-Q.</p>
+
+                <div class="topic-row" id="topic-t-4-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">45</span>
+                        <h3 class="topic-heading">Urinary incontinence</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-17" onchange="toggleMastery('t-4-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Stress urinary incontinence</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Urge incontinence</h4>
+<h4 class="sub-label">Mixed incontinence</h4>
+<h4 class="sub-label">Overflow</h4>
+<h4 class="sub-label">Functional incontinence</h4>
+<h4 class="sub-label">Fistula</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">History + bladder diary + examination ± cough stress test.</p>
+<h4 class="sub-label">Urge urinary incontinence / overactive bladder</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">UTI</h4>
+<h4 class="sub-label">Diabetes</h4>
+<h4 class="sub-label">Diuretics</h4>
+<h4 class="sub-label">Neurological disease</h4>
+<h4 class="sub-label">Bladder pathology</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<p class="standard-p">Clinical + urinalysis ± further testing.</p>
+<h4 class="sub-label">Overflow incontinence</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Neurogenic bladder</h4>
+<h4 class="sub-label">Obstruction</h4>
+<h4 class="sub-label">Medications</h4>
+<h4 class="sub-label">Severe prolapse</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<p class="standard-p">Post-void residual measurement.</p>
+
+                <div class="topic-row" id="topic-t-4-18">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">46</span>
+                        <h3 class="topic-heading">Urogenital fistula</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-18" onchange="toggleMastery('t-4-18')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Vesicovaginal fistula</h4>
+<h4 class="sub-label">Presentation</h4>
+<p class="standard-p">Continuous urinary leakage.</p>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Stress incontinence</h4>
+<h4 class="sub-label">Urge incontinence</h4>
+<h4 class="sub-label">Ureteric fistula</h4>
+<h4 class="sub-label">Severe vaginal discharge</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Dye test + cystoscopy ± imaging.</p>
+<h4 class="sub-label">Rectovaginal fistula</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Faecal incontinence</h4>
+<h4 class="sub-label">Perineal wound breakdown</h4>
+<h4 class="sub-label">Anal sphincter injury</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Examination ± endoscopy/imaging.</p>
+
+                <div class="topic-row" id="topic-t-4-19">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">47</span>
+                        <h3 class="topic-heading">Ovarian cysts</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-19" onchange="toggleMastery('t-4-19')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Functional cyst</h4>
+<h4 class="sub-label">Differential:</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Dermoid</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Tubo-ovarian abscess</h4>
+<h4 class="sub-label">Ovarian malignancy</h4>
+<h4 class="sub-label">Diagnosis:</h4>
+<p class="standard-p">TVUS ± serial imaging.</p>
+
+                <div class="topic-row" id="topic-t-4-20">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">48</span>
+                        <h3 class="topic-heading">Ovarian torsion</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-20" onchange="toggleMastery('t-4-20')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<p class="standard-p">Acute unilateral pelvic pain + nausea/vomiting.</p>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Ruptured cyst</h4>
+<h4 class="sub-label">Appendicitis</h4>
+<h4 class="sub-label">Renal colic</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Degenerating fibroid</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">TVUS + Doppler may support diagnosis.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis is usually surgical, demonstrating torsion.</span></div>
+                
+            </div>
+            
+<p class="standard-p">Normal Doppler flow does not reliably exclude torsion.</p>
+
+                <div class="topic-row" id="topic-t-4-21">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">49</span>
+                        <h3 class="topic-heading">Ovarian hyperstimulation syndrome</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-21" onchange="toggleMastery('t-4-21')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Ovarian torsion</h4>
+<h4 class="sub-label">Ascites</h4>
+<h4 class="sub-label">Sepsis</h4>
+<h4 class="sub-label">Other causes of acute abdomen</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Recent ovarian stimulation + enlarged ovaries + fluid shift/ascites ± haemoconcentration.</p>
+
+                <div class="topic-row" id="topic-t-4-22">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">50</span>
+                        <h3 class="topic-heading">Ovarian tumours</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-22" onchange="toggleMastery('t-4-22')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Benign</h4>
+<h4 class="sub-label">Serous cystadenoma</h4>
+<h4 class="sub-label">Mucinous cystadenoma</h4>
+<h4 class="sub-label">Mature cystic teratoma</h4>
+<h4 class="sub-label">Fibroma</h4>
+<h4 class="sub-label">Thecoma</h4>
+<h4 class="sub-label">Malignant</h4>
+<h4 class="sub-label">Epithelial</h4>
+<h4 class="sub-label">High-grade serous</h4>
+<h4 class="sub-label">Low-grade serous</h4>
+<h4 class="sub-label">Endometrioid</h4>
+<h4 class="sub-label">Clear cell</h4>
+<h4 class="sub-label">Mucinous</h4>
+<h4 class="sub-label">Germ-cell</h4>
+<h4 class="sub-label">Dysgerminoma</h4>
+<h4 class="sub-label">Yolk-sac tumour</h4>
+<h4 class="sub-label">Immature teratoma</h4>
+<h4 class="sub-label">Choriocarcinoma</h4>
+<h4 class="sub-label">Sex-cord stromal</h4>
+<h4 class="sub-label">Granulosa-cell tumour</h4>
+<h4 class="sub-label">Sertoli-Leydig tumour</h4>
+<h4 class="sub-label">Differential of adnexal mass</h4>
+<h4 class="sub-label">Functional cyst</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Dermoid</h4>
+<h4 class="sub-label">Hydrosalpinx</h4>
+<h4 class="sub-label">TOA</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Borderline tumour</h4>
+<h4 class="sub-label">Ovarian malignancy</h4>
+<h4 class="sub-label">Diagnostic pathway</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>TVUS → risk stratification → tumour markers where appropriate → CT/MRI for staging/characterisation.</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-23">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">51</span>
+                        <h3 class="topic-heading">Ovarian cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-23" onchange="toggleMastery('t-4-23')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Red flags</h4>
+<h4 class="sub-label">Persistent bloating</h4>
+<h4 class="sub-label">Early satiety</h4>
+<h4 class="sub-label">Pelvic/abdominal pain</h4>
+<h4 class="sub-label">Increased urinary frequency</h4>
+<h4 class="sub-label">Adnexal mass</h4>
+<h4 class="sub-label">Ascites</h4>
+<h4 class="sub-label">Weight loss</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Benign ovarian cyst</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">GI malignancy</h4>
+<h4 class="sub-label">Ascites from other causes</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">TVUS + CA-125/risk assessment + CT for suspected malignancy/staging.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                <div class="callout-body">histopathology.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-4-24">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">52</span>
+                        <h3 class="topic-heading">Cervical cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-24" onchange="toggleMastery('t-4-24')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">Cervical polyp</h4>
+<h4 class="sub-label">Cervical ectropion</h4>
+<h4 class="sub-label">Trauma</h4>
+<h4 class="sub-label">CIN</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Postcoital bleeding</h4>
+<h4 class="sub-label">Intermenstrual bleeding</h4>
+<h4 class="sub-label">Offensive discharge</h4>
+<h4 class="sub-label">Postmenopausal bleeding</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Cervical biopsy/histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-25">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">53</span>
+                        <h3 class="topic-heading">Cervical intraepithelial neoplasia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-25" onchange="toggleMastery('t-4-25')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Cervicitis</h4>
+<h4 class="sub-label">Cervical ectropion</h4>
+<h4 class="sub-label">HPV-related benign changes</h4>
+<h4 class="sub-label">Diagnostic pathway</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HPV testing/cervical screening → colposcopy → directed biopsy.</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-26">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">54</span>
+                        <h3 class="topic-heading">Endometrial hyperplasia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-26" onchange="toggleMastery('t-4-26')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Endometrial polyp</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Anovulatory bleeding</h4>
+<h4 class="sub-label">Pregnancy-related bleeding</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Endometrial biopsy/hysteroscopy with histopathology.</p>
+<h4 class="sub-label">Classification:</h4>
+<h4 class="sub-label">Without atypia</h4>
+<p class="standard-p">Atypical hyperplasia / EIN terminology in contemporary systems</p>
+
+                <div class="topic-row" id="topic-t-4-27">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">55</span>
+                        <h3 class="topic-heading">Endometrial cancer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-27" onchange="toggleMastery('t-4-27')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">Polyp</h4>
+<h4 class="sub-label">Fibroid</h4>
+<h4 class="sub-label">Atrophic bleeding</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Presentation</h4>
+<p class="standard-p">Postmenopausal bleeding is the classic presentation.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Endometrial biopsy/hysteroscopy + histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-28">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">56</span>
+                        <h3 class="topic-heading">Endometrial polyp</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-28" onchange="toggleMastery('t-4-28')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Submucosal fibroid</h4>
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<h4 class="sub-label">TVUS</h4>
+<h4 class="sub-label">Saline infusion sonography</h4>
+<h4 class="sub-label">Hysteroscopy</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive</span></div>
+                
+            </div>
+            
+<p class="standard-p">Hysteroscopic removal + histopathology.</p>
+
+                <div class="topic-row" id="topic-t-4-29">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">57</span>
+                        <h3 class="topic-heading">Infertility</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-29" onchange="toggleMastery('t-4-29')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Female</h4>
+<h4 class="sub-label">Ovulatory dysfunction</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Tubal disease</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Uterine pathology</h4>
+<h4 class="sub-label">Diminished ovarian reserve</h4>
+<h4 class="sub-label">Premature ovarian insufficiency</h4>
+<h4 class="sub-label">Male</h4>
+<h4 class="sub-label">Oligospermia</h4>
+<h4 class="sub-label">Asthenospermia</h4>
+<h4 class="sub-label">Teratospermia</h4>
+<h4 class="sub-label">Azoospermia</h4>
+<h4 class="sub-label">Erectile/ejaculatory dysfunction</h4>
+<h4 class="sub-label">Combined/unexplained</h4>
+<h4 class="sub-label">Diagnostic evaluation</h4>
+<h4 class="sub-label">Female</h4>
+<h4 class="sub-label">Ovulation assessment</h4>
+<h4 class="sub-label">Ovarian reserve assessment</h4>
+<h4 class="sub-label">Pelvic ultrasound</h4>
+<h4 class="sub-label">Tubal patency testing</h4>
+<h4 class="sub-label">Male</h4>
+<h4 class="sub-label">Semen analysis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive diagnosis</span></div>
+                
+            </div>
+            
+<p class="standard-p">Depends on identified cause.</p>
+
+                <div class="topic-row" id="topic-t-4-30">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">58</span>
+                        <h3 class="topic-heading">Tubal factor infertility</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-30" onchange="toggleMastery('t-4-30')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Ovulatory infertility</h4>
+<h4 class="sub-label">Male factor</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Unexplained infertility</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">HSG or HyCoSy/appropriate tubal patency testing.</p>
+<p class="standard-p">Laparoscopy with chromopertubation can provide direct assessment.</p>
+
+                <div class="topic-row" id="topic-t-4-31">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">59</span>
+                        <h3 class="topic-heading">Male-factor infertility</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-31" onchange="toggleMastery('t-4-31')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Endocrine dysfunction</h4>
+<h4 class="sub-label">Testicular failure</h4>
+<h4 class="sub-label">Obstruction</h4>
+<h4 class="sub-label">Genetic causes</h4>
+<h4 class="sub-label">Varicocele</h4>
+<h4 class="sub-label">Medication/toxin exposure</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive assessment</span></div>
+                
+            </div>
+            
+<p class="standard-p">Semen analysis, repeated when abnormal, followed by targeted male reproductive evaluation.</p>
+
+                <div class="topic-row" id="topic-t-4-32">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">60</span>
+                        <h3 class="topic-heading">Pregnancy-related pelvic mass differential</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-32" onchange="toggleMastery('t-4-32')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">When a pregnant patient has an adnexal mass:</h4>
+<h4 class="sub-label">Corpus luteum</h4>
+<h4 class="sub-label">Functional cyst</h4>
+<h4 class="sub-label">Dermoid</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Cystadenoma</h4>
+<h4 class="sub-label">Borderline tumour</h4>
+<h4 class="sub-label">Ovarian malignancy</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Heterotopic pregnancy</h4>
+<h4 class="sub-label">Ovarian torsion</h4>
+
+                <div class="topic-row" id="topic-t-4-33">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">61</span>
+                        <h3 class="topic-heading">Acute abdomen in reproductive-age woman</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-33" onchange="toggleMastery('t-4-33')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">MUST EXCLUDE FIRST</h4>
+<h4 class="sub-label">Pregnancy-related</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<h4 class="sub-label">Ruptured ectopic</h4>
+<h4 class="sub-label">Gynaecological</h4>
+<h4 class="sub-label">Ovarian torsion</h4>
+<h4 class="sub-label">Ruptured ovarian cyst</h4>
+<h4 class="sub-label">Haemorrhagic cyst</h4>
+<h4 class="sub-label">PID/TOA</h4>
+<h4 class="sub-label">Degenerating fibroid</h4>
+<h4 class="sub-label">Surgical</h4>
+<h4 class="sub-label">Appendicitis</h4>
+<h4 class="sub-label">Bowel obstruction</h4>
+<h4 class="sub-label">Perforation</h4>
+<h4 class="sub-label">Cholecystitis</h4>
+<h4 class="sub-label">Pancreatitis</h4>
+<h4 class="sub-label">Urinary</h4>
+<h4 class="sub-label">Renal colic</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Initial diagnostic test</h4>
+<p class="standard-p">Pregnancy test in every reproductive-age patient unless pregnancy is definitively impossible.</p>
+
+                <div class="topic-row" id="topic-t-4-34">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">62</span>
+                        <h3 class="topic-heading">Postoperative OBGYN complications</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-34" onchange="toggleMastery('t-4-34')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Presentation</th>
+<th>Differential</th>
+<th>Diagnostic approach</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Fever</strong></td>
+<td>Wound infection, UTI, pneumonia, pelvic infection, VTE</td>
+<td>Examination + cultures/imaging</td>
+</tr>
+<tr>
+<td><strong>Tachycardia</strong></td>
+<td>Bleeding, sepsis, PE, pain</td>
+<td>ABC + FBC/lactate/imaging as indicated</td>
+</tr>
+<tr>
+<td><strong>Abdominal distension</strong></td>
+<td>Ileus, obstruction, bleeding, collection</td>
+<td>Examination + X-ray/CT</td>
+</tr>
+<tr>
+<td><strong>Oliguria</strong></td>
+<td>Hypovolaemia, AKI, obstruction</td>
+<td>Fluid assessment + renal function</td>
+</tr>
+<tr>
+<td><strong>Wound discharge</strong></td>
+<td>Infection, haematoma, dehiscence</td>
+<td>Wound examination</td>
+</tr>
+<tr>
+<td><strong>Vaginal bleeding</strong></td>
+<td>Haemorrhage, retained products, infection</td>
+<td>Examination + US/labs</td>
+</tr>
+<tr>
+<td><strong>Leg swelling</strong></td>
+<td>DVT, cellulitis</td>
+<td>Duplex ultrasound</td>
+</tr>
+<tr>
+<td><strong>Breathlessness</strong></td>
+<td>PE, pneumonia, pulmonary oedema</td>
+<td>ECG/CXR ± definitive imaging</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-4-35">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">63</span>
+                        <h3 class="topic-heading">HIGH-YIELD “PRESENTATION → DIFFERENTIAL → DEFINITIVE TEST” MAP</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-35" onchange="toggleMastery('t-4-35')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Vaginal bleeding + positive pregnancy test</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Ectopic → miscarriage → molar pregnancy → cervical causes</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TVUS + β-hCG</span></div>
+<h4 class="sub-label">Painless third-trimester bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Placenta praevia → vasa praevia → cervical lesion</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Ultrasound ± speculum examination when safe</span></div>
+<h4 class="sub-label">Painful third-trimester bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Abruption → uterine rupture → labour</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Clinical diagnosis + maternal/fetal assessment</span></div>
+<h4 class="sub-label">Acute pelvic pain</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Ectopic → torsion → ruptured cyst → PID/TOA → appendicitis → renal colic</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Pregnancy test + TVUS ± additional imaging</span></div>
+<h4 class="sub-label">Chronic pelvic pain</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Endometriosis → adenomyosis → PID → IBS → bladder pain syndrome → adhesions</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ History/examination + TVUS ± MRI/laparoscopy depending on suspected pathology</span></div>
+<h4 class="sub-label">Heavy menstrual bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fibroid → adenomyosis → polyp → endometrial pathology → ovulatory dysfunction → coagulopathy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FBC + pregnancy test when relevant + TVUS ± hysteroscopy/biopsy</span></div>
+<h4 class="sub-label">Postmenopausal bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Atrophy → polyp → hyperplasia → endometrial cancer → cervical/vaginal pathology</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TVUS + endometrial assessment/biopsy as indicated</span></div>
+<h4 class="sub-label">Adnexal mass</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Functional cyst → endometrioma → dermoid → TOA → ectopic → borderline tumour → ovarian cancer</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TVUS ± tumour markers/CT/MRI</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Histopathology = definitive for neoplasm</span></div>
+<h4 class="sub-label">Amenorrhoea</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Pregnancy → PCOS → hyperprolactinaemia → thyroid disease → hypothalamic dysfunction → POI → outflow obstruction</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Pregnancy test + FSH/LH + prolactin + TSH + pelvic US</span></div>
+<h4 class="sub-label">Hirsutism/virilisation</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PCOS → idiopathic → CAH → Cushing → androgen-secreting tumour</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Androgen profile ± 17-OHP ± imaging</span></div>
+<h4 class="sub-label">Postpartum fever</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Endometritis → UTI → wound infection → mastitis → pelvic abscess → septic pelvic thrombophlebitis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Clinical examination + cultures/urine + targeted imaging</span></div>
+<h4 class="sub-label">Postpartum haemorrhage</h4>
+<h4 class="sub-label">4 Ts</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Tone → Trauma → Tissue → Thrombin</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Immediate clinical examination + uterine assessment + genital tract examination + placenta assessment + laboratory tests</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">64. THE “DEFINITIVE DIAGNOSIS” EXAM RULES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">These are particularly useful for MRCOG/FCPS viva and SBA questions:</p>
+<h4 class="sub-label">Histopathology is definitive for:</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">CIN</h4>
+<h4 class="sub-label">Vulval cancer</h4>
+<h4 class="sub-label">Vaginal cancer</h4>
+<h4 class="sub-label">Ovarian malignancy</h4>
+<h4 class="sub-label">Most uterine/vulval neoplasms</h4>
+<h4 class="sub-label">Removed endometrial polyps</h4>
+<h4 class="sub-label">Removed suspicious adnexal masses</h4>
+<p class="standard-p">Ultrasound is particularly diagnostic/confirmatory for:</p>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Pregnancy viability</h4>
+<h4 class="sub-label">Pregnancy location</h4>
+<h4 class="sub-label">Placenta praevia</h4>
+<h4 class="sub-label">Vasa praevia</h4>
+<h4 class="sub-label">Fibroids</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Ovarian cysts</h4>
+<h4 class="sub-label">Adnexal masses</h4>
+<h4 class="sub-label">Ovarian hyperstimulation</h4>
+<h4 class="sub-label">Ovarian pathology</h4>
+<h4 class="sub-label">Multiple pregnancy/chorionicity</h4>
+<h4 class="sub-label">Fetal anomalies</h4>
+<h4 class="sub-label">Fetal growth abnormalities</h4>
+<h4 class="sub-label">Amniotic fluid abnormalities</h4>
+<h4 class="sub-label">Clinical diagnosis is particularly important for:</h4>
+<h4 class="sub-label">Pre-eclampsia</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Shoulder dystocia</h4>
+<h4 class="sub-label">Obstructed labour</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Endometritis</h4>
+<h4 class="sub-label">Ovarian torsion initially</h4>
+<h4 class="sub-label">Amniotic fluid embolism</h4>
+<h4 class="sub-label">Vulvodynia</h4>
+<h4 class="sub-label">Many forms of abnormal labour</h4>
+<h4 class="sub-label">Doppler is particularly important for:</h4>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<h4 class="sub-label">Placental insufficiency</h4>
+<h4 class="sub-label">Twin complications</h4>
+<h4 class="sub-label">Vasa praevia</h4>
+<h4 class="sub-label">Fetal anaemia</h4>
+<h4 class="sub-label">Selected fetal cardiac/vascular abnormalities</h4>
+<h4 class="sub-label">MRI is particularly useful for:</h4>
+<h4 class="sub-label">Deep infiltrating endometriosis</h4>
+<h4 class="sub-label">Complex adnexal masses</h4>
+<h4 class="sub-label">Complex uterine pathology</h4>
+<h4 class="sub-label">Placenta accreta spectrum mapping</h4>
+<p class="standard-p">Fetal CNS/other anomalies when ultrasound is insufficient</p>
+<h4 class="sub-label">CT is particularly useful for:</h4>
+<h4 class="sub-label">Acute abdominal pathology when required</h4>
+<h4 class="sub-label">Cancer staging</h4>
+<h4 class="sub-label">Complicated infection</h4>
+<h4 class="sub-label">Pulmonary embolism assessment when CTPA is indicated</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">65. MASTER DIAGNOSTIC SEQUENCE FOR ANY OBGYN CASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For an MRCOG/FCPS answer, use this sequence:</h4>
+
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Stabilise</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ABCDE</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ maternal haemodynamics</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ fetal status if pregnant</span></div>
+
+                <div class="topic-row" id="topic-t-6-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Establish pregnancy status</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-2" onchange="toggleMastery('t-6-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ urine/serum β-hCG when relevant</span></div>
+
+                <div class="topic-row" id="topic-t-6-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Localise the problem</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-3" onchange="toggleMastery('t-6-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ obstetric / gynaecological / surgical / urinary</span></div>
+
+                <div class="topic-row" id="topic-t-6-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Generate differential diagnoses</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-4" onchange="toggleMastery('t-6-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ common first</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ dangerous diagnoses first</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ diagnosis not to miss</span></div>
+
+                <div class="topic-row" id="topic-t-6-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Initial investigations</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-5" onchange="toggleMastery('t-6-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FBC</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ blood group/Rh where relevant</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ urine</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ β-hCG</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ relevant cultures</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ultrasound</span></div>
+
+                <div class="topic-row" id="topic-t-6-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Targeted investigations</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-6" onchange="toggleMastery('t-6-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ hormones</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Doppler</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ CT/MRI</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ hysteroscopy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ colposcopy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ laparoscopy</span></div>
+
+                <div class="topic-row" id="topic-t-6-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Definitive confirmation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-7" onchange="toggleMastery('t-6-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ histopathology / imaging / microbiology / operative findings depending on disease</span></div>
+
+                <div class="topic-row" id="topic-t-6-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Stage/severity assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-8" onchange="toggleMastery('t-6-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ maternal severity</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ fetal severity</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ cancer stage</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ disease extent</span></div>
+
+                <div class="topic-row" id="topic-t-6-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Management</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-9" onchange="toggleMastery('t-6-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Follow-up and recurrence/risk assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-10" onchange="toggleMastery('t-6-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">The highest-yield distinction to remember</h4>
+<p class="standard-p">“Initial diagnosis” is what you suspect from the presentation.</p>
+<p class="standard-p">“Differential diagnosis” is what else could explain it.</p>
+<p class="standard-p">“Definitive diagnosis” is the evidence that establishes the actual condition.</p>
+<h4 class="sub-label">For example:</h4>
+<h4 class="sub-label">Pain + amenorrhoea + positive β-hCG</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Initial: suspected ectopic pregnancy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Differentials: miscarriage, corpus luteum, PUL</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Definitive/confirmatory: TVUS demonstrating an extrauterine gestation; operative confirmation if required.</span></div>
+<h4 class="sub-label">Postmenopausal bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Initial: abnormal postmenopausal bleeding</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Differentials: atrophy, polyp, hyperplasia, cancer</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Definitive: endometrial histopathology when endometrial pathology is suspected.</span></div>
+<h4 class="sub-label">Heavy menstrual bleeding + enlarged irregular uterus</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Initial: structural uterine pathology, likely fibroid</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Differentials: adenomyosis, polyp, malignancy</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Confirmatory: ultrasound</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Definitive pathological diagnosis: histology if tissue is obtained.</span></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 PART I — OBSTETRICS</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Normal intrauterine pregnancy: Positive pregnancy test</li>
+<li class="surg-item">● Pregnancy of unknown location (PUL): Positive β-hCG, no pregnancy seen on TVUS</li>
+<li class="surg-item">● Ectopic pregnancy: Pain ± bleeding + positive pregnancy test</li>
+<li class="surg-item">● Tubal ectopic: Adnexal pain/mass</li>
+<li class="surg-item">● Cervical ectopic: Bleeding, gestational sac in cervix</li>
+<li class="surg-item">● Caesarean-scar pregnancy: Early pregnancy with previous CS</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 28. PCOS</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Presentation: Differential</li>
+<li class="surg-item">● Fever: Wound infection, UTI, pneumonia, pelvic infection, VTE</li>
+<li class="surg-item">● Tachycardia: Bleeding, sepsis, PE, pain</li>
+<li class="surg-item">● Abdominal distension: Ileus, obstruction, bleeding, collection</li>
+<li class="surg-item">● Oliguria: Hypovolaemia, AKI, obstruction</li>
+<li class="surg-item">● Wound discharge: Infection, haematoma, dehiscence</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 74;
+    const flashcards = [{"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal intrauterine pregnancy</strong>?", "a": "<strong>Positive pregnancy test</strong><br>Ectopic, miscarriage, pregnancy of unknown location<br>TVUS showing intrauterine gestational sac + yolk sac/embryo, appropriate development"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pregnancy of unknown location (PUL)</strong>?", "a": "<strong>Positive \u03b2-hCG, no pregnancy seen on TVUS</strong><br>Very early IUP, ectopic, completed miscarriage<br>Serial \u03b2-hCG + repeat TVUS; location ultimately established"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ectopic pregnancy</strong>?", "a": "<strong>Pain \u00b1 bleeding + positive pregnancy test</strong><br>Threatened miscarriage, miscarriage, corpus luteum cyst, torsion, appendicitis<br>TVUS demonstrating extrauterine pregnancy; extrauterine yolk sac/embryo \u00b1 cardiac activity is diagnostic"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Tubal ectopic</strong>?", "a": "<strong>Adnexal pain/mass</strong><br>Corpus luteum, hemorrhagic cyst<br>TVUS \u00b1 laparoscopy"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervical ectopic</strong>?", "a": "<strong>Bleeding, gestational sac in cervix</strong><br>Cervical miscarriage<br>TVUS"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Caesarean-scar pregnancy</strong>?", "a": "<strong>Early pregnancy with previous CS</strong><br>Cervical pregnancy, miscarriage<br>TVUS showing implantation in CS scar"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Interstitial pregnancy</strong>?", "a": "<strong>Pain/bleeding</strong><br>Tubal ectopic<br>TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Heterotopic pregnancy</strong>?", "a": "<strong>IUP + persistent pain/adnexal findings</strong><br>Corpus luteum, torsion<br>TVUS demonstrating simultaneous IUP and ectopic pregnancy"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Threatened miscarriage</strong>?", "a": "<strong>Bleeding, closed cervix, viable pregnancy</strong><br>Ectopic, implantation bleeding, cervical pathology<br>TVUS confirming viable IUP with closed cervix"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Inevitable miscarriage</strong>?", "a": "<strong>Bleeding + open cervix</strong><br>Incomplete miscarriage<br>Clinical examination/US"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Incomplete miscarriage</strong>?", "a": "<strong>Bleeding + open cervix + retained products</strong><br>Inevitable miscarriage, ectopic<br>TVUS showing retained intrauterine products"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Complete miscarriage</strong>?", "a": "<strong>Previous pregnancy symptoms/bleeding; uterus empty</strong><br>PUL, ectopic<br>Empty uterus with appropriate \u03b2-hCG decline and clinical history"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Missed miscarriage</strong>?", "a": "<strong>Nonviable pregnancy without expulsion</strong><br>Pregnancy of uncertain viability<br>TVUS meeting accepted nonviability criteria"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Anembryonic pregnancy</strong>?", "a": "<strong>Empty gestational sac</strong><br>Very early IUP<br>TVUS criteria for failed pregnancy"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Recurrent miscarriage</strong>?", "a": "<strong>\u22652 clinically recognized pregnancy losses</strong><br>Antiphospholipid syndrome, uterine anomaly, genetic causes, endocrine causes<br>Directed recurrent pregnancy-loss evaluation"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Molar pregnancy</strong>?", "a": "<strong>Bleeding, excessive uterine size, hyperemesis, very high \u03b2-hCG</strong><br>Multiple pregnancy, miscarriage<br>TVUS + histopathology after evacuation"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Complete mole</strong>?", "a": "<strong>Very high \u03b2-hCG, no fetus</strong><br>Partial mole<br>Histopathology \u00b1 molecular/genetic assessment"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Partial mole</strong>?", "a": "<strong>Abnormal pregnancy \u00b1 fetal tissue</strong><br>Missed miscarriage<br>Histopathology \u00b1 p57/ploidy/molecular testing"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta praevia</strong>?", "a": "<strong>Painless APH</strong><br>Abruption, vasa praevia, local genital tract bleeding<br>TVUS/transvaginal ultrasound locating placenta"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placental abruption</strong>?", "a": "<strong>Painful bleeding \u00b1 uterine tenderness/hypertonus</strong><br>Placenta praevia, uterine rupture, labour<br>Primarily clinical diagnosis; ultrasound may support but does not exclude it"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vasa praevia</strong>?", "a": "<strong>Bleeding after ROM + fetal compromise</strong><br>Abruption, fetal scalp bleeding<br>TVUS with colour Doppler demonstrating fetal vessels near/over internal os"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterine rupture</strong>?", "a": "<strong>Sudden pain, fetal bradycardia, maternal shock/loss of station</strong><br>Abruption, scar dehiscence<br>Laparotomy/operative findings"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervical/vaginal cause</strong>?", "a": "<strong>Bleeding on examination</strong><br>APH<br>Speculum examination"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Chronic hypertension</strong>?", "a": "<strong>Hypertension before pregnancy/early pregnancy</strong><br>Gestational HTN, white-coat HTN<br>BP history/records \u00b1 repeated BP"}, {"category": "OBSTETRICS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gestational hypertension</strong>?", "a": "<strong>New hypertension after 20 weeks without proteinuria/severe features</strong><br>Pre-eclampsia, chronic HTN<br>Persistent pregnancy hypertension with assessment excluding pre-eclampsia"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Tubal ectopic ?", "options": ["Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar", "Pain/bleeding  Tubal ectopic TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line"], "correct": 0, "explanation": "Key Guideline / Fact: Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervical ectopic ?", "options": ["Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar", "Pain/bleeding  Tubal ectopic TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line"], "correct": 1, "explanation": "Key Guideline / Fact: Bleeding, gestational sac in cervix  Cervical miscarriage TVUS (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Caesarean-scar pregnancy ?", "options": ["Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar", "Pain/bleeding  Tubal ectopic TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line"], "correct": 2, "explanation": "Key Guideline / Fact: Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Interstitial pregnancy ?", "options": ["Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Pain/bleeding  Tubal ectopic TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line"], "correct": 3, "explanation": "Key Guideline / Fact: Pain/bleeding  Tubal ectopic TVUS showing sac in interstitial portion with characteristic myometrial mantle/interstitial line (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Heterotopic pregnancy ?", "options": ["IUP + persistent pain/adnexal findings  Corpus luteum, torsion TVUS demonstrating simultaneous IUP and ectopic pregnancy", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar"], "correct": 0, "explanation": "Key Guideline / Fact: IUP + persistent pain/adnexal findings  Corpus luteum, torsion TVUS demonstrating simultaneous IUP and ectopic pregnancy (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Threatened miscarriage ?", "options": ["Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, closed cervix, viable pregnancy  Ectopic, implantation bleeding, cervical pathology TVUS confirming viable IUP with closed cervix", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar"], "correct": 1, "explanation": "Key Guideline / Fact: Bleeding, closed cervix, viable pregnancy  Ectopic, implantation bleeding, cervical pathology TVUS confirming viable IUP with closed cervix (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Inevitable miscarriage ?", "options": ["Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding + open cervix  Incomplete miscarriage Clinical examination/US", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar"], "correct": 2, "explanation": "Key Guideline / Fact: Bleeding + open cervix  Incomplete miscarriage Clinical examination/US (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Incomplete miscarriage ?", "options": ["Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Bleeding + open cervix + retained products  Inevitable miscarriage, ectopic TVUS showing retained intrauterine products"], "correct": 3, "explanation": "Key Guideline / Fact: Bleeding + open cervix + retained products  Inevitable miscarriage, ectopic TVUS showing retained intrauterine products (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Complete miscarriage ?", "options": ["Previous pregnancy symptoms/bleeding; uterus empty  PUL, ectopic Empty uterus with appropriate \u03b2-hCG decline and clinical history", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar"], "correct": 0, "explanation": "Key Guideline / Fact: Previous pregnancy symptoms/bleeding; uterus empty  PUL, ectopic Empty uterus with appropriate \u03b2-hCG decline and clinical history (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Missed miscarriage ?", "options": ["Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Nonviable pregnancy without expulsion  Pregnancy of uncertain viability TVUS meeting accepted nonviability criteria", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar"], "correct": 1, "explanation": "Key Guideline / Fact: Nonviable pregnancy without expulsion  Pregnancy of uncertain viability TVUS meeting accepted nonviability criteria (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Anembryonic pregnancy ?", "options": ["Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Empty gestational sac  Very early IUP TVUS criteria for failed pregnancy", "Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar"], "correct": 2, "explanation": "Key Guideline / Fact: Empty gestational sac  Very early IUP TVUS criteria for failed pregnancy (OBSTETRICS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Molar pregnancy ?", "options": ["Early pregnancy with previous CS  Cervical pregnancy, miscarriage TVUS showing implantation in CS scar", "Adnexal pain/mass  Corpus luteum, hemorrhagic cyst TVUS \u00b1 laparoscopy", "Bleeding, gestational sac in cervix  Cervical miscarriage TVUS", "Bleeding, excessive uterine size, hyperemesis, very high \u03b2-hCG  Multiple pregnancy, miscarriage TVUS + histopathology after evacuation"], "correct": 3, "explanation": "Key Guideline / Fact: Bleeding, excessive uterine size, hyperemesis, very high \u03b2-hCG  Multiple pregnancy, miscarriage TVUS + histopathology after evacuation (OBSTETRICS)."}];
+    const storageKey = 'obgyn_mastered_master_obgyn_differential___definitive_diagnosis_atlas';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

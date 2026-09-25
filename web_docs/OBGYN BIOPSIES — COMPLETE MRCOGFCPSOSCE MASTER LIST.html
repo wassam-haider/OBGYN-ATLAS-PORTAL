@@ -1,0 +1,3088 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBGYN BIOPSIES — COMPLETE MRCOG/FCPS/OSCE MASTER LIST — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">OBGYN BIOPSIES — COMPLETE MRCOG/FCPS/O</div>
+                <div class="brand-subtitle-text">For an operative/TOACS station, you should know wh</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 82 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 58 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (58 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. MASTER CLASSIFICATION OF BIOPSIES IN OBGYN">1. MASTER CLASSIFICATION OF BIOPSIES IN OBGYN</a></li><li><a href="#part-3" class="part-nav-link" title="2. CERVICAL BIOPSIES">2. CERVICAL BIOPSIES</a></li><li><a href="#part-4" class="part-nav-link" title="3. COLPOSCOPY-DIRECTED CERVICAL PUNCH BIOPSY">3. COLPOSCOPY-DIRECTED CERVICAL PUNCH BIOPSY</a></li><li><a href="#part-5" class="part-nav-link" title="4. INSTRUMENTS — CERVICAL PUNCH BIOPSY">4. INSTRUMENTS — CERVICAL PUNCH BIOPSY</a></li><li><a href="#part-6" class="part-nav-link" title="5. TECHNIQUE — CERVICAL PUNCH BIOPSY">5. TECHNIQUE — CERVICAL PUNCH BIOPSY</a></li><li><a href="#part-7" class="part-nav-link" title="6. OSCE — WHAT TO SAY">6. OSCE — WHAT TO SAY</a></li><li><a href="#part-8" class="part-nav-link" title="7. ENDOCERVICAL CURETTAGE — ECC">7. ENDOCERVICAL CURETTAGE — ECC</a></li><li><a href="#part-9" class="part-nav-link" title="8. CERVICAL CONE BIOPSY">8. CERVICAL CONE BIOPSY</a></li><li><a href="#part-10" class="part-nav-link" title="9. COLD-KNIFE CONE — INSTRUMENTS">9. COLD-KNIFE CONE — INSTRUMENTS</a></li><li><a href="#part-11" class="part-nav-link" title="10. LLETZ/LEEP">10. LLETZ/LEEP</a></li><li><a href="#part-12" class="part-nav-link" title="11. ENDOMETRIAL BIOPSY">11. ENDOMETRIAL BIOPSY</a></li><li><a href="#part-13" class="part-nav-link" title="4. D&amp;C">4. D&amp;C</a></li><li><a href="#part-14" class="part-nav-link" title="17. DILATATION AND CURETTAGE — D&amp;C">17. DILATATION AND CURETTAGE — D&amp;C</a></li><li><a href="#part-15" class="part-nav-link" title="18. D&amp;C TECHNIQUE">18. D&amp;C TECHNIQUE</a></li><li><a href="#part-16" class="part-nav-link" title="19. HYSTEROSCOPY-DIRECTED BIOPSY">19. HYSTEROSCOPY-DIRECTED BIOPSY</a></li><li><a href="#part-17" class="part-nav-link" title="20. HYSTEROSCOPY BIOPSY — INSTRUMENTS">20. HYSTEROSCOPY BIOPSY — INSTRUMENTS</a></li><li><a href="#part-18" class="part-nav-link" title="21. HYSTEROSCOPY TECHNIQUE">21. HYSTEROSCOPY TECHNIQUE</a></li><li><a href="#part-19" class="part-nav-link" title="22. VULVAL BIOPSY">22. VULVAL BIOPSY</a></li><li><a href="#part-20" class="part-nav-link" title="23. INDICATIONS FOR VULVAL BIOPSY">23. INDICATIONS FOR VULVAL BIOPSY</a></li><li><a href="#part-21" class="part-nav-link" title="24. VULVAL PUNCH BIOPSY">24. VULVAL PUNCH BIOPSY</a></li><li><a href="#part-22" class="part-nav-link" title="25. VULVAL INCISIONAL BIOPSY">25. VULVAL INCISIONAL BIOPSY</a></li><li><a href="#part-23" class="part-nav-link" title="26. VULVAL EXCISIONAL BIOPSY">26. VULVAL EXCISIONAL BIOPSY</a></li><li><a href="#part-24" class="part-nav-link" title="27. VAGINAL BIOPSY">27. VAGINAL BIOPSY</a></li><li><a href="#part-25" class="part-nav-link" title="28. BREAST BIOPSY IN OBGYN">28. BREAST BIOPSY IN OBGYN</a></li><li><a href="#part-26" class="part-nav-link" title="29. FNAC">29. FNAC</a></li><li><a href="#part-27" class="part-nav-link" title="30. CORE NEEDLE BIOPSY">30. CORE NEEDLE BIOPSY</a></li><li><a href="#part-28" class="part-nav-link" title="31. TRUCUT BIOPSY">31. TRUCUT BIOPSY</a></li><li><a href="#part-29" class="part-nav-link" title="32. VACUUM-ASSISTED BREAST BIOPSY">32. VACUUM-ASSISTED BREAST BIOPSY</a></li><li><a href="#part-30" class="part-nav-link" title="33. OVARIAN/PARATUBAL MASS BIOPSY">33. OVARIAN/PARATUBAL MASS BIOPSY</a></li><li><a href="#part-31" class="part-nav-link" title="34. LAPAROSCOPIC PERITONEAL BIOPSY">34. LAPAROSCOPIC PERITONEAL BIOPSY</a></li><li><a href="#part-32" class="part-nav-link" title="35. OMENTAL BIOPSY">35. OMENTAL BIOPSY</a></li><li><a href="#part-33" class="part-nav-link" title="36. LYMPH NODE BIOPSY">36. LYMPH NODE BIOPSY</a></li><li><a href="#part-34" class="part-nav-link" title="37. SENTINEL LYMPH-NODE BIOPSY">37. SENTINEL LYMPH-NODE BIOPSY</a></li><li><a href="#part-35" class="part-nav-link" title="38. BLADDER BIOPSY">38. BLADDER BIOPSY</a></li><li><a href="#part-36" class="part-nav-link" title="39. CYSTOSCOPIC BLADDER BIOPSY — BASIC TECHNIQUE">39. CYSTOSCOPIC BLADDER BIOPSY — BASIC TECHNIQUE</a></li><li><a href="#part-37" class="part-nav-link" title="40. URETHRAL BIOPSY">40. URETHRAL BIOPSY</a></li><li><a href="#part-38" class="part-nav-link" title="41. ENDOCERVICAL/ENDOMETRIAL TISSUE — DIFFERENTIATE">41. ENDOCERVICAL/ENDOMETRIAL TISSUE — DIFFERENTIATE</a></li><li><a href="#part-39" class="part-nav-link" title="42. PREGNANCY-RELATED &quot;BIOPSIES&quot; / TISSUE SAMPLING">42. PREGNANCY-RELATED &quot;BIOPSIES&quot; / TISSUE SAMPLING</a></li><li><a href="#part-40" class="part-nav-link" title="43. AMNIOCENTESIS">43. AMNIOCENTESIS</a></li><li><a href="#part-41" class="part-nav-link" title="44. PLACENTAL BIOPSY">44. PLACENTAL BIOPSY</a></li><li><a href="#part-42" class="part-nav-link" title="45. FETAL TISSUE SAMPLING">45. FETAL TISSUE SAMPLING</a></li><li><a href="#part-43" class="part-nav-link" title="46. PRODUCTS OF CONCEPTION — HISTOPATHOLOGY">46. PRODUCTS OF CONCEPTION — HISTOPATHOLOGY</a></li><li><a href="#part-44" class="part-nav-link" title="47. GESTATIONAL TROPHOBLASTIC DISEASE">47. GESTATIONAL TROPHOBLASTIC DISEASE</a></li><li><a href="#part-45" class="part-nav-link" title="48. BIOPSY OF ENDOMETRIAL POLYP">48. BIOPSY OF ENDOMETRIAL POLYP</a></li><li><a href="#part-46" class="part-nav-link" title="49. FIBROID BIOPSY">49. FIBROID BIOPSY</a></li><li><a href="#part-47" class="part-nav-link" title="50. ENDOMETRIOSIS BIOPSY">50. ENDOMETRIOSIS BIOPSY</a></li><li><a href="#part-48" class="part-nav-link" title="51. BIOPSY TECHNIQUE — UNIVERSAL OSCE CHECKLIST">51. BIOPSY TECHNIQUE — UNIVERSAL OSCE CHECKLIST</a></li><li><a href="#part-49" class="part-nav-link" title="52. UNIVERSAL INSTRUMENT SET">52. UNIVERSAL INSTRUMENT SET</a></li><li><a href="#part-50" class="part-nav-link" title="53. SPECIMEN HANDLING — VERY HIGH-YIELD OSCE">53. SPECIMEN HANDLING — VERY HIGH-YIELD OSCE</a></li><li><a href="#part-51" class="part-nav-link" title="54. FIXATION">54. FIXATION</a></li><li><a href="#part-52" class="part-nav-link" title="55. BIOPSY COMPLICATIONS">55. BIOPSY COMPLICATIONS</a></li><li><a href="#part-53" class="part-nav-link" title="57. BIOPSY CLASSIFICATION BY PURPOSE">57. BIOPSY CLASSIFICATION BY PURPOSE</a></li><li><a href="#part-54" class="part-nav-link" title="58. BIOPSY CLASSIFICATION BY ANAESTHESIA">58. BIOPSY CLASSIFICATION BY ANAESTHESIA</a></li><li><a href="#part-55" class="part-nav-link" title="59. THE MOST IMPORTANT MRCOG/FCPS OSCE BIOPSIES TO MASTER">59. THE MOST IMPORTANT MRCOG/FCPS OSCE BIOPSIES TO MASTER</a></li><li><a href="#part-56" class="part-nav-link" title="🔴 MUST KNOW">🔴 MUST KNOW</a></li><li><a href="#part-57" class="part-nav-link" title="🟠 KNOW AS CONCEPTS">🟠 KNOW AS CONCEPTS</a></li><li><a href="#part-58" class="part-nav-link" title="🔑 THE UNIVERSAL OSCE FORMULA">🔑 THE UNIVERSAL OSCE FORMULA</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">OBGYN BIOPSIES — COMPLETE MRCOG/FCPS/OSCE MASTER LIST</h1>
+                    <div class="reader-hero-sub">⭐ For an operative/TOACS station, you should know what biopsy to choose, indication, prerequisites, instruments, technique, specimen handling, complications and what the histology may show.</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">A useful classification is:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Biopsy by site → by technique → by purpose → by setting/anaesthesia.</span></div>
+<p class="standard-p">RCOG&#x27;s current curriculum specifically includes cervical biopsy, vulval incisional/excisional biopsy, bladder biopsy and other gynaecological oncology biopsy procedures.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. MASTER CLASSIFICATION OF BIOPSIES IN OBGYN</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">By technique</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Punch biopsy</h4>
+<h4 class="sub-label">Incisional biopsy</h4>
+<h4 class="sub-label">Excisional biopsy</h4>
+<h4 class="sub-label">Core needle biopsy</h4>
+<h4 class="sub-label">Fine-needle aspiration — FNA</h4>
+<h4 class="sub-label">Endometrial aspiration biopsy</h4>
+<h4 class="sub-label">Endometrial curettage</h4>
+<h4 class="sub-label">Directed hysteroscopic biopsy</h4>
+<h4 class="sub-label">Cone biopsy</h4>
+<h4 class="sub-label">Loop excision biopsy — LLETZ/LEEP</h4>
+<h4 class="sub-label">Shave biopsy</h4>
+<h4 class="sub-label">Wedge biopsy</h4>
+<h4 class="sub-label">Trucut biopsy</h4>
+<h4 class="sub-label">Vacuum-assisted biopsy</h4>
+<h4 class="sub-label">Image-guided biopsy</h4>
+<h4 class="sub-label">Lymph-node biopsy</h4>
+<h4 class="sub-label">Sentinel lymph-node biopsy</h4>
+<h4 class="sub-label">Peritoneal/omental biopsy</h4>
+<h4 class="sub-label">Organ biopsy during laparoscopy/laparotomy</h4>
+<h4 class="sub-label">Placental/fetal tissue sampling</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">2. CERVICAL BIOPSIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Types</h4>
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Colposcopy-directed punch biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Most important cervical biopsy for OSCE.</p>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Endocervical curettage — ECC</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-3-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Endocervical brush sampling</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-3" onchange="toggleMastery('t-3-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-3-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Cone biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-4" onchange="toggleMastery('t-3-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Cold-knife cone biopsy</h4>
+<h4 class="sub-label">LLETZ/LEEP cone</h4>
+
+                <div class="topic-row" id="topic-t-3-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Excisional biopsy of visible cervical lesion</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-5" onchange="toggleMastery('t-3-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">3. COLPOSCOPY-DIRECTED CERVICAL PUNCH BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Abnormal cervical screening</h4>
+<p class="standard-p">HPV-positive abnormality requiring colposcopic assessment</p>
+<h4 class="sub-label">Suspicious cervix</h4>
+<h4 class="sub-label">Acetowhite lesion</h4>
+<h4 class="sub-label">Abnormal vascular pattern</h4>
+<h4 class="sub-label">Mosaicism</h4>
+<h4 class="sub-label">Punctation</h4>
+<h4 class="sub-label">Lugol-negative area</h4>
+<h4 class="sub-label">Suspected CIN</h4>
+<h4 class="sub-label">Suspected invasive cancer</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">a suspicious cervical cancer should not simply be treated with an office punch biopsy and then forgotten—the patient requires appropriate cancer referral/MDT assessment.</div>
+            </div>
+            
+<h4 class="sub-label">Prerequisites</h4>
+<h4 class="sub-label">Patient</h4>
+<h4 class="sub-label">Explain procedure</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Explain discomfort/bleeding</h4>
+<h4 class="sub-label">Check allergies</h4>
+<h4 class="sub-label">Relevant history</h4>
+<h4 class="sub-label">Pregnancy status where relevant</h4>
+<h4 class="sub-label">Review previous cervical screening/HPV/colposcopy</h4>
+<h4 class="sub-label">Appropriate positioning</h4>
+<h4 class="sub-label">Chaperone</h4>
+<h4 class="sub-label">Good lighting</h4>
+<h4 class="sub-label">Emergency equipment available</h4>
+<h4 class="sub-label">Infection precautions</h4>
+<h4 class="sub-label">Hand hygiene</h4>
+<h4 class="sub-label">PPE</h4>
+<h4 class="sub-label">Sterile/clean instruments according to local policy</h4>
+<h4 class="sub-label">Appropriate specimen container</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">4. INSTRUMENTS — CERVICAL PUNCH BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Basic</h4>
+<h4 class="sub-label">Examination couch</h4>
+<h4 class="sub-label">Lithotomy supports</h4>
+<h4 class="sub-label">Light source</h4>
+<h4 class="sub-label">Cusco/Collin speculum or appropriate speculum</h4>
+<h4 class="sub-label">Colposcope</h4>
+<h4 class="sub-label">Cotton swabs</h4>
+<h4 class="sub-label">Acetic acid</h4>
+<h4 class="sub-label">Lugol iodine where indicated</h4>
+<h4 class="sub-label">Cervical biopsy forceps</h4>
+<h4 class="sub-label">Sponge-holding forceps</h4>
+<h4 class="sub-label">Specimen pot with 10% neutral buffered formalin</h4>
+<h4 class="sub-label">Gauze</h4>
+<h4 class="sub-label">Monsel&#x27;s solution</h4>
+<h4 class="sub-label">Silver nitrate if appropriate</h4>
+<h4 class="sub-label">PPE</h4>
+<h4 class="sub-label">Biopsy forceps</h4>
+<h4 class="sub-label">Common types include:</h4>
+<h4 class="sub-label">Tischler-Morgan</h4>
+<h4 class="sub-label">Tischler biopsy forceps</h4>
+<h4 class="sub-label">Kevorkian-type forceps</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">5. TECHNIQUE — CERVICAL PUNCH BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Step 1 — Position</h4>
+<h4 class="sub-label">Lithotomy</h4>
+<h4 class="sub-label">Good illumination</h4>
+<h4 class="sub-label">Insert speculum gently</h4>
+<h4 class="sub-label">Step 2 — Visualisation</h4>
+<h4 class="sub-label">Identify cervix</h4>
+<h4 class="sub-label">Remove mucus</h4>
+<h4 class="sub-label">Examine transformation zone</h4>
+<h4 class="sub-label">Apply 3–5% acetic acid</h4>
+<h4 class="sub-label">Assess acetowhitening</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">margins</h4>
+<h4 class="sub-label">vascular pattern</h4>
+<h4 class="sub-label">punctation</h4>
+<h4 class="sub-label">mosaic</h4>
+<h4 class="sub-label">lesion location</h4>
+<h4 class="sub-label">Step 3 — Select biopsy site</h4>
+<h4 class="sub-label">Biopsy the most abnormal area, particularly:</h4>
+<h4 class="sub-label">Dense acetowhite lesion</h4>
+<h4 class="sub-label">Coarse punctation</h4>
+<h4 class="sub-label">Coarse mosaic</h4>
+<h4 class="sub-label">Abnormal vessels</h4>
+<h4 class="sub-label">Suspicious lesion</h4>
+<h4 class="sub-label">Step 4 — Biopsy</h4>
+<h4 class="sub-label">Place biopsy forceps perpendicular to cervix</h4>
+<h4 class="sub-label">Take a representative tissue bite</h4>
+<h4 class="sub-label">Include adequate stromal tissue</h4>
+<h4 class="sub-label">Avoid excessive crushing</h4>
+<h4 class="sub-label">Take multiple biopsies when appropriate</h4>
+<h4 class="sub-label">Step 5 — Specimen</h4>
+<p class="standard-p">Immediately place into correctly labelled formalin container.</p>
+<h4 class="sub-label">Step 6 — Haemostasis</h4>
+<h4 class="sub-label">Options:</h4>
+<h4 class="sub-label">Pressure</h4>
+<h4 class="sub-label">Monsel&#x27;s solution</h4>
+<h4 class="sub-label">Silver nitrate</h4>
+<h4 class="sub-label">Cautery if required</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">6. OSCE — WHAT TO SAY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">“I would identify the transformation zone, apply acetic acid, assess for acetowhite changes and abnormal vascular patterns, select the most abnormal area and take a representative punch biopsy using biopsy forceps. I would place the specimen immediately in correctly labelled formalin and achieve haemostasis with pressure or haemostatic agent.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">7. ENDOCERVICAL CURETTAGE — ECC</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Purpose</h4>
+<p class="standard-p">Samples endocervical canal.</p>
+<h4 class="sub-label">Useful when:</h4>
+<h4 class="sub-label">Transformation zone not completely visualised</h4>
+<h4 class="sub-label">Endocervical lesion suspected</h4>
+<h4 class="sub-label">Cytology/colposcopy suggests glandular abnormality</h4>
+<h4 class="sub-label">Appropriate according to local colposcopy protocol</h4>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Cervical tenaculum if needed</h4>
+<h4 class="sub-label">Endocervical curette</h4>
+<h4 class="sub-label">Endocervical brush where applicable</h4>
+<h4 class="sub-label">Formalin pot</h4>
+<h4 class="sub-label">Gauze</h4>
+<h4 class="sub-label">Haemostatic material</h4>
+<h4 class="sub-label">Technique</h4>
+<p class="standard-p">Insert speculum.</p>
+<p class="standard-p">Visualise cervix.</p>
+<p class="standard-p">Stabilise cervix if required.</p>
+<p class="standard-p">Introduce curette into endocervical canal.</p>
+<p class="standard-p">Gently scrape endocervical epithelium.</p>
+<p class="standard-p">Rotate/withdraw while maintaining contact.</p>
+<p class="standard-p">Transfer tissue to formalin.</p>
+<p class="standard-p">Achieve haemostasis.</p>
+<h4 class="sub-label">Complications</h4>
+<h4 class="sub-label">Pain/cramping</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Vasovagal reaction</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Rare cervical trauma</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">8. CERVICAL CONE BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Types</h4>
+
+                <div class="topic-row" id="topic-t-9-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Cold-knife cone biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-1" onchange="toggleMastery('t-9-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Uses scalpel.</p>
+
+                <div class="topic-row" id="topic-t-9-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">LLETZ/LEEP cone</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-2" onchange="toggleMastery('t-9-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Uses electrosurgical loop.</p>
+<h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Suspected high-grade cervical disease</h4>
+<h4 class="sub-label">Endocervical disease</h4>
+<h4 class="sub-label">Transformation zone not fully visualised</h4>
+<h4 class="sub-label">Cytology/histology discordance</h4>
+<h4 class="sub-label">Suspected glandular disease</h4>
+<h4 class="sub-label">Need to exclude occult invasive cancer</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">9. COLD-KNIFE CONE — INSTRUMENTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Vaginal speculum</h4>
+<h4 class="sub-label">Side-wall retractor</h4>
+<h4 class="sub-label">Tenaculum</h4>
+<h4 class="sub-label">Scalpel</h4>
+<h4 class="sub-label">Long scissors</h4>
+<h4 class="sub-label">Needle holder</h4>
+<h4 class="sub-label">Sutures</h4>
+<h4 class="sub-label">Diathermy</h4>
+<h4 class="sub-label">Suction</h4>
+<h4 class="sub-label">Monsel&#x27;s solution</h4>
+<h4 class="sub-label">Formalin container</h4>
+<h4 class="sub-label">Haemostatic sutures</h4>
+<h4 class="sub-label">Anaesthesia</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">General anaesthesia</h4>
+<h4 class="sub-label">Regional anaesthesia</h4>
+<p class="standard-p">depending on setting and patient.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">10. LLETZ/LEEP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Colposcope</h4>
+<h4 class="sub-label">LLETZ generator</h4>
+<h4 class="sub-label">Loop electrodes</h4>
+<h4 class="sub-label">Ball electrode</h4>
+<h4 class="sub-label">Smoke evacuation</h4>
+<p class="standard-p">Local anaesthetic with appropriate vasoconstrictor where used</p>
+<h4 class="sub-label">Formalin pot</h4>
+<h4 class="sub-label">Haemostatic equipment</h4>
+<h4 class="sub-label">Technique</h4>
+<p class="standard-p">Position patient.</p>
+<p class="standard-p">Insert speculum.</p>
+<p class="standard-p">Visualise transformation zone.</p>
+<p class="standard-p">Colposcopic assessment.</p>
+<p class="standard-p">Local anaesthetic where appropriate.</p>
+<p class="standard-p">Select loop size.</p>
+<p class="standard-p">Excise transformation zone in controlled fashion.</p>
+<p class="standard-p">Orient specimen.</p>
+<p class="standard-p">Send to histopathology.</p>
+<p class="standard-p">Achieve haemostasis with ball diathermy/Monsel&#x27;s as appropriate.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">11. ENDOMETRIAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Types</h4>
+
+                <div class="topic-row" id="topic-t-12-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Pipelle biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-12-1" onchange="toggleMastery('t-12-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Most important outpatient method.</p>
+
+                <div class="topic-row" id="topic-t-12-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Vabra aspiration</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-12-2" onchange="toggleMastery('t-12-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-12-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Novak curette</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-12-3" onchange="toggleMastery('t-12-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">4. D&amp;C</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-13-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Hysteroscopy-directed biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-1" onchange="toggleMastery('t-13-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-13-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Hysteroscopic resection biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-2" onchange="toggleMastery('t-13-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">RCOG notes that endometrial biopsy may be performed in the outpatient setting using a thin tube passed through the cervix, or during hysteroscopy with targeted sampling.</p>
+
+                <div class="topic-row" id="topic-t-13-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">PIPElle ENDOMETRIAL BIOPSY</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-3" onchange="toggleMastery('t-13-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Abnormal uterine bleeding</h4>
+<h4 class="sub-label">Suspected endometrial hyperplasia</h4>
+<h4 class="sub-label">Suspected endometrial carcinoma</h4>
+<h4 class="sub-label">Persistent abnormal bleeding</h4>
+<h4 class="sub-label">Risk factors for endometrial cancer</h4>
+<h4 class="sub-label">Thickened endometrium where biopsy is indicated</h4>
+<h4 class="sub-label">Follow-up of endometrial pathology</h4>
+
+                <div class="topic-row" id="topic-t-13-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">PREREQUISITES — PIPElle</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-4" onchange="toggleMastery('t-13-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before procedure</h4>
+<h4 class="sub-label">Explain procedure</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Pregnancy test where appropriate</h4>
+<h4 class="sub-label">Assess infection</h4>
+<h4 class="sub-label">Review bleeding</h4>
+<h4 class="sub-label">Consider cervical stenosis</h4>
+<h4 class="sub-label">Analgesia discussion</h4>
+<h4 class="sub-label">Chaperone</h4>
+<h4 class="sub-label">Sterile/clean technique according to protocol</h4>
+<h4 class="sub-label">Correct specimen pot</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE statement</span></div>
+                
+            </div>
+            
+<p class="standard-p">“I would exclude pregnancy before an elective endometrial biopsy.”</p>
+
+                <div class="topic-row" id="topic-t-13-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">PIPElle INSTRUMENTS</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-5" onchange="toggleMastery('t-13-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Tenaculum — sometimes</h4>
+<h4 class="sub-label">Pipelle</h4>
+<h4 class="sub-label">Uterine sound — optional</h4>
+<h4 class="sub-label">Formalin pot</h4>
+<h4 class="sub-label">Swabs</h4>
+<h4 class="sub-label">Antiseptic</h4>
+<h4 class="sub-label">Sponge-holding forceps</h4>
+<h4 class="sub-label">Appropriate analgesia/local anaesthetic if required</h4>
+
+                <div class="topic-row" id="topic-t-13-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">PIPElle TECHNIQUE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-6" onchange="toggleMastery('t-13-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Step 1</h4>
+<p class="standard-p">Position in lithotomy.</p>
+<h4 class="sub-label">Step 2</h4>
+<p class="standard-p">Insert speculum.</p>
+<h4 class="sub-label">Step 3</h4>
+<p class="standard-p">Visualise cervix.</p>
+<h4 class="sub-label">Step 4</h4>
+<p class="standard-p">Clean cervix.</p>
+<h4 class="sub-label">Step 5</h4>
+<p class="standard-p">Stabilise cervix if required.</p>
+<h4 class="sub-label">Step 6</h4>
+<p class="standard-p">Pass Pipelle gently through cervical canal.</p>
+<h4 class="sub-label">Step 7</h4>
+<p class="standard-p">Advance into uterine cavity.</p>
+<h4 class="sub-label">Step 8</h4>
+<p class="standard-p">Withdraw inner plunger to create suction.</p>
+<h4 class="sub-label">Step 9</h4>
+<p class="standard-p">Rotate Pipelle while moving it within the uterine cavity to obtain tissue.</p>
+<h4 class="sub-label">Step 10</h4>
+<p class="standard-p">Withdraw.</p>
+<h4 class="sub-label">Step 11</h4>
+<p class="standard-p">Place tissue in formalin.</p>
+<h4 class="sub-label">Step 12</h4>
+<p class="standard-p">Send for histopathology.</p>
+
+                <div class="topic-row" id="topic-t-13-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">WHEN PIPElle MAY BE INADEQUATE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-13-7" onchange="toggleMastery('t-13-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Cervical stenosis</h4>
+<h4 class="sub-label">Postmenopausal atrophy</h4>
+<h4 class="sub-label">Very thin endometrium</h4>
+<h4 class="sub-label">Endometrial polyp</h4>
+<h4 class="sub-label">Focal lesion</h4>
+<h4 class="sub-label">Fibroid distorting cavity</h4>
+<h4 class="sub-label">Inadequate sample</h4>
+<h4 class="sub-label">Failed insertion</h4>
+<p class="standard-p">If a blind biopsy is non-diagnostic and clinical suspicion persists, hysteroscopy may be required for directed biopsy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">17. DILATATION AND CURETTAGE — D&amp;C</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Types</h4>
+<h4 class="sub-label">Sharp curettage</h4>
+<p class="standard-p">Uses curette.</p>
+<h4 class="sub-label">Suction curettage</h4>
+<p class="standard-p">Uses suction cannula.</p>
+<h4 class="sub-label">Suction + sharp curettage</h4>
+<p class="standard-p">Historically/common in some settings, but the exact approach depends on indication and current local guidance.</p>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Tenaculum</h4>
+<h4 class="sub-label">Uterine sound</h4>
+<h4 class="sub-label">Cervical dilators</h4>
+<h4 class="sub-label">Hegar dilators</h4>
+<h4 class="sub-label">Suction cannula</h4>
+<h4 class="sub-label">Curettes</h4>
+<h4 class="sub-label">Suction apparatus</h4>
+<h4 class="sub-label">Formalin specimen container</h4>
+<h4 class="sub-label">Ultrasound if indicated</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">18. D&amp;C TECHNIQUE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Consent.</p>
+<p class="standard-p">Anaesthesia.</p>
+<p class="standard-p">Lithotomy.</p>
+<p class="standard-p">Speculum.</p>
+<p class="standard-p">Cervical stabilisation.</p>
+<p class="standard-p">Sound uterus.</p>
+<p class="standard-p">Dilate cervix gradually.</p>
+<p class="standard-p">Introduce curette/suction cannula.</p>
+<p class="standard-p">Obtain tissue.</p>
+<p class="standard-p">Check haemostasis.</p>
+<p class="standard-p">Send specimen to histology.</p>
+<h4 class="sub-label">Complications</h4>
+<h4 class="sub-label">Uterine perforation</h4>
+<h4 class="sub-label">Cervical trauma</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Intrauterine adhesions</h4>
+<h4 class="sub-label">Anaesthetic complications</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">19. HYSTEROSCOPY-DIRECTED BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is particularly important because it allows direct visualisation and targeted sampling rather than blind sampling.</p>
+<p class="standard-p">RCOG&#x27;s current hysteroscopy guidance describes hysteroscopy as both diagnostic and therapeutic and notes that endometrial biopsy, polypectomy and removal of small submucous fibroids may be performed.</p>
+<h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Focal endometrial lesion</h4>
+<h4 class="sub-label">Polyp</h4>
+<h4 class="sub-label">Submucosal fibroid</h4>
+<h4 class="sub-label">Persistent AUB</h4>
+<h4 class="sub-label">Failed/insufficient blind biopsy</h4>
+<h4 class="sub-label">Suspected endometrial malignancy</h4>
+<h4 class="sub-label">Endometrial hyperplasia requiring targeted assessment</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">20. HYSTEROSCOPY BIOPSY — INSTRUMENTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Diagnostic</h4>
+<h4 class="sub-label">Hysteroscope</h4>
+<h4 class="sub-label">Camera</h4>
+<h4 class="sub-label">Light source</h4>
+<h4 class="sub-label">Monitor</h4>
+<h4 class="sub-label">Saline distension system</h4>
+<h4 class="sub-label">Vaginal speculum where required</h4>
+<h4 class="sub-label">Grasping biopsy forceps</h4>
+<h4 class="sub-label">Operative</h4>
+<h4 class="sub-label">Miniature scissors</h4>
+<h4 class="sub-label">Graspers</h4>
+<h4 class="sub-label">Morcellator</h4>
+<h4 class="sub-label">Resectoscope</h4>
+<h4 class="sub-label">Electrosurgical loop</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">21. HYSTEROSCOPY TECHNIQUE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Consent.</p>
+<p class="standard-p">Explain pain/anaesthesia options.</p>
+<p class="standard-p">Position.</p>
+<p class="standard-p">Introduce hysteroscope.</p>
+<p class="standard-p">Identify cervical canal.</p>
+<p class="standard-p">Enter uterine cavity.</p>
+<p class="standard-p">Use saline distension.</p>
+<h4 class="sub-label">Systematically inspect:</h4>
+<h4 class="sub-label">anterior wall</h4>
+<h4 class="sub-label">posterior wall</h4>
+<h4 class="sub-label">fundus</h4>
+<h4 class="sub-label">both tubal ostia</h4>
+<p class="standard-p">Identify abnormal lesion.</p>
+<p class="standard-p">Take directed biopsy.</p>
+<p class="standard-p">Remove instrument.</p>
+<p class="standard-p">Send tissue to histopathology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">22. VULVAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Types</h4>
+
+                <div class="topic-row" id="topic-t-19-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Punch biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-19-1" onchange="toggleMastery('t-19-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-19-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Incisional biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-19-2" onchange="toggleMastery('t-19-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-19-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Excisional biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-19-3" onchange="toggleMastery('t-19-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-19-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Wedge biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-19-4" onchange="toggleMastery('t-19-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">23. INDICATIONS FOR VULVAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Suspected VIN</h4>
+<h4 class="sub-label">Suspected vulval cancer</h4>
+<h4 class="sub-label">Persistent vulval ulcer</h4>
+<h4 class="sub-label">Persistent pigmentation</h4>
+<h4 class="sub-label">New vulval mass</h4>
+<h4 class="sub-label">Unusual lesion</h4>
+<h4 class="sub-label">Persistent pruritus with uncertain diagnosis</h4>
+<h4 class="sub-label">Lichen sclerosus with suspicious change</h4>
+<h4 class="sub-label">Lichen planus with suspicious change</h4>
+<h4 class="sub-label">Non-healing lesion</h4>
+<h4 class="sub-label">Paget disease</h4>
+<h4 class="sub-label">Melanoma suspicion</h4>
+<p class="standard-p">RCOG specifically states that vulval cytology is not a substitute for diagnostic biopsy and recommends representative incisional biopsy when vulval cancer is suspected rather than simply removing the whole lesion.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">24. VULVAL PUNCH BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Sterile gloves</h4>
+<h4 class="sub-label">Antiseptic</h4>
+<h4 class="sub-label">Local anaesthetic</h4>
+<h4 class="sub-label">Syringe</h4>
+<h4 class="sub-label">Fine needle</h4>
+<h4 class="sub-label">Punch biopsy instrument</h4>
+<h4 class="sub-label">Fine scissors</h4>
+<h4 class="sub-label">Forceps</h4>
+<h4 class="sub-label">Formalin pot</h4>
+<h4 class="sub-label">Suture material</h4>
+<h4 class="sub-label">Gauze</h4>
+<h4 class="sub-label">Typical punch sizes</h4>
+<h4 class="sub-label">Common dermatological punch sizes include:</h4>
+<h4 class="sub-label">3 mm</h4>
+<h4 class="sub-label">4 mm</h4>
+<h4 class="sub-label">5 mm</h4>
+<h4 class="sub-label">6 mm</h4>
+<p class="standard-p">The choice depends on lesion/site and clinical purpose rather than one universal size.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">25. VULVAL INCISIONAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">When?</h4>
+<h4 class="sub-label">When:</h4>
+<h4 class="sub-label">Lesion is large</h4>
+<h4 class="sub-label">Cancer suspected</h4>
+<h4 class="sub-label">Complete removal would be inappropriate</h4>
+<h4 class="sub-label">Need representative tissue before definitive treatment</h4>
+<h4 class="sub-label">Technique</h4>
+<p class="standard-p">Identify most abnormal area.</p>
+<p class="standard-p">Avoid necrotic centre where possible.</p>
+<p class="standard-p">Give local anaesthetic.</p>
+<p class="standard-p">Make elliptical/wedge incision.</p>
+<p class="standard-p">Obtain adequate depth.</p>
+<p class="standard-p">Avoid excessive crush artefact.</p>
+<p class="standard-p">Place in formalin.</p>
+<p class="standard-p">Achieve haemostasis.</p>
+<p class="standard-p">Close if required.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">26. VULVAL EXCISIONAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Used when:</h4>
+<h4 class="sub-label">Small lesion</h4>
+<h4 class="sub-label">Complete removal is appropriate</h4>
+<h4 class="sub-label">Benign lesion suspected</h4>
+<h4 class="sub-label">Small VIN lesion depending on clinical situation</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important distinction</span></div>
+                
+            </div>
+            
+<p class="standard-p">Incisional = part of lesion.</p>
+<p class="standard-p">Excisional = entire lesion.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">27. VAGINAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Abnormal vaginal epithelium</h4>
+<h4 class="sub-label">VAIN</h4>
+<h4 class="sub-label">Vaginal mass</h4>
+<h4 class="sub-label">Ulcer</h4>
+<h4 class="sub-label">Suspected vaginal carcinoma</h4>
+<h4 class="sub-label">Persistent abnormal lesion</h4>
+<h4 class="sub-label">Abnormal colposcopic appearance</h4>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Colposcope if required</h4>
+<h4 class="sub-label">Biopsy forceps</h4>
+<h4 class="sub-label">Local anaesthetic</h4>
+<h4 class="sub-label">Formalin</h4>
+<h4 class="sub-label">Monsel&#x27;s/suitable haemostatic agent</h4>
+<h4 class="sub-label">Vaginal packing if required</h4>
+<h4 class="sub-label">Technique</h4>
+<h4 class="sub-label">Visualise lesion</h4>
+<h4 class="sub-label">Select representative area</h4>
+<h4 class="sub-label">Avoid necrotic tissue if possible</h4>
+<h4 class="sub-label">Biopsy with forceps</h4>
+<h4 class="sub-label">Control bleeding</h4>
+<h4 class="sub-label">Send specimen to histology</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">28. BREAST BIOPSY IN OBGYN</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Very important because breast disease is part of women&#x27;s health.</p>
+<h4 class="sub-label">Types</h4>
+
+                <div class="topic-row" id="topic-t-25-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Fine-needle aspiration cytology — FNAC</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-1" onchange="toggleMastery('t-25-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-25-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Core needle biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-2" onchange="toggleMastery('t-25-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-25-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Vacuum-assisted biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-3" onchange="toggleMastery('t-25-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-25-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Excision biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-4" onchange="toggleMastery('t-25-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-25-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Incisional biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-5" onchange="toggleMastery('t-25-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-25-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Image-guided biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-25-6" onchange="toggleMastery('t-25-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ultrasound-guided</h4>
+<h4 class="sub-label">Stereotactic</h4>
+<h4 class="sub-label">MRI-guided</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">29. FNAC</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-26" onchange="toggleMastery('sec-26')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Instrument</h4>
+<h4 class="sub-label">Fine needle</h4>
+<h4 class="sub-label">Syringe</h4>
+<h4 class="sub-label">Needle holder/gun where applicable</h4>
+<h4 class="sub-label">Slides</h4>
+<h4 class="sub-label">Cytology fixative</h4>
+<h4 class="sub-label">Advantages</h4>
+<h4 class="sub-label">Quick</h4>
+<h4 class="sub-label">Minimal trauma</h4>
+<h4 class="sub-label">Useful for cystic lesions</h4>
+<h4 class="sub-label">Can assess lymph nodes</h4>
+<h4 class="sub-label">Limitation</h4>
+<p class="standard-p">Does not provide the same tissue architecture as core biopsy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">30. CORE NEEDLE BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Instrument</h4>
+<h4 class="sub-label">Core biopsy needle</h4>
+<h4 class="sub-label">Automated biopsy gun</h4>
+<h4 class="sub-label">Local anaesthetic</h4>
+<h4 class="sub-label">Ultrasound guidance where indicated</h4>
+<h4 class="sub-label">Formalin container</h4>
+<h4 class="sub-label">Technique</h4>
+<p class="standard-p">Identify lesion.</p>
+<p class="standard-p">Anaesthetise skin/subcutaneous tissue.</p>
+<p class="standard-p">Introduce needle under image guidance.</p>
+<p class="standard-p">Fire/capture tissue core.</p>
+<p class="standard-p">Withdraw.</p>
+<p class="standard-p">Repeat appropriate number of cores.</p>
+<p class="standard-p">Place cores in formalin.</p>
+<p class="standard-p">Apply pressure/dressing.</p>
+<h4 class="sub-label">Advantages</h4>
+<h4 class="sub-label">Tissue architecture</h4>
+<h4 class="sub-label">Histological diagnosis</h4>
+<h4 class="sub-label">Receptor testing possible in breast malignancy</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">31. TRUCUT BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">A form of core needle biopsy.</p>
+<h4 class="sub-label">Used for:</h4>
+<h4 class="sub-label">Breast lesions</h4>
+<h4 class="sub-label">Lymph nodes</h4>
+<h4 class="sub-label">Soft tissue masses</h4>
+<h4 class="sub-label">Selected pelvic masses</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">32. VACUUM-ASSISTED BREAST BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-29" onchange="toggleMastery('sec-29')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Uses:</h4>
+<h4 class="sub-label">Vacuum-assisted biopsy device</h4>
+<h4 class="sub-label">Large-gauge needle/probe</h4>
+<h4 class="sub-label">Image guidance</h4>
+<h4 class="sub-label">Local anaesthesia</h4>
+<h4 class="sub-label">Formalin</h4>
+<h4 class="sub-label">Advantage</h4>
+<p class="standard-p">Can obtain multiple larger tissue samples through one insertion.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">33. OVARIAN/PARATUBAL MASS BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE principle</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not routinely biopsy a suspicious ovarian mass simply to establish malignancy if definitive surgical management is indicated.</p>
+<h4 class="sub-label">Potential approaches include:</h4>
+<h4 class="sub-label">Image-guided biopsy in selected cases</h4>
+<h4 class="sub-label">Laparoscopic biopsy</h4>
+<h4 class="sub-label">Biopsy of metastatic/peritoneal lesion</h4>
+<h4 class="sub-label">Omental biopsy</h4>
+<h4 class="sub-label">Lymph-node biopsy</h4>
+<p class="standard-p">The safest and most diagnostically useful tissue site may be an accessible metastatic lesion rather than puncturing the ovarian mass.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">34. LAPAROSCOPIC PERITONEAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-31" onchange="toggleMastery('sec-31')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Suspected endometriosis</h4>
+<h4 class="sub-label">Peritoneal lesions</h4>
+<h4 class="sub-label">Suspected malignancy</h4>
+<h4 class="sub-label">Unexplained peritoneal disease</h4>
+<h4 class="sub-label">Staging</h4>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Laparoscope</h4>
+<h4 class="sub-label">Grasping forceps</h4>
+<h4 class="sub-label">Biopsy forceps</h4>
+<h4 class="sub-label">Scissors</h4>
+<h4 class="sub-label">Diathermy</h4>
+<h4 class="sub-label">Suction/irrigation</h4>
+<h4 class="sub-label">Specimen bag</h4>
+<h4 class="sub-label">Formalin pots</h4>
+<h4 class="sub-label">Technique</h4>
+<p class="standard-p">Establish pneumoperitoneum.</p>
+<p class="standard-p">Inspect abdomen/pelvis systematically.</p>
+<p class="standard-p">Identify lesion.</p>
+<p class="standard-p">Take representative tissue.</p>
+<p class="standard-p">Control bleeding.</p>
+<p class="standard-p">Retrieve specimen.</p>
+<p class="standard-p">Send separately labelled samples.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">35. OMENTAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-32" onchange="toggleMastery('sec-32')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Particularly relevant to suspected ovarian cancer.</p>
+<h4 class="sub-label">Methods</h4>
+<h4 class="sub-label">Laparoscopic biopsy</h4>
+<h4 class="sub-label">Open biopsy</h4>
+<h4 class="sub-label">Omentectomy specimen</h4>
+<h4 class="sub-label">Purpose</h4>
+<h4 class="sub-label">Establish metastatic disease</h4>
+<h4 class="sub-label">Histological diagnosis</h4>
+<h4 class="sub-label">Staging</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">36. LYMPH NODE BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Types</h4>
+
+                <div class="topic-row" id="topic-t-33-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">FNA</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-33-1" onchange="toggleMastery('t-33-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-33-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Core biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-33-2" onchange="toggleMastery('t-33-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-33-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">Excision biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-33-3" onchange="toggleMastery('t-33-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-33-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">D</span>
+                        <h3 class="topic-heading">Sentinel lymph-node biopsy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-33-4" onchange="toggleMastery('t-33-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">37. SENTINEL LYMPH-NODE BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-34" onchange="toggleMastery('sec-34')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important in</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Vulval cancer</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Selected breast cancer pathways</h4>
+<p class="standard-p">RCOG&#x27;s gynaecological oncology curriculum specifically includes sentinel lymph-node dissection for vulval cancer and sentinel-node biopsy for endometrial cancer.</p>
+<h4 class="sub-label">Principle</h4>
+<p class="standard-p">The sentinel node is the first draining lymph node from the primary tumour.</p>
+<h4 class="sub-label">Technique concept</h4>
+<p class="standard-p">Identify primary tumour.</p>
+<p class="standard-p">Inject tracer according to protocol.</p>
+<p class="standard-p">Identify lymphatic drainage.</p>
+<p class="standard-p">Locate sentinel node.</p>
+<p class="standard-p">Remove node.</p>
+<p class="standard-p">Send for histopathology/ultrastaging according to tumour protocol.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">38. BLADDER BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Relevant in:</h4>
+<h4 class="sub-label">Suspected bladder tumour</h4>
+<h4 class="sub-label">Bladder lesions</h4>
+<h4 class="sub-label">Haematuria investigation</h4>
+<h4 class="sub-label">Gynaecological malignancy involving bladder</h4>
+<p class="standard-p">RCOG&#x27;s gynaecological oncology curriculum specifically lists cystoscopy and bladder biopsy as a training procedure.</p>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Cystoscope</h4>
+<h4 class="sub-label">Camera/light source</h4>
+<h4 class="sub-label">Irrigation</h4>
+<h4 class="sub-label">Biopsy forceps</h4>
+<h4 class="sub-label">Diathermy</h4>
+<h4 class="sub-label">Specimen container</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">39. CYSTOSCOPIC BLADDER BIOPSY — BASIC TECHNIQUE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Position.</p>
+<p class="standard-p">Anaesthesia according to setting.</p>
+<p class="standard-p">Introduce cystoscope.</p>
+<p class="standard-p">Inspect bladder systematically.</p>
+<p class="standard-p">Identify lesion.</p>
+<p class="standard-p">Take biopsy with forceps.</p>
+<p class="standard-p">Control bleeding.</p>
+<p class="standard-p">Retrieve specimen.</p>
+<p class="standard-p">Send for histology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">40. URETHRAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Rare but may be required for:</h4>
+<h4 class="sub-label">Urethral mass</h4>
+<h4 class="sub-label">Suspected malignancy</h4>
+<h4 class="sub-label">Persistent suspicious lesion</h4>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Cystoscope/urethroscope</h4>
+<h4 class="sub-label">Biopsy forceps</h4>
+<p class="standard-p">Local/regional/general anaesthesia depending on procedure</p>
+<h4 class="sub-label">Formalin</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">41. ENDOCERVICAL/ENDOMETRIAL TISSUE — DIFFERENTIATE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Procedure</th>
+<th>Tissue obtained</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Cervical punch</strong></td>
+<td>Ectocervical lesion</td>
+</tr>
+<tr>
+<td><strong>ECC</strong></td>
+<td>Endocervical canal</td>
+</tr>
+<tr>
+<td><strong>LLETZ</strong></td>
+<td>Transformation zone</td>
+</tr>
+<tr>
+<td><strong>Cone biopsy</strong></td>
+<td>Larger/deeper cervical specimen</td>
+</tr>
+<tr>
+<td><strong>Pipelle</strong></td>
+<td>Endometrium</td>
+</tr>
+<tr>
+<td><strong>D&amp;C</strong></td>
+<td>Endometrial tissue</td>
+</tr>
+<tr>
+<td><strong>Hysteroscopy biopsy</strong></td>
+<td>Targeted endometrial lesion</td>
+</tr>
+<tr>
+<td><strong>Vulval punch</strong></td>
+<td>Vulval skin</td>
+</tr>
+<tr>
+<td><strong>Vaginal biopsy</strong></td>
+<td>Vaginal mucosa</td>
+</tr>
+<tr>
+<td><strong>Bladder biopsy</strong></td>
+<td>Bladder mucosa</td>
+</tr>
+<tr>
+<td><strong>Core biopsy</strong></td>
+<td>Tissue architecture</td>
+</tr>
+<tr>
+<td><strong>FNA</strong></td>
+<td>Cells, mainly cytology</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">42. PREGNANCY-RELATED &quot;BIOPSIES&quot; / TISSUE SAMPLING</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Strictly speaking, several are sampling procedures rather than biopsies, but they are commonly tested together.</p>
+<h4 class="sub-label">Chorionic villus sampling — CVS</h4>
+<h4 class="sub-label">Purpose</h4>
+<p class="standard-p">Prenatal genetic diagnosis.</p>
+<h4 class="sub-label">Routes</h4>
+<h4 class="sub-label">Transcervical</h4>
+<h4 class="sub-label">Transabdominal</h4>
+<h4 class="sub-label">Instruments</h4>
+<h4 class="sub-label">Ultrasound</h4>
+<h4 class="sub-label">Needle/catheter</h4>
+<h4 class="sub-label">Syringe</h4>
+<h4 class="sub-label">Sterile equipment</h4>
+<h4 class="sub-label">Appropriate transport medium</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">43. AMNIOCENTESIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Not technically a biopsy.</p>
+<h4 class="sub-label">Samples:</h4>
+<h4 class="sub-label">Amniotic fluid</h4>
+<h4 class="sub-label">Fetal cells</h4>
+<h4 class="sub-label">DNA</h4>
+<h4 class="sub-label">Indications</h4>
+<h4 class="sub-label">Genetic diagnosis</h4>
+<h4 class="sub-label">Chromosomal diagnosis</h4>
+<h4 class="sub-label">Selected infection testing</h4>
+<h4 class="sub-label">Other fetal investigations</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-41" data-part-index="41">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 41</span>
+                    <h2 class="part-title">44. PLACENTAL BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-41" onchange="toggleMastery('sec-41')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-41')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-41')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Rare/specialist procedure.</p>
+<h4 class="sub-label">Possible indications include:</h4>
+<h4 class="sub-label">Genetic diagnosis</h4>
+<h4 class="sub-label">Placental pathology research</h4>
+<h4 class="sub-label">Specific suspected placental disorders</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-42" data-part-index="42">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 42</span>
+                    <h2 class="part-title">45. FETAL TISSUE SAMPLING</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-42" onchange="toggleMastery('sec-42')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-42')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-42')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Specialist procedures may include:</h4>
+<h4 class="sub-label">Fetal blood sampling</h4>
+<h4 class="sub-label">Fetal skin biopsy</h4>
+<h4 class="sub-label">Fetal tissue sampling</h4>
+<p class="standard-p">These are highly specialist and indication-specific.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-43" data-part-index="43">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 43</span>
+                    <h2 class="part-title">46. PRODUCTS OF CONCEPTION — HISTOPATHOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-43" onchange="toggleMastery('sec-43')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-43')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-43')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">After miscarriage/evacuation, tissue may be sent for:</h4>
+<h4 class="sub-label">Histopathology</h4>
+<h4 class="sub-label">Confirmation of products of conception</h4>
+<h4 class="sub-label">Assessment for molar pregnancy where suspected</h4>
+<h4 class="sub-label">Genetic testing where indicated</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-44" data-part-index="44">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 44</span>
+                    <h2 class="part-title">47. GESTATIONAL TROPHOBLASTIC DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-44" onchange="toggleMastery('sec-44')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-44')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-44')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Tissue obtained after evacuation may undergo:</h4>
+<h4 class="sub-label">Histopathology</h4>
+<h4 class="sub-label">p57 immunohistochemistry</h4>
+<h4 class="sub-label">Ploidy/genetic assessment in difficult cases</h4>
+<h4 class="sub-label">OSCE point</h4>
+<p class="standard-p">If molar pregnancy is suspected, send appropriate tissue for histopathological assessment and arrange appropriate hCG follow-up.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-45" data-part-index="45">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 45</span>
+                    <h2 class="part-title">48. BIOPSY OF ENDOMETRIAL POLYP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-45" onchange="toggleMastery('sec-45')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-45')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-45')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Options</h4>
+<h4 class="sub-label">Blind biopsy</h4>
+<p class="standard-p">Pipelle may miss focal lesions.</p>
+<h4 class="sub-label">Hysteroscopic biopsy</h4>
+<p class="standard-p">Directly visualises lesion.</p>
+<h4 class="sub-label">Hysteroscopic polypectomy</h4>
+<p class="standard-p">Removes entire polyp and sends it for histology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-46" data-part-index="46">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 46</span>
+                    <h2 class="part-title">49. FIBROID BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-46" onchange="toggleMastery('sec-46')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-46')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-46')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">A fibroid generally does not require routine biopsy before hysterectomy/myomectomy.</p>
+<h4 class="sub-label">Diagnosis is usually based on:</h4>
+<h4 class="sub-label">Ultrasound</h4>
+<h4 class="sub-label">MRI where indicated</h4>
+<h4 class="sub-label">Clinical findings</h4>
+<p class="standard-p">If malignancy is suspected, management should be planned appropriately rather than relying on a superficial/random biopsy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-47" data-part-index="47">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 47</span>
+                    <h2 class="part-title">50. ENDOMETRIOSIS BIOPSY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-47" onchange="toggleMastery('sec-47')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-47')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-47')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">During laparoscopy:</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Appearance</span></div>
+                <div class="callout-body">Powder-burn lesions</div>
+            </div>
+            
+<h4 class="sub-label">Blue-black lesions</h4>
+<h4 class="sub-label">Red lesions</h4>
+<h4 class="sub-label">White lesions</h4>
+<h4 class="sub-label">Fibrotic lesions</h4>
+<h4 class="sub-label">Biopsy</h4>
+<p class="standard-p">Take tissue from a representative lesion if histological confirmation is needed.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-48" data-part-index="48">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 48</span>
+                    <h2 class="part-title">51. BIOPSY TECHNIQUE — UNIVERSAL OSCE CHECKLIST</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-48" onchange="toggleMastery('sec-48')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-48')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-48')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For any biopsy station, remember:</h4>
+<h4 class="sub-label">BEFORE</h4>
+<h4 class="sub-label">Patient</h4>
+<h4 class="sub-label">Confirm identity</h4>
+<h4 class="sub-label">Explain indication</h4>
+<h4 class="sub-label">Explain procedure</h4>
+<h4 class="sub-label">Explain alternatives</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Allergies</h4>
+<h4 class="sub-label">Pregnancy status if relevant</h4>
+<h4 class="sub-label">Anticoagulants/bleeding risk</h4>
+<h4 class="sub-label">Infection risk</h4>
+<h4 class="sub-label">Previous relevant pathology</h4>
+<h4 class="sub-label">Chaperone</h4>
+<h4 class="sub-label">Investigations</h4>
+<h4 class="sub-label">Depending on procedure:</h4>
+<h4 class="sub-label">CBC</h4>
+<h4 class="sub-label">Platelets</h4>
+<h4 class="sub-label">Coagulation profile if indicated</h4>
+<h4 class="sub-label">Pregnancy test</h4>
+<h4 class="sub-label">Imaging</h4>
+<h4 class="sub-label">Previous cytology/histology</h4>
+<h4 class="sub-label">HPV status</h4>
+<h4 class="sub-label">Blood group/crossmatch if significant bleeding risk</h4>
+<p class="standard-p">Do not automatically order every test for every minor biopsy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-49" data-part-index="49">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 49</span>
+                    <h2 class="part-title">52. UNIVERSAL INSTRUMENT SET</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-49" onchange="toggleMastery('sec-49')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-49')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-49')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Basic</h4>
+<h4 class="sub-label">Gloves</h4>
+<h4 class="sub-label">PPE</h4>
+<h4 class="sub-label">Good lighting</h4>
+<h4 class="sub-label">Speculum where appropriate</h4>
+<h4 class="sub-label">Gauze/swabs</h4>
+<h4 class="sub-label">Forceps</h4>
+<h4 class="sub-label">Scissors</h4>
+<h4 class="sub-label">Needle holder</h4>
+<h4 class="sub-label">Local anaesthetic</h4>
+<h4 class="sub-label">Syringe/needle</h4>
+<h4 class="sub-label">Formalin pot</h4>
+<h4 class="sub-label">Labels</h4>
+<h4 class="sub-label">Request form</h4>
+<h4 class="sub-label">Haemostasis</h4>
+<h4 class="sub-label">Pressure</h4>
+<h4 class="sub-label">Monsel&#x27;s solution</h4>
+<h4 class="sub-label">Silver nitrate</h4>
+<h4 class="sub-label">Diathermy</h4>
+<h4 class="sub-label">Sutures</h4>
+<h4 class="sub-label">Vaginal packing where appropriate</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-50" data-part-index="50">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 50</span>
+                    <h2 class="part-title">53. SPECIMEN HANDLING — VERY HIGH-YIELD OSCE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-50" onchange="toggleMastery('sec-50')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-50')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-50')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">After taking biopsy:</h4>
+<h4 class="sub-label">DO</h4>
+<p class="standard-p">Identify specimen.</p>
+<p class="standard-p">Avoid crushing.</p>
+<p class="standard-p">Place in appropriate container.</p>
+<h4 class="sub-label">Correctly label:</h4>
+<h4 class="sub-label">patient identifiers</h4>
+<h4 class="sub-label">biopsy site</h4>
+<h4 class="sub-label">date/time as required</h4>
+<p class="standard-p">Complete histopathology request.</p>
+<p class="standard-p">State clinical information.</p>
+<p class="standard-p">Mention previous pathology/cytology.</p>
+<p class="standard-p">Send promptly.</p>
+<h4 class="sub-label">Multiple biopsies</h4>
+<p class="standard-p">Place specimens in separately labelled pots if the anatomical sites are different.</p>
+<h4 class="sub-label">Example:</h4>
+<h4 class="sub-label">Cervix 12 o&#x27;clock</h4>
+<h4 class="sub-label">Cervix 6 o&#x27;clock</h4>
+<h4 class="sub-label">Endocervical curettage</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-51" data-part-index="51">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 51</span>
+                    <h2 class="part-title">54. FIXATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-51" onchange="toggleMastery('sec-51')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-51')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-51')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For routine histopathology:</h4>
+<h4 class="sub-label">Usually</h4>
+<p class="standard-p"><span class="val-pill">10%</span> neutral buffered formalin.</p>
+<p class="standard-p">Do NOT automatically put every specimen in formalin.</p>
+<h4 class="sub-label">Some specimens may require:</h4>
+<h4 class="sub-label">Fresh tissue</h4>
+<h4 class="sub-label">Microbiology transport medium</h4>
+<h4 class="sub-label">Cytology medium</h4>
+<h4 class="sub-label">Genetic testing medium</h4>
+<h4 class="sub-label">Special lymphoma protocol</h4>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">Know what the laboratory requires before sampling when special testing is anticipated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-52" data-part-index="52">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 52</span>
+                    <h2 class="part-title">55. BIOPSY COMPLICATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-52')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-52')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Immediate</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Vasovagal episode</h4>
+<h4 class="sub-label">Cervical trauma</h4>
+<h4 class="sub-label">Organ injury</h4>
+<h4 class="sub-label">Perforation</h4>
+<h4 class="sub-label">Early</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Persistent bleeding</h4>
+<h4 class="sub-label">Haematoma</h4>
+<h4 class="sub-label">Urinary symptoms depending on site</h4>
+<h4 class="sub-label">Late</h4>
+<h4 class="sub-label">Scarring</h4>
+<h4 class="sub-label">Cervical stenosis</h4>
+<h4 class="sub-label">Intrauterine adhesions</h4>
+<p class="standard-p">Obstetric implications after some cervical excisional procedures</p>
+
+                <div class="topic-row" id="topic-t-52-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">56</span>
+                        <h3 class="topic-heading">WHICH BIOPSY FOR WHICH LESION?</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-52-1" onchange="toggleMastery('t-52-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Clinical problem</th>
+<th>Preferred biopsy/sampling</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Abnormal cervix</strong></td>
+<td>Colposcopy-directed punch</td>
+</tr>
+<tr>
+<td><strong>Endocervical disease</strong></td>
+<td>ECC/targeted assessment</td>
+</tr>
+<tr>
+<td><strong>HSIL requiring excision</strong></td>
+<td>LLETZ/LEEP or cone</td>
+</tr>
+<tr>
+<td><strong>Suspected glandular cervical lesion</strong></td>
+<td>Appropriate excisional procedure</td>
+</tr>
+<tr>
+<td><strong>AUB</strong></td>
+<td>Endometrial biopsy ± hysteroscopy</td>
+</tr>
+<tr>
+<td><strong>Suspected endometrial hyperplasia</strong></td>
+<td>Endometrial biopsy</td>
+</tr>
+<tr>
+<td><strong>Focal endometrial lesion</strong></td>
+<td>Hysteroscopy-directed biopsy</td>
+</tr>
+<tr>
+<td><strong>Endometrial polyp</strong></td>
+<td>Hysteroscopic polypectomy</td>
+</tr>
+<tr>
+<td><strong>Vulval skin lesion</strong></td>
+<td>Punch/incisional biopsy</td>
+</tr>
+<tr>
+<td><strong>Small vulval lesion</strong></td>
+<td>Excisional biopsy</td>
+</tr>
+<tr>
+<td><strong>Suspected vulval cancer</strong></td>
+<td>Representative incisional biopsy</td>
+</tr>
+<tr>
+<td><strong>Vaginal lesion</strong></td>
+<td>Vaginal biopsy</td>
+</tr>
+<tr>
+<td><strong>Breast mass</strong></td>
+<td>Core biopsy usually provides tissue architecture</td>
+</tr>
+<tr>
+<td><strong>Breast cyst</strong></td>
+<td>FNA/aspiration in selected circumstances</td>
+</tr>
+<tr>
+<td><strong>Enlarged lymph node</strong></td>
+<td>Core/FNA/excision depending on diagnosis</td>
+</tr>
+<tr>
+<td><strong>Suspected ovarian malignancy</strong></td>
+<td>Biopsy accessible disease site when tissue diagnosis required</td>
+</tr>
+<tr>
+<td><strong>Peritoneal lesion</strong></td>
+<td>Laparoscopic/image-guided biopsy</td>
+</tr>
+<tr>
+<td><strong>Omental disease</strong></td>
+<td>Omental/peritoneal biopsy</td>
+</tr>
+<tr>
+<td><strong>Bladder lesion</strong></td>
+<td>Cystoscopic biopsy</td>
+</tr>
+<tr>
+<td><strong>Endometriotic lesion</strong></td>
+<td>Laparoscopic biopsy when histology needed</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-53" data-part-index="53">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 53</span>
+                    <h2 class="part-title">57. BIOPSY CLASSIFICATION BY PURPOSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-53" onchange="toggleMastery('sec-53')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-53')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-53')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Diagnostic</h4>
+<p class="standard-p">Determine what the lesion is.</p>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Cervical punch</h4>
+<h4 class="sub-label">Vulval punch</h4>
+<h4 class="sub-label">Endometrial biopsy</h4>
+<h4 class="sub-label">Breast core</h4>
+<h4 class="sub-label">Staging</h4>
+<p class="standard-p">Determine extent of malignancy.</p>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Lymph-node biopsy</h4>
+<h4 class="sub-label">Omental biopsy</h4>
+<h4 class="sub-label">Peritoneal biopsy</h4>
+<h4 class="sub-label">Exclusion of malignancy</h4>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Persistent vulval lesion</h4>
+<h4 class="sub-label">Endometrial hyperplasia</h4>
+<h4 class="sub-label">Cervical lesion</h4>
+<h4 class="sub-label">Therapeutic/excisional</h4>
+<p class="standard-p">The biopsy also removes the lesion.</p>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Excisional vulval biopsy</h4>
+<h4 class="sub-label">Some small cervical lesions</h4>
+<h4 class="sub-label">Hysteroscopic polypectomy</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-54" data-part-index="54">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 54</span>
+                    <h2 class="part-title">58. BIOPSY CLASSIFICATION BY ANAESTHESIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-54" onchange="toggleMastery('sec-54')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-54')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-54')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">No anaesthesia/minimal analgesia</h4>
+<h4 class="sub-label">Some cervical biopsies</h4>
+<h4 class="sub-label">Some Pipelle biopsies</h4>
+<h4 class="sub-label">Some outpatient hysteroscopy procedures</h4>
+<h4 class="sub-label">Local anaesthesia</h4>
+<h4 class="sub-label">Vulval biopsy</h4>
+<h4 class="sub-label">Some cervical procedures</h4>
+<h4 class="sub-label">Breast core biopsy</h4>
+<h4 class="sub-label">Some vaginal biopsies</h4>
+<h4 class="sub-label">Regional/general anaesthesia</h4>
+<h4 class="sub-label">Cone biopsy in selected settings</h4>
+<h4 class="sub-label">D&amp;C</h4>
+<h4 class="sub-label">Operative hysteroscopy</h4>
+<h4 class="sub-label">Laparoscopic biopsy</h4>
+<h4 class="sub-label">Excisional procedures</h4>
+<p class="standard-p">RCOG&#x27;s current hysteroscopy guidance emphasises that outpatient procedures can be performed without general/regional anaesthesia, but alternative settings and analgesia/anaesthesia options should be discussed.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-55" data-part-index="55">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 55</span>
+                    <h2 class="part-title">59. THE MOST IMPORTANT MRCOG/FCPS OSCE BIOPSIES TO MASTER</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-55" onchange="toggleMastery('sec-55')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-55')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-55')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">If your station is “Biopsy instruments/technique”, prioritise these:</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-56" data-part-index="56">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 56</span>
+                    <h2 class="part-title">🔴 MUST KNOW</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-56" onchange="toggleMastery('sec-56')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-56')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-56')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Cervical punch biopsy</h4>
+<h4 class="sub-label">ECC</h4>
+<h4 class="sub-label">LLETZ/LEEP</h4>
+<h4 class="sub-label">Cold-knife cone</h4>
+<h4 class="sub-label">Pipelle endometrial biopsy</h4>
+<h4 class="sub-label">D&amp;C</h4>
+<h4 class="sub-label">Hysteroscopy-directed biopsy</h4>
+<h4 class="sub-label">Vulval punch biopsy</h4>
+<h4 class="sub-label">Vulval incisional biopsy</h4>
+<h4 class="sub-label">Vulval excisional biopsy</h4>
+<h4 class="sub-label">Vaginal biopsy</h4>
+<h4 class="sub-label">Breast core biopsy</h4>
+<h4 class="sub-label">FNA</h4>
+<h4 class="sub-label">Lymph-node biopsy</h4>
+<h4 class="sub-label">Sentinel lymph-node biopsy</h4>
+<h4 class="sub-label">Peritoneal biopsy</h4>
+<h4 class="sub-label">Omental biopsy</h4>
+<h4 class="sub-label">Cystoscopic bladder biopsy</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-57" data-part-index="57">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 57</span>
+                    <h2 class="part-title">🟠 KNOW AS CONCEPTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-57" onchange="toggleMastery('sec-57')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-57')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-57')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Trucut biopsy</h4>
+<h4 class="sub-label">Vacuum-assisted biopsy</h4>
+<h4 class="sub-label">Image-guided pelvic biopsy</h4>
+<h4 class="sub-label">Laparoscopic ovarian/peritoneal biopsy</h4>
+<h4 class="sub-label">Placental sampling</h4>
+<h4 class="sub-label">CVS</h4>
+<h4 class="sub-label">Amniocentesis</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-58" data-part-index="58">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 58</span>
+                    <h2 class="part-title">🔑 THE UNIVERSAL OSCE FORMULA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-58" onchange="toggleMastery('sec-58')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-58')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-58')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">For every biopsy, answer in this exact order:</h4>
+<p class="standard-p">Indication → contraindications/precautions → consent → pregnancy/bleeding/infection assessment → analgesia/anaesthesia → positioning → instruments → identify lesion → obtain representative tissue → haemostasis → specimen handling → histopathology → complications → safety-net/follow-up.</p>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 DIFFERENTIATE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Procedure?</li>
+<li class="surg-item">● Tissue obtained</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 DIFFERENTIATE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Cervical punch?</li>
+<li class="surg-item">● Ectocervical lesion</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 DIFFERENTIATE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for ECC?</li>
+<li class="surg-item">● Endocervical canal</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 DIFFERENTIATE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for LLETZ?</li>
+<li class="surg-item">● Transformation zone</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 DIFFERENTIATE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Cone biopsy?</li>
+<li class="surg-item">● Larger/deeper cervical specimen</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 DIFFERENTIATE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Pipelle?</li>
+<li class="surg-item">● Endometrium</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 82;
+    const flashcards = [{"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Procedure</strong>?", "a": "<strong>Tissue obtained</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervical punch</strong>?", "a": "<strong>Ectocervical lesion</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>ECC</strong>?", "a": "<strong>Endocervical canal</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>LLETZ</strong>?", "a": "<strong>Transformation zone</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cone biopsy</strong>?", "a": "<strong>Larger/deeper cervical specimen</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pipelle</strong>?", "a": "<strong>Endometrium</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>D&amp;C</strong>?", "a": "<strong>Endometrial tissue</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Hysteroscopy biopsy</strong>?", "a": "<strong>Targeted endometrial lesion</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vulval punch</strong>?", "a": "<strong>Vulval skin</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vaginal biopsy</strong>?", "a": "<strong>Vaginal mucosa</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Bladder biopsy</strong>?", "a": "<strong>Bladder mucosa</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Core biopsy</strong>?", "a": "<strong>Tissue architecture</strong>"}, {"category": "DIFFERENTIATE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>FNA</strong>?", "a": "<strong>Cells, mainly cytology</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Clinical problem</strong>?", "a": "<strong>Preferred biopsy/sampling</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Abnormal cervix</strong>?", "a": "<strong>Colposcopy-directed punch</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Endocervical disease</strong>?", "a": "<strong>ECC/targeted assessment</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>HSIL requiring excision</strong>?", "a": "<strong>LLETZ/LEEP or cone</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suspected glandular cervical lesion</strong>?", "a": "<strong>Appropriate excisional procedure</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>AUB</strong>?", "a": "<strong>Endometrial biopsy \u00b1 hysteroscopy</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suspected endometrial hyperplasia</strong>?", "a": "<strong>Endometrial biopsy</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Focal endometrial lesion</strong>?", "a": "<strong>Hysteroscopy-directed biopsy</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Endometrial polyp</strong>?", "a": "<strong>Hysteroscopic polypectomy</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vulval skin lesion</strong>?", "a": "<strong>Punch/incisional biopsy</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Small vulval lesion</strong>?", "a": "<strong>Excisional biopsy</strong>"}, {"category": "55. BIOPSY COMPLICATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suspected vulval cancer</strong>?", "a": "<strong>Representative incisional biopsy</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Procedure ?", "options": ["Tissue obtained", "Ectocervical lesion", "Endocervical canal", "Transformation zone"], "correct": 0, "explanation": "Key Guideline / Fact: Tissue obtained (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervical punch ?", "options": ["Tissue obtained", "Ectocervical lesion", "Endocervical canal", "Transformation zone"], "correct": 1, "explanation": "Key Guideline / Fact: Ectocervical lesion (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  ECC ?", "options": ["Ectocervical lesion", "Tissue obtained", "Endocervical canal", "Transformation zone"], "correct": 2, "explanation": "Key Guideline / Fact: Endocervical canal (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  LLETZ ?", "options": ["Endocervical canal", "Tissue obtained", "Ectocervical lesion", "Transformation zone"], "correct": 3, "explanation": "Key Guideline / Fact: Transformation zone (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cone biopsy ?", "options": ["Larger/deeper cervical specimen", "Tissue obtained", "Ectocervical lesion", "Endocervical canal"], "correct": 0, "explanation": "Key Guideline / Fact: Larger/deeper cervical specimen (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Pipelle ?", "options": ["Tissue obtained", "Endometrium", "Ectocervical lesion", "Endocervical canal"], "correct": 1, "explanation": "Key Guideline / Fact: Endometrium (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  D&amp;C ?", "options": ["Ectocervical lesion", "Tissue obtained", "Endometrial tissue", "Endocervical canal"], "correct": 2, "explanation": "Key Guideline / Fact: Endometrial tissue (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Hysteroscopy biopsy ?", "options": ["Endocervical canal", "Tissue obtained", "Ectocervical lesion", "Targeted endometrial lesion"], "correct": 3, "explanation": "Key Guideline / Fact: Targeted endometrial lesion (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Vulval punch ?", "options": ["Vulval skin", "Tissue obtained", "Ectocervical lesion", "Endocervical canal"], "correct": 0, "explanation": "Key Guideline / Fact: Vulval skin (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Vaginal biopsy ?", "options": ["Tissue obtained", "Vaginal mucosa", "Ectocervical lesion", "Endocervical canal"], "correct": 1, "explanation": "Key Guideline / Fact: Vaginal mucosa (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Bladder biopsy ?", "options": ["Ectocervical lesion", "Tissue obtained", "Bladder mucosa", "Endocervical canal"], "correct": 2, "explanation": "Key Guideline / Fact: Bladder mucosa (DIFFERENTIATE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Core biopsy ?", "options": ["Endocervical canal", "Tissue obtained", "Ectocervical lesion", "Tissue architecture"], "correct": 3, "explanation": "Key Guideline / Fact: Tissue architecture (DIFFERENTIATE)."}];
+    const storageKey = 'obgyn_mastered_obgyn_biopsies___complete_mrcogfcpsosce_master_list';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

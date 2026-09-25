@@ -1,0 +1,2508 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER RCOG OBSTETRIC DELIVERY ATLAS — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+<style>
+/* Image Gallery Styles */
+.image-gallery-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+.gallery-top-bar {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.gallery-icon {
+    font-size: 22px;
+}
+.gallery-title {
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.gallery-subtitle {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+.gallery-item {
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-primary);
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.gallery-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #f8fafc;
+    display: block;
+    padding: 8px;
+}
+[data-theme="dark"] .gallery-item img {
+    background: #0f172a;
+}
+.gallery-item-label {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+.lightbox-overlay.active {
+    display: flex;
+}
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+.lightbox-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.lightbox-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.lightbox-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+.lightbox-counter {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+}
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.lightbox-close:hover {
+    background: rgba(239,68,68,0.6);
+}
+</style>
+
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lb-overlay">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="Clinical Image">
+    <div class="lightbox-controls">
+        <button class="lightbox-btn" onclick="galleryPrev()">← Previous</button>
+        <span class="lightbox-counter" id="lb-counter">1 / 1</span>
+        <button class="lightbox-btn" onclick="galleryNext()">Next →</button>
+    </div>
+</div>
+
+
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MASTER RCOG OBSTETRIC DELIVERY ATLAS</div>
+                <div class="brand-subtitle-text">MRCOG / FCPS / RCOG Guidance — Interactive Study A</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ Gestational Timing Matrix</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 40 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 40 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (40 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="1. NORMAL / LOW-RISK PREGNANCY">1. NORMAL / LOW-RISK PREGNANCY</a></li><li><a href="#part-2" class="part-nav-link" title="2. HYPERTENSIVE DISORDERS">2. HYPERTENSIVE DISORDERS</a></li><li><a href="#part-3" class="part-nav-link" title="3. DIABETES IN PREGNANCY">3. DIABETES IN PREGNANCY</a></li><li><a href="#part-4" class="part-nav-link" title="4. FETAL GROWTH RESTRICTION / SGA">4. FETAL GROWTH RESTRICTION / SGA</a></li><li><a href="#part-5" class="part-nav-link" title="5. PLACENTAL CONDITIONS">5. PLACENTAL CONDITIONS</a></li><li><a href="#part-6" class="part-nav-link" title="6. PLACENTA ACCRETA SPECTRUM">6. PLACENTA ACCRETA SPECTRUM</a></li><li><a href="#part-7" class="part-nav-link" title="7. VASA PRAEVIA">7. VASA PRAEVIA</a></li><li><a href="#part-8" class="part-nav-link" title="8. PLACENTAL ABRUPTION">8. PLACENTAL ABRUPTION</a></li><li><a href="#part-9" class="part-nav-link" title="9. MULTIPLE PREGNANCY">9. MULTIPLE PREGNANCY</a></li><li><a href="#part-10" class="part-nav-link" title="10. BREECH PRESENTATION">10. BREECH PRESENTATION</a></li><li><a href="#part-11" class="part-nav-link" title="11. TRANSVERSE / OBLIQUE LIE">11. TRANSVERSE / OBLIQUE LIE</a></li><li><a href="#part-12" class="part-nav-link" title="12. PREVIOUS CAESAREAN">12. PREVIOUS CAESAREAN</a></li><li><a href="#part-13" class="part-nav-link" title="13. PRETERM PRELABOUR RUPTURE OF MEMBRANES">13. PRETERM PRELABOUR RUPTURE OF MEMBRANES</a></li><li><a href="#part-14" class="part-nav-link" title="14. PRETERM LABOUR">14. PRETERM LABOUR</a></li><li><a href="#part-15" class="part-nav-link" title="15. INTRAHEPATIC CHOLESTASIS OF PREGNANCY">15. INTRAHEPATIC CHOLESTASIS OF PREGNANCY</a></li><li><a href="#part-16" class="part-nav-link" title="16. MATERNAL OBESITY">16. MATERNAL OBESITY</a></li><li><a href="#part-17" class="part-nav-link" title="17. ANAEMIA">17. ANAEMIA</a></li><li><a href="#part-18" class="part-nav-link" title="18. THROMBOCYTOPENIA">18. THROMBOCYTOPENIA</a></li><li><a href="#part-19" class="part-nav-link" title="19. THYROID DISEASE">19. THYROID DISEASE</a></li><li><a href="#part-20" class="part-nav-link" title="20. RENAL DISEASE">20. RENAL DISEASE</a></li><li><a href="#part-21" class="part-nav-link" title="21. SYSTEMIC LUPUS / AUTOIMMUNE DISEASE">21. SYSTEMIC LUPUS / AUTOIMMUNE DISEASE</a></li><li><a href="#part-22" class="part-nav-link" title="22. ANTIBODY-RELATED PREGNANCY">22. ANTIBODY-RELATED PREGNANCY</a></li><li><a href="#part-23" class="part-nav-link" title="23. FETAL CONGENITAL ANOMALIES">23. FETAL CONGENITAL ANOMALIES</a></li><li><a href="#part-24" class="part-nav-link" title="24. POLYHYDRAMNIOS">24. POLYHYDRAMNIOS</a></li><li><a href="#part-25" class="part-nav-link" title="25. OLIGOHYDRAMNIOS">25. OLIGOHYDRAMNIOS</a></li><li><a href="#part-26" class="part-nav-link" title="26. REDUCED FETAL MOVEMENTS">26. REDUCED FETAL MOVEMENTS</a></li><li><a href="#part-27" class="part-nav-link" title="27. IUFD / STILLBIRTH">27. IUFD / STILLBIRTH</a></li><li><a href="#part-28" class="part-nav-link" title="28. HIV">28. HIV</a></li><li><a href="#part-29" class="part-nav-link" title="29. HEPATITIS B">29. HEPATITIS B</a></li><li><a href="#part-30" class="part-nav-link" title="30. HEPATITIS C">30. HEPATITIS C</a></li><li><a href="#part-31" class="part-nav-link" title="31. GENITAL HERPES">31. GENITAL HERPES</a></li><li><a href="#part-32" class="part-nav-link" title="32. GROUP B STREPTOCOCCUS">32. GROUP B STREPTOCOCCUS</a></li><li><a href="#part-33" class="part-nav-link" title="33. CHORIOAMNIONITIS">33. CHORIOAMNIONITIS</a></li><li><a href="#part-34" class="part-nav-link" title="34. MATERNAL SEPSIS">34. MATERNAL SEPSIS</a></li><li><a href="#part-35" class="part-nav-link" title="35. UTERINE RUPTURE">35. UTERINE RUPTURE</a></li><li><a href="#part-36" class="part-nav-link" title="36. CORD PROLAPSE">36. CORD PROLAPSE</a></li><li><a href="#part-37" class="part-nav-link" title="37. SHOULDER DYSTOCIA">37. SHOULDER DYSTOCIA</a></li><li><a href="#part-38" class="part-nav-link" title="38. MACROSOMIA">38. MACROSOMIA</a></li><li><a href="#part-39" class="part-nav-link" title="39. SUMMARY — THE NUMBERS YOU SHOULD MEMORISE">39. SUMMARY — THE NUMBERS YOU SHOULD MEMORISE</a></li><li><a href="#part-40" class="part-nav-link" title="⭐ THE EXAM RULE FOR MODE OF DELIVERY">⭐ THE EXAM RULE FOR MODE OF DELIVERY</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MASTER RCOG OBSTETRIC DELIVERY ATLAS</h1>
+                    <div class="reader-hero-sub">⭐ MRCOG / FCPS / RCOG Guidance — Interactive Study Atlas</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+
+    <!-- IMAGE GALLERY SECTION -->
+    <div class="image-gallery-section" id="gallery-section">
+        <div class="gallery-top-bar">
+            <span class="gallery-icon">🖼️</span>
+            <div>
+                <div class="gallery-title">Clinical Figures & Reference Diagrams</div>
+                <div class="gallery-subtitle">5 high-yield images — click any image to enlarge</div>
+            </div>
+        </div>
+        <div class="gallery-grid">
+            
+        <div class="gallery-item">
+            <img src="images for MASTER RCOG OBSTETRIC DELIVERY ATLAS/img1.jpeg" alt="Figure 1" loading="lazy">
+            <div class="gallery-item-label">Figure 1</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MASTER RCOG OBSTETRIC DELIVERY ATLAS/img2.jpeg" alt="Figure 2" loading="lazy">
+            <div class="gallery-item-label">Figure 2</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MASTER RCOG OBSTETRIC DELIVERY ATLAS/img3.jpeg" alt="Figure 3" loading="lazy">
+            <div class="gallery-item-label">Figure 3</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MASTER RCOG OBSTETRIC DELIVERY ATLAS/img4.jpeg" alt="Figure 4" loading="lazy">
+            <div class="gallery-item-label">Figure 4</div>
+        </div>
+        <div class="gallery-item">
+            <img src="images for MASTER RCOG OBSTETRIC DELIVERY ATLAS/img5.jpeg" alt="Figure 5" loading="lazy">
+            <div class="gallery-item-label">Figure 5</div>
+        </div>
+        </div>
+    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">1. NORMAL / LOW-RISK PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Preferred timing</th>
+<th>Preferred mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Uncomplicated singleton, cephalic</strong></td>
+<td>Spontaneous labour at term</td>
+<td>Vaginal birth</td>
+</tr>
+<tr>
+<td><strong>Elective caesarean without another indication</strong></td>
+<td><span class="val-pill">≥39+0 weeks</span></td>
+<td>Caesarean</td>
+</tr>
+<tr>
+<td><strong>Previous uncomplicated 1 LSCS – planned VBAC</strong></td>
+<td>Await spontaneous labour</td>
+<td>VBAC</td>
+</tr>
+<tr>
+<td><strong>Previous CS – ERCS</strong></td>
+<td><span class="val-pill">≥39+0 weeks</span></td>
+<td>Planned CS</td>
+</tr>
+<tr>
+<td><strong>Previous vaginal birth</strong></td>
+<td>Usually await spontaneous labour</td>
+<td>Vaginal birth</td>
+</tr>
+<tr>
+<td><strong>Post-term pregnancy</strong></td>
+<td>IOL generally offered by<span class="val-pill"> 41+0 weeks</span></td>
+<td>Induction → vaginal birth if successful</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG specifically recommends that elective repeat caesarean is generally performed from<span class="val-pill"> 39+0 weeks</span>, because earlier planned CS increases neonatal respiratory morbidity.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">2. HYPERTENSIVE DISORDERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Gestational hypertension</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Severity</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>BP &lt;160/110, no complications</strong></td>
+<td>Do not routinely plan birth &lt;37 wk</td>
+<td>IOL/Vaginal if suitable</td>
+</tr>
+<tr>
+<td><strong>≥37 wk</strong></td>
+<td>Individualised with senior obstetrician</td>
+<td>IOL usually preferred if suitable</td>
+</tr>
+<tr>
+<td><strong>Severe hypertension ≥160/110 or maternal/fetal deterioration</strong></td>
+<td>Any gestation if indicated</td>
+<td>IOL or CS depending on urgency</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">NICE specifically advises against planned early birth before<span class="val-pill"> 37 weeks</span> for gestational hypertension when BP is &lt;160/110 and there are no other indications.</p>
+<h4 class="sub-label">Pre-eclampsia</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Pre-eclampsia &lt;34 wk, stable</strong></td>
+<td>Expectant management if safe</td>
+<td>Later IOL/CS</td>
+</tr>
+<tr>
+<td><strong>34–36+6 wk, stable</strong></td>
+<td>Individualised</td>
+<td>IOL if feasible</td>
+</tr>
+<tr>
+<td><strong>≥37 wk</strong></td>
+<td>Birth within 24–48 h</td>
+<td>IOL or CS</td>
+</tr>
+<tr>
+<td><strong>Severe PE/eclampsia/HELLP with maternal compromise</strong></td>
+<td>Immediate/urgent birth regardless of gestation</td>
+<td>Often CS if urgent; IOL if safe</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG states that pre-eclampsia is ultimately cured by birth, but timing and route depend on maternal and fetal circumstances. NICE recommends initiating birth within 24–<span class="val-pill">48 hours</span> from<span class="val-pill"> 37 weeks</span>.</p>
+<h4 class="sub-label">Immediate delivery indications</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">MOTHER</h4>
+<h4 class="sub-label">Uncontrolled severe hypertension</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Stroke</h4>
+<h4 class="sub-label">HELLP</h4>
+<h4 class="sub-label">DIC</h4>
+<h4 class="sub-label">Progressive renal/liver dysfunction</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">BABY</h4>
+<h4 class="sub-label">Persistent abnormal CTG</h4>
+<h4 class="sub-label">Severe FGR with concerning Dopplers</h4>
+<h4 class="sub-label">Fetal compromise</h4>
+<h4 class="sub-label">IUFD</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">3. DIABETES IN PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pre-existing type 1 / type 2 diabetes</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Uncomplicated T1DM/T2DM</strong></td>
+<td>37+0–38+6 wk</td>
+<td>IOL or CS if indicated</td>
+</tr>
+<tr>
+<td><strong>Maternal/fetal complications</strong></td>
+<td>Before 37 wk may be required</td>
+<td>IOL/CS depending on circumstances</td>
+</tr>
+<tr>
+<td><strong>Suspected macrosomia</strong></td>
+<td>Individualised</td>
+<td>Discuss vaginal birth vs IOL vs CS</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">NICE recommends elective birth between 37+0 and<span class="val-pill"> 38+6 weeks</span> for uncomplicated pre-existing diabetes.</p>
+<h4 class="sub-label">Gestational diabetes</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>GDM</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Diet-controlled, uncomplicated</strong></td>
+<td>Await labour, but birth by 40+6</td>
+<td>Vaginal/IOL</td>
+</tr>
+<tr>
+<td><strong>Medication/insulin-treated</strong></td>
+<td>Individualised according to control and complications</td>
+<td>IOL usually possible</td>
+</tr>
+<tr>
+<td><strong>Poor control / pre-eclampsia / FGR / other complications</strong></td>
+<td>Earlier</td>
+<td>IOL/CS according to indication</td>
+</tr>
+<tr>
+<td><strong>Macrosomia</strong></td>
+<td>Individualised counselling</td>
+<td>IOL/vaginal/CS</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">NICE recommends birth no later than<span class="val-pill"> 40+6 weeks</span> in uncomplicated GDM and earlier birth when maternal/fetal complications exist.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">4. FETAL GROWTH RESTRICTION / SGA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is particularly important for MRCOG.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Fetal condition</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>SGA but normal surveillance</strong></td>
+<td>Usually 39 wk–40 wk latest</td>
+<td>Vaginal birth</td>
+</tr>
+<tr>
+<td><strong>FGR with abnormal surveillance</strong></td>
+<td>Earlier</td>
+<td>Depends on CTG/Doppler</td>
+</tr>
+<tr>
+<td><strong>Abnormal umbilical artery Doppler</strong></td>
+<td>Earlier delivery</td>
+<td>Often CS depending on severity/gestation</td>
+</tr>
+<tr>
+<td><strong>Absent/reversed end-diastolic flow</strong></td>
+<td>Preterm planned birth often required</td>
+<td>Frequently CS</td>
+</tr>
+<tr>
+<td><strong>Severe fetal compromise</strong></td>
+<td>Immediate delivery</td>
+<td>Usually CS if vaginal delivery not imminent</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG emphasises that timing is based on growth, Doppler, CTG and overall fetal condition rather than fetal size alone. Its July 2026 update also confirms that RCOG no longer specifically endorses a single fetal growth chart.</p>
+<h4 class="sub-label">Exam pearl</h4>
+<p class="standard-p">SGA ≠ FGR.</p>
+<p class="standard-p">A constitutionally small fetus with reassuring surveillance may safely reach term, whereas true placental FGR with abnormal Doppler may require substantially earlier delivery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">5. PLACENTAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Placenta praevia</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Placental location</th>
+<th>Mode</th>
+<th>Timing</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Placenta <span class="val-pill">≥20 mm</span> from internal os</strong></td>
+<td>Vaginal birth may be possible</td>
+<td>Term if uncomplicated</td>
+</tr>
+<tr>
+<td><strong>Placenta &lt;<span class="val-pill">20 mm</span> from internal os at 36 wk</strong></td>
+<td>CS safest</td>
+<td>Usually 36–37 wk</td>
+</tr>
+<tr>
+<td><strong>Major placenta praevia</strong></td>
+<td>CS</td>
+<td>Usually 36–37 wk</td>
+</tr>
+<tr>
+<td><strong>Recurrent/heavy APH</strong></td>
+<td>Earlier delivery</td>
+<td>CS</td>
+</tr>
+<tr>
+<td><strong>Maternal/fetal instability</strong></td>
+<td>Emergency</td>
+<td>Emergency CS</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG&#x27;s current patient guidance states that if the placental edge is &lt;<span class="val-pill">20 mm</span> from the cervix at<span class="val-pill"> 36 weeks</span>, caesarean is safest; uncomplicated praevia generally has CS around 36–<span class="val-pill">37 weeks</span>, earlier if significant bleeding occurs.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">6. PLACENTA ACCRETA SPECTRUM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Suspected PAS</strong></td>
+<td>35–37 wk, individualised</td>
+<td>Planned CS in specialist centre</td>
+</tr>
+<tr>
+<td><strong>Placenta accreta/increta/percreta with previous CS + praevia</strong></td>
+<td>Usually planned preterm CS</td>
+<td>Often CS + planned hysterectomy</td>
+</tr>
+<tr>
+<td><strong>Major haemorrhage/instability</strong></td>
+<td>Immediate</td>
+<td>Emergency CS ± hysterectomy</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG&#x27;s updated<span class="val-pill"> 2026 g</span>uidance recommends specialist planning; the timing is generally 35–<span class="val-pill">37 weeks</span>, depending on individual circumstances.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">7. VASA PRAEVIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-7" onchange="toggleMastery('sec-7')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is a classic CS condition.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Diagnosed antenatally, stable</strong></td>
+<td>~34–36 wk</td>
+<td>Planned CS</td>
+</tr>
+<tr>
+<td><strong>Labour/ROM with vasa praevia</strong></td>
+<td>Immediate</td>
+<td>Emergency CS</td>
+</tr>
+<tr>
+<td><strong>Fetal compromise after vessel rupture</strong></td>
+<td>Immediate</td>
+<td>Emergency CS</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG currently advises planned CS around 34–<span class="val-pill">36 weeks</span> for antenatally diagnosed vasa praevia.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">8. PLACENTAL ABRUPTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Timing</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Stable mother + live fetus + labour progressing</strong></td>
+<td>Immediate/appropriate</td>
+<td>Vaginal birth often preferred</td>
+</tr>
+<tr>
+<td><strong>Stable mother + live fetus + vaginal delivery not imminent</strong></td>
+<td>Urgent</td>
+<td>CS</td>
+</tr>
+<tr>
+<td><strong>Maternal instability/major haemorrhage</strong></td>
+<td>Immediate</td>
+<td>CS if fetus alive and vaginal birth not imminent</td>
+</tr>
+<tr>
+<td><strong>IUFD</strong></td>
+<td>Birth required, but vaginal birth preferred unless maternal indication for CS</td>
+<td>Vaginal</td>
+</tr>
+<tr>
+<td><strong>Severe DIC</strong></td>
+<td>Correct coagulopathy while expediting birth</td>
+<td>Usually vaginal if fetus dead</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Exam pearl</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Abruption + dead fetus → vaginal delivery is generally preferred.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">9. MULTIPLE PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">DCDA twins</h4>
+<h4 class="sub-label">~37 weeks</h4>
+<p class="standard-p">Vaginal birth possible if Twin 1 cephalic and no contraindication.</p>
+<p class="standard-p">CS if obstetric indication.</p>
+<h4 class="sub-label">MCDA twins</h4>
+<h4 class="sub-label">~36 weeks</h4>
+<p class="standard-p">Vaginal birth possible in suitable cases.</p>
+<p class="standard-p">CS if indication.</p>
+<h4 class="sub-label">MCMA twins</h4>
+<h4 class="sub-label">32–34 weeks</h4>
+<p class="standard-p">Planned CS generally recommended.</p>
+<h4 class="sub-label">Triplets</h4>
+<h4 class="sub-label">~35 weeks</h4>
+<p class="standard-p">Usually planned CS.</p>
+<p class="standard-p">RCOG gives approximately<span class="val-pill"> 37 weeks</span> for uncomplicated DCDA twins,<span class="val-pill"> 36 weeks</span> for MCDA twins, 32–<span class="val-pill">34 weeks</span> for MCMA twins and<span class="val-pill"> 35 weeks</span> for triplets.</p>
+<h4 class="sub-label">5</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">10. BREECH PRESENTATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">At 36 weeks, discuss:</h4>
+<h4 class="sub-label">ECV</h4>
+<h4 class="sub-label">Planned CS</h4>
+<p class="standard-p">Planned vaginal breech birth in carefully selected circumstances</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG notes that ECV is usually performed after 36–37 weeks.</span></div>
+                
+            </div>
+            
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Breech → successful ECV</strong></td>
+<td>Vaginal birth</td>
+</tr>
+<tr>
+<td><strong>Persistent breech, suitable for vaginal breech birth</strong></td>
+<td>Planned vaginal breech possible</td>
+</tr>
+<tr>
+<td><strong>Persistent breech, unsuitable for vaginal breech birth</strong></td>
+<td>Planned CS</td>
+</tr>
+<tr>
+<td><strong>Footling breech</strong></td>
+<td>CS generally</td>
+</tr>
+<tr>
+<td><strong>Hyperextended fetal neck</strong></td>
+<td>CS generally</td>
+</tr>
+<tr>
+<td><strong>Placenta praevia + breech</strong></td>
+<td>CS</td>
+</tr>
+<tr>
+<td><strong>Fetal anomaly incompatible with vaginal breech</strong></td>
+<td>CS/individualised</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">11. TRANSVERSE / OBLIQUE LIE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Management</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Before term</strong></td>
+<td>Observe</td>
+</tr>
+<tr>
+<td><strong>Persistent transverse lie near term</strong></td>
+<td>ECV may be considered</td>
+</tr>
+<tr>
+<td><strong>Persistent transverse lie at labour</strong></td>
+<td>CS</td>
+</tr>
+<tr>
+<td><strong>Transverse lie + ROM</strong></td>
+<td>Emergency due to cord prolapse risk → usually CS</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">Persistent transverse lie = caesarean delivery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">12. PREVIOUS CAESAREAN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">One previous lower-segment CS</h4>
+<h4 class="sub-label">Two major options:</h4>
+<h4 class="sub-label">VBAC</h4>
+<p class="standard-p">Await spontaneous labour if appropriate.</p>
+<p class="standard-p">Continuous intrapartum fetal monitoring.</p>
+<p class="standard-p">Immediate access to emergency CS.</p>
+<h4 class="sub-label">ERCS</h4>
+<p class="standard-p">From<span class="val-pill"> 39+0 weeks</span>.</p>
+<p class="standard-p">Planned CS.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG explicitly identifies 39+0 weeks as the preferred timing for ERCS.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">13. PRETERM PRELABOUR RUPTURE OF MEMBRANES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">There is no single delivery week for all PPROM.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Approach</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>PPROM without infection/fetal compromise</strong></td>
+<td>Expectant management when appropriate</td>
+</tr>
+<tr>
+<td><strong>Chorioamnionitis</strong></td>
+<td>Deliver</td>
+</tr>
+<tr>
+<td><strong>Fetal compromise</strong></td>
+<td>Deliver</td>
+</tr>
+<tr>
+<td><strong>Placental abruption</strong></td>
+<td>Deliver</td>
+</tr>
+<tr>
+<td><strong>Established labour</strong></td>
+<td>Deliver</td>
+</tr>
+<tr>
+<td><strong>Severe maternal disease</strong></td>
+<td>Deliver</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Mode</h4>
+<p class="standard-p">PPROM itself is NOT an indication for CS.</p>
+<p class="standard-p">If fetus is cephalic and no obstetric contraindication:</p>
+<p class="standard-p">Vaginal birth is preferred.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">14. PRETERM LABOUR</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Preterm labour itself does not automatically mean CS.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Presentation</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Cephalic fetus</strong></td>
+<td>Vaginal birth generally</td>
+</tr>
+<tr>
+<td><strong>Breech/other malpresentation</strong></td>
+<td>Individualised</td>
+</tr>
+<tr>
+<td><strong>Fetal compromise</strong></td>
+<td>CS if appropriate</td>
+</tr>
+<tr>
+<td><strong>Very preterm breech</strong></td>
+<td>CS may be considered depending on gestation and circumstances</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">15. INTRAHEPATIC CHOLESTASIS OF PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is a very high-yield numerical question.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Bile acids</th>
+<th>Timing of planned birth</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>19–<span class="val-pill">39 µmol/L</span></strong></td>
+<td>By 40 wk may be considered; expectant management also reasonable if no other risk</td>
+</tr>
+<tr>
+<td><strong>40–<span class="val-pill">99 µmol/L</span></strong></td>
+<td>38–39 wk</td>
+</tr>
+<tr>
+<td><strong><span class="val-pill">≥100 µmol/L</span></strong></td>
+<td>35–36 wk</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Mode</h4>
+<p class="standard-p">ICP does NOT itself require CS.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>IOL → vaginal birth is appropriate.</span></div>
+<p class="standard-p">Planned CS only for obstetric indication.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG explicitly states that planned CS is not required merely because of ICP.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">16. MATERNAL OBESITY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Obesity alone is NOT an indication for CS.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Timing/mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Obesity alone</strong></td>
+<td>Await spontaneous labour</td>
+</tr>
+<tr>
+<td><strong>Obesity + diabetes</strong></td>
+<td>Follow diabetes recommendations</td>
+</tr>
+<tr>
+<td><strong>Obesity + pre-eclampsia</strong></td>
+<td>Follow hypertensive indication</td>
+</tr>
+<tr>
+<td><strong>Obesity + macrosomia</strong></td>
+<td>Individualised</td>
+</tr>
+<tr>
+<td><strong>Previous CS</strong></td>
+<td>VBAC/ERCS based on standard criteria</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">17. ANAEMIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Mild/moderate anaemia</h4>
+<p class="standard-p">No indication for early delivery or CS.</p>
+<p class="standard-p">Treat the cause and correct iron deficiency.</p>
+<h4 class="sub-label">Severe anaemia</h4>
+<p class="standard-p">Delivery timing is individualised according to maternal condition.</p>
+<p class="standard-p">Anaemia alone ≠ CS.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">18. THROMBOCYTOPENIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Delivery</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Gestational thrombocytopenia</strong></td>
+<td>Usually normal timing/mode</td>
+</tr>
+<tr>
+<td><strong>ITP</strong></td>
+<td>Usually vaginal birth</td>
+</tr>
+<tr>
+<td><strong>Severe thrombocytopenia</strong></td>
+<td>Individualised</td>
+</tr>
+<tr>
+<td><strong>HELLP</strong></td>
+<td>Deliver according to maternal/fetal condition</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">Thrombocytopenia alone is not an indication for CS.</p>
+<p class="standard-p">The major issue is often anaesthetic planning, particularly neuraxial anaesthesia.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">19. THYROID DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Well-controlled hypothyroidism/hyperthyroidism</h4>
+<p class="standard-p">No special early delivery solely because of thyroid disease.</p>
+<p class="standard-p">Vaginal birth normally appropriate.</p>
+<h4 class="sub-label">Uncontrolled severe thyrotoxicosis</h4>
+<p class="standard-p">Maternal stabilisation is essential; timing/mode depends on maternal/fetal condition.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">20. RENAL DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Stable chronic kidney disease:</h4>
+<p class="standard-p">No automatic CS.</p>
+<p class="standard-p">Timing individualised according to renal function, BP, fetal growth and maternal condition.</p>
+<p class="standard-p">If severe maternal deterioration or superimposed pre-eclampsia:</p>
+<p class="standard-p">Deliver according to maternal/fetal indication.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">21. SYSTEMIC LUPUS / AUTOIMMUNE DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Stable disease:</h4>
+<p class="standard-p">No automatic early birth or CS.</p>
+<h4 class="sub-label">Delivery depends on:</h4>
+<h4 class="sub-label">disease activity</h4>
+<h4 class="sub-label">hypertension/pre-eclampsia</h4>
+<h4 class="sub-label">FGR</h4>
+<h4 class="sub-label">fetal surveillance</h4>
+<p class="standard-p">maternal organ involvement.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">22. ANTIBODY-RELATED PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">RhD alloimmunisation</h4>
+<h4 class="sub-label">anti-K</h4>
+<h4 class="sub-label">anti-c</h4>
+<h4 class="sub-label">other clinically significant antibodies</h4>
+<h4 class="sub-label">If fetus unaffected:</h4>
+<p class="standard-p">Term birth / normal mode.</p>
+<h4 class="sub-label">If severe fetal anaemia:</h4>
+<h4 class="sub-label">fetal therapy may be required</h4>
+<h4 class="sub-label">delivery based on fetal condition and gestation</h4>
+<p class="standard-p">CS only if obstetrically indicated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">23. FETAL CONGENITAL ANOMALIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">The anomaly itself does not automatically mean CS.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Fetal anomaly</th>
+<th>General principle</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Neural tube defect</strong></td>
+<td>Usually vaginal unless obstetric indication</td>
+</tr>
+<tr>
+<td><strong>Down syndrome</strong></td>
+<td>Vaginal possible</td>
+</tr>
+<tr>
+<td><strong>Cardiac anomaly</strong></td>
+<td>Vaginal often appropriate</td>
+</tr>
+<tr>
+<td><strong>Lethal anomaly</strong></td>
+<td>Vaginal birth generally preferred</td>
+</tr>
+<tr>
+<td><strong>Major hydrocephalus</strong></td>
+<td>Mode individualised; CS may be considered depending on size/obstruction</td>
+</tr>
+<tr>
+<td><strong>Sacrococcygeal teratoma</strong></td>
+<td>Specialist MDT plan</td>
+</tr>
+<tr>
+<td><strong>Severe skeletal dysplasia</strong></td>
+<td>Specialist fetal medicine plan</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">24. POLYHYDRAMNIOS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Polyhydramnios alone:</h4>
+<p class="standard-p">No automatic CS.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important risks</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">malpresentation</h4>
+<h4 class="sub-label">cord prolapse</h4>
+<h4 class="sub-label">uterine atony</h4>
+<h4 class="sub-label">PPH</h4>
+<p class="standard-p">Delivery timing depends on cause/severity and fetal/maternal complications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">25. OLIGOHYDRAMNIOS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Depends on cause and fetal surveillance.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Management</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Isolated mild oligohydramnios</strong></td>
+<td>Increased surveillance</td>
+</tr>
+<tr>
+<td><strong>Term oligohydramnios</strong></td>
+<td>Consider delivery</td>
+</tr>
+<tr>
+<td><strong>Oligohydramnios + FGR</strong></td>
+<td>Earlier delivery</td>
+</tr>
+<tr>
+<td><strong>Abnormal CTG</strong></td>
+<td>Immediate delivery</td>
+</tr>
+<tr>
+<td><strong>Severe placental insufficiency</strong></td>
+<td>Earlier delivery</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">Mode depends on fetal condition, presentation and CTG.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">26. REDUCED FETAL MOVEMENTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-26" onchange="toggleMastery('sec-26')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Reduced fetal movements alone does not specify a CS.</p>
+<h4 class="sub-label">If term and concerning assessment:</h4>
+<p class="standard-p">Delivery may be indicated.</p>
+<h4 class="sub-label">Mode:</h4>
+<h4 class="sub-label">vaginal if safe</h4>
+<p class="standard-p">CS if fetal compromise/obstetric indication.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">27. IUFD / STILLBIRTH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Unless maternal circumstances demand otherwise:</h4>
+<h4 class="sub-label">Preferred mode:</h4>
+<p class="standard-p">Vaginal birth.</p>
+<p class="standard-p">CS is generally avoided solely for fetal indication because the fetus has died.</p>
+<h4 class="sub-label">Exceptions may include:</h4>
+<h4 class="sub-label">maternal haemorrhage</h4>
+<h4 class="sub-label">uterine rupture</h4>
+<h4 class="sub-label">placenta praevia with major bleeding</h4>
+<p class="standard-p">other major maternal indication.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">28. HIV</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Modern antiretroviral therapy has dramatically changed delivery planning.</p>
+<h4 class="sub-label">Well-controlled/low viral load</h4>
+<p class="standard-p">Vaginal birth generally appropriate.</p>
+<h4 class="sub-label">High/unknown viral load</h4>
+<p class="standard-p">Mode may be planned according to viral load and treatment history; planned CS may reduce transmission in selected circumstances.</p>
+<p class="standard-p">HIV alone does not automatically mean CS.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">29. HEPATITIS B</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-29" onchange="toggleMastery('sec-29')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Hepatitis B alone is NOT an indication for CS.</p>
+<p class="standard-p">Vaginal birth usually.</p>
+<p class="standard-p">Neonatal immunoprophylaxis is crucial.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">30. HEPATITIS C</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Vaginal birth usually.</p>
+<p class="standard-p">CS is not routinely performed solely to prevent HCV transmission.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">31. GENITAL HERPES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-31" onchange="toggleMastery('sec-31')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Active genital lesions/prodrome at labour</h4>
+<p class="standard-p">CS recommended to reduce neonatal HSV transmission.</p>
+<h4 class="sub-label">No active lesions</h4>
+<p class="standard-p">Vaginal birth usually appropriate.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">32. GROUP B STREPTOCOCCUS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-32" onchange="toggleMastery('sec-32')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">GBS colonisation is NOT an indication for CS.</p>
+<p class="standard-p">Vaginal birth appropriate.</p>
+<p class="standard-p">Intrapartum antibiotic prophylaxis according to indication.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">33. CHORIOAMNIONITIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-33" onchange="toggleMastery('sec-33')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Do not perform CS simply because chorioamnionitis is present.</p>
+<h4 class="sub-label">Principle:</h4>
+<p class="standard-p">Antibiotics + expedite birth.</p>
+<h4 class="sub-label">If cephalic and vaginal delivery feasible:</h4>
+<p class="standard-p">Vaginal birth.</p>
+<p class="standard-p">CS only for standard obstetric indications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">34. MATERNAL SEPSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-34" onchange="toggleMastery('sec-34')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Maternal sepsis:</h4>
+<h4 class="sub-label">resuscitate</h4>
+<h4 class="sub-label">antibiotics</h4>
+<h4 class="sub-label">source control</h4>
+<h4 class="sub-label">assess fetal/maternal status</h4>
+<p class="standard-p">Sepsis alone is not automatically a CS indication.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">35. UTERINE RUPTURE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Suspected uterine rupture during VBAC:</h4>
+<p class="standard-p">Immediate emergency laparotomy + CS if fetus is undelivered.</p>
+<p class="standard-p">This is one of the clearest emergency CS indications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">36. CORD PROLAPSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Mode</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Live fetus + cord prolapse + vaginal birth not imminent</strong></td>
+<td>Emergency CS</td>
+</tr>
+<tr>
+<td><strong>Fully dilated + birth imminent</strong></td>
+<td>Operative vaginal birth may be appropriate</td>
+</tr>
+<tr>
+<td><strong>IUFD</strong></td>
+<td>Vaginal birth generally</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">37. SHOULDER DYSTOCIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Shoulder dystocia is an intrapartum emergency, not a condition for planned CS after it has occurred.</p>
+<h4 class="sub-label">If it occurs:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HELPERR → manoeuvres → deliver baby.</span></div>
+<p class="standard-p">After a previous shoulder dystocia, future mode is individualised based on:</p>
+<h4 class="sub-label">estimated fetal weight</h4>
+<h4 class="sub-label">diabetes</h4>
+<h4 class="sub-label">previous neonatal injury</h4>
+<h4 class="sub-label">severity of previous dystocia</h4>
+<p class="standard-p">maternal preference.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">38. MACROSOMIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Macrosomia alone does not automatically require CS.</p>
+<h4 class="sub-label">Particularly with diabetes:</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">expectant management</h4>
+<h4 class="sub-label">induction</h4>
+<h4 class="sub-label">vaginal birth</h4>
+<h4 class="sub-label">elective CS</h4>
+<p class="standard-p">according to estimated fetal weight and individual risk. NICE specifically recommends counselling rather than automatically selecting CS for diabetic pregnancies with suspected macrosomia.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">39. SUMMARY — THE NUMBERS YOU SHOULD MEMORISE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ MRCOG HIGH-YIELD DELIVERY TIMINGS</span></div>
+                <div class="callout-body">Condition	Timing</div>
+            </div>
+            
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Elective CS</th>
+<th>≥39+0 wk</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>ERCS after previous CS</strong></td>
+<td>≥39+0 wk</td>
+</tr>
+<tr>
+<td><strong>Pre-eclampsia</strong></td>
+<td>≥37 wk → birth within 24–48 h</td>
+</tr>
+<tr>
+<td><strong>Pre-existing T1/T2 diabetes</strong></td>
+<td>37+0–38+6 wk</td>
+</tr>
+<tr>
+<td><strong>GDM uncomplicated</strong></td>
+<td>By 40+6 wk</td>
+</tr>
+<tr>
+<td><strong>DCDA twins</strong></td>
+<td>~37 wk</td>
+</tr>
+<tr>
+<td><strong>MCDA twins</strong></td>
+<td>~36 wk</td>
+</tr>
+<tr>
+<td><strong>MCMA twins</strong></td>
+<td>32–34 wk</td>
+</tr>
+<tr>
+<td><strong>Triplets</strong></td>
+<td>~35 wk</td>
+</tr>
+<tr>
+<td><strong>Placenta praevia</strong></td>
+<td>36–37 wk</td>
+</tr>
+<tr>
+<td><strong>Placenta accreta spectrum</strong></td>
+<td>35–37 wk</td>
+</tr>
+<tr>
+<td><strong>Vasa praevia</strong></td>
+<td>~34–36 wk</td>
+</tr>
+<tr>
+<td><strong>ICP, bile acids 19–39</strong></td>
+<td>By 40 wk may be considered</td>
+</tr>
+<tr>
+<td><strong>ICP, 40–99</strong></td>
+<td>38–39 wk</td>
+</tr>
+<tr>
+<td><strong>ICP, ≥100</strong></td>
+<td>35–36 wk</td>
+</tr>
+<tr>
+<td><strong>Persistent breech</strong></td>
+<td>Assess/ECV around 36–37 wk</td>
+</tr>
+<tr>
+<td><strong>SGA without concerning features</strong></td>
+<td>39 wk–40 wk latest</td>
+</tr>
+<tr>
+<td><strong>FGR with abnormal surveillance</strong></td>
+<td>Earlier, according to Doppler/CTG</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">These figures are particularly useful for exams, but do not treat them as rigid rules: RCOG/NICE recommendations repeatedly emphasise maternal condition, fetal surveillance, gestation, previous obstetric history and local specialist resources when deciding the actual date and route of birth.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">⭐ THE EXAM RULE FOR MODE OF DELIVERY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">A very useful MRCOG framework is:</h4>
+<h4 class="sub-label">CS because the route is obstructed</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ placenta praevia, vasa praevia, persistent transverse lie.</span></div>
+<p class="standard-p">CS because the fetus/mother cannot safely tolerate labour</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ severe fetal compromise, some severe FGR, uterine rupture, certain severe maternal conditions.</span></div>
+<h4 class="sub-label">Vaginal birth preferred despite pathology</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ abruption with IUFD, chorioamnionitis, maternal sepsis, GBS, HIV with appropriate viral suppression, hepatitis B/C, ICP, obesity, anaemia.</span></div>
+<h4 class="sub-label">Timing is pathology-specific</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ diabetes, pre-eclampsia, twins, ICP, FGR, placenta praevia/PAS/vasa praevia.</span></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">Gestational Timing Matrix</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 1. NORMAL / LOW-RISK PREGNANCY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Uncomplicated singleton, cephalic: Spontaneous labour at term</li>
+<li class="surg-item">● Elective caesarean without another indication: ≥39+0 weeks</li>
+<li class="surg-item">● Previous uncomplicated 1 LSCS – planned VBAC: Await spontaneous labour</li>
+<li class="surg-item">● Previous CS – ERCS: ≥39+0 weeks</li>
+<li class="surg-item">● Previous vaginal birth: Usually await spontaneous labour</li>
+<li class="surg-item">● Post-term pregnancy: IOL generally offered by 41+0 weeks</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 2. HYPERTENSIVE DISORDERS</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Severity: Timing</li>
+<li class="surg-item">● BP &lt;160/110, no complications: Do not routinely plan birth &lt;37 wk</li>
+<li class="surg-item">● ≥37 wk: Individualised with senior obstetrician</li>
+<li class="surg-item">● Severe hypertension ≥160/110 or maternal/fetal deterioration: Any gestation if indicated</li>
+<li class="surg-item">● Pre-eclampsia &lt;34 wk, stable: Expectant management if safe</li>
+<li class="surg-item">● 34–36+6 wk, stable: Individualised</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 3. DIABETES IN PREGNANCY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Situation: Timing</li>
+<li class="surg-item">● Uncomplicated T1DM/T2DM: 37+0–38+6 wk</li>
+<li class="surg-item">● Maternal/fetal complications: Before 37 wk may be required</li>
+<li class="surg-item">● Suspected macrosomia: Individualised</li>
+<li class="surg-item">● GDM: Timing</li>
+<li class="surg-item">● Diet-controlled, uncomplicated: Await labour, but birth by 40+6</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 4. FETAL GROWTH RESTRICTION / SGA</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Fetal condition: Timing</li>
+<li class="surg-item">● SGA but normal surveillance: Usually 39 wk–40 wk latest</li>
+<li class="surg-item">● FGR with abnormal surveillance: Earlier</li>
+<li class="surg-item">● Abnormal umbilical artery Doppler: Earlier delivery</li>
+<li class="surg-item">● Absent/reversed end-diastolic flow: Preterm planned birth often required</li>
+<li class="surg-item">● Severe fetal compromise: Immediate delivery</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 5. PLACENTAL CONDITIONS</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Placental location: Mode</li>
+<li class="surg-item">● Placenta ≥20 mm from internal os: Vaginal birth may be possible</li>
+<li class="surg-item">● Placenta &lt;20 mm from internal os at 36 wk: CS safest</li>
+<li class="surg-item">● Major placenta praevia: CS</li>
+<li class="surg-item">● Recurrent/heavy APH: Earlier delivery</li>
+<li class="surg-item">● Maternal/fetal instability: Emergency</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 6. PLACENTA ACCRETA SPECTRUM</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Suspected PAS: 35–37 wk, individualised</li>
+<li class="surg-item">● Placenta accreta/increta/percreta with previous CS + praevia: Usually planned preterm CS</li>
+<li class="surg-item">● Major haemorrhage/instability: Immediate</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 7. VASA PRAEVIA</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Diagnosed antenatally, stable: ~34–36 wk</li>
+<li class="surg-item">● Labour/ROM with vasa praevia: Immediate</li>
+<li class="surg-item">● Fetal compromise after vessel rupture: Immediate</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 8. PLACENTAL ABRUPTION</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Situation: Timing</li>
+<li class="surg-item">● Stable mother + live fetus + labour progressing: Immediate/appropriate</li>
+<li class="surg-item">● Stable mother + live fetus + vaginal delivery not imminent: Urgent</li>
+<li class="surg-item">● Maternal instability/major haemorrhage: Immediate</li>
+<li class="surg-item">● IUFD: Birth required, but vaginal birth preferred unless maternal indication for CS</li>
+<li class="surg-item">● Severe DIC: Correct coagulopathy while expediting birth</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 10. BREECH PRESENTATION</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Situation: Mode</li>
+<li class="surg-item">● Breech → successful ECV: Vaginal birth</li>
+<li class="surg-item">● Persistent breech, suitable for vaginal breech birth: Planned vaginal breech possible</li>
+<li class="surg-item">● Persistent breech, unsuitable for vaginal breech birth: Planned CS</li>
+<li class="surg-item">● Footling breech: CS generally</li>
+<li class="surg-item">● Hyperextended fetal neck: CS generally</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 11. TRANSVERSE / OBLIQUE LIE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Situation: Management</li>
+<li class="surg-item">● Before term: Observe</li>
+<li class="surg-item">● Persistent transverse lie near term: ECV may be considered</li>
+<li class="surg-item">● Persistent transverse lie at labour: CS</li>
+<li class="surg-item">● Transverse lie + ROM: Emergency due to cord prolapse risk → usually CS</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 40;
+    const flashcards = [{"category": "1. NORMAL / LOW-RISK PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uncomplicated singleton, cephalic</strong>?", "a": "<strong>Spontaneous labour at term</strong><br>Vaginal birth"}, {"category": "1. NORMAL / LOW-RISK PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Elective caesarean without another indication</strong>?", "a": "<strong>\u226539+0 weeks</strong><br>Caesarean"}, {"category": "1. NORMAL / LOW-RISK PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Previous uncomplicated 1 LSCS \u2013 planned VBAC</strong>?", "a": "<strong>Await spontaneous labour</strong><br>VBAC"}, {"category": "1. NORMAL / LOW-RISK PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Previous CS \u2013 ERCS</strong>?", "a": "<strong>\u226539+0 weeks</strong><br>Planned CS"}, {"category": "1. NORMAL / LOW-RISK PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Previous vaginal birth</strong>?", "a": "<strong>Usually await spontaneous labour</strong><br>Vaginal birth"}, {"category": "1. NORMAL / LOW-RISK PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Post-term pregnancy</strong>?", "a": "<strong>IOL generally offered by 41+0 weeks</strong><br>Induction \u2192 vaginal birth if successful"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severity</strong>?", "a": "<strong>Timing</strong><br>Mode"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>BP &lt;160/110, no complications</strong>?", "a": "<strong>Do not routinely plan birth <37 wk</strong><br>IOL/Vaginal if suitable"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>\u226537 wk</strong>?", "a": "<strong>Individualised with senior obstetrician</strong><br>IOL usually preferred if suitable"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe hypertension \u2265160/110 or maternal/fetal deterioration</strong>?", "a": "<strong>Any gestation if indicated</strong><br>IOL or CS depending on urgency"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pre-eclampsia &lt;34 wk, stable</strong>?", "a": "<strong>Expectant management if safe</strong><br>Later IOL/CS"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>34\u201336+6 wk, stable</strong>?", "a": "<strong>Individualised</strong><br>IOL if feasible"}, {"category": "2. HYPERTENSIVE DISORDERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Severe PE/eclampsia/HELLP with maternal compromise</strong>?", "a": "<strong>Immediate/urgent birth regardless of gestation</strong><br>Often CS if urgent; IOL if safe"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uncomplicated T1DM/T2DM</strong>?", "a": "<strong>37+0\u201338+6 wk</strong><br>IOL or CS if indicated"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Maternal/fetal complications</strong>?", "a": "<strong>Before 37 wk may be required</strong><br>IOL/CS depending on circumstances"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suspected macrosomia</strong>?", "a": "<strong>Individualised</strong><br>Discuss vaginal birth vs IOL vs CS"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>GDM</strong>?", "a": "<strong>Timing</strong><br>Mode"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Diet-controlled, uncomplicated</strong>?", "a": "<strong>Await labour, but birth by 40+6</strong><br>Vaginal/IOL"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Medication/insulin-treated</strong>?", "a": "<strong>Individualised according to control and complications</strong><br>IOL usually possible"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Poor control / pre-eclampsia / FGR / other complications</strong>?", "a": "<strong>Earlier</strong><br>IOL/CS according to indication"}, {"category": "3. DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Macrosomia</strong>?", "a": "<strong>Individualised counselling</strong><br>IOL/vaginal/CS"}, {"category": "4. FETAL GROWTH RESTRICTION / ", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fetal condition</strong>?", "a": "<strong>Timing</strong><br>Mode"}, {"category": "4. FETAL GROWTH RESTRICTION / ", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>SGA but normal surveillance</strong>?", "a": "<strong>Usually 39 wk\u201340 wk latest</strong><br>Vaginal birth"}, {"category": "4. FETAL GROWTH RESTRICTION / ", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>FGR with abnormal surveillance</strong>?", "a": "<strong>Earlier</strong><br>Depends on CTG/Doppler"}, {"category": "4. FETAL GROWTH RESTRICTION / ", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Abnormal umbilical artery Doppler</strong>?", "a": "<strong>Earlier delivery</strong><br>Often CS depending on severity/gestation"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Uncomplicated singleton, cephalic ?", "options": ["Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "Await spontaneous labour  VBAC", "\u226539+0 weeks  Planned CS"], "correct": 0, "explanation": "Key Guideline / Fact: Spontaneous labour at term  Vaginal birth (1. NORMAL / LOW-RISK PREGNANCY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Elective caesarean without another indication ?", "options": ["Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "Await spontaneous labour  VBAC", "\u226539+0 weeks  Planned CS"], "correct": 1, "explanation": "Key Guideline / Fact: \u226539+0 weeks  Caesarean (1. NORMAL / LOW-RISK PREGNANCY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Previous uncomplicated 1 LSCS \u2013 planned VBAC ?", "options": ["\u226539+0 weeks  Caesarean", "Spontaneous labour at term  Vaginal birth", "Await spontaneous labour  VBAC", "\u226539+0 weeks  Planned CS"], "correct": 2, "explanation": "Key Guideline / Fact: Await spontaneous labour  VBAC (1. NORMAL / LOW-RISK PREGNANCY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Previous CS \u2013 ERCS ?", "options": ["Await spontaneous labour  VBAC", "Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "\u226539+0 weeks  Planned CS"], "correct": 3, "explanation": "Key Guideline / Fact: \u226539+0 weeks  Planned CS (1. NORMAL / LOW-RISK PREGNANCY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Previous vaginal birth ?", "options": ["Usually await spontaneous labour  Vaginal birth", "Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "Await spontaneous labour  VBAC"], "correct": 0, "explanation": "Key Guideline / Fact: Usually await spontaneous labour  Vaginal birth (1. NORMAL / LOW-RISK PREGNANCY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Post-term pregnancy ?", "options": ["Spontaneous labour at term  Vaginal birth", "IOL generally offered by 41+0 weeks  Induction \u2192 vaginal birth if successful", "\u226539+0 weeks  Caesarean", "Await spontaneous labour  VBAC"], "correct": 1, "explanation": "Key Guideline / Fact: IOL generally offered by 41+0 weeks  Induction \u2192 vaginal birth if successful (1. NORMAL / LOW-RISK PREGNANCY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Severity ?", "options": ["\u226539+0 weeks  Caesarean", "Spontaneous labour at term  Vaginal birth", "Timing  Mode", "Await spontaneous labour  VBAC"], "correct": 2, "explanation": "Key Guideline / Fact: Timing  Mode (2. HYPERTENSIVE DISORDERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  BP &lt;160/110, no complications ?", "options": ["Await spontaneous labour  VBAC", "Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "Do not routinely plan birth   IOL/Vaginal if suitable"], "correct": 3, "explanation": "Key Guideline / Fact: Do not routinely plan birth   IOL/Vaginal if suitable (2. HYPERTENSIVE DISORDERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  \u226537 wk ?", "options": ["Individualised with senior obstetrician  IOL usually preferred if suitable", "Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "Await spontaneous labour  VBAC"], "correct": 0, "explanation": "Key Guideline / Fact: Individualised with senior obstetrician  IOL usually preferred if suitable (2. HYPERTENSIVE DISORDERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Severe hypertension \u2265160/110 or maternal/fetal deterioration ?", "options": ["Spontaneous labour at term  Vaginal birth", "Any gestation if indicated  IOL or CS depending on urgency", "\u226539+0 weeks  Caesarean", "Await spontaneous labour  VBAC"], "correct": 1, "explanation": "Key Guideline / Fact: Any gestation if indicated  IOL or CS depending on urgency (2. HYPERTENSIVE DISORDERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Pre-eclampsia &lt;34 wk, stable ?", "options": ["\u226539+0 weeks  Caesarean", "Spontaneous labour at term  Vaginal birth", "Expectant management if safe  Later IOL/CS", "Await spontaneous labour  VBAC"], "correct": 2, "explanation": "Key Guideline / Fact: Expectant management if safe  Later IOL/CS (2. HYPERTENSIVE DISORDERS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  34\u201336+6 wk, stable ?", "options": ["Await spontaneous labour  VBAC", "Spontaneous labour at term  Vaginal birth", "\u226539+0 weeks  Caesarean", "Individualised  IOL if feasible"], "correct": 3, "explanation": "Key Guideline / Fact: Individualised  IOL if feasible (2. HYPERTENSIVE DISORDERS)."}];
+    const storageKey = 'obgyn_mastered_master_rcog_obstetric_delivery_atlas';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+
+<script>
+// Image Gallery Lightbox
+(function() {
+    let lbImages = [];
+    let lbIndex = 0;
+
+    function openLightbox(imgs, idx) {
+        lbImages = imgs;
+        lbIndex = idx;
+        updateLightbox();
+        document.getElementById('lb-overlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lb-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+        document.getElementById('lb-img').src = lbImages[lbIndex];
+        document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+    }
+
+    window.galleryNext = function() {
+        lbIndex = (lbIndex + 1) % lbImages.length;
+        updateLightbox();
+    };
+    window.galleryPrev = function() {
+        lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+        updateLightbox();
+    };
+    window.closeLightbox = closeLightbox;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var items = document.querySelectorAll('.gallery-item');
+        var imgSrcs = Array.from(items).map(function(el) {
+            return el.querySelector('img').src;
+        });
+        items.forEach(function(item, idx) {
+            item.addEventListener('click', function() {
+                openLightbox(imgSrcs, idx);
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            var overlay = document.getElementById('lb-overlay');
+            if (overlay && overlay.classList.contains('active')) {
+                if (e.key === 'ArrowRight') galleryNext();
+                else if (e.key === 'ArrowLeft') galleryPrev();
+                else if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Biochemistry, Immunopathology &amp; Anatomical Landmarks in Gynaecology — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">Important Biochemistry, Immunopatholog</div>
+                <div class="brand-subtitle-text">High-yield MCPS/MRCOG Part 2/3 + OSCE revision</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 55 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 55 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (55 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. REPRODUCTIVE ENDOCRINE BIOCHEMISTRY">1. REPRODUCTIVE ENDOCRINE BIOCHEMISTRY</a></li><li><a href="#part-3" class="part-nav-link" title="2. FSH">2. FSH</a></li><li><a href="#part-4" class="part-nav-link" title="3. LH">3. LH</a></li><li><a href="#part-5" class="part-nav-link" title="4. OESTROGEN">4. OESTROGEN</a></li><li><a href="#part-6" class="part-nav-link" title="5. PROGESTERONE">5. PROGESTERONE</a></li><li><a href="#part-7" class="part-nav-link" title="6. INHIBIN">6. INHIBIN</a></li><li><a href="#part-8" class="part-nav-link" title="8. PROLACTIN">8. PROLACTIN</a></li><li><a href="#part-9" class="part-nav-link" title="9. THYROID BIOCHEMISTRY">9. THYROID BIOCHEMISTRY</a></li><li><a href="#part-10" class="part-nav-link" title="10. ANDROGEN BIOCHEMISTRY">10. ANDROGEN BIOCHEMISTRY</a></li><li><a href="#part-11" class="part-nav-link" title="11. SHBG">11. SHBG</a></li><li><a href="#part-12" class="part-nav-link" title="12. PCOS — CORE BIOCHEMISTRY">12. PCOS — CORE BIOCHEMISTRY</a></li><li><a href="#part-13" class="part-nav-link" title="13. INSULIN &amp; GLUCOSE">13. INSULIN &amp; GLUCOSE</a></li><li><a href="#part-14" class="part-nav-link" title="14. LIPID BIOCHEMISTRY">14. LIPID BIOCHEMISTRY</a></li><li><a href="#part-15" class="part-nav-link" title="15. ENDOMETRIOSIS — BIOCHEMISTRY/IMMUNOPATHOLOGY">15. ENDOMETRIOSIS — BIOCHEMISTRY/IMMUNOPATHOLOGY</a></li><li><a href="#part-16" class="part-nav-link" title="16. FIBROID BIOCHEMISTRY">16. FIBROID BIOCHEMISTRY</a></li><li><a href="#part-17" class="part-nav-link" title="17. OVARIAN CANCER — IMPORTANT BIOCHEMISTRY">17. OVARIAN CANCER — IMPORTANT BIOCHEMISTRY</a></li><li><a href="#part-18" class="part-nav-link" title="19. GESTATIONAL TROPHOBLASTIC DISEASE">19. GESTATIONAL TROPHOBLASTIC DISEASE</a></li><li><a href="#part-19" class="part-nav-link" title="20. IMMUNOLOGY OF THE FEMALE REPRODUCTIVE TRACT">20. IMMUNOLOGY OF THE FEMALE REPRODUCTIVE TRACT</a></li><li><a href="#part-20" class="part-nav-link" title="21. BACTERIAL VAGINOSIS">21. BACTERIAL VAGINOSIS</a></li><li><a href="#part-21" class="part-nav-link" title="22. CANDIDA">22. CANDIDA</a></li><li><a href="#part-22" class="part-nav-link" title="23. TRICHOMONIASIS">23. TRICHOMONIASIS</a></li><li><a href="#part-23" class="part-nav-link" title="24. PID — IMMUNOPATHOLOGY">24. PID — IMMUNOPATHOLOGY</a></li><li><a href="#part-24" class="part-nav-link" title="25. CHLAMYDIA — KEY IMMUNOLOGY">25. CHLAMYDIA — KEY IMMUNOLOGY</a></li><li><a href="#part-25" class="part-nav-link" title="26. HPV IMMUNOLOGY">26. HPV IMMUNOLOGY</a></li><li><a href="#part-26" class="part-nav-link" title="27. CERVICAL CANCER IMMUNOLOGY">27. CERVICAL CANCER IMMUNOLOGY</a></li><li><a href="#part-27" class="part-nav-link" title="28. ENDOMETRIAL CANCER — HORMONAL BIOCHEMISTRY">28. ENDOMETRIAL CANCER — HORMONAL BIOCHEMISTRY</a></li><li><a href="#part-28" class="part-nav-link" title="29. OVARIAN IMMUNOLOGY">29. OVARIAN IMMUNOLOGY</a></li><li><a href="#part-29" class="part-nav-link" title="30. IMPORTANT ANATOMICAL LANDMARKS">30. IMPORTANT ANATOMICAL LANDMARKS</a></li><li><a href="#part-30" class="part-nav-link" title="31. CLITORIS">31. CLITORIS</a></li><li><a href="#part-31" class="part-nav-link" title="32. VAGINA">32. VAGINA</a></li><li><a href="#part-32" class="part-nav-link" title="33. CERVIX">33. CERVIX</a></li><li><a href="#part-33" class="part-nav-link" title="34. TRANSFORMATION ZONE">34. TRANSFORMATION ZONE</a></li><li><a href="#part-34" class="part-nav-link" title="35. UTERUS">35. UTERUS</a></li><li><a href="#part-35" class="part-nav-link" title="36. UTERINE BLOOD SUPPLY">36. UTERINE BLOOD SUPPLY</a></li><li><a href="#part-36" class="part-nav-link" title="37. URETER — GYNAECOLOGICAL DANGER POINTS">37. URETER — GYNAECOLOGICAL DANGER POINTS</a></li><li><a href="#part-37" class="part-nav-link" title="38. OVARIAN BLOOD SUPPLY">38. OVARIAN BLOOD SUPPLY</a></li><li><a href="#part-38" class="part-nav-link" title="39. OVARIAN LIGAMENTS">39. OVARIAN LIGAMENTS</a></li><li><a href="#part-39" class="part-nav-link" title="40. ROUND LIGAMENT">40. ROUND LIGAMENT</a></li><li><a href="#part-40" class="part-nav-link" title="41. CARDINAL LIGAMENT">41. CARDINAL LIGAMENT</a></li><li><a href="#part-41" class="part-nav-link" title="42. UTEROSACRAL LIGAMENT">42. UTEROSACRAL LIGAMENT</a></li><li><a href="#part-42" class="part-nav-link" title="43. PELVIC FLOOR">43. PELVIC FLOOR</a></li><li><a href="#part-43" class="part-nav-link" title="44. PELVIC FASCIA">44. PELVIC FASCIA</a></li><li><a href="#part-44" class="part-nav-link" title="45. POUCH OF DOUGLAS">45. POUCH OF DOUGLAS</a></li><li><a href="#part-45" class="part-nav-link" title="46. BROAD LIGAMENT — CONTENTS">46. BROAD LIGAMENT — CONTENTS</a></li><li><a href="#part-46" class="part-nav-link" title="47. LYMPHATIC DRAINAGE — VERY HIGH YIELD">47. LYMPHATIC DRAINAGE — VERY HIGH YIELD</a></li><li><a href="#part-47" class="part-nav-link" title="48. OVARIAN EMBRYOLOGY">48. OVARIAN EMBRYOLOGY</a></li><li><a href="#part-48" class="part-nav-link" title="49. IMPORTANT PELVIC NERVES">49. IMPORTANT PELVIC NERVES</a></li><li><a href="#part-49" class="part-nav-link" title="50. AUTONOMIC NERVE SUPPLY">50. AUTONOMIC NERVE SUPPLY</a></li><li><a href="#part-50" class="part-nav-link" title="51. ISCHIAL SPINE">51. ISCHIAL SPINE</a></li><li><a href="#part-51" class="part-nav-link" title="52. SACRAL PROMONTORY">52. SACRAL PROMONTORY</a></li><li><a href="#part-52" class="part-nav-link" title="53. PECTINEAL/ILIOPECTINEAL LINE">53. PECTINEAL/ILIOPECTINEAL LINE</a></li><li><a href="#part-53" class="part-nav-link" title="54. RETROPUBIC SPACE">54. RETROPUBIC SPACE</a></li><li><a href="#part-54" class="part-nav-link" title="55. IMPORTANT SURGICAL LANDMARKS — RAPID REVISION">55. IMPORTANT SURGICAL LANDMARKS — RAPID REVISION</a></li><li><a href="#part-55" class="part-nav-link" title="56. ONE-MINUTE EXAM TABLE">56. ONE-MINUTE EXAM TABLE</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">Important Biochemistry, Immunopathology &amp; Anatomical Landmarks in Gynaecology</h1>
+                    <div class="reader-hero-sub">⭐ High-yield MCPS/MRCOG Part 2/3 + OSCE revision</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Below is a gynaecology-focused high-yield list, emphasizing normal values, pathological changes, mechanisms, clinical correlations and examination/surgical landmarks.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. REPRODUCTIVE ENDOCRINE BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Hypothalamic–pituitary–ovarian axis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>GnRH → LH/FSH → ovary → oestradiol/progesterone/inhibin → feedback</span></div>
+<h4 class="sub-label">GnRH</h4>
+<p class="standard-p">Produced by hypothalamus.</p>
+<p class="standard-p">Pulsatile secretion is essential.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Rapid/high-frequency pulses → relatively more LH.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Slow-frequency pulses → relatively more FSH.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Continuous GnRH → pituitary GnRH-receptor downregulation → ↓LH/FSH.</span></div>
+<h4 class="sub-label">Clinical applications</h4>
+<h4 class="sub-label">Continuous GnRH agonists:</h4>
+<h4 class="sub-label">Leuprorelin</h4>
+<h4 class="sub-label">Goserelin</h4>
+<h4 class="sub-label">Triptorelin</h4>
+<h4 class="sub-label">Initially:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↑LH/FSH → flare</span></div>
+<h4 class="sub-label">Then:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>receptor downregulation → ↓LH/FSH → hypo-oestrogenic state.</span></div>
+<h4 class="sub-label">Used in:</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Fibroids</h4>
+<h4 class="sub-label">Some fertility protocols</h4>
+<h4 class="sub-label">Precocious puberty</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">2. FSH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Main actions</h4>
+<p class="standard-p">FSH acts primarily on granulosa cells.</p>
+<h4 class="sub-label">Stimulates:</h4>
+<h4 class="sub-label">Follicular growth</h4>
+<h4 class="sub-label">Aromatase activity</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Conversion of androgens → oestradiol</span></div>
+<h4 class="sub-label">Inhibin B production</h4>
+<h4 class="sub-label">FSH and ovarian reserve</h4>
+<h4 class="sub-label">Early follicular-phase FSH:</h4>
+<p class="standard-p">Usually measured day 2–5.</p>
+<p class="standard-p">Higher FSH can indicate reduced ovarian reserve.</p>
+<h4 class="sub-label">But:</h4>
+<p class="standard-p">FSH has substantial cycle-to-cycle variation.</p>
+<p class="standard-p">AMH and AFC are generally more useful markers of ovarian reserve.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">3. LH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">LH acts primarily on theca cells.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>LH → theca cells → androgen production.</span></div>
+<h4 class="sub-label">Androgens diffuse to granulosa cells:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Androgen → aromatase → oestradiol</span></div>
+<h4 class="sub-label">LH surge</h4>
+<p class="standard-p">Sustained high oestradiol causes positive feedback.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ LH surge</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ovulation</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ luteinisation</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ corpus luteum formation.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">4. OESTROGEN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Main reproductive oestrogen:</h4>
+<h4 class="sub-label">17β-oestradiol</h4>
+<h4 class="sub-label">Produced mainly by:</h4>
+<h4 class="sub-label">Granulosa cells in reproductive-age women</h4>
+<h4 class="sub-label">Corpus luteum</h4>
+<h4 class="sub-label">Placenta during pregnancy</h4>
+<h4 class="sub-label">Actions</h4>
+<h4 class="sub-label">Endometrium</h4>
+<h4 class="sub-label">Proliferative phase</h4>
+<h4 class="sub-label">Glandular proliferation</h4>
+<h4 class="sub-label">Stromal growth</h4>
+<h4 class="sub-label">↑progesterone receptors</h4>
+<h4 class="sub-label">Cervix</h4>
+<h4 class="sub-label">↑watery cervical mucus</h4>
+<h4 class="sub-label">Spinnbarkeit</h4>
+<h4 class="sub-label">Fern pattern</h4>
+<h4 class="sub-label">Vagina</h4>
+<h4 class="sub-label">Maintains epithelium</h4>
+<h4 class="sub-label">↑glycogen</h4>
+<h4 class="sub-label">Supports lactobacilli</h4>
+<h4 class="sub-label">Acidic vaginal environment</h4>
+<h4 class="sub-label">Bone</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓osteoclast activity</span></div>
+<p class="standard-p">Maintains bone density.</p>
+<h4 class="sub-label">Breast</h4>
+<p class="standard-p">Ductal proliferation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">5. PROGESTERONE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Produced mainly by:</h4>
+<h4 class="sub-label">Corpus luteum after ovulation</h4>
+<h4 class="sub-label">Placenta during pregnancy</h4>
+<h4 class="sub-label">Endometrium</h4>
+<h4 class="sub-label">Transforms:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Proliferative → secretory endometrium</span></div>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">Tortuous glands</h4>
+<h4 class="sub-label">Glycogen-rich secretions</h4>
+<h4 class="sub-label">Stromal oedema</h4>
+<h4 class="sub-label">Predecidual change</h4>
+<h4 class="sub-label">Cervix</h4>
+<h4 class="sub-label">Thick, viscous mucus</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓sperm penetration</span></div>
+<h4 class="sub-label">Myometrium</h4>
+<p class="standard-p">Reduces contractility.</p>
+<h4 class="sub-label">Breast</h4>
+<p class="standard-p">Lobuloalveolar development.</p>
+<h4 class="sub-label">Temperature</h4>
+<p class="standard-p">Raises basal body temperature by approximately 0.3–0.5°C.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">6. INHIBIN</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Inhibin B</h4>
+<h4 class="sub-label">Produced by:</h4>
+<h4 class="sub-label">Granulosa cells</h4>
+<h4 class="sub-label">Developing follicles</h4>
+<h4 class="sub-label">Mainly suppresses:</h4>
+<h4 class="sub-label">FSH</h4>
+<h4 class="sub-label">Inhibin A</h4>
+<h4 class="sub-label">Produced by:</h4>
+<h4 class="sub-label">Dominant follicle</h4>
+<h4 class="sub-label">Corpus luteum</h4>
+<h4 class="sub-label">Clinical relevance:</h4>
+<p class="standard-p">Inhibin B reflects follicular activity.</p>
+<p class="standard-p">Inhibin A is incorporated into antenatal screening.</p>
+
+                <div class="topic-row" id="topic-t-7-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">ANTI-MÜLLERIAN HORMONE — AMH</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-1" onchange="toggleMastery('t-7-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Produced by:</h4>
+<p class="standard-p">Granulosa cells of pre-antral and small antral follicles.</p>
+<h4 class="sub-label">Main clinical use</h4>
+<h4 class="sub-label">Marker of:</h4>
+<h4 class="sub-label">Ovarian reserve</h4>
+<p class="standard-p">Expected ovarian response during IVF.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE point</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">AMH:</h4>
+<p class="standard-p">Does not directly measure egg quality.</p>
+<p class="standard-p">Does not reliably predict spontaneous conception.</p>
+<p class="standard-p">Falls with increasing age.</p>
+<p class="standard-p">Can be relatively elevated in PCOS.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">8. PROLACTIN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Produced by:</h4>
+<p class="standard-p">Anterior pituitary lactotrophs.</p>
+<h4 class="sub-label">Normal approximate range</h4>
+<p class="standard-p">Depends on laboratory and physiological state, but commonly:</p>
+<p class="standard-p">&lt;20–25 ng/mL in non-pregnant women.</p>
+<h4 class="sub-label">Dopamine</h4>
+<p class="standard-p">Hypothalamic dopamine inhibits prolactin.</p>
+<h4 class="sub-label">Therefore:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Dopamine ↓ → prolactin ↑</span></div>
+<h4 class="sub-label">Hyperprolactinaemia causes</h4>
+<h4 class="sub-label">Galactorrhoea</h4>
+<h4 class="sub-label">Amenorrhoea</h4>
+<h4 class="sub-label">Anovulation</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Hypo-oestrogenism</h4>
+<h4 class="sub-label">Causes</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Lactation</h4>
+<h4 class="sub-label">Prolactinoma</h4>
+<h4 class="sub-label">Antipsychotics</h4>
+<h4 class="sub-label">Metoclopramide</h4>
+<h4 class="sub-label">Hypothyroidism</h4>
+<h4 class="sub-label">Renal failure</h4>
+<h4 class="sub-label">Stress</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">9. THYROID BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Primary hypothyroidism</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓T4/T3</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↑TSH</span></div>
+<h4 class="sub-label">May cause:</h4>
+<h4 class="sub-label">Menstrual irregularity</h4>
+<h4 class="sub-label">Menorrhagia</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Hyperprolactinaemia</h4>
+<p class="standard-p">Ovulatory dysfunction.</p>
+<h4 class="sub-label">Hyperthyroidism</h4>
+<h4 class="sub-label">May cause:</h4>
+<h4 class="sub-label">Oligomenorrhoea</h4>
+<h4 class="sub-label">Amenorrhoea</h4>
+<p class="standard-p">Infertility.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">10. ANDROGEN BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important androgens</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Testosterone</h4>
+<h4 class="sub-label">Androstenedione</h4>
+<h4 class="sub-label">DHEA</h4>
+<h4 class="sub-label">DHEA-S</h4>
+<h4 class="sub-label">Ovarian source</h4>
+<h4 class="sub-label">Mainly:</h4>
+<h4 class="sub-label">Testosterone</h4>
+<h4 class="sub-label">Androstenedione</h4>
+<h4 class="sub-label">Adrenal source</h4>
+<h4 class="sub-label">Mainly:</h4>
+<h4 class="sub-label">DHEA</h4>
+<h4 class="sub-label">DHEA-S</h4>
+<h4 class="sub-label">Very high DHEA-S</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Adrenal androgen-producing tumour</h4>
+<h4 class="sub-label">Severe testosterone elevation/rapid virilisation</h4>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">Ovarian androgen-secreting tumour</h4>
+<h4 class="sub-label">Adrenal tumour</h4>
+<h4 class="sub-label">Severe PCOS</h4>
+<p class="standard-p">Hyperthecosis.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">11. SHBG</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Sex hormone-binding globulin binds:</h4>
+<h4 class="sub-label">Testosterone</h4>
+<h4 class="sub-label">Oestradiol</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓SHBG</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↑free testosterone</span></div>
+<h4 class="sub-label">Seen in:</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">Insulin resistance</h4>
+<h4 class="sub-label">Hyperinsulinaemia</h4>
+<h4 class="sub-label">Hypothyroidism</h4>
+<p class="standard-p">Androgen excess.</p>
+<h4 class="sub-label">PCOS mechanism</h4>
+<h4 class="sub-label">Insulin resistance</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Hyperinsulinaemia</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓SHBG + ↑ovarian androgen production</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">↑free androgen</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<p class="standard-p">Anovulation + hyperandrogenism.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">12. PCOS — CORE BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic biochemical abnormalities</span></div>
+                <div class="callout-body">↑LH in some patients</div>
+            </div>
+            
+<h4 class="sub-label">↑androgens</h4>
+<h4 class="sub-label">↑free testosterone</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓SHBG</span></div>
+<h4 class="sub-label">Insulin resistance</h4>
+<h4 class="sub-label">Hyperinsulinaemia</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important point</span></div>
+                
+            </div>
+            
+<p class="standard-p">LH:FSH ratio is NOT diagnostic of PCOS.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">13. INSULIN &amp; GLUCOSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Fasting glucose</h4>
+<h4 class="sub-label">Normal:</h4>
+<p class="standard-p">&lt;<span class="val-pill">100 mg</span>/dL</p>
+<h4 class="sub-label">Prediabetes:</h4>
+<h4 class="sub-label">100–125 mg/dL</h4>
+<h4 class="sub-label">Diabetes:</h4>
+<p class="standard-p"><span class="val-pill">≥126 mg</span>/dL, confirmed appropriately.</p>
+<h4 class="sub-label">HbA1c</h4>
+<h4 class="sub-label">Normal:</h4>
+<p class="standard-p">&lt;<span class="val-pill">5.7%</span></p>
+<h4 class="sub-label">Prediabetes:</h4>
+<h4 class="sub-label">5.7–6.4%</h4>
+<h4 class="sub-label">Diabetes:</h4>
+<h4 class="sub-label">≥6.5%</h4>
+<h4 class="sub-label">Insulin resistance</h4>
+<h4 class="sub-label">Commonly associated with:</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">NAFLD</h4>
+<h4 class="sub-label">Type 2 diabetes</h4>
+<p class="standard-p">Metabolic syndrome.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">14. LIPID BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">High-risk pattern</h4>
+<h4 class="sub-label">↑Triglycerides</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓HDL</span></div>
+<h4 class="sub-label">↑small dense LDL</h4>
+<h4 class="sub-label">Associated with:</h4>
+<h4 class="sub-label">Insulin resistance</h4>
+<h4 class="sub-label">PCOS</h4>
+<h4 class="sub-label">Metabolic syndrome</h4>
+<p class="standard-p">Cardiovascular disease.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">15. ENDOMETRIOSIS — BIOCHEMISTRY/IMMUNOPATHOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Endometriotic tissue demonstrates:</h4>
+<h4 class="sub-label">Local oestrogen production</h4>
+<h4 class="sub-label">Aromatase activity</h4>
+<h4 class="sub-label">Progesterone resistance</h4>
+<h4 class="sub-label">Inflammatory cytokine activation</h4>
+<h4 class="sub-label">Increased prostaglandins</h4>
+<p class="standard-p">Increased macrophage activity.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important mediators</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">IL-1, IL-6, IL-8, TNF-α</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ inflammation</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ angiogenesis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ pain</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ lesion survival.</span></div>
+<h4 class="sub-label">Prostaglandins</h4>
+<h4 class="sub-label">PGE₂:</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Inflammation</h4>
+<h4 class="sub-label">PGF₂α:</h4>
+<p class="standard-p">Smooth muscle contraction.</p>
+<h4 class="sub-label">This contributes to:</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<p class="standard-p">Pelvic pain.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">16. FIBROID BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Leiomyomas are:</h4>
+<h4 class="sub-label">Oestrogen responsive</h4>
+<p class="standard-p">Progesterone responsive.</p>
+<h4 class="sub-label">Growth influenced by:</h4>
+<h4 class="sub-label">Oestrogen</h4>
+<h4 class="sub-label">Progesterone</h4>
+<h4 class="sub-label">Growth factors</h4>
+<p class="standard-p">Extracellular matrix.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important mediators</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">TGF-β</h4>
+<h4 class="sub-label">IGF</h4>
+<h4 class="sub-label">Fibronectin</h4>
+<p class="standard-p">Collagen.</p>
+<h4 class="sub-label">Degeneration</h4>
+<h4 class="sub-label">Red degeneration</h4>
+<p class="standard-p">Often associated with pregnancy.</p>
+<p class="standard-p">Haemorrhagic infarction.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">17. OVARIAN CANCER — IMPORTANT BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">CA-125</h4>
+<h4 class="sub-label">Normal generally:</h4>
+<p class="standard-p">&lt;35 U/mL</p>
+<h4 class="sub-label">May rise in:</h4>
+<h4 class="sub-label">Epithelial ovarian cancer</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Fibroids</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">Menstruation</h4>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">Peritonitis</h4>
+<p class="standard-p">Liver disease.</p>
+<h4 class="sub-label">Therefore:</h4>
+<p class="standard-p">CA-125 is NOT specific for ovarian cancer.</p>
+<h4 class="sub-label">Other tumour markers</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Tumour</th>
+<th>Marker</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Epithelial ovarian cancer</strong></td>
+<td>CA-125</td>
+</tr>
+<tr>
+<td><strong>Germ-cell tumour</strong></td>
+<td>AFP</td>
+</tr>
+<tr>
+<td><strong>Dysgerminoma</strong></td>
+<td>LDH</td>
+</tr>
+<tr>
+<td><strong>Yolk sac tumour</strong></td>
+<td>AFP</td>
+</tr>
+<tr>
+<td><strong>Choriocarcinoma</strong></td>
+<td>β-hCG</td>
+</tr>
+<tr>
+<td><strong>Embryonal carcinoma</strong></td>
+<td>AFP ± β-hCG</td>
+</tr>
+<tr>
+<td><strong>Granulosa cell tumour</strong></td>
+<td>Inhibin</td>
+</tr>
+<tr>
+<td><strong>Mucinous ovarian tumour</strong></td>
+<td>CEA ± CA19-9</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-17-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">β-hCG</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-17-1" onchange="toggleMastery('t-17-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Produced by:</h4>
+<p class="standard-p">Syncytiotrophoblast.</p>
+<h4 class="sub-label">Clinical uses</h4>
+<h4 class="sub-label">Pregnancy diagnosis</h4>
+<h4 class="sub-label">Ectopic pregnancy assessment</h4>
+<h4 class="sub-label">Pregnancy of unknown location</h4>
+<h4 class="sub-label">Gestational trophoblastic disease</h4>
+<p class="standard-p">Germ-cell tumours.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important property</span></div>
+                
+            </div>
+            
+<p class="standard-p">β-hCG has a free β-subunit, which provides high specificity for pregnancy testing.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">19. GESTATIONAL TROPHOBLASTIC DISEASE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Complete mole</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Very high β-hCG</h4>
+<h4 class="sub-label">No viable fetus</h4>
+<h4 class="sub-label">Diffuse villous swelling</h4>
+<p class="standard-p">Trophoblastic proliferation.</p>
+<h4 class="sub-label">Possible complications:</h4>
+<h4 class="sub-label">Hyperemesis</h4>
+<h4 class="sub-label">Hyperthyroidism</h4>
+<h4 class="sub-label">Early pre-eclampsia</h4>
+<h4 class="sub-label">Theca-lutein cysts</h4>
+<p class="standard-p">Persistent GTN.</p>
+<h4 class="sub-label">Partial mole</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Triploid conceptus</h4>
+<h4 class="sub-label">Fetal tissue may be present</h4>
+<p class="standard-p">Less marked β-hCG elevation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">20. IMMUNOLOGY OF THE FEMALE REPRODUCTIVE TRACT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Vaginal defence</h4>
+<h4 class="sub-label">Normal vaginal flora:</h4>
+<h4 class="sub-label">Lactobacillus</h4>
+<p class="standard-p">Lactobacilli convert glycogen-derived substrates to lactic acid.</p>
+<h4 class="sub-label">Normal vaginal pH:</h4>
+<h4 class="sub-label">~3.8–4.5</h4>
+<p class="standard-p">Acidic environment suppresses many pathogens.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">21. BACTERIAL VAGINOSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Mechanism</span></div>
+                <div class="callout-body">↓Lactobacilli</div>
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↑anaerobic bacteria</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↑vaginal pH</span></div>
+<h4 class="sub-label">Typical pH:</h4>
+<h4 class="sub-label">&gt;4.5</h4>
+<h4 class="sub-label">Common organisms:</h4>
+<h4 class="sub-label">Gardnerella</h4>
+<p class="standard-p">Anaerobes.</p>
+<h4 class="sub-label">Clue cells</h4>
+<p class="standard-p">Vaginal epithelial cells coated with bacteria.</p>
+<h4 class="sub-label">Whiff test</h4>
+<p class="standard-p">KOH releases fishy amine odour.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">22. CANDIDA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">pH usually normal: ≤4.5</h4>
+<h4 class="sub-label">Features:</h4>
+<h4 class="sub-label">Intense pruritus</h4>
+<h4 class="sub-label">Thick white discharge</h4>
+<h4 class="sub-label">Vulval erythema</h4>
+<h4 class="sub-label">Microscopy:</h4>
+<h4 class="sub-label">Budding yeast</h4>
+<h4 class="sub-label">Pseudohyphae</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">Candida does not typically raise vaginal pH.</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">23. TRICHOMONIASIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Organism:</h4>
+<h4 class="sub-label">Trichomonas vaginalis</h4>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">Frothy yellow-green discharge</h4>
+<h4 class="sub-label">Vulval irritation</h4>
+<h4 class="sub-label">Strawberry cervix</h4>
+<h4 class="sub-label">pH:</h4>
+<h4 class="sub-label">&gt;4.5</h4>
+<h4 class="sub-label">Microscopy:</h4>
+<p class="standard-p">Motile flagellated organisms.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">24. PID — IMMUNOPATHOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Common pathogens:</h4>
+<h4 class="sub-label">Chlamydia trachomatis</h4>
+<h4 class="sub-label">Neisseria gonorrhoeae</h4>
+<h4 class="sub-label">Anaerobes</h4>
+<p class="standard-p">Polymicrobial vaginal flora.</p>
+<h4 class="sub-label">Ascending infection:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Vagina → cervix → endometrium → fallopian tubes → peritoneum</span></div>
+<h4 class="sub-label">Inflammation can produce:</h4>
+<h4 class="sub-label">Tubal scarring</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Hydrosalpinx</h4>
+<h4 class="sub-label">Infertility</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<p class="standard-p">Chronic pelvic pain.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">25. CHLAMYDIA — KEY IMMUNOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Chlamydia is an intracellular pathogen.</p>
+<h4 class="sub-label">Host immune response:</h4>
+<h4 class="sub-label">Macrophages</h4>
+<h4 class="sub-label">T cells</h4>
+<h4 class="sub-label">Cytokines</h4>
+<h4 class="sub-label">Repeated infection can cause:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>chronic inflammation → fibrosis → tubal damage.</span></div>
+<h4 class="sub-label">This explains the association with:</h4>
+<h4 class="sub-label">Tubal infertility</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<p class="standard-p">Fitz-Hugh–Curtis syndrome.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">26. HPV IMMUNOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">HPV infects:</h4>
+<p class="standard-p">Basal epithelial cells.</p>
+<h4 class="sub-label">High-risk types:</h4>
+<h4 class="sub-label">HPV 16 and 18</h4>
+<p class="standard-p">Major oncogenic types.</p>
+<h4 class="sub-label">Other important high-risk types:</h4>
+<h4 class="sub-label">31</h4>
+<h4 class="sub-label">33</h4>
+<h4 class="sub-label">45</h4>
+<h4 class="sub-label">52</h4>
+<h4 class="sub-label">58</h4>
+<h4 class="sub-label">E6</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ inhibits/degrades p53</span></div>
+<h4 class="sub-label">E7</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ inhibits RB</span></div>
+<h4 class="sub-label">Result:</h4>
+<h4 class="sub-label">Loss of cell-cycle control</h4>
+<h4 class="sub-label">Genomic instability</h4>
+<h4 class="sub-label">Dysplasia</h4>
+<p class="standard-p">Cancer.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">27. CERVICAL CANCER IMMUNOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-26" onchange="toggleMastery('sec-26')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Persistent high-risk HPV infection is the key event.</p>
+<h4 class="sub-label">Progression:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HPV infection → persistent infection → CIN → invasive cancer</span></div>
+<h4 class="sub-label">Risk factors for persistence/progression:</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Immunosuppression</h4>
+<h4 class="sub-label">HIV</h4>
+<h4 class="sub-label">Persistent high-risk HPV</h4>
+<p class="standard-p">Lack of screening.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">28. ENDOMETRIAL CANCER — HORMONAL BIOCHEMISTRY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Unopposed oestrogen</h4>
+<h4 class="sub-label">Oestrogen</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Endometrial proliferation</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Hyperplasia</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Atypical hyperplasia/EIN</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<p class="standard-p">Endometrioid carcinoma.</p>
+<h4 class="sub-label">Risk factors:</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">PCOS/anovulation</h4>
+<h4 class="sub-label">Nulliparity</h4>
+<h4 class="sub-label">Oestrogen-only HRT</h4>
+<h4 class="sub-label">Tamoxifen</h4>
+<h4 class="sub-label">Early menarche</h4>
+<p class="standard-p">Late menopause.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">29. OVARIAN IMMUNOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ovarian tumours may demonstrate:</h4>
+<h4 class="sub-label">Tumour-associated macrophages</h4>
+<h4 class="sub-label">T-cell infiltration</h4>
+<h4 class="sub-label">NK-cell responses</h4>
+<p class="standard-p">Cytokine signalling.</p>
+<h4 class="sub-label">Tumour immune evasion allows:</h4>
+<h4 class="sub-label">Continued proliferation</h4>
+<h4 class="sub-label">Angiogenesis</h4>
+<p class="standard-p">Metastasis.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">30. IMPORTANT ANATOMICAL LANDMARKS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-29-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Vulva</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-29-1" onchange="toggleMastery('t-29-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Components:</h4>
+<h4 class="sub-label">Mons pubis</h4>
+<h4 class="sub-label">Labia majora</h4>
+<h4 class="sub-label">Labia minora</h4>
+<h4 class="sub-label">Clitoris</h4>
+<h4 class="sub-label">Vestibule</h4>
+<h4 class="sub-label">Bartholin glands</h4>
+<p class="standard-p">Skene/paraurethral glands.</p>
+<h4 class="sub-label">Bartholin gland</h4>
+<p class="standard-p">Located posterolaterally in the lower vagina/vestibular region.</p>
+<h4 class="sub-label">Duct opens around:</h4>
+<p class="standard-p">4 and 8 o&#x27;clock positions of the vaginal introitus.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">31. CLITORIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Components:</h4>
+<h4 class="sub-label">Glans</h4>
+<h4 class="sub-label">Body</h4>
+<h4 class="sub-label">Crura</h4>
+<p class="standard-p">Bulbs of vestibule are adjacent erectile structures.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important surgical point</span></div>
+                
+            </div>
+            
+<p class="standard-p">The clitoris is highly vascular and innervated.</p>
+<h4 class="sub-label">Avoid unnecessary trauma during:</h4>
+<h4 class="sub-label">Vulval surgery</h4>
+<h4 class="sub-label">FGM repair</h4>
+<p class="standard-p">Episiotomy/repair.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">32. VAGINA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-31" onchange="toggleMastery('sec-31')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Approximate length:</h4>
+<h4 class="sub-label">Anterior wall: ~7–9 cm</h4>
+<h4 class="sub-label">Posterior wall: ~9–11 cm</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Upper vagina surrounds cervix.</p>
+<p class="standard-p">Creates vaginal fornices.</p>
+<h4 class="sub-label">Fornices</h4>
+<h4 class="sub-label">Anterior</h4>
+<h4 class="sub-label">Posterior</h4>
+<h4 class="sub-label">Right lateral</h4>
+<h4 class="sub-label">Left lateral</h4>
+<h4 class="sub-label">Posterior fornix</h4>
+<h4 class="sub-label">Clinically important because it is close to the:</h4>
+<p class="standard-p">rectouterine pouch (Pouch of Douglas).</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">33. CERVIX</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-32" onchange="toggleMastery('sec-32')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Approximate length:</h4>
+<h4 class="sub-label">2–3 cm</h4>
+<h4 class="sub-label">Parts:</h4>
+<h4 class="sub-label">Supravaginal</h4>
+<h4 class="sub-label">Vaginal portion/portio vaginalis</h4>
+<h4 class="sub-label">External os</h4>
+<p class="standard-p">Communicates with vagina.</p>
+<h4 class="sub-label">Internal os</h4>
+<p class="standard-p">Communicates with uterine cavity.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">34. TRANSFORMATION ZONE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-33" onchange="toggleMastery('sec-33')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Located around the:</h4>
+<p class="standard-p">squamocolumnar junction (SCJ).</p>
+<h4 class="sub-label">Original:</h4>
+<h4 class="sub-label">Endocervical columnar epithelium</h4>
+<h4 class="sub-label">Metaplastic:</h4>
+<h4 class="sub-label">Squamous epithelium</h4>
+<h4 class="sub-label">This is the major site for:</h4>
+<p class="standard-p">HPV-related cervical neoplasia.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">35. UTERUS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-34" onchange="toggleMastery('sec-34')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical adult uterus:</h4>
+<h4 class="sub-label">~7–8 cm long</h4>
+<h4 class="sub-label">~4–5 cm wide</h4>
+<h4 class="sub-label">~2–3 cm thick</h4>
+<h4 class="sub-label">Parts:</h4>
+<h4 class="sub-label">Fundus</h4>
+<h4 class="sub-label">Body</h4>
+<h4 class="sub-label">Isthmus</h4>
+<p class="standard-p">Cervix.</p>
+<h4 class="sub-label">Layers</h4>
+<h4 class="sub-label">Endometrium</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ inner mucosa</span></div>
+<h4 class="sub-label">Myometrium</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ smooth muscle</span></div>
+<h4 class="sub-label">Perimetrium</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ serosal covering.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">36. UTERINE BLOOD SUPPLY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Uterine artery</h4>
+<h4 class="sub-label">Branch of:</h4>
+<h4 class="sub-label">Anterior division of internal iliac artery</h4>
+<p class="standard-p">Travels medially in the base of the broad ligament.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">KEY EXAM RELATIONSHIP</span></div>
+                
+            </div>
+            
+<p class="standard-p">Ureter passes UNDER the uterine artery.</p>
+<h4 class="sub-label">Mnemonic:</h4>
+<h4 class="sub-label">“Water under the bridge”</h4>
+<h4 class="sub-label">Water = ureter</h4>
+<h4 class="sub-label">Bridge = uterine artery</h4>
+<h4 class="sub-label">Extremely important during:</h4>
+<h4 class="sub-label">Hysterectomy</h4>
+<h4 class="sub-label">Uterine artery ligation</h4>
+<p class="standard-p">Cervical surgery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">37. URETER — GYNAECOLOGICAL DANGER POINTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ureter is approximately:</h4>
+<p class="standard-p">1.5–<span class="val-pill">2 cm</span> lateral to the cervix at the level of the uterine artery/cardinal ligament region.</p>
+<h4 class="sub-label">Three classic sites of narrowing:</h4>
+<h4 class="sub-label">Pelviureteric junction</h4>
+<h4 class="sub-label">Crossing iliac vessels</h4>
+<h4 class="sub-label">Vesicoureteric junction</h4>
+<h4 class="sub-label">Surgical danger areas</h4>
+<h4 class="sub-label">Uterine artery</h4>
+<h4 class="sub-label">Cardinal ligament</h4>
+<h4 class="sub-label">Cervical stump</h4>
+<h4 class="sub-label">Infundibulopelvic ligament</h4>
+<p class="standard-p">Pelvic sidewall.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">38. OVARIAN BLOOD SUPPLY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ovarian artery</h4>
+<h4 class="sub-label">Origin:</h4>
+<h4 class="sub-label">Abdominal aorta</h4>
+<p class="standard-p">Usually arises below renal arteries.</p>
+<h4 class="sub-label">Travels through:</h4>
+<p class="standard-p">Suspensory ligament of ovary / infundibulopelvic ligament</p>
+<h4 class="sub-label">Anastomoses with:</h4>
+<p class="standard-p">Ovarian branch of uterine artery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">39. OVARIAN LIGAMENTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Suspensory ligament of ovary</h4>
+<h4 class="sub-label">Contains:</h4>
+<h4 class="sub-label">Ovarian vessels</h4>
+<h4 class="sub-label">Lymphatics</h4>
+<p class="standard-p">Nerves.</p>
+<h4 class="sub-label">Utero-ovarian ligament</h4>
+<h4 class="sub-label">Connects:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ovary → uterus</span></div>
+<h4 class="sub-label">Broad ligament</h4>
+<p class="standard-p">A double layer of peritoneum.</p>
+<h4 class="sub-label">Contains/relates to:</h4>
+<h4 class="sub-label">Uterine tube</h4>
+<h4 class="sub-label">Round ligament</h4>
+<h4 class="sub-label">Uterine vessels</h4>
+<p class="standard-p">Ureter nearby at its base.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">40. ROUND LIGAMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Origin:</h4>
+<h4 class="sub-label">Uterine cornu</h4>
+<h4 class="sub-label">Passes:</h4>
+<h4 class="sub-label">Through broad ligament</h4>
+<h4 class="sub-label">Deep inguinal ring</h4>
+<h4 class="sub-label">Inguinal canal</h4>
+<h4 class="sub-label">Terminates in:</h4>
+<h4 class="sub-label">Labia majora</h4>
+<h4 class="sub-label">Embryological remnant related to:</h4>
+<p class="standard-p">gubernaculum.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">41. CARDINAL LIGAMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Also called:</h4>
+<h4 class="sub-label">Transverse cervical ligament</h4>
+<h4 class="sub-label">Extends from:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>cervix/upper vagina → lateral pelvic wall</span></div>
+<h4 class="sub-label">Contains important:</h4>
+<h4 class="sub-label">Uterine vessels</h4>
+<h4 class="sub-label">Connective tissue</h4>
+<h4 class="sub-label">Lymphatics</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important for</span></div>
+                
+            </div>
+            
+<p class="standard-p">Apical pelvic support.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-41" data-part-index="41">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 41</span>
+                    <h2 class="part-title">42. UTEROSACRAL LIGAMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-41" onchange="toggleMastery('sec-41')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-41')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-41')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Extends:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>cervix/upper vagina → sacrum</span></div>
+<h4 class="sub-label">Functions:</h4>
+<h4 class="sub-label">Posterior uterine/cervical support</h4>
+<p class="standard-p">Apical vaginal support.</p>
+<h4 class="sub-label">Surgical landmark in:</h4>
+<h4 class="sub-label">Hysterectomy</h4>
+<p class="standard-p">Prolapse surgery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-42" data-part-index="42">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 42</span>
+                    <h2 class="part-title">43. PELVIC FLOOR</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-42" onchange="toggleMastery('sec-42')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-42')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-42')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Main muscle:</h4>
+<h4 class="sub-label">Levator ani</h4>
+<h4 class="sub-label">Components:</h4>
+<h4 class="sub-label">Puborectalis</h4>
+<h4 class="sub-label">Pubococcygeus</h4>
+<p class="standard-p">Iliococcygeus.</p>
+<h4 class="sub-label">Functions</h4>
+<h4 class="sub-label">Supports pelvic organs</h4>
+<h4 class="sub-label">Maintains continence</h4>
+<h4 class="sub-label">Assists defecation</h4>
+<p class="standard-p">Supports vagina.</p>
+<h4 class="sub-label">Damage can contribute to:</h4>
+<h4 class="sub-label">Pelvic organ prolapse</h4>
+<h4 class="sub-label">Stress urinary incontinence</h4>
+<p class="standard-p">Faecal incontinence.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-43" data-part-index="43">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 43</span>
+                    <h2 class="part-title">44. PELVIC FASCIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-43" onchange="toggleMastery('sec-43')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-43')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-43')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important structures</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Endopelvic fascia</h4>
+<h4 class="sub-label">Pubocervical fascia</h4>
+<p class="standard-p">Rectovaginal fascia.</p>
+<h4 class="sub-label">Pubocervical fascia</h4>
+<h4 class="sub-label">Supports:</h4>
+<h4 class="sub-label">Bladder</h4>
+<h4 class="sub-label">Urethra</h4>
+<p class="standard-p">Anterior vaginal wall.</p>
+<h4 class="sub-label">Defect:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ anterior compartment prolapse/cystocele.</span></div>
+<h4 class="sub-label">Rectovaginal fascia</h4>
+<h4 class="sub-label">Supports:</h4>
+<h4 class="sub-label">Posterior vaginal wall</h4>
+<p class="standard-p">Rectum.</p>
+<h4 class="sub-label">Defect:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ rectocele.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-44" data-part-index="44">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 44</span>
+                    <h2 class="part-title">45. POUCH OF DOUGLAS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-44" onchange="toggleMastery('sec-44')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-44')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-44')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Also called:</h4>
+<h4 class="sub-label">Rectouterine pouch</h4>
+<h4 class="sub-label">Location:</h4>
+<h4 class="sub-label">Between uterus and rectum</h4>
+<p class="standard-p">It is the lowest part of the female peritoneal cavity when upright.</p>
+<h4 class="sub-label">Can contain:</h4>
+<h4 class="sub-label">Blood</h4>
+<h4 class="sub-label">Pus</h4>
+<h4 class="sub-label">Ascitic fluid</h4>
+<p class="standard-p">Endometriotic implants.</p>
+<h4 class="sub-label">Clinical examination:</h4>
+<p class="standard-p">Posterior fornix may give access to this region.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-45" data-part-index="45">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 45</span>
+                    <h2 class="part-title">46. BROAD LIGAMENT — CONTENTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-45" onchange="toggleMastery('sec-45')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-45')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-45')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Remember “FAT”</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Fallopian tube</h4>
+<h4 class="sub-label">Artery/uterine vessels nearby</h4>
+<h4 class="sub-label">Tissues and adnexal structures</h4>
+<p class="standard-p">More precisely, the broad ligament encloses the mesometrium, mesosalpinx and mesovarium and contains/relation to:</p>
+<h4 class="sub-label">Uterine tube</h4>
+<h4 class="sub-label">Round ligament</h4>
+<h4 class="sub-label">Ovarian ligament</h4>
+<h4 class="sub-label">Uterine vessels</h4>
+<h4 class="sub-label">Nerves</h4>
+<h4 class="sub-label">Lymphatics</h4>
+<p class="standard-p">Connective tissue.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-46" data-part-index="46">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 46</span>
+                    <h2 class="part-title">47. LYMPHATIC DRAINAGE — VERY HIGH YIELD</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-46" onchange="toggleMastery('sec-46')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-46')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-46')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Structure</th>
+<th>Main lymphatic drainage</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Ovary</strong></td>
+<td>Para-aortic nodes</td>
+</tr>
+<tr>
+<td><strong>Fundus of uterus</strong></td>
+<td>Para-aortic + external iliac</td>
+</tr>
+<tr>
+<td><strong>Body of uterus</strong></td>
+<td>External iliac</td>
+</tr>
+<tr>
+<td><strong>Cervix</strong></td>
+<td>Internal iliac + obturator + external iliac + sacral</td>
+</tr>
+<tr>
+<td><strong>Upper vagina</strong></td>
+<td>Internal iliac</td>
+</tr>
+<tr>
+<td><strong>Lower vagina</strong></td>
+<td>Superficial inguinal</td>
+</tr>
+<tr>
+<td><strong>Vulva</strong></td>
+<td>Superficial inguinal</td>
+</tr>
+<tr>
+<td><strong>Clitoris</strong></td>
+<td>Deep inguinal/external iliac</td>
+</tr>
+<tr>
+<td><strong>Fundus via round ligament</strong></td>
+<td>Superficial inguinal</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic exam trap</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Ovary → para-aortic nodes</span></div>
+<p class="standard-p">because embryologically the ovary originates high in the posterior abdominal wall and descends into the pelvis.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-47" data-part-index="47">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 47</span>
+                    <h2 class="part-title">48. OVARIAN EMBRYOLOGY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-47" onchange="toggleMastery('sec-47')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-47')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-47')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ovary develops near:</h4>
+<h4 class="sub-label">posterior abdominal wall</h4>
+<p class="standard-p">Then descends into pelvis.</p>
+<h4 class="sub-label">Gubernaculum becomes:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Upper portion → ovarian ligament</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Lower portion → round ligament</span></div>
+<h4 class="sub-label">This explains:</h4>
+<h4 class="sub-label">Ovarian position</h4>
+<h4 class="sub-label">Ovarian lymphatic drainage</h4>
+<p class="standard-p">Relationship of ovarian vessels to the abdominal aorta.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-48" data-part-index="48">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 48</span>
+                    <h2 class="part-title">49. IMPORTANT PELVIC NERVES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-48" onchange="toggleMastery('sec-48')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-48')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-48')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pudendal nerve</h4>
+<h4 class="sub-label">Roots:</h4>
+<h4 class="sub-label">S2–S4</h4>
+<h4 class="sub-label">Functions:</h4>
+<h4 class="sub-label">Sensory supply to external genitalia</h4>
+<h4 class="sub-label">Motor supply to perineal muscles</h4>
+<p class="standard-p">External anal sphincter.</p>
+<h4 class="sub-label">Pudendal nerve block</h4>
+<h4 class="sub-label">Landmark:</h4>
+<h4 class="sub-label">Ischial spine</h4>
+<h4 class="sub-label">Useful during:</h4>
+<h4 class="sub-label">Vaginal procedures</h4>
+<p class="standard-p">Perineal procedures.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-49" data-part-index="49">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 49</span>
+                    <h2 class="part-title">50. AUTONOMIC NERVE SUPPLY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-49" onchange="toggleMastery('sec-49')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-49')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-49')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Sympathetic</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">T10–L2</h4>
+<h4 class="sub-label">Parasympathetic</h4>
+<h4 class="sub-label">S2–S4</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important for</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Bladder</h4>
+<h4 class="sub-label">Rectum</h4>
+<h4 class="sub-label">Sexual function</h4>
+<p class="standard-p">Pelvic organ function.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-50" data-part-index="50">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 50</span>
+                    <h2 class="part-title">51. ISCHIAL SPINE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-50" onchange="toggleMastery('sec-50')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-50')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-50')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Extremely important pelvic landmark.</p>
+<h4 class="sub-label">Used to assess:</h4>
+<h4 class="sub-label">Fetal station</h4>
+<h4 class="sub-label">Ischial spines:</h4>
+<h4 class="sub-label">0 station</h4>
+<h4 class="sub-label">Above:</h4>
+<h4 class="sub-label">Negative stations</h4>
+<h4 class="sub-label">Below:</h4>
+<p class="standard-p">Positive stations.</p>
+<h4 class="sub-label">Also landmark for:</h4>
+<p class="standard-p">Pudendal nerve block.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-51" data-part-index="51">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 51</span>
+                    <h2 class="part-title">52. SACRAL PROMONTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-51" onchange="toggleMastery('sec-51')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-51')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-51')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important in</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Pelvimetry</h4>
+<h4 class="sub-label">Pelvic surgery</h4>
+<h4 class="sub-label">Sacrocolpopexy</h4>
+<p class="standard-p">Identification of pelvic dimensions.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-52" data-part-index="52">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 52</span>
+                    <h2 class="part-title">53. PECTINEAL/ILIOPECTINEAL LINE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-52" onchange="toggleMastery('sec-52')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-52')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-52')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Forms part of:</h4>
+<h4 class="sub-label">Pelvic brim</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important in</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Pelvic inlet assessment</h4>
+<h4 class="sub-label">Pelvic anatomy</h4>
+<p class="standard-p">Lymphatic and surgical orientation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-53" data-part-index="53">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 53</span>
+                    <h2 class="part-title">54. RETROPUBIC SPACE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-53" onchange="toggleMastery('sec-53')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-53')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-53')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Also:</h4>
+<h4 class="sub-label">Space of Retzius</h4>
+<h4 class="sub-label">Between:</h4>
+<h4 class="sub-label">Pubic symphysis</h4>
+<p class="standard-p">Bladder/anterior pelvic structures.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important during</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Retropubic mid-urethral sling</h4>
+<h4 class="sub-label">Burch colposuspension</h4>
+<p class="standard-p">Bladder surgery.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-54" data-part-index="54">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 54</span>
+                    <h2 class="part-title">55. IMPORTANT SURGICAL LANDMARKS — RAPID REVISION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-54" onchange="toggleMastery('sec-54')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-54')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-54')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">During hysterectomy</h4>
+<h4 class="sub-label">Identify:</h4>
+<h4 class="sub-label">Round ligament</h4>
+<h4 class="sub-label">Uterine tube/ovary</h4>
+<h4 class="sub-label">Infundibulopelvic ligament</h4>
+<h4 class="sub-label">Ureter</h4>
+<h4 class="sub-label">Uterine artery</h4>
+<h4 class="sub-label">Cardinal ligament</h4>
+<h4 class="sub-label">Uterosacral ligament</h4>
+<h4 class="sub-label">Bladder</h4>
+<p class="standard-p">Rectum.</p>
+<h4 class="sub-label">Biggest danger:</h4>
+<h4 class="sub-label">Ureteric injury</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Remember</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Ureter → under uterine artery → near cervix → enters bladder.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-55" data-part-index="55">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 55</span>
+                    <h2 class="part-title">56. ONE-MINUTE EXAM TABLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-55" onchange="toggleMastery('sec-55')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-55')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-55')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Topic</th>
+<th>Must remember</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>GnRH</strong></td>
+<td>Pulsatile</td>
+</tr>
+<tr>
+<td><strong>Continuous GnRH</strong></td>
+<td>Downregulates pituitary receptors</td>
+</tr>
+<tr>
+<td><strong>FSH</strong></td>
+<td>Granulosa</td>
+</tr>
+<tr>
+<td><strong>LH</strong></td>
+<td>Theca + ovulation</td>
+</tr>
+<tr>
+<td><strong>Aromatase</strong></td>
+<td>Androgen → oestrogen</td>
+</tr>
+<tr>
+<td><strong>Progesterone</strong></td>
+<td>Secretory endometrium</td>
+</tr>
+<tr>
+<td><strong>AMH</strong></td>
+<td>Ovarian reserve/follicle pool</td>
+</tr>
+<tr>
+<td><strong>Prolactin</strong></td>
+<td>Dopamine inhibits</td>
+</tr>
+<tr>
+<td><strong>PCOS</strong></td>
+<td>Hyperandrogenism + ovulatory dysfunction ± polycystic ovaries</td>
+</tr>
+<tr>
+<td><strong>BV</strong></td>
+<td>pH &gt;4.5 + clue cells</td>
+</tr>
+<tr>
+<td><strong>Candida</strong></td>
+<td>pH usually ≤4.5 + pseudohyphae</td>
+</tr>
+<tr>
+<td><strong>Trichomonas</strong></td>
+<td>pH &gt;4.5 + motile organism</td>
+</tr>
+<tr>
+<td><strong>HPV E6</strong></td>
+<td>p53</td>
+</tr>
+<tr>
+<td><strong>HPV E7</strong></td>
+<td>RB</td>
+</tr>
+<tr>
+<td><strong>CA-125</strong></td>
+<td>Usually &lt;35 U/mL; nonspecific</td>
+</tr>
+<tr>
+<td><strong>Ovary lymphatics</strong></td>
+<td>Para-aortic</td>
+</tr>
+<tr>
+<td><strong>Vulva lymphatics</strong></td>
+<td>Superficial inguinal</td>
+</tr>
+<tr>
+<td><strong>Uterine artery</strong></td>
+<td>Internal iliac</td>
+</tr>
+<tr>
+<td><strong>Ovarian artery</strong></td>
+<td>Abdominal aorta</td>
+</tr>
+<tr>
+<td><strong>Ureter</strong></td>
+<td>Under uterine artery</td>
+</tr>
+<tr>
+<td><strong>Pudendal nerve</strong></td>
+<td>S2–S4</td>
+</tr>
+<tr>
+<td><strong>Ischial spine</strong></td>
+<td>0 fetal station</td>
+</tr>
+<tr>
+<td><strong>Bartholin ducts</strong></td>
+<td>4 &amp; 8 o&#x27;clock</td>
+</tr>
+<tr>
+<td><strong>Transformation zone</strong></td>
+<td>Major cervical neoplasia site</td>
+</tr>
+<tr>
+<td><strong>Pouch of Douglas</strong></td>
+<td>Rectouterine pouch</td>
+</tr>
+<tr>
+<td><strong>Retzius</strong></td>
+<td>Retropubic space</td>
+</tr>
+<tr>
+<td><strong>Levator ani</strong></td>
+<td>Major pelvic floor muscle</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 IMPORTANT BIOCHEMISTRY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Tumour?</li>
+<li class="surg-item">● Marker</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 IMPORTANT BIOCHEMISTRY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Epithelial ovarian cancer?</li>
+<li class="surg-item">● CA-125</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 IMPORTANT BIOCHEMISTRY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Germ-cell tumour?</li>
+<li class="surg-item">● AFP</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 IMPORTANT BIOCHEMISTRY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Dysgerminoma?</li>
+<li class="surg-item">● LDH</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 IMPORTANT BIOCHEMISTRY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Yolk sac tumour?</li>
+<li class="surg-item">● AFP</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 IMPORTANT BIOCHEMISTRY</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● What are the diagnostic features, cut-offs or clinical guidelines for Choriocarcinoma?</li>
+<li class="surg-item">● β-hCG</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 55;
+    const flashcards = [{"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Tumour</strong>?", "a": "<strong>Marker</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Epithelial ovarian cancer</strong>?", "a": "<strong>CA-125</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Germ-cell tumour</strong>?", "a": "<strong>AFP</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Dysgerminoma</strong>?", "a": "<strong>LDH</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Yolk sac tumour</strong>?", "a": "<strong>AFP</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Choriocarcinoma</strong>?", "a": "<strong>\u03b2-hCG</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Embryonal carcinoma</strong>?", "a": "<strong>AFP \u00b1 \u03b2-hCG</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Granulosa cell tumour</strong>?", "a": "<strong>Inhibin</strong>"}, {"category": "IMPORTANT BIOCHEMISTRY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mucinous ovarian tumour</strong>?", "a": "<strong>CEA \u00b1 CA19-9</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Structure</strong>?", "a": "<strong>Main lymphatic drainage</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ovary</strong>?", "a": "<strong>Para-aortic nodes</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fundus of uterus</strong>?", "a": "<strong>Para-aortic + external iliac</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Body of uterus</strong>?", "a": "<strong>External iliac</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervix</strong>?", "a": "<strong>Internal iliac + obturator + external iliac + sacral</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Upper vagina</strong>?", "a": "<strong>Internal iliac</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Lower vagina</strong>?", "a": "<strong>Superficial inguinal</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vulva</strong>?", "a": "<strong>Superficial inguinal</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Clitoris</strong>?", "a": "<strong>Deep inguinal/external iliac</strong>"}, {"category": "VERY HIGH YIELD", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fundus via round ligament</strong>?", "a": "<strong>Superficial inguinal</strong>"}, {"category": "56. ONE-MINUTE EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Topic</strong>?", "a": "<strong>Must remember</strong>"}, {"category": "56. ONE-MINUTE EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>GnRH</strong>?", "a": "<strong>Pulsatile</strong>"}, {"category": "56. ONE-MINUTE EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Continuous GnRH</strong>?", "a": "<strong>Downregulates pituitary receptors</strong>"}, {"category": "56. ONE-MINUTE EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>FSH</strong>?", "a": "<strong>Granulosa</strong>"}, {"category": "56. ONE-MINUTE EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>LH</strong>?", "a": "<strong>Theca + ovulation</strong>"}, {"category": "56. ONE-MINUTE EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Aromatase</strong>?", "a": "<strong>Androgen \u2192 oestrogen</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Tumour ?", "options": ["Marker", "CA-125", "\u03b2-hCG", "AFP \u00b1 \u03b2-hCG"], "correct": 0, "explanation": "Key Guideline / Fact: Marker (IMPORTANT BIOCHEMISTRY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Epithelial ovarian cancer ?", "options": ["Marker", "CA-125", "\u03b2-hCG", "AFP \u00b1 \u03b2-hCG"], "correct": 1, "explanation": "Key Guideline / Fact: CA-125 (IMPORTANT BIOCHEMISTRY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Choriocarcinoma ?", "options": ["CA-125", "Marker", "\u03b2-hCG", "AFP \u00b1 \u03b2-hCG"], "correct": 2, "explanation": "Key Guideline / Fact: \u03b2-hCG (IMPORTANT BIOCHEMISTRY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Embryonal carcinoma ?", "options": ["\u03b2-hCG", "Marker", "CA-125", "AFP \u00b1 \u03b2-hCG"], "correct": 3, "explanation": "Key Guideline / Fact: AFP \u00b1 \u03b2-hCG (IMPORTANT BIOCHEMISTRY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Granulosa cell tumour ?", "options": ["Inhibin", "Marker", "CA-125", "\u03b2-hCG"], "correct": 0, "explanation": "Key Guideline / Fact: Inhibin (IMPORTANT BIOCHEMISTRY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Mucinous ovarian tumour ?", "options": ["Marker", "CEA \u00b1 CA19-9", "CA-125", "\u03b2-hCG"], "correct": 1, "explanation": "Key Guideline / Fact: CEA \u00b1 CA19-9 (IMPORTANT BIOCHEMISTRY)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Structure ?", "options": ["CA-125", "Marker", "Main lymphatic drainage", "\u03b2-hCG"], "correct": 2, "explanation": "Key Guideline / Fact: Main lymphatic drainage (VERY HIGH YIELD)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ovary ?", "options": ["\u03b2-hCG", "Marker", "CA-125", "Para-aortic nodes"], "correct": 3, "explanation": "Key Guideline / Fact: Para-aortic nodes (VERY HIGH YIELD)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Fundus of uterus ?", "options": ["Para-aortic + external iliac", "Marker", "CA-125", "\u03b2-hCG"], "correct": 0, "explanation": "Key Guideline / Fact: Para-aortic + external iliac (VERY HIGH YIELD)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Body of uterus ?", "options": ["Marker", "External iliac", "CA-125", "\u03b2-hCG"], "correct": 1, "explanation": "Key Guideline / Fact: External iliac (VERY HIGH YIELD)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervix ?", "options": ["CA-125", "Marker", "Internal iliac + obturator + external iliac + sacral", "\u03b2-hCG"], "correct": 2, "explanation": "Key Guideline / Fact: Internal iliac + obturator + external iliac + sacral (VERY HIGH YIELD)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Upper vagina ?", "options": ["\u03b2-hCG", "Marker", "CA-125", "Internal iliac"], "correct": 3, "explanation": "Key Guideline / Fact: Internal iliac (VERY HIGH YIELD)."}];
+    const storageKey = 'obgyn_mastered_important_biochemistry__immunopathology___anatomical_landmarks_in_gynaecology';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

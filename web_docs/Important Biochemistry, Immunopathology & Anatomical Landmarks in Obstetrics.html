@@ -1,0 +1,2669 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Biochemistry, Immunopathology &amp; Anatomical Landmarks in Obstetrics — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">Important Biochemistry, Immunopatholog</div>
+                <div class="brand-subtitle-text">High-yield MCPS/MRCOG Part 2–3 / OSCE revision</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 80 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 6 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (6 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="1. 🧪 IMPORTANT BIOCHEMISTRY IN OBSTETRICS">1. 🧪 IMPORTANT BIOCHEMISTRY IN OBSTETRICS</a></li><li><a href="#part-2" class="part-nav-link" title="19. ALP">19. ALP</a></li><li><a href="#part-3" class="part-nav-link" title="20. AST / ALT">20. AST / ALT</a></li><li><a href="#part-4" class="part-nav-link" title="23. LDH">23. LDH</a></li><li><a href="#part-5" class="part-nav-link" title="30. IMMUNOPATHOLOGY OF PREGNANCY">30. IMMUNOPATHOLOGY OF PREGNANCY</a></li><li><a href="#part-6" class="part-nav-link" title="43. ANATOMICAL LANDMARKS — OBSTETRIC PELVIS">43. ANATOMICAL LANDMARKS — OBSTETRIC PELVIS</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">Important Biochemistry, Immunopathology &amp; Anatomical Landmarks in Obstetrics</h1>
+                    <div class="reader-hero-sub">⭐ High-yield MCPS/MRCOG Part 2–3 / OSCE revision</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">1. 🧪 IMPORTANT BIOCHEMISTRY IN OBSTETRICS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-1-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">β-hCG — the key pregnancy hormone</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-1" onchange="toggleMastery('t-1-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Feature</th>
+<th>Important point</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Source</strong></td>
+<td>Syncytiotrophoblast</td>
+</tr>
+<tr>
+<td><strong>Detectable</strong></td>
+<td>~8–<span class="val-pill">10 days</span> after conception</td>
+</tr>
+<tr>
+<td><strong>Peaks</strong></td>
+<td>~8–<span class="val-pill">10 weeks</span></td>
+</tr>
+<tr>
+<td><strong>Then</strong></td>
+<td>Falls and plateaus</td>
+</tr>
+<tr>
+<td><strong>Structure</strong></td>
+<td>α + β subunits</td>
+</tr>
+<tr>
+<td><strong>Main role</strong></td>
+<td>Maintains corpus luteum → progesterone</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">hCG patterns</h4>
+<h4 class="sub-label">Normal early pregnancy</h4>
+<p class="standard-p">Rapidly rises.</p>
+<p class="standard-p">Approximate doubling every 48–72 h in early pregnancy, although the rate becomes slower as the level rises.</p>
+<p class="standard-p">A single hCG value cannot reliably diagnose viability.</p>
+<h4 class="sub-label">Abnormal patterns</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Slow rise → ectopic pregnancy, failing pregnancy or pregnancy of uncertain viability.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Falling → miscarriage is likely, but interpret with clinical/US findings.</span></div>
+<h4 class="sub-label">Very high:</h4>
+<h4 class="sub-label">Multiple pregnancy</h4>
+<h4 class="sub-label">Molar pregnancy</h4>
+<h4 class="sub-label">Occasionally chromosomal abnormalities</h4>
+<h4 class="sub-label">OSCE point</h4>
+<h4 class="sub-label">Never say “hCG must double every 48 hours”. Say:</h4>
+<p class="standard-p">“I would interpret serial quantitative β-hCG according to the starting concentration, the interval between measurements and ultrasound findings.”</p>
+
+                <div class="topic-row" id="topic-t-1-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Progesterone</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-2" onchange="toggleMastery('t-1-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Source</h4>
+<p class="standard-p">Corpus luteum initially.</p>
+<p class="standard-p">Placenta becomes major source later.</p>
+<h4 class="sub-label">Functions</h4>
+<p class="standard-p">Maintains endometrium.</p>
+<p class="standard-p">Reduces uterine contractility.</p>
+<p class="standard-p">Supports pregnancy.</p>
+<p class="standard-p">Promotes breast development.</p>
+<p class="standard-p">Contributes to respiratory and GI smooth-muscle effects.</p>
+<h4 class="sub-label">Low progesterone</h4>
+<h4 class="sub-label">May be associated with:</h4>
+<h4 class="sub-label">Failing pregnancy</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">But:</h4>
+<p class="standard-p">Serum progesterone alone does NOT reliably distinguish ectopic from miscarriage.</p>
+
+                <div class="topic-row" id="topic-t-1-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Oestrogen</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-3" onchange="toggleMastery('t-1-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Main pregnancy oestrogen:</h4>
+<h4 class="sub-label">Estriol (E3)</h4>
+<h4 class="sub-label">Sources</h4>
+<h4 class="sub-label">Fetoplacental unit:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fetal adrenal → DHEA-S</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fetal liver → metabolites</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Placenta → estriol</span></div>
+<h4 class="sub-label">Functions</h4>
+<p class="standard-p">Uterine growth.</p>
+<p class="standard-p">Breast development.</p>
+<p class="standard-p">Increased uteroplacental blood flow.</p>
+<p class="standard-p">Increases hepatic production of several proteins.</p>
+<p class="standard-p">Increases clotting tendency.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important exam concept</span></div>
+                
+            </div>
+            
+<p class="standard-p">Estriol is a marker of fetoplacental function.</p>
+<h4 class="sub-label">Reduced unconjugated estriol can occur in:</h4>
+<h4 class="sub-label">Trisomy 21</h4>
+<h4 class="sub-label">Trisomy 18</h4>
+<h4 class="sub-label">Fetal adrenal dysfunction</h4>
+<h4 class="sub-label">Placental dysfunction</h4>
+<h4 class="sub-label">Incorrect gestational dating</h4>
+
+                <div class="topic-row" id="topic-t-1-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Human placental lactogen — hPL</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-4" onchange="toggleMastery('t-1-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Also called:</h4>
+<h4 class="sub-label">Human chorionic somatomammotropin</h4>
+<h4 class="sub-label">Source</h4>
+<p class="standard-p">Placenta.</p>
+<h4 class="sub-label">Effects</h4>
+<h4 class="sub-label">Maternal insulin resistance ↑</h4>
+<h4 class="sub-label">Lipolysis ↑</h4>
+<h4 class="sub-label">Maternal glucose availability to fetus ↑</h4>
+<p class="standard-p">Supports lactation preparation.</p>
+<h4 class="sub-label">Clinical significance</h4>
+<h4 class="sub-label">As pregnancy progresses:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>hPL ↑ → insulin resistance ↑</span></div>
+<h4 class="sub-label">This contributes to:</h4>
+<h4 class="sub-label">Gestational diabetes</h4>
+<h4 class="sub-label">Increased maternal insulin requirements</h4>
+<h4 class="sub-label">Other contributors to insulin resistance</h4>
+<h4 class="sub-label">Placental growth hormone</h4>
+<h4 class="sub-label">Progesterone</h4>
+<h4 class="sub-label">Cortisol</h4>
+<h4 class="sub-label">Prolactin</h4>
+<h4 class="sub-label">TNF-α</h4>
+
+                <div class="topic-row" id="topic-t-1-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Placental growth hormone</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-5" onchange="toggleMastery('t-1-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Replaces maternal pituitary GH progressively during pregnancy.</p>
+<h4 class="sub-label">Effects</h4>
+<h4 class="sub-label">↑ insulin resistance</h4>
+<h4 class="sub-label">↑ maternal IGF-1</h4>
+<p class="standard-p">Promotes maternal metabolic adaptation.</p>
+
+                <div class="topic-row" id="topic-t-1-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Relaxin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-6" onchange="toggleMastery('t-1-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Source:</h4>
+<h4 class="sub-label">Corpus luteum</h4>
+<h4 class="sub-label">Placenta</h4>
+<h4 class="sub-label">Effects:</h4>
+<h4 class="sub-label">Cervical softening</h4>
+<h4 class="sub-label">Pelvic ligament relaxation</h4>
+<h4 class="sub-label">Reduced myometrial activity early in pregnancy</h4>
+<h4 class="sub-label">Renal vasodilatation</h4>
+
+                <div class="topic-row" id="topic-t-1-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Prolactin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-7" onchange="toggleMastery('t-1-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Source</h4>
+<p class="standard-p">Anterior pituitary.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<p class="standard-p">Prolactin progressively increases.</p>
+<p class="standard-p">Stimulates mammary gland development.</p>
+<p class="standard-p">Why doesn&#x27;t milk secretion occur fully during pregnancy?</p>
+<h4 class="sub-label">Because high:</h4>
+<h4 class="sub-label">Oestrogen</h4>
+<h4 class="sub-label">Progesterone</h4>
+<p class="standard-p">inhibit full lactogenesis despite high prolactin.</p>
+<h4 class="sub-label">After delivery:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Placenta expelled → oestrogen/progesterone fall → prolactin can stimulate milk production.</span></div>
+
+                <div class="topic-row" id="topic-t-1-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Oxytocin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-8" onchange="toggleMastery('t-1-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Source</h4>
+<p class="standard-p">Synthesised in hypothalamus; released from posterior pituitary.</p>
+<h4 class="sub-label">Effects</h4>
+<p class="standard-p">Uterine contractions.</p>
+<p class="standard-p">Milk ejection.</p>
+<p class="standard-p">Positive feedback during labour.</p>
+<h4 class="sub-label">Ferguson reflex</h4>
+<h4 class="sub-label">Cervical stretching</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Hypothalamic oxytocin release</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Myometrial contraction</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">More cervical stretching</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">More oxytocin</h4>
+
+                <div class="topic-row" id="topic-t-1-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Prostaglandins</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-9" onchange="toggleMastery('t-1-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">PGE₂</h4>
+<h4 class="sub-label">PGF₂α</h4>
+<h4 class="sub-label">Functions</h4>
+<p class="standard-p">Cervical ripening.</p>
+<p class="standard-p">Myometrial contraction.</p>
+<p class="standard-p">Membrane changes.</p>
+<p class="standard-p">Labour initiation/progression.</p>
+<h4 class="sub-label">Drugs</h4>
+<h4 class="sub-label">Dinoprostone</h4>
+<p class="standard-p">PGE₂ analogue.</p>
+<h4 class="sub-label">Misoprostol</h4>
+<p class="standard-p">PGE₁ analogue.</p>
+<h4 class="sub-label">Used for:</h4>
+<h4 class="sub-label">Cervical ripening</h4>
+<h4 class="sub-label">Induction of labour</h4>
+<h4 class="sub-label">Medical management of miscarriage</h4>
+<h4 class="sub-label">PPH management in appropriate circumstances</h4>
+
+                <div class="topic-row" id="topic-t-1-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Cortisol</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-10" onchange="toggleMastery('t-1-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">Cortisol-binding globulin ↑</h4>
+<h4 class="sub-label">Total cortisol ↑</h4>
+<p class="standard-p">Free cortisol also increases.</p>
+<h4 class="sub-label">Effects</h4>
+<p class="standard-p">Contributes to insulin resistance.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important for fetal lung maturation.</span></div>
+                <div class="callout-body">11. Thyroid biochemistry in pregnancy</div>
+            </div>
+            
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">Early pregnancy:</h4>
+<h4 class="sub-label">hCG has thyrotropic activity</h4>
+<h4 class="sub-label">Therefore:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>hCG ↑ → TSH ↓</span></div>
+<p class="standard-p">particularly during the first trimester.</p>
+<h4 class="sub-label">Later:</h4>
+<p class="standard-p">TSH generally rises toward the non-pregnant range.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not use non-pregnant reference ranges blindly.</p>
+<h4 class="sub-label">Use:</h4>
+<p class="standard-p">Laboratory pregnancy-specific ranges, preferably trimester-specific, or</p>
+<p class="standard-p">Accepted pregnancy-specific guidance when laboratory ranges are unavailable.</p>
+
+                <div class="topic-row" id="topic-t-1-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Free T4 / total T4</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-11" onchange="toggleMastery('t-1-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">TBG ↑</h4>
+<h4 class="sub-label">Total T4 ↑</h4>
+<h4 class="sub-label">Total T3 ↑</h4>
+<p class="standard-p">Free hormone changes are smaller and assay-dependent.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Mechanism</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Oestrogen ↑</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">TBG ↑</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Total thyroid hormones ↑</h4>
+
+                <div class="topic-row" id="topic-t-1-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Renal biochemical changes in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-12" onchange="toggleMastery('t-1-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">GFR</h4>
+<h4 class="sub-label">↑ approximately 40–50%</h4>
+<h4 class="sub-label">Therefore:</h4>
+<h4 class="sub-label">Creatinine</h4>
+<h4 class="sub-label">Normally:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<p class="standard-p">A creatinine that looks “normal” by non-pregnant standards may actually be concerning in pregnancy.</p>
+<h4 class="sub-label">Urea</h4>
+<h4 class="sub-label">Usually:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">Uric acid</h4>
+<p class="standard-p">Falls early.</p>
+<p class="standard-p">Then rises later in pregnancy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Clinical importance</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Elevated uric acid may accompany:</h4>
+<h4 class="sub-label">Preeclampsia</h4>
+<h4 class="sub-label">Placental dysfunction</h4>
+<h4 class="sub-label">But:</h4>
+<p class="standard-p">Uric acid is not diagnostic of preeclampsia.</p>
+
+                <div class="topic-row" id="topic-t-1-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Sodium and osmolality</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-13" onchange="toggleMastery('t-1-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy causes:</h4>
+<h4 class="sub-label">Plasma volume ↑</h4>
+<h4 class="sub-label">Total body water ↑</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Plasma osmolality ↓ slightly</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Serum sodium ↓ slightly</span></div>
+<p class="standard-p">This is due to resetting of osmoregulation.</p>
+
+                <div class="topic-row" id="topic-t-1-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">Haematological biochemistry</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-14" onchange="toggleMastery('t-1-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Plasma volume</h4>
+<h4 class="sub-label">↑ approximately 40–50%</h4>
+<h4 class="sub-label">Red-cell mass</h4>
+<p class="standard-p">↑ approximately 20–<span class="val-pill">30%</span> without adequate iron supplementation.</p>
+<h4 class="sub-label">Therefore:</h4>
+<h4 class="sub-label">Physiological anaemia</h4>
+<h4 class="sub-label">Plasma volume expansion</h4>
+<h4 class="sub-label">RBC mass expansion</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ haemodilution</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Hb concentration falls.</span></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important distinction</span></div>
+                
+            </div>
+            
+<p class="standard-p">Physiological haemodilution ≠ iron-deficiency anaemia.</p>
+
+                <div class="topic-row" id="topic-t-1-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">Iron metabolism</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-15" onchange="toggleMastery('t-1-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy increases:</h4>
+<h4 class="sub-label">Iron requirement</h4>
+<h4 class="sub-label">Maternal erythropoiesis</h4>
+<p class="standard-p">Fetal/placental iron transfer.</p>
+<h4 class="sub-label">Ferritin</h4>
+<h4 class="sub-label">Low ferritin:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ iron deficiency.</span></div>
+<h4 class="sub-label">Ferritin is also an acute-phase reactant, therefore:</h4>
+<p class="standard-p">Inflammation can make ferritin falsely reassuring.</p>
+
+                <div class="topic-row" id="topic-t-1-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">Calcium</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-16" onchange="toggleMastery('t-1-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Total calcium may fall because:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Albumin ↓ → protein-bound calcium ↓</span></div>
+<p class="standard-p">Ionised calcium generally remains much more stable.</p>
+<h4 class="sub-label">Exam trap</h4>
+<p class="standard-p">Low total calcium does not automatically mean true hypocalcaemia.</p>
+
+                <div class="topic-row" id="topic-t-1-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">Albumin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-17" onchange="toggleMastery('t-1-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Albumin ↓</span></div>
+<p class="standard-p">because of haemodilution.</p>
+<h4 class="sub-label">Consequences:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Total calcium ↓</span></div>
+<h4 class="sub-label">Total drug concentrations may change</h4>
+<p class="standard-p">Reduced oncotic pressure contributes to oedema.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">19. ALP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Alkaline phosphatase</h4>
+<p class="standard-p">May increase substantially in pregnancy due particularly to:</p>
+<h4 class="sub-label">Placental ALP</h4>
+<p class="standard-p">Therefore an isolated ALP rise can be physiological.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">20. AST / ALT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Normally:</h4>
+<p class="standard-p">Should remain within the laboratory reference range.</p>
+<h4 class="sub-label">Raised:</h4>
+<h4 class="sub-label">HELLP</h4>
+<h4 class="sub-label">Acute fatty liver of pregnancy</h4>
+<h4 class="sub-label">Viral hepatitis</h4>
+<h4 class="sub-label">Intrahepatic cholestasis of pregnancy</h4>
+<h4 class="sub-label">Other hepatic disease</h4>
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">Bilirubin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Usually:</h4>
+<p class="standard-p">Normal or slightly lower.</p>
+<p class="standard-p">Significant elevation requires investigation.</p>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">22</span>
+                        <h3 class="topic-heading">Bile acids</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important in obstetrics</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Raised serum bile acids → intrahepatic cholestasis of pregnancy (ICP).</span></div>
+<h4 class="sub-label">Typical presentation:</h4>
+<h4 class="sub-label">Pruritus</h4>
+<h4 class="sub-label">Often palms/soles</h4>
+<h4 class="sub-label">Usually no primary rash</h4>
+<h4 class="sub-label">Raised bile acids</h4>
+<h4 class="sub-label">± abnormal LFTs</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key principle</span></div>
+                
+            </div>
+            
+<p class="standard-p">Bile acids are central to diagnosis and fetal-risk assessment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">23. LDH</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important in</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">HELLP syndrome</h4>
+<h4 class="sub-label">Haemolysis</h4>
+<h4 class="sub-label">HELLP:</h4>
+<h4 class="sub-label">Haemolysis</h4>
+<h4 class="sub-label">ELevated liver enzymes</h4>
+<h4 class="sub-label">Low Platelets</h4>
+<p class="standard-p">LDH is a marker of cell injury/haemolysis.</p>
+
+                <div class="topic-row" id="topic-t-4-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">Glucose metabolism</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-1" onchange="toggleMastery('t-4-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy is a state of:</h4>
+<h4 class="sub-label">Early pregnancy</h4>
+<p class="standard-p">Relative insulin sensitivity.</p>
+<h4 class="sub-label">Later pregnancy</h4>
+<h4 class="sub-label">Progressive insulin resistance</h4>
+<h4 class="sub-label">Major drivers:</h4>
+<h4 class="sub-label">hPL</h4>
+<h4 class="sub-label">Placental GH</h4>
+<h4 class="sub-label">Cortisol</h4>
+<h4 class="sub-label">Progesterone</h4>
+<h4 class="sub-label">Oestrogen</h4>
+<h4 class="sub-label">Pro-inflammatory cytokines</h4>
+<h4 class="sub-label">Result</h4>
+<p class="standard-p">Maternal glucose availability increases.</p>
+<h4 class="sub-label">If pancreatic β-cells cannot compensate:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ gestational diabetes.</span></div>
+
+                <div class="topic-row" id="topic-t-4-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">Lipid metabolism</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-2" onchange="toggleMastery('t-4-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">Triglycerides ↑</h4>
+<h4 class="sub-label">Total cholesterol ↑</h4>
+<h4 class="sub-label">LDL ↑</h4>
+<p class="standard-p">HDL usually ↑ modestly, then may decline late.</p>
+<h4 class="sub-label">Purpose:</h4>
+<p class="standard-p">Increased energy availability.</p>
+<p class="standard-p">Fetal development.</p>
+<h4 class="sub-label">Severe hypertriglyceridaemia</h4>
+<h4 class="sub-label">Can increase risk of:</h4>
+<p class="standard-p">Acute pancreatitis.</p>
+
+                <div class="topic-row" id="topic-t-4-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">26</span>
+                        <h3 class="topic-heading">Fibrinogen</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-3" onchange="toggleMastery('t-4-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">Fibrinogen increases</h4>
+<h4 class="sub-label">Typical non-pregnant:</h4>
+<h4 class="sub-label">~2–4 g/L</h4>
+<h4 class="sub-label">Late pregnancy:</h4>
+<h4 class="sub-label">often approximately 4–6 g/L</h4>
+<h4 class="sub-label">Major obstetric point</h4>
+<p class="standard-p">A fibrinogen of<span class="val-pill"> 2 g</span>/L may appear “normal” outside pregnancy but is concerning in major obstetric haemorrhage.</p>
+<h4 class="sub-label">Fibrinogen can fall rapidly in:</h4>
+<h4 class="sub-label">Massive PPH</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">DIC</h4>
+
+                <div class="topic-row" id="topic-t-4-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">Coagulation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-4" onchange="toggleMastery('t-4-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy = physiological hypercoagulable state</h4>
+<h4 class="sub-label">Changes:</h4>
+<h4 class="sub-label">Fibrinogen ↑</h4>
+<h4 class="sub-label">Factors VII, VIII, IX, X, XII ↑</h4>
+<h4 class="sub-label">vWF ↑</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Protein S ↓</span></div>
+<h4 class="sub-label">Antithrombin relatively preserved</h4>
+<h4 class="sub-label">Fibrinolysis suppressed</h4>
+<h4 class="sub-label">Purpose:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ protect against haemorrhage at delivery.</span></div>
+<h4 class="sub-label">Downside:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ VTE risk increases.</span></div>
+
+                <div class="topic-row" id="topic-t-4-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">28</span>
+                        <h3 class="topic-heading">ABG in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-5" onchange="toggleMastery('t-4-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE value.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Normal pregnancy</h4>
+<p class="standard-p">Progesterone stimulates ventilation.</p>
+<h4 class="sub-label">Therefore:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PaCO₂ ↓</span></div>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">PaCO₂ ~28–32 mmHg</h4>
+<h4 class="sub-label">PaO₂ usually &gt;100 mmHg</h4>
+<h4 class="sub-label">HCO₃⁻ ~18–22 mmol/L</h4>
+<h4 class="sub-label">Mild respiratory alkalosis</h4>
+<p class="standard-p">Renal bicarbonate compensation.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key exam point</span></div>
+                
+            </div>
+            
+<p class="standard-p">A PaCO₂ of<span class="val-pill"> 40 mm</span>Hg may be abnormal in pregnancy.</p>
+
+                <div class="topic-row" id="topic-t-4-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">Lactate</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-6" onchange="toggleMastery('t-4-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Normal pregnancy:</h4>
+<p class="standard-p">Lactate generally remains normal.</p>
+<h4 class="sub-label">Raised lactate may indicate:</h4>
+<h4 class="sub-label">Tissue hypoperfusion</h4>
+<h4 class="sub-label">Sepsis</h4>
+<h4 class="sub-label">Severe hypoxia</h4>
+<h4 class="sub-label">Shock</h4>
+<h4 class="sub-label">Seizures</h4>
+<h4 class="sub-label">Severe metabolic stress</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">30. IMMUNOPATHOLOGY OF PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">The classic statement:</h4>
+<p class="standard-p">Pregnancy is not simply an immunosuppressed state; it involves complex immune modulation.</p>
+
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">31</span>
+                        <h3 class="topic-heading">Maternal–fetal immune tolerance</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">The fetus expresses paternal antigens.</p>
+<p class="standard-p">Yet maternal immune system normally tolerates pregnancy.</p>
+<h4 class="sub-label">Major mechanisms:</h4>
+
+                <div class="topic-row" id="topic-t-5-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">T-regulatory cells ↑</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-2" onchange="toggleMastery('t-5-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">T-reg cells promote tolerance.</p>
+
+                <div class="topic-row" id="topic-t-5-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Decidual immune environment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-3" onchange="toggleMastery('t-5-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Contains:</h4>
+<h4 class="sub-label">Decidual NK cells</h4>
+<h4 class="sub-label">Macrophages</h4>
+<h4 class="sub-label">T cells</h4>
+<h4 class="sub-label">Dendritic cells</h4>
+
+                <div class="topic-row" id="topic-t-5-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Trophoblast immune modulation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-4" onchange="toggleMastery('t-5-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Trophoblast expresses unusual HLA patterns.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">HLA-G</h4>
+<h4 class="sub-label">HLA-E</h4>
+<h4 class="sub-label">HLA-C</h4>
+
+                <div class="topic-row" id="topic-t-5-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">32</span>
+                        <h3 class="topic-heading">Decidual NK cells</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-5" onchange="toggleMastery('t-5-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Very important.</p>
+<p class="standard-p">They are abundant in early pregnancy.</p>
+<h4 class="sub-label">Functions:</h4>
+<p class="standard-p">Spiral artery remodelling.</p>
+<p class="standard-p">Placental development.</p>
+<p class="standard-p">Trophoblast interaction.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important trap</span></div>
+                
+            </div>
+            
+<p class="standard-p">They are not primarily cytotoxic killer cells in normal pregnancy.</p>
+
+                <div class="topic-row" id="topic-t-5-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">33</span>
+                        <h3 class="topic-heading">Spiral artery remodelling</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-6" onchange="toggleMastery('t-5-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Normal:</h4>
+<h4 class="sub-label">Extravillous trophoblast</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">invades decidua/myometrium</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">spiral arteries remodel</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">low-resistance, high-capacitance circulation</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<p class="standard-p">adequate placental perfusion.</p>
+
+                <div class="topic-row" id="topic-t-5-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">34</span>
+                        <h3 class="topic-heading">Preeclampsia immunopathology</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-7" onchange="toggleMastery('t-5-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Abnormal:</h4>
+<h4 class="sub-label">Poor trophoblast invasion</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">inadequate spiral artery remodelling</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">high-resistance placental circulation</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">placental hypoxia/ischemia and oxidative stress</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">antiangiogenic factors released</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">maternal endothelial dysfunction</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<p class="standard-p">hypertension + proteinuria/systemic organ dysfunction.</p>
+
+                <div class="topic-row" id="topic-t-5-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">35</span>
+                        <h3 class="topic-heading">Important angiogenic factors</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-8" onchange="toggleMastery('t-5-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">VEGF</h4>
+<p class="standard-p">Vascular endothelial growth factor.</p>
+<h4 class="sub-label">Promotes:</h4>
+<h4 class="sub-label">Angiogenesis</h4>
+<p class="standard-p">Endothelial function.</p>
+<h4 class="sub-label">PlGF</h4>
+<p class="standard-p">Placental growth factor.</p>
+<p class="standard-p">Promotes placental angiogenesis.</p>
+<h4 class="sub-label">sFlt-1</h4>
+<p class="standard-p">Soluble fms-like tyrosine kinase-1.</p>
+<h4 class="sub-label">Acts as an antiangiogenic factor by binding:</h4>
+<h4 class="sub-label">VEGF</h4>
+<h4 class="sub-label">PlGF</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ reduces their bioavailability.</span></div>
+
+                <div class="topic-row" id="topic-t-5-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">36</span>
+                        <h3 class="topic-heading">sFlt-1 : PlGF ratio</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-9" onchange="toggleMastery('t-5-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Used in some settings to help assess risk of preterm pre-eclampsia, depending on the assay and local protocol.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE point</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not quote one universal cut-off without specifying the assay/test pathway.</p>
+
+                <div class="topic-row" id="topic-t-5-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">37</span>
+                        <h3 class="topic-heading">Complement</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-10" onchange="toggleMastery('t-5-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Complement activation is involved in:</h4>
+<h4 class="sub-label">Preeclampsia</h4>
+<h4 class="sub-label">Antiphospholipid syndrome</h4>
+<p class="standard-p">Some pregnancy complications.</p>
+<h4 class="sub-label">Excessive complement activation can contribute to:</h4>
+<h4 class="sub-label">Endothelial injury</h4>
+<h4 class="sub-label">Placental dysfunction</h4>
+<p class="standard-p">Thrombosis.</p>
+
+                <div class="topic-row" id="topic-t-5-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">38</span>
+                        <h3 class="topic-heading">Antiphospholipid syndrome</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-11" onchange="toggleMastery('t-5-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important immunopathology.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Antibodies:</h4>
+<h4 class="sub-label">Lupus anticoagulant</h4>
+<h4 class="sub-label">Anticardiolipin</h4>
+<h4 class="sub-label">Anti-β2 glycoprotein I</h4>
+<h4 class="sub-label">Clinical complications</h4>
+<h4 class="sub-label">Recurrent pregnancy loss</h4>
+<h4 class="sub-label">Fetal death</h4>
+<h4 class="sub-label">Placental insufficiency</h4>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<h4 class="sub-label">Pre-eclampsia</h4>
+<h4 class="sub-label">Maternal thrombosis</h4>
+
+                <div class="topic-row" id="topic-t-5-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">39</span>
+                        <h3 class="topic-heading">RhD alloimmunisation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-12" onchange="toggleMastery('t-5-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic immunopathology.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">RhD-negative mother</h4>
+<h4 class="sub-label">+</h4>
+<h4 class="sub-label">RhD-positive fetal RBCs</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">maternal sensitisation</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">anti-D IgG antibodies</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">IgG crosses placenta</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">fetal RBC destruction</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<p class="standard-p">haemolytic disease of fetus/newborn.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">IgG crosses placenta.</p>
+<p class="standard-p">IgM does not cross the placenta effectively.</p>
+
+                <div class="topic-row" id="topic-t-5-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">40</span>
+                        <h3 class="topic-heading">Anti-D immunoglobulin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-13" onchange="toggleMastery('t-5-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Purpose:</h4>
+<p class="standard-p">Prevents maternal sensitisation to RhD.</p>
+<p class="standard-p">It does NOT treat established significant fetal anaemia.</p>
+<h4 class="sub-label">Potential sensitising events</h4>
+<h4 class="sub-label">Delivery</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<h4 class="sub-label">Ectopic pregnancy</h4>
+<h4 class="sub-label">Abdominal trauma</h4>
+<h4 class="sub-label">Antepartum haemorrhage</h4>
+<h4 class="sub-label">Invasive procedures</h4>
+<h4 class="sub-label">External cephalic version</h4>
+<p class="standard-p">Other fetomaternal haemorrhage events according to guideline.</p>
+
+                <div class="topic-row" id="topic-t-5-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">41</span>
+                        <h3 class="topic-heading">Thyroid autoimmunity</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-14" onchange="toggleMastery('t-5-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important antibodies</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">TPO antibodies</h4>
+<h4 class="sub-label">TSH receptor antibodies</h4>
+<h4 class="sub-label">Graves disease</h4>
+<h4 class="sub-label">TSH receptor-stimulating antibodies:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ stimulate fetal thyroid.</span></div>
+<h4 class="sub-label">Potential fetal/neonatal effects:</h4>
+<h4 class="sub-label">Fetal tachycardia</h4>
+<h4 class="sub-label">Fetal goitre</h4>
+<h4 class="sub-label">Growth restriction</h4>
+<h4 class="sub-label">Fetal hyperthyroidism</h4>
+
+                <div class="topic-row" id="topic-t-5-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">42</span>
+                        <h3 class="topic-heading">SLE in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-15" onchange="toggleMastery('t-5-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Autoimmune disease can affect:</h4>
+<h4 class="sub-label">Mother</h4>
+<h4 class="sub-label">Placenta</h4>
+<p class="standard-p">Fetus.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important antibodies</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Anti-Ro/SSA</h4>
+<h4 class="sub-label">Anti-La/SSB</h4>
+<h4 class="sub-label">Associated fetal complication:</h4>
+<h4 class="sub-label">Congenital heart block</h4>
+<p class="standard-p">Especially with anti-Ro/SSA and anti-La/SSB.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">43. ANATOMICAL LANDMARKS — OBSTETRIC PELVIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Pelvic inlet</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Boundaries:</h4>
+<h4 class="sub-label">Posterior</h4>
+<h4 class="sub-label">Sacral promontory</h4>
+<h4 class="sub-label">Lateral</h4>
+<h4 class="sub-label">Ala of sacrum</h4>
+<h4 class="sub-label">Arcuate line</h4>
+<h4 class="sub-label">Pectineal line</h4>
+<h4 class="sub-label">Anterior</h4>
+<p class="standard-p">Pubic symphysis.</p>
+
+                <div class="topic-row" id="topic-t-6-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">44</span>
+                        <h3 class="topic-heading">Important pelvic diameters</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-2" onchange="toggleMastery('t-6-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Anatomical conjugate</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Sacral promontory → superior border of pubic symphysis.</span></div>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">11 cm</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Obstetric conjugate ⭐</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Sacral promontory → closest point on posterior surface of pubic symphysis.</span></div>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">10.5 cm</h4>
+<p class="standard-p">This is the important AP diameter for engagement.</p>
+<h4 class="sub-label">Diagonal conjugate</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Sacral promontory → inferior border of pubic symphysis.</span></div>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">12.5–13 cm</h4>
+<p class="standard-p">Clinically measured vaginally.</p>
+<h4 class="sub-label">Rule</h4>
+<h4 class="sub-label">Obstetric conjugate ≈ diagonal conjugate − 1.5–2 cm</h4>
+
+                <div class="topic-row" id="topic-t-6-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">45</span>
+                        <h3 class="topic-heading">Transverse diameter of pelvic inlet</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-3" onchange="toggleMastery('t-6-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">13.5 cm</h4>
+<p class="standard-p">Largest transverse diameter.</p>
+
+                <div class="topic-row" id="topic-t-6-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">46</span>
+                        <h3 class="topic-heading">Pelvic outlet</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-4" onchange="toggleMastery('t-6-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important boundaries</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Inferior pubic symphysis</h4>
+<h4 class="sub-label">Ischial tuberosities</h4>
+<h4 class="sub-label">Sacrotuberous ligaments</h4>
+<p class="standard-p">Coccyx.</p>
+<h4 class="sub-label">Intertuberous diameter</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">10.5–11 cm</h4>
+
+                <div class="topic-row" id="topic-t-6-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">47</span>
+                        <h3 class="topic-heading">Ischial spines ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-5" onchange="toggleMastery('t-6-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Extremely important.</p>
+<h4 class="sub-label">They represent:</h4>
+<h4 class="sub-label">Station 0</h4>
+<h4 class="sub-label">When presenting part is level with the ischial spines:</h4>
+<h4 class="sub-label">Station = 0</h4>
+<h4 class="sub-label">Above:</h4>
+<p class="standard-p">Negative station.</p>
+<h4 class="sub-label">Below:</h4>
+<p class="standard-p">Positive station.</p>
+<h4 class="sub-label">Example:</h4>
+<h4 class="sub-label">−2 = 2 cm above spines</h4>
+<p class="standard-p">+2 =<span class="val-pill"> 2 cm</span> below spines.</p>
+
+                <div class="topic-row" id="topic-t-6-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">48</span>
+                        <h3 class="topic-heading">Sacral promontory</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-6" onchange="toggleMastery('t-6-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important for</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Pelvic assessment</h4>
+<h4 class="sub-label">Diagonal conjugate</h4>
+<p class="standard-p">Pelvic inlet.</p>
+<h4 class="sub-label">If easily reached vaginally:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ may suggest reduced pelvic inlet AP diameter.</span></div>
+
+                <div class="topic-row" id="topic-t-6-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">49</span>
+                        <h3 class="topic-heading">Pubic symphysis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-7" onchange="toggleMastery('t-6-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important landmark for</span></div>
+                
+            </div>
+            
+<p class="standard-p">Conjugate measurements.</p>
+<p class="standard-p">Fetal head position.</p>
+<p class="standard-p">Operative vaginal delivery orientation.</p>
+
+                <div class="topic-row" id="topic-t-6-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">50</span>
+                        <h3 class="topic-heading">Obstetric pelvic planes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-8" onchange="toggleMastery('t-6-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Plane of inlet</h4>
+<p class="standard-p">Pelvic brim.</p>
+<h4 class="sub-label">Plane of greatest pelvic diameter</h4>
+<p class="standard-p">Usually generous and important during descent.</p>
+<h4 class="sub-label">Midpelvis</h4>
+<p class="standard-p">Ischial spines are the key landmark.</p>
+<h4 class="sub-label">Plane of outlet</h4>
+<p class="standard-p">Pelvic outlet.</p>
+
+                <div class="topic-row" id="topic-t-6-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">51</span>
+                        <h3 class="topic-heading">Pelvic types</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-9" onchange="toggleMastery('t-6-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Gynaecoid</h4>
+<p class="standard-p">Rounded inlet.</p>
+<p class="standard-p">Wide transverse diameter.</p>
+<p class="standard-p">Favourable for vaginal birth.</p>
+<h4 class="sub-label">Android</h4>
+<p class="standard-p">Heart-shaped.</p>
+<p class="standard-p">Prominent ischial spines.</p>
+<p class="standard-p">Narrow midpelvis.</p>
+<p class="standard-p">More associated with difficult descent/rotation.</p>
+<h4 class="sub-label">Anthropoid</h4>
+<p class="standard-p">AP diameter &gt; transverse.</p>
+<p class="standard-p">Occipito-posterior position may be more common.</p>
+<h4 class="sub-label">Platypelloid</h4>
+<p class="standard-p">Wide transverse.</p>
+<p class="standard-p">Short AP diameter.</p>
+<p class="standard-p">Engagement may be difficult.</p>
+
+                <div class="topic-row" id="topic-t-6-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">52</span>
+                        <h3 class="topic-heading">Fetal skull landmarks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-10" onchange="toggleMastery('t-6-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important bones</span></div>
+                <div class="callout-body">Frontal</div>
+            </div>
+            
+<h4 class="sub-label">Parietal</h4>
+<h4 class="sub-label">Occipital</h4>
+<p class="standard-p">Temporal.</p>
+
+                <div class="topic-row" id="topic-t-6-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">53</span>
+                        <h3 class="topic-heading">Sutures</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-11" onchange="toggleMastery('t-6-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Sagittal suture</h4>
+<h4 class="sub-label">Between:</h4>
+<p class="standard-p">Two parietal bones.</p>
+<h4 class="sub-label">Coronal sutures</h4>
+<h4 class="sub-label">Between:</h4>
+<p class="standard-p">Frontal and parietal bones.</p>
+<h4 class="sub-label">Lambdoid sutures</h4>
+<h4 class="sub-label">Between:</h4>
+<p class="standard-p">Parietal and occipital bones.</p>
+<h4 class="sub-label">Metopic/frontal suture</h4>
+<p class="standard-p">Between frontal bones in fetal skull; usually fuses postnatally.</p>
+
+                <div class="topic-row" id="topic-t-6-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">54</span>
+                        <h3 class="topic-heading">Fontanelles ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-12" onchange="toggleMastery('t-6-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Anterior fontanelle / bregma</h4>
+<h4 class="sub-label">Shape:</h4>
+<p class="standard-p">Diamond.</p>
+<h4 class="sub-label">Boundaries:</h4>
+<h4 class="sub-label">Frontal bones</h4>
+<p class="standard-p">Parietal bones.</p>
+<h4 class="sub-label">Posterior fontanelle / lambda</h4>
+<h4 class="sub-label">Shape:</h4>
+<p class="standard-p">Triangular.</p>
+<h4 class="sub-label">Boundaries:</h4>
+<h4 class="sub-label">Parietal bones</h4>
+<p class="standard-p">Occipital bone.</p>
+
+                <div class="topic-row" id="topic-t-6-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">55</span>
+                        <h3 class="topic-heading">Fetal head diameters</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-13" onchange="toggleMastery('t-6-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Suboccipitobregmatic</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">9.5 cm</h4>
+<h4 class="sub-label">Presentation:</h4>
+<p class="standard-p">Well-flexed vertex.</p>
+<p class="standard-p">This is the smallest AP diameter of a well-flexed head.</p>
+<h4 class="sub-label">Suboccipitofrontal</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">10 cm</h4>
+<h4 class="sub-label">Occipitofrontal</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">11.5 cm</h4>
+<h4 class="sub-label">Occurs with:</h4>
+<p class="standard-p">Deflexed vertex.</p>
+<h4 class="sub-label">Mentovertical</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">13.5 cm</h4>
+<h4 class="sub-label">Associated with:</h4>
+<p class="standard-p">Brow presentation.</p>
+<p class="standard-p">Largest useful AP diameter.</p>
+<h4 class="sub-label">Submentobregmatic</h4>
+<h4 class="sub-label">Approximately:</h4>
+<h4 class="sub-label">9.5 cm</h4>
+<h4 class="sub-label">Associated with:</h4>
+<p class="standard-p">Face presentation with good extension.</p>
+
+                <div class="topic-row" id="topic-t-6-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">56</span>
+                        <h3 class="topic-heading">Cardinal movements of labour</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-14" onchange="toggleMastery('t-6-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Engagement</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-15" onchange="toggleMastery('t-6-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Biparietal diameter passes pelvic inlet.</p>
+
+                <div class="topic-row" id="topic-t-6-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Descent</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-16" onchange="toggleMastery('t-6-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Flexion</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-17" onchange="toggleMastery('t-6-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-18">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Internal rotation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-18" onchange="toggleMastery('t-6-18')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-19">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Extension</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-19" onchange="toggleMastery('t-6-19')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-20">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Restitution</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-20" onchange="toggleMastery('t-6-20')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-21">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">External rotation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-21" onchange="toggleMastery('t-6-21')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-22">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Expulsion</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-22" onchange="toggleMastery('t-6-22')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+                <div class="topic-row" id="topic-t-6-23">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">57</span>
+                        <h3 class="topic-heading">Fetal positions — landmarks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-23" onchange="toggleMastery('t-6-23')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">For vertex presentation, the denominator is:</h4>
+<h4 class="sub-label">Occiput</h4>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">LOA = left occipito-anterior</h4>
+<h4 class="sub-label">ROA = right occipito-anterior</h4>
+<h4 class="sub-label">LOT = left occipito-transverse</h4>
+<h4 class="sub-label">ROT = right occipito-transverse</h4>
+<h4 class="sub-label">LOP = left occipito-posterior</h4>
+<p class="standard-p">ROP = right occipito-posterior.</p>
+
+                <div class="topic-row" id="topic-t-6-24">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">58</span>
+                        <h3 class="topic-heading">Face presentation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-24" onchange="toggleMastery('t-6-24')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Denominator:</h4>
+<h4 class="sub-label">Mentum</h4>
+<h4 class="sub-label">Positions:</h4>
+<h4 class="sub-label">Mento-anterior</h4>
+<h4 class="sub-label">Mento-posterior</h4>
+<p class="standard-p">Mento-transverse.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key principle</span></div>
+                
+            </div>
+            
+<p class="standard-p">Mento-anterior can potentially deliver vaginally.</p>
+<p class="standard-p">Persistent mento-posterior generally cannot deliver vaginally because the head cannot achieve the necessary extension/diameter relationship.</p>
+
+                <div class="topic-row" id="topic-t-6-25">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">59</span>
+                        <h3 class="topic-heading">Brow presentation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-25" onchange="toggleMastery('t-6-25')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Denominator:</h4>
+<p class="standard-p">Frontal region.</p>
+<h4 class="sub-label">Diameter:</h4>
+<h4 class="sub-label">Mentovertical ~13.5 cm</h4>
+<h4 class="sub-label">Persistent brow presentation:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ usually cannot deliver vaginally because of the large presenting diameter.</span></div>
+
+                <div class="topic-row" id="topic-t-6-26">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">60</span>
+                        <h3 class="topic-heading">Breech landmarks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-26" onchange="toggleMastery('t-6-26')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Denominator:</h4>
+<h4 class="sub-label">Sacrum</h4>
+<h4 class="sub-label">Types:</h4>
+<h4 class="sub-label">Frank breech</h4>
+<h4 class="sub-label">Complete breech</h4>
+<p class="standard-p">Footling breech.</p>
+
+                <div class="topic-row" id="topic-t-6-27">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">61</span>
+                        <h3 class="topic-heading">Fetal station</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-27" onchange="toggleMastery('t-6-27')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Landmark:</h4>
+<h4 class="sub-label">Ischial spines = 0</h4>
+<h4 class="sub-label">Common scale:</h4>
+<h4 class="sub-label">−3</h4>
+<h4 class="sub-label">−2</h4>
+<h4 class="sub-label">−1</h4>
+<h4 class="sub-label">0</h4>
+<h4 class="sub-label">+1</h4>
+<h4 class="sub-label">+2</h4>
+<h4 class="sub-label">+3</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Engagement is assessed by passage of the widest transverse diameter of the presenting part through the pelvic inlet.</p>
+
+                <div class="topic-row" id="topic-t-6-28">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">62</span>
+                        <h3 class="topic-heading">Caput vs moulding</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-28" onchange="toggleMastery('t-6-28')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Caput succedaneum</h4>
+<p class="standard-p">Soft-tissue oedema.</p>
+<h4 class="sub-label">Characteristics:</h4>
+<p class="standard-p">Crosses suture lines.</p>
+<p class="standard-p">Develops during labour.</p>
+<p class="standard-p">Often resolves after delivery.</p>
+<h4 class="sub-label">Moulding</h4>
+<p class="standard-p">Overlapping of fetal skull bones due to labour forces.</p>
+<h4 class="sub-label">Moulding grades</h4>
+<h4 class="sub-label">0</h4>
+<p class="standard-p">Bones separated.</p>
+<h4 class="sub-label">+</h4>
+<p class="standard-p">Bones touching.</p>
+<h4 class="sub-label">++</h4>
+<p class="standard-p">Bones overlapping but reducible.</p>
+<h4 class="sub-label">+++</h4>
+<p class="standard-p">Bones overlapping and not reducible.</p>
+<h4 class="sub-label">Clinical significance</h4>
+<h4 class="sub-label">Marked moulding + poor descent:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ possible cephalopelvic disproportion/obstructed labour.</span></div>
+
+                <div class="topic-row" id="topic-t-6-29">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">63</span>
+                        <h3 class="topic-heading">Placental anatomical landmarks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-29" onchange="toggleMastery('t-6-29')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Normal placenta</h4>
+<p class="standard-p">Usually located in upper uterine segment.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Maternal surface → cotyledons.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fetal surface → chorionic plate.</span></div>
+<p class="standard-p">Umbilical cord inserts into fetal surface.</p>
+<h4 class="sub-label">Umbilical cord</h4>
+<h4 class="sub-label">Normally:</h4>
+<h4 class="sub-label">2 arteries</h4>
+<h4 class="sub-label">1 vein</h4>
+<h4 class="sub-label">Mnemonic:</h4>
+<h4 class="sub-label">AVA</h4>
+<h4 class="sub-label">1 vein</h4>
+<p class="standard-p">2 arteries.</p>
+
+                <div class="topic-row" id="topic-t-6-30">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">64</span>
+                        <h3 class="topic-heading">Placental circulation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-30" onchange="toggleMastery('t-6-30')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Fetal side</h4>
+<h4 class="sub-label">Umbilical arteries:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ deoxygenated blood from fetus</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ placenta.</span></div>
+<h4 class="sub-label">Umbilical vein:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ oxygenated blood</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ fetus.</span></div>
+<h4 class="sub-label">Maternal side</h4>
+<h4 class="sub-label">Uterine arteries</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ spiral arteries</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ intervillous space</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ maternal blood bathes chorionic villi.</span></div>
+
+                <div class="topic-row" id="topic-t-6-31">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">65</span>
+                        <h3 class="topic-heading">Placenta accreta spectrum</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-31" onchange="toggleMastery('t-6-31')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Accreta</h4>
+<p class="standard-p">Abnormally adherent placenta.</p>
+<h4 class="sub-label">Increta</h4>
+<h4 class="sub-label">Villi invade:</h4>
+<h4 class="sub-label">myometrium</h4>
+<h4 class="sub-label">Percreta</h4>
+<h4 class="sub-label">Villi penetrate through:</h4>
+<h4 class="sub-label">serosa</h4>
+<h4 class="sub-label">May invade:</h4>
+<h4 class="sub-label">Bladder</h4>
+<p class="standard-p">Other pelvic structures.</p>
+<h4 class="sub-label">Major risk factor</h4>
+<p class="standard-p">Previous caesarean delivery + placenta praevia/low-lying placenta.</p>
+
+                <div class="topic-row" id="topic-t-6-32">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">66</span>
+                        <h3 class="topic-heading">Important uterine anatomical landmarks</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-32" onchange="toggleMastery('t-6-32')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Fundus</h4>
+<p class="standard-p">Uppermost uterus.</p>
+<h4 class="sub-label">Cornua</h4>
+<h4 class="sub-label">Where:</h4>
+<p class="standard-p">Fallopian tubes enter uterus.</p>
+<h4 class="sub-label">Lower uterine segment</h4>
+<p class="standard-p">Develops predominantly in later pregnancy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important in</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Caesarean section</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Placenta praevia</h4>
+<p class="standard-p">Labour.</p>
+
+                <div class="topic-row" id="topic-t-6-33">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">67</span>
+                        <h3 class="topic-heading">Uterine blood supply</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-33" onchange="toggleMastery('t-6-33')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Main artery:</h4>
+<h4 class="sub-label">Uterine artery</h4>
+<h4 class="sub-label">Origin:</h4>
+<h4 class="sub-label">Internal iliac artery</h4>
+<h4 class="sub-label">Uterine artery crosses:</h4>
+<h4 class="sub-label">Over the ureter</h4>
+<h4 class="sub-label">Mnemonic:</h4>
+<h4 class="sub-label">“Water under the bridge.”</h4>
+<h4 class="sub-label">Water = ureter</h4>
+<p class="standard-p">Bridge = uterine artery.</p>
+<h4 class="sub-label">Surgical significance</h4>
+<h4 class="sub-label">During hysterectomy:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ identify ureter before ligating uterine vessels.</span></div>
+
+                <div class="topic-row" id="topic-t-6-34">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">68</span>
+                        <h3 class="topic-heading">Ovarian blood supply</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-34" onchange="toggleMastery('t-6-34')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ovarian artery:</h4>
+<p class="standard-p">Direct branch of abdominal aorta.</p>
+<h4 class="sub-label">It anastomoses with:</h4>
+<p class="standard-p">Ovarian branch of uterine artery.</p>
+
+                <div class="topic-row" id="topic-t-6-35">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">69</span>
+                        <h3 class="topic-heading">Pudendal nerve</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-35" onchange="toggleMastery('t-6-35')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Origin:</h4>
+<h4 class="sub-label">S2–S4</h4>
+<h4 class="sub-label">Function:</h4>
+<p class="standard-p">Major sensory nerve of perineum.</p>
+<p class="standard-p">Motor supply to pelvic/perineal muscles.</p>
+<h4 class="sub-label">Pudendal nerve block</h4>
+<h4 class="sub-label">Landmark:</h4>
+<h4 class="sub-label">Ischial spine</h4>
+<p class="standard-p">Local anaesthetic is deposited near the pudendal nerve as it passes close to the sacrospinous ligament.</p>
+
+                <div class="topic-row" id="topic-t-6-36">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">70</span>
+                        <h3 class="topic-heading">Perineal anatomy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-36" onchange="toggleMastery('t-6-36')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important structures</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Perineal body</h4>
+<h4 class="sub-label">Bulbospongiosus</h4>
+<h4 class="sub-label">Superficial transverse perineal</h4>
+<h4 class="sub-label">Deep transverse perineal</h4>
+<p class="standard-p">External anal sphincter.</p>
+<h4 class="sub-label">Perineal body</h4>
+<p class="standard-p">Central fibromuscular structure.</p>
+<h4 class="sub-label">Attachments include:</h4>
+<h4 class="sub-label">Bulbospongiosus</h4>
+<h4 class="sub-label">Superficial transverse perineal</h4>
+<h4 class="sub-label">External anal sphincter</h4>
+<p class="standard-p">Fibres of levator ani.</p>
+<h4 class="sub-label">Major importance in:</h4>
+<h4 class="sub-label">Childbirth trauma</h4>
+<p class="standard-p">Pelvic organ support.</p>
+
+                <div class="topic-row" id="topic-t-6-37">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">71</span>
+                        <h3 class="topic-heading">OASI anatomy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-37" onchange="toggleMastery('t-6-37')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Obstetric anal sphincter injuries:</h4>
+<h4 class="sub-label">3a</h4>
+<p class="standard-p">&lt;<span class="val-pill">50%</span> external anal sphincter thickness torn.</p>
+<h4 class="sub-label">3b</h4>
+<p class="standard-p"><span class="val-pill">50%</span> external anal sphincter torn.</p>
+<h4 class="sub-label">3c</h4>
+<p class="standard-p">External anal sphincter + internal anal sphincter.</p>
+<h4 class="sub-label">4th degree</h4>
+<p class="standard-p">External anal sphincter + internal anal sphincter + anorectal mucosa.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Rectal mucosa involvement = fourth degree.</p>
+
+                <div class="topic-row" id="topic-t-6-38">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">72</span>
+                        <h3 class="topic-heading">Pelvic floor</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-38" onchange="toggleMastery('t-6-38')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Main muscle:</h4>
+<h4 class="sub-label">Levator ani</h4>
+<h4 class="sub-label">Components:</h4>
+<h4 class="sub-label">Puborectalis</h4>
+<h4 class="sub-label">Pubococcygeus</h4>
+<p class="standard-p">Iliococcygeus.</p>
+<h4 class="sub-label">Functions:</h4>
+<p class="standard-p">Pelvic organ support.</p>
+<p class="standard-p">Continence.</p>
+<p class="standard-p">Maintains anorectal angle.</p>
+<p class="standard-p">Assists childbirth mechanics.</p>
+
+                <div class="topic-row" id="topic-t-6-39">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">73</span>
+                        <h3 class="topic-heading">Cardinal anatomical landmarks for OSCE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-39" onchange="toggleMastery('t-6-39')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Memorise these as a rapid-fire list:</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Maternal</span></div>
+                <div class="callout-body">Pubic symphysis</div>
+            </div>
+            
+<h4 class="sub-label">Sacral promontory</h4>
+<h4 class="sub-label">Ischial spines</h4>
+<h4 class="sub-label">Ischial tuberosities</h4>
+<h4 class="sub-label">Coccyx</h4>
+<h4 class="sub-label">Pelvic brim</h4>
+<h4 class="sub-label">Pelvic outlet</h4>
+<h4 class="sub-label">Perineal body</h4>
+<h4 class="sub-label">Uterine fundus</h4>
+<h4 class="sub-label">Lower uterine segment</h4>
+<h4 class="sub-label">Cervical os</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Fetal</span></div>
+                <div class="callout-body">Occiput</div>
+            </div>
+            
+<h4 class="sub-label">Vertex</h4>
+<h4 class="sub-label">Bregma</h4>
+<h4 class="sub-label">Lambda</h4>
+<h4 class="sub-label">Sagittal suture</h4>
+<h4 class="sub-label">Coronal suture</h4>
+<h4 class="sub-label">Mentum</h4>
+<h4 class="sub-label">Sacrum</h4>
+<h4 class="sub-label">Biparietal diameter</h4>
+<h4 class="sub-label">Placental</h4>
+<h4 class="sub-label">Chorionic plate</h4>
+<h4 class="sub-label">Cotyledons</h4>
+<h4 class="sub-label">Umbilical vein</h4>
+<h4 class="sub-label">Umbilical arteries</h4>
+<h4 class="sub-label">Spiral arteries</h4>
+<p class="standard-p">Intervillous space.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">🔥 20 ULTRA-HIGH-YIELD NUMBERS TO MEMORISE</span></div>
+                <div class="callout-body">Parameter	Approximate value</div>
+            </div>
+            
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Obstetric conjugate</th>
+<th>10.5 cm</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Diagonal conjugate</strong></td>
+<td>12.5–<span class="val-pill">13 cm</span></td>
+</tr>
+<tr>
+<td><strong>Transverse pelvic inlet</strong></td>
+<td><span class="val-pill">13.5 cm</span></td>
+</tr>
+<tr>
+<td><strong>Intertuberous diameter</strong></td>
+<td>10.5–<span class="val-pill">11 cm</span></td>
+</tr>
+<tr>
+<td><strong>Suboccipitobregmatic</strong></td>
+<td><span class="val-pill">9.5 cm</span></td>
+</tr>
+<tr>
+<td><strong>Suboccipitofrontal</strong></td>
+<td><span class="val-pill">~10 cm</span></td>
+</tr>
+<tr>
+<td><strong>Occipitofrontal</strong></td>
+<td><span class="val-pill">~11.5 cm</span></td>
+</tr>
+<tr>
+<td><strong>Mentovertical</strong></td>
+<td><span class="val-pill">~13.5 cm</span></td>
+</tr>
+<tr>
+<td><strong>Submentobregmatic</strong></td>
+<td><span class="val-pill">~9.5 cm</span></td>
+</tr>
+<tr>
+<td><strong>Fetal station at ischial spines</strong></td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Normal cord vessels</strong></td>
+<td>2 arteries + 1 vein</td>
+</tr>
+<tr>
+<td><strong>Plasma volume increase</strong></td>
+<td>~40–<span class="val-pill">50%</span></td>
+</tr>
+<tr>
+<td><strong>GFR increase</strong></td>
+<td>~40–<span class="val-pill">50%</span></td>
+</tr>
+<tr>
+<td><strong>RBC mass increase</strong></td>
+<td>~20–<span class="val-pill">30%</span></td>
+</tr>
+<tr>
+<td><strong>Late pregnancy fibrinogen</strong></td>
+<td>~4–<span class="val-pill">6 g</span>/L</td>
+</tr>
+<tr>
+<td><strong>Pregnancy PaCO₂</strong></td>
+<td>~28–<span class="val-pill">32 mm</span>Hg</td>
+</tr>
+<tr>
+<td><strong>Pregnancy HCO₃⁻</strong></td>
+<td>~18–<span class="val-pill">22 mm</span>ol/L</td>
+</tr>
+<tr>
+<td><strong>Pregnancy osmolality</strong></td>
+<td>slightly reduced</td>
+</tr>
+<tr>
+<td><strong>3a OASI</strong></td>
+<td>&lt;<span class="val-pill">50%</span> EAS</td>
+</tr>
+<tr>
+<td><strong>3b OASI</strong></td>
+<td>&gt;<span class="val-pill">50%</span> EAS</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 1. 🧪 IMPORTANT BIOCHEMISTRY IN OBSTETRIC</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Feature: Important point</li>
+<li class="surg-item">● Source: Syncytiotrophoblast</li>
+<li class="surg-item">● Detectable: ~8–10 days after conception</li>
+<li class="surg-item">● Peaks: ~8–10 weeks</li>
+<li class="surg-item">● Then: Falls and plateaus</li>
+<li class="surg-item">● Structure: α + β subunits</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 43. ANATOMICAL LANDMARKS — OBSTETRIC PEL</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Parameter: Approximate value</li>
+<li class="surg-item">● Obstetric conjugate: 10.5 cm</li>
+<li class="surg-item">● Diagonal conjugate: 12.5–13 cm</li>
+<li class="surg-item">● Transverse pelvic inlet: 13.5 cm</li>
+<li class="surg-item">● Intertuberous diameter: 10.5–11 cm</li>
+<li class="surg-item">● Suboccipitobregmatic: 9.5 cm</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 80;
+    const flashcards = [{"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Feature</strong>?", "a": "<strong>Important point</strong>"}, {"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Source</strong>?", "a": "<strong>Syncytiotrophoblast</strong>"}, {"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Detectable</strong>?", "a": "<strong>~8\u201310 days after conception</strong>"}, {"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Peaks</strong>?", "a": "<strong>~8\u201310 weeks</strong>"}, {"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Then</strong>?", "a": "<strong>Falls and plateaus</strong>"}, {"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Structure</strong>?", "a": "<strong>\u03b1 + \u03b2 subunits</strong>"}, {"category": "1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Main role</strong>?", "a": "<strong>Maintains corpus luteum \u2192 progesterone</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Parameter</strong>?", "a": "<strong>Approximate value</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Obstetric conjugate</strong>?", "a": "<strong>10.5 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Diagonal conjugate</strong>?", "a": "<strong>12.5\u201313 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Transverse pelvic inlet</strong>?", "a": "<strong>13.5 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Intertuberous diameter</strong>?", "a": "<strong>10.5\u201311 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suboccipitobregmatic</strong>?", "a": "<strong>9.5 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suboccipitofrontal</strong>?", "a": "<strong>~10 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Occipitofrontal</strong>?", "a": "<strong>~11.5 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Mentovertical</strong>?", "a": "<strong>~13.5 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Submentobregmatic</strong>?", "a": "<strong>~9.5 cm</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fetal station at ischial spines</strong>?", "a": "<strong>0</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal cord vessels</strong>?", "a": "<strong>2 arteries + 1 vein</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Plasma volume increase</strong>?", "a": "<strong>~40\u201350%</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>GFR increase</strong>?", "a": "<strong>~40\u201350%</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>RBC mass increase</strong>?", "a": "<strong>~20\u201330%</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Late pregnancy fibrinogen</strong>?", "a": "<strong>~4\u20136 g/L</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pregnancy PaCO\u2082</strong>?", "a": "<strong>~28\u201332 mmHg</strong>"}, {"category": "OBSTETRIC PELVIS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pregnancy HCO\u2083\u207b</strong>?", "a": "<strong>~18\u201322 mmol/L</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Feature ?", "options": ["Important point", "Syncytiotrophoblast", "~8\u201310 days after conception", "~8\u201310 weeks"], "correct": 0, "explanation": "Key Guideline / Fact: Important point (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Source ?", "options": ["Important point", "Syncytiotrophoblast", "~8\u201310 days after conception", "~8\u201310 weeks"], "correct": 1, "explanation": "Key Guideline / Fact: Syncytiotrophoblast (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Detectable ?", "options": ["Syncytiotrophoblast", "Important point", "~8\u201310 days after conception", "~8\u201310 weeks"], "correct": 2, "explanation": "Key Guideline / Fact: ~8\u201310 days after conception (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Peaks ?", "options": ["~8\u201310 days after conception", "Important point", "Syncytiotrophoblast", "~8\u201310 weeks"], "correct": 3, "explanation": "Key Guideline / Fact: ~8\u201310 weeks (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Then ?", "options": ["Falls and plateaus", "Important point", "Syncytiotrophoblast", "~8\u201310 days after conception"], "correct": 0, "explanation": "Key Guideline / Fact: Falls and plateaus (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Structure ?", "options": ["Important point", "\u03b1 + \u03b2 subunits", "Syncytiotrophoblast", "~8\u201310 days after conception"], "correct": 1, "explanation": "Key Guideline / Fact: \u03b1 + \u03b2 subunits (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Main role ?", "options": ["Syncytiotrophoblast", "Important point", "Maintains corpus luteum \u2192 progesterone", "~8\u201310 days after conception"], "correct": 2, "explanation": "Key Guideline / Fact: Maintains corpus luteum \u2192 progesterone (1. \ud83e\uddea IMPORTANT BIOCHEMISTRY IN)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Parameter ?", "options": ["~8\u201310 days after conception", "Important point", "Syncytiotrophoblast", "Approximate value"], "correct": 3, "explanation": "Key Guideline / Fact: Approximate value (OBSTETRIC PELVIS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Obstetric conjugate ?", "options": ["10.5 cm", "Important point", "Syncytiotrophoblast", "~8\u201310 days after conception"], "correct": 0, "explanation": "Key Guideline / Fact: 10.5 cm (OBSTETRIC PELVIS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Diagonal conjugate ?", "options": ["Important point", "12.5\u201313 cm", "Syncytiotrophoblast", "~8\u201310 days after conception"], "correct": 1, "explanation": "Key Guideline / Fact: 12.5\u201313 cm (OBSTETRIC PELVIS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Transverse pelvic inlet ?", "options": ["Syncytiotrophoblast", "Important point", "13.5 cm", "~8\u201310 days after conception"], "correct": 2, "explanation": "Key Guideline / Fact: 13.5 cm (OBSTETRIC PELVIS)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Intertuberous diameter ?", "options": ["~8\u201310 days after conception", "Important point", "Syncytiotrophoblast", "10.5\u201311 cm"], "correct": 3, "explanation": "Key Guideline / Fact: 10.5\u201311 cm (OBSTETRIC PELVIS)."}];
+    const storageKey = 'obgyn_mastered_important_biochemistry__immunopathology___anatomical_landmarks_in_obstetrics';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

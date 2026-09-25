@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER ATLAS — GYNAECOLOGICAL PROBLEMS IN PREGNANCY — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MASTER ATLAS — GYNAECOLOGICAL PROBLEMS</div>
+                <div class="brand-subtitle-text">MRCOG / FCPS / RCOG Guidance — Interactive Study A</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (17)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 54 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 11 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (11 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="PART I — UTERINE CONDITIONS">PART I — UTERINE CONDITIONS</a></li><li><a href="#part-2" class="part-nav-link" title="PART II — CERVICAL CONDITIONS">PART II — CERVICAL CONDITIONS</a></li><li><a href="#part-3" class="part-nav-link" title="PART III — OVARIAN CONDITIONS">PART III — OVARIAN CONDITIONS</a></li><li><a href="#part-4" class="part-nav-link" title="PART IV — ENDOMETRIOSIS">PART IV — ENDOMETRIOSIS</a></li><li><a href="#part-5" class="part-nav-link" title="PART V — PELVIC ORGAN PROLAPSE">PART V — PELVIC ORGAN PROLAPSE</a></li><li><a href="#part-6" class="part-nav-link" title="PART VI — VULVAL &amp; VAGINAL CONDITIONS">PART VI — VULVAL &amp; VAGINAL CONDITIONS</a></li><li><a href="#part-7" class="part-nav-link" title="PART VII — GYNAECOLOGICAL CANCER IN PREGNANCY">PART VII — GYNAECOLOGICAL CANCER IN PREGNANCY</a></li><li><a href="#part-8" class="part-nav-link" title="PART VIII — INFECTIONS THAT ARE PRIMARILY GYNAECOLOGICAL">PART VIII — INFECTIONS THAT ARE PRIMARILY GYNAECOLOGICAL</a></li><li><a href="#part-9" class="part-nav-link" title="PART IX — URINARY/GYNAECOLOGICAL PROBLEMS">PART IX — URINARY/GYNAECOLOGICAL PROBLEMS</a></li><li><a href="#part-10" class="part-nav-link" title="PART X — GYNAECOLOGICAL CONDITIONS RELATED TO PREVIOUS SURGERY">PART X — GYNAECOLOGICAL CONDITIONS RELATED TO PREVIOUS SURGERY</a></li><li><a href="#part-11" class="part-nav-link" title="PART XI — OTHER IMPORTANT GYNAECOLOGICAL CONDITIONS">PART XI — OTHER IMPORTANT GYNAECOLOGICAL CONDITIONS</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MASTER ATLAS — GYNAECOLOGICAL PROBLEMS IN PREGNANCY</h1>
+                    <div class="reader-hero-sub">⭐ MRCOG / FCPS / RCOG Guidance — Interactive Study Atlas</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">PART I — UTERINE CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-1-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Fibroids in pregnancy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-1" onchange="toggleMastery('t-1-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Problems</h4>
+<h4 class="sub-label">Pain/red degeneration</h4>
+<h4 class="sub-label">Rapid apparent growth</h4>
+<h4 class="sub-label">Pressure symptoms</h4>
+<h4 class="sub-label">Malpresentation</h4>
+<h4 class="sub-label">Obstructed labour</h4>
+<h4 class="sub-label">Placental abnormalities</h4>
+<h4 class="sub-label">Fetal growth restriction in selected cases</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Caesarean delivery</h4>
+<h4 class="sub-label">Postpartum haemorrhage</h4>
+<h4 class="sub-label">Retained placenta</h4>
+<h4 class="sub-label">Difficult caesarean if fibroid obstructs lower segment</h4>
+<h4 class="sub-label">Assessment</h4>
+<h4 class="sub-label">History: pain, bleeding, pressure symptoms</h4>
+<h4 class="sub-label">Abdominal examination</h4>
+<h4 class="sub-label">Ultrasound:</h4>
+<h4 class="sub-label">number</h4>
+<h4 class="sub-label">size</h4>
+<h4 class="sub-label">site</h4>
+<h4 class="sub-label">relation to placenta</h4>
+<h4 class="sub-label">relation to cervix/lower segment</h4>
+<h4 class="sub-label">fetal growth</h4>
+<p class="standard-p">MRI only when ultrasound is inadequate or anatomy needs clarification.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Asymptomatic/small: expectant management.</p>
+<p class="standard-p">Pain/red degeneration: rest, hydration and appropriate analgesia; exclude important differentials such as abruption, torsion and labour.</p>
+<p class="standard-p">Large/multiple fibroids: consultant-led antenatal surveillance.</p>
+<p class="standard-p">Consider serial fetal growth assessment where clinically indicated.</p>
+<p class="standard-p">Document whether a lower-segment fibroid could obstruct labour.</p>
+<p class="standard-p">Mode of birth is individualized.</p>
+<p class="standard-p">Caesarean may be required if the fibroid obstructs the birth canal or creates another obstetric indication.</p>
+<p class="standard-p">Myomectomy during pregnancy is generally avoided; surgery is reserved for exceptional situations such as an acute surgical abdomen or severe refractory complications.</p>
+<h4 class="sub-label">Exam pearl:</h4>
+<p class="standard-p">Fibroid ≠ automatic Caesarean.</p>
+<p class="standard-p">RCOG identifies fibroids as a major benign gynaecological condition and has recently highlighted the importance of improved pathways for fibroid care.</p>
+
+                <div class="topic-row" id="topic-t-1-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Adenomyosis in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-2" onchange="toggleMastery('t-1-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Potential issues</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Placental complications</h4>
+<h4 class="sub-label">Abnormal placentation</h4>
+<h4 class="sub-label">Fetal growth problems in some patients</h4>
+<h4 class="sub-label">Increased obstetric intervention</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Usually expectant.</p>
+<p class="standard-p">Specialist obstetric assessment if extensive adenomyosis.</p>
+<p class="standard-p">Antenatal surveillance according to associated obstetric risk factors.</p>
+<p class="standard-p">No routine surgical treatment during pregnancy.</p>
+
+                <div class="topic-row" id="topic-t-1-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Congenital uterine anomalies</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-3" onchange="toggleMastery('t-1-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Includes:</h4>
+<h4 class="sub-label">Septate uterus</h4>
+<h4 class="sub-label">Bicornuate uterus</h4>
+<h4 class="sub-label">Unicornuate uterus</h4>
+<h4 class="sub-label">Didelphys</h4>
+<h4 class="sub-label">Arcuate uterus</h4>
+<h4 class="sub-label">Cervical anomalies</h4>
+<h4 class="sub-label">Pregnancy risks</h4>
+<h4 class="sub-label">Miscarriage</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Malpresentation</h4>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<h4 class="sub-label">Cervical insufficiency</h4>
+<h4 class="sub-label">Placental abnormalities</h4>
+<h4 class="sub-label">Caesarean delivery</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Confirm anatomy with ultrasound ± MRI if required.</p>
+<p class="standard-p">Assess cervical length where clinically appropriate.</p>
+<p class="standard-p">Monitor fetal growth.</p>
+<p class="standard-p">Presentation determines delivery planning.</p>
+<p class="standard-p">Previous reconstructive surgery must be considered.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">Do not confuse a uterine anomaly with fibroids or adenomyosis.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-1-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Previous myomectomy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-4" onchange="toggleMastery('t-1-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This deserves its own category.</p>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Number of fibroids removed</h4>
+<h4 class="sub-label">Depth of uterine incision</h4>
+<h4 class="sub-label">Whether endometrial cavity was entered</h4>
+<h4 class="sub-label">Surgical approach</h4>
+<h4 class="sub-label">Operative report if available</h4>
+<h4 class="sub-label">Why it matters</h4>
+<h4 class="sub-label">Uterine rupture risk</h4>
+<h4 class="sub-label">Placenta praevia/accreta spectrum</h4>
+<h4 class="sub-label">Delivery planning</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Obtain operative notes where possible.</p>
+<p class="standard-p">Individualized mode and timing of birth.</p>
+<p class="standard-p">If significant full-thickness uterine surgery/cavity entry has occurred, planned Caesarean may be recommended rather than labour.</p>
+
+                <div class="topic-row" id="topic-t-1-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Endometrial polyps discovered during pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-5" onchange="toggleMastery('t-1-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually incidental.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Usually observation.</p>
+<p class="standard-p">Avoid hysteroscopic polypectomy during pregnancy unless an exceptional indication exists.</p>
+<p class="standard-p">Reassess postpartum if persistent/symptomatic.</p>
+
+                <div class="topic-row" id="topic-t-1-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Endometrial hyperplasia diagnosed before pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-6" onchange="toggleMastery('t-1-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Pregnancy generally interrupts the usual hormonal environment.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Review previous histology.</p>
+<p class="standard-p">Establish whether atypia/EIN or malignancy was present.</p>
+<p class="standard-p">Involve gynaecological oncology if there is atypia or suspected malignancy.</p>
+<p class="standard-p">Definitive treatment is generally deferred until after pregnancy unless cancer is suspected.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">PART II — CERVICAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Cervical polyp in pregnancy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation:</h4>
+<h4 class="sub-label">Postcoital bleeding</h4>
+<h4 class="sub-label">Vaginal bleeding</h4>
+<h4 class="sub-label">Discharge</h4>
+<h4 class="sub-label">Incidental finding</h4>
+<h4 class="sub-label">Assessment</h4>
+<h4 class="sub-label">Speculum examination</h4>
+<h4 class="sub-label">Characterize lesion</h4>
+<h4 class="sub-label">Determine whether it appears benign</h4>
+<p class="standard-p">Consider cervical screening history.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Small, asymptomatic, apparently benign polyp → usually observe.</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Significant bleeding, large lesion, atypical appearance → senior gynaecological review.</span></div>
+<p class="standard-p">Histology may be necessary if malignancy cannot be excluded.</p>
+<p class="standard-p">Avoid unnecessary removal because cervical polypectomy can cause bleeding and may be associated with pregnancy complications.</p>
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Cervical ectropion</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Common in pregnancy because of hormonal changes.</p>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Contact bleeding</h4>
+<h4 class="sub-label">Increased discharge</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Usually reassurance.</p>
+<p class="standard-p">Exclude infection/cervical pathology when indicated.</p>
+<p class="standard-p">Treatment is generally unnecessary during pregnancy.</p>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Cervical insufficiency</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is a gynaecological/cervical structural problem with major obstetric consequences.</p>
+<h4 class="sub-label">Think when</h4>
+<h4 class="sub-label">Previous painless second-trimester loss</h4>
+<h4 class="sub-label">Previous spontaneous very preterm birth</h4>
+<h4 class="sub-label">Short cervix</h4>
+<h4 class="sub-label">Cervical dilatation without labour</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Cervical-length surveillance where indicated.</p>
+<p class="standard-p">Vaginal progesterone and/or cerclage according to clinical history and cervical findings.</p>
+<p class="standard-p">Emergency/rescue cerclage in selected women with cervical dilatation, after excluding labour, infection and membrane rupture.</p>
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Cervical stenosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually pre-existing.</p>
+<h4 class="sub-label">Potential pregnancy relevance</h4>
+<p class="standard-p">Usually little effect on pregnancy.</p>
+<p class="standard-p">May complicate cervical assessment or procedures.</p>
+<p class="standard-p">Labour management depends on obstetric circumstances.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">PART III — OVARIAN CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Ovarian cyst in pregnancy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is one of the most important topics.</p>
+<h4 class="sub-label">Types</h4>
+<h4 class="sub-label">Functional</h4>
+<h4 class="sub-label">Corpus luteum</h4>
+<h4 class="sub-label">Simple cyst</h4>
+<h4 class="sub-label">Benign neoplasms</h4>
+<h4 class="sub-label">Dermoid/teratoma</h4>
+<h4 class="sub-label">Cystadenoma</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Malignant</h4>
+<h4 class="sub-label">Epithelial ovarian cancer</h4>
+<h4 class="sub-label">Germ-cell tumour</h4>
+<h4 class="sub-label">Sex-cord stromal tumour</h4>
+<h4 class="sub-label">Metastatic tumour</h4>
+<p class="standard-p">RCOG&#x27;s gynaecological curriculum specifically requires knowledge of functional cysts, dermoids, endometriotic cysts and ovarian cyst accidents.</p>
+<h4 class="sub-label">Assessment</h4>
+<h4 class="sub-label">Ultrasound:</h4>
+<h4 class="sub-label">Size</h4>
+<h4 class="sub-label">Simple vs complex</h4>
+<h4 class="sub-label">Solid components</h4>
+<h4 class="sub-label">Papillary projections</h4>
+<h4 class="sub-label">Septations</h4>
+<h4 class="sub-label">Bilaterality</h4>
+<h4 class="sub-label">Doppler characteristics</h4>
+<h4 class="sub-label">Ascites</h4>
+<h4 class="sub-label">Other pelvic abnormalities</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Simple, benign-appearing, asymptomatic</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ expectant management.</span></div>
+<h4 class="sub-label">Complex/suspicious</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ specialist assessment.</span></div>
+<h4 class="sub-label">Acute abdomen</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">torsion</h4>
+<h4 class="sub-label">rupture</h4>
+<h4 class="sub-label">haemorrhage</h4>
+<h4 class="sub-label">infection</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ urgent gynaecology review.</span></div>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Ovarian torsion in pregnancy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Sudden unilateral pelvic/abdominal pain</h4>
+<h4 class="sub-label">Nausea/vomiting</h4>
+<h4 class="sub-label">Adnexal tenderness</h4>
+<h4 class="sub-label">Diagnosis</h4>
+<p class="standard-p">Ultrasound ± Doppler.</p>
+<p class="standard-p">Normal Doppler flow does not reliably exclude torsion.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Surgical emergency.</p>
+<p class="standard-p">Prompt laparoscopy/laparotomy depending on gestation, anatomy and clinical situation.</p>
+<p class="standard-p">Aim for ovarian conservation where feasible.</p>
+
+                <div class="topic-row" id="topic-t-3-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Ruptured ovarian cyst</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-3" onchange="toggleMastery('t-3-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Acute pelvic pain</h4>
+<h4 class="sub-label">Possible haemoperitoneum</h4>
+<h4 class="sub-label">Haemodynamic instability in severe cases</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">ABC/resuscitation</h4>
+<h4 class="sub-label">FBC, group &amp; save/crossmatch as indicated</h4>
+<h4 class="sub-label">Ultrasound</h4>
+<h4 class="sub-label">Exclude ectopic pregnancy in early pregnancy</h4>
+<h4 class="sub-label">Conservative if stable and bleeding is limited</h4>
+<p class="standard-p">Surgery if unstable or significant ongoing haemorrhage.</p>
+
+                <div class="topic-row" id="topic-t-3-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Endometrioma in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-4" onchange="toggleMastery('t-3-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually managed conservatively.</p>
+<h4 class="sub-label">Problems</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Torsion</h4>
+<h4 class="sub-label">Rupture</h4>
+<h4 class="sub-label">Rare malignant transformation</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Ultrasound surveillance if appropriate.</p>
+<p class="standard-p">Surgery only when clinically indicated, especially acute complications or significant suspicion of malignancy.</p>
+<p class="standard-p">RCOG describes ovarian endometriomas as part of endometriosis and notes that management depends partly on whether pregnancy is planned.</p>
+
+                <div class="topic-row" id="topic-t-3-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">Mature cystic teratoma / dermoid</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-5" onchange="toggleMastery('t-3-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually benign.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Observe if asymptomatic and benign-appearing.</p>
+<h4 class="sub-label">Surgery if:</h4>
+<h4 class="sub-label">torsion</h4>
+<h4 class="sub-label">rupture</h4>
+<h4 class="sub-label">obstruction</h4>
+<h4 class="sub-label">significant growth</h4>
+<p class="standard-p">suspicious features.</p>
+
+                <div class="topic-row" id="topic-t-3-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">Suspected ovarian malignancy in pregnancy ⭐⭐⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-6" onchange="toggleMastery('t-3-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Red flags:</h4>
+<h4 class="sub-label">Complex mass</h4>
+<h4 class="sub-label">Solid components</h4>
+<h4 class="sub-label">Papillary projections</h4>
+<h4 class="sub-label">Bilateral masses</h4>
+<h4 class="sub-label">Ascites</h4>
+<h4 class="sub-label">Rapid growth</h4>
+<p class="standard-p">Elevated tumour markers interpreted cautiously in pregnancy.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Specialist gynaecological oncology referral.</p>
+<p class="standard-p">Expert ultrasound.</p>
+<p class="standard-p">MRI without gadolinium when clinically appropriate.</p>
+<p class="standard-p">MDT discussion.</p>
+<h4 class="sub-label">Decide:</h4>
+<h4 class="sub-label">surveillance</h4>
+<h4 class="sub-label">surgery</h4>
+<h4 class="sub-label">chemotherapy</h4>
+<h4 class="sub-label">delivery timing</h4>
+<p class="standard-p">Do not delay evaluation simply because the patient is pregnant.</p>
+<p class="standard-p">RCOG&#x27;s curriculum specifically includes ovarian, cervical, endometrial and vulval malignancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">PART IV — ENDOMETRIOSIS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-4-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">Endometriosis in pregnancy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-4-1" onchange="toggleMastery('t-4-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Pregnancy does not cure endometriosis.</p>
+<h4 class="sub-label">Possible complications:</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Endometrioma complications</h4>
+<h4 class="sub-label">Torsion</h4>
+<h4 class="sub-label">Rupture</h4>
+<h4 class="sub-label">Rare bowel/bladder complications</h4>
+<h4 class="sub-label">Rare spontaneous haemoperitoneum</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Usually conservative.</p>
+<p class="standard-p">Analgesia appropriate for pregnancy.</p>
+<p class="standard-p">Avoid hormonal suppression because pregnancy itself is established.</p>
+<p class="standard-p">Surgery only for significant complications or malignancy concern.</p>
+<p class="standard-p">RCOG notes that endometriosis can involve the ovaries, bowel, bladder and other pelvic structures and that extensive disease may require multidisciplinary specialist care.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">PART V — PELVIC ORGAN PROLAPSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">Uterovaginal prolapse in pregnancy ⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Rare but important.</p>
+<h4 class="sub-label">Types:</h4>
+<h4 class="sub-label">Uterine prolapse</h4>
+<h4 class="sub-label">Cervical prolapse</h4>
+<h4 class="sub-label">Vaginal wall prolapse</h4>
+<h4 class="sub-label">Cystocele</h4>
+<h4 class="sub-label">Rectocele</h4>
+<h4 class="sub-label">Enterocele</h4>
+<h4 class="sub-label">Problems</h4>
+<h4 class="sub-label">Vaginal ulceration</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Urinary retention</h4>
+<h4 class="sub-label">Constipation</h4>
+<h4 class="sub-label">Cervical oedema</h4>
+<h4 class="sub-label">Preterm labour</h4>
+<h4 class="sub-label">Obstructed labour</h4>
+<h4 class="sub-label">Difficulty reducing prolapse</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Mild/asymptomatic</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ observation.</span></div>
+<h4 class="sub-label">Symptomatic</h4>
+<h4 class="sub-label">Pelvic examination</h4>
+<h4 class="sub-label">Treat ulceration/infection if present</h4>
+<p class="standard-p">Vaginal pessary may be used in selected patients.</p>
+<p class="standard-p">Monitor cervical changes and urinary symptoms.</p>
+<p class="standard-p">Assess fetal growth and preterm-birth risk according to clinical situation.</p>
+<h4 class="sub-label">Severe prolapse</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ consultant-led management.</span></div>
+<h4 class="sub-label">Delivery</h4>
+<p class="standard-p">Vaginal birth may be possible.</p>
+<p class="standard-p">Caesarean is not automatically required.</p>
+<p class="standard-p">Caesarean may be necessary if prolapse is irreducible and obstructs labour or another obstetric indication exists.</p>
+<p class="standard-p">RCOG&#x27;s core curriculum explicitly includes uterovaginal prolapse and urogynaecological problems.</p>
+
+                <div class="topic-row" id="topic-t-5-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">19</span>
+                        <h3 class="topic-heading">Cystocele in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-2" onchange="toggleMastery('t-5-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Conservative.</p>
+<p class="standard-p">Treat urinary retention/UTI.</p>
+<p class="standard-p">Pessary in selected symptomatic patients.</p>
+<p class="standard-p">Delivery usually based on obstetric indications.</p>
+
+                <div class="topic-row" id="topic-t-5-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">20</span>
+                        <h3 class="topic-heading">Rectocele/enterocele in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-3" onchange="toggleMastery('t-5-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually conservative.</p>
+<h4 class="sub-label">Treat:</h4>
+<h4 class="sub-label">Constipation</h4>
+<h4 class="sub-label">Pelvic pressure</h4>
+<h4 class="sub-label">Defaecatory dysfunction</h4>
+<p class="standard-p">Surgery is generally postponed until postpartum.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">PART VI — VULVAL &amp; VAGINAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-6-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">Bartholin cyst/abscess</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-1" onchange="toggleMastery('t-6-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy-specific approach</h4>
+<h4 class="sub-label">Cyst:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ conservative if asymptomatic.</span></div>
+<h4 class="sub-label">Abscess:</h4>
+<p class="standard-p">Antibiotics when indicated.</p>
+<p class="standard-p">Drainage if clinically necessary.</p>
+<p class="standard-p">Word catheter is commonly used.</p>
+<p class="standard-p">Avoid unnecessary extensive surgery during pregnancy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important differential</span></div>
+                
+            </div>
+            
+<p class="standard-p">Vulval malignancy, particularly in an atypical lesion.</p>
+
+                <div class="topic-row" id="topic-t-6-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">22</span>
+                        <h3 class="topic-heading">Vulval varicosities</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-2" onchange="toggleMastery('t-6-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">May occur due to pelvic venous congestion.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Reassurance</h4>
+<h4 class="sub-label">Avoid prolonged standing</h4>
+<h4 class="sub-label">Support garments</h4>
+<h4 class="sub-label">Analgesia if necessary</h4>
+<p class="standard-p">Usually regress postpartum.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">thrombosis can occur and should be assessed if painful, hard or asymmetric.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-6-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">23</span>
+                        <h3 class="topic-heading">Vulval/vaginal haematoma</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-3" onchange="toggleMastery('t-6-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">Trauma</h4>
+<h4 class="sub-label">Delivery-related injury</h4>
+<h4 class="sub-label">Spontaneous haematoma</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Assess haemodynamic status.</p>
+<p class="standard-p">Examine extent.</p>
+<p class="standard-p">Analgesia.</p>
+<p class="standard-p">Drainage/surgery if expanding, infected or causing significant symptoms/haemodynamic compromise.</p>
+
+                <div class="topic-row" id="topic-t-6-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">Lichen sclerosus in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-4" onchange="toggleMastery('t-6-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Usually does not require major alteration of pregnancy care.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Continue appropriate topical corticosteroid therapy.</p>
+<p class="standard-p">Monitor for fissuring/trauma.</p>
+<p class="standard-p">Ensure malignancy surveillance.</p>
+<p class="standard-p">Vaginal delivery is usually possible.</p>
+
+                <div class="topic-row" id="topic-t-6-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">Vulval intraepithelial neoplasia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-6-5" onchange="toggleMastery('t-6-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Specialist vulval disease assessment.</p>
+<p class="standard-p">Biopsy suspicious lesions.</p>
+<p class="standard-p">Conservative surveillance can be appropriate.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive excision is generally individualized and often deferred when safe.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">PART VII — GYNAECOLOGICAL CANCER IN PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is a major MRCOG topic.</p>
+
+                <div class="topic-row" id="topic-t-7-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">26</span>
+                        <h3 class="topic-heading">Cervical cancer in pregnancy ⭐⭐⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-1" onchange="toggleMastery('t-7-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Possible presentation:</h4>
+<h4 class="sub-label">Postcoital bleeding</h4>
+<h4 class="sub-label">Abnormal bleeding</h4>
+<h4 class="sub-label">Abnormal cervical appearance</h4>
+<h4 class="sub-label">Abnormal screening result</h4>
+<h4 class="sub-label">Incidental diagnosis</h4>
+<h4 class="sub-label">Initial assessment</h4>
+<h4 class="sub-label">Speculum examination</h4>
+<h4 class="sub-label">Cervical biopsy when indicated</h4>
+<h4 class="sub-label">Histopathology</h4>
+<h4 class="sub-label">MRI without gadolinium when staging requires it</h4>
+<h4 class="sub-label">MDT referral</h4>
+<h4 class="sub-label">Management depends on</h4>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Histological type</h4>
+<h4 class="sub-label">Stage</h4>
+<h4 class="sub-label">Tumour size</h4>
+<h4 class="sub-label">Lymph-node status</h4>
+<h4 class="sub-label">Patient&#x27;s wishes</h4>
+<h4 class="sub-label">Desire for continuation of pregnancy</h4>
+<h4 class="sub-label">Principle:</h4>
+<p class="standard-p">Do not automatically terminate pregnancy.</p>
+<p class="standard-p">Early-stage disease may sometimes be managed while continuing pregnancy, whereas advanced disease may require treatment that cannot safely be delayed.</p>
+<h4 class="sub-label">MDT</h4>
+<h4 class="sub-label">Obstetrician</h4>
+<h4 class="sub-label">Gynaecological oncologist</h4>
+<h4 class="sub-label">Medical oncologist</h4>
+<h4 class="sub-label">Radiation oncologist</h4>
+<h4 class="sub-label">Neonatologist</h4>
+<h4 class="sub-label">Anaesthetist</h4>
+<h4 class="sub-label">Specialist midwife</h4>
+<h4 class="sub-label">Pathologist/radiologist</h4>
+
+                <div class="topic-row" id="topic-t-7-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">Endometrial cancer in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-2" onchange="toggleMastery('t-7-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Extremely uncommon because pregnancy itself is unusual in women with established endometrial carcinoma.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Gynaecological oncology MDT.</p>
+<p class="standard-p">Confirm histology.</p>
+<p class="standard-p">Determine stage.</p>
+<p class="standard-p">Individualize pregnancy continuation versus definitive cancer treatment.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Definitive surgery is generally postpartum if pregnancy can safely continue.</span></div>
+                <div class="callout-body">28. Ovarian cancer in pregnancy ⭐⭐⭐⭐⭐</div>
+            </div>
+            
+<h4 class="sub-label">Approach</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Suspicious adnexal mass → specialist ultrasound → MDT.</span></div>
+<h4 class="sub-label">Possible options:</h4>
+<h4 class="sub-label">Conservative surveillance</h4>
+<p class="standard-p">For clearly benign lesions.</p>
+<h4 class="sub-label">Surgery</h4>
+<h4 class="sub-label">For:</h4>
+<h4 class="sub-label">Suspicious malignancy</h4>
+<h4 class="sub-label">Acute complications</h4>
+<h4 class="sub-label">Significant growth</h4>
+<h4 class="sub-label">Torsion/rupture</h4>
+<p class="standard-p">Timing is individualized, often aiming for the second trimester when surgery is necessary and pregnancy can safely continue.</p>
+<h4 class="sub-label">Chemotherapy</h4>
+<p class="standard-p">Some regimens can be used during pregnancy when necessary, generally after the first trimester.</p>
+<p class="standard-p">Avoid chemotherapy in the first trimester because of major fetal teratogenic risk.</p>
+
+                <div class="topic-row" id="topic-t-7-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">Vulval cancer in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-3" onchange="toggleMastery('t-7-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Rare.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Biopsy suspicious lesion.</p>
+<p class="standard-p">Gynaecological oncology MDT.</p>
+<p class="standard-p">Surgical treatment may be necessary during pregnancy depending on stage.</p>
+<p class="standard-p">Groin-node assessment and treatment depend on tumour characteristics.</p>
+
+                <div class="topic-row" id="topic-t-7-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">30</span>
+                        <h3 class="topic-heading">Vaginal cancer in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-4" onchange="toggleMastery('t-7-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Rare.</p>
+<h4 class="sub-label">Management requires:</h4>
+<h4 class="sub-label">Biopsy</h4>
+<h4 class="sub-label">MRI/staging</h4>
+<h4 class="sub-label">MDT</h4>
+<p class="standard-p">Individualized timing of treatment and delivery.</p>
+<p class="standard-p">Radiotherapy is generally incompatible with continuing pregnancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">PART VIII — INFECTIONS THAT ARE PRIMARILY GYNAECOLOGICAL</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-8-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">31</span>
+                        <h3 class="topic-heading">Bacterial vaginosis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-1" onchange="toggleMastery('t-8-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy relevance:</h4>
+<h4 class="sub-label">Symptomatic infection</h4>
+<h4 class="sub-label">Association with preterm birth</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Treat symptomatic women according to pregnancy-safe antibiotic guidance.</p>
+<p class="standard-p">Routine treatment of asymptomatic BV solely to prevent preterm birth is not generally recommended.</p>
+
+                <div class="topic-row" id="topic-t-8-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">32</span>
+                        <h3 class="topic-heading">Vulvovaginal candidiasis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-2" onchange="toggleMastery('t-8-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Very common in pregnancy.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Prefer topical azole therapy.</p>
+<p class="standard-p">Avoid oral fluconazole where possible in pregnancy.</p>
+
+                <div class="topic-row" id="topic-t-8-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">33</span>
+                        <h3 class="topic-heading">Trichomoniasis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-3" onchange="toggleMastery('t-8-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Test and treat appropriately.</p>
+<p class="standard-p">Treat sexual partner(s).</p>
+<p class="standard-p">Screen for other STIs.</p>
+<p class="standard-p">Use pregnancy-compatible treatment.</p>
+
+                <div class="topic-row" id="topic-t-8-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">34</span>
+                        <h3 class="topic-heading">Chlamydia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-4" onchange="toggleMastery('t-8-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important because of</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Maternal infection</h4>
+<h4 class="sub-label">Neonatal conjunctivitis</h4>
+<h4 class="sub-label">Neonatal pneumonia</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Pregnancy-safe antibiotic treatment.</p>
+<p class="standard-p">Partner management.</p>
+<p class="standard-p">Test of cure where recommended.</p>
+<p class="standard-p">STI screening.</p>
+
+                <div class="topic-row" id="topic-t-8-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">35</span>
+                        <h3 class="topic-heading">Gonorrhoea</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-5" onchange="toggleMastery('t-8-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Risk of:</h4>
+<h4 class="sub-label">Maternal pelvic infection</h4>
+<h4 class="sub-label">Neonatal ophthalmia</h4>
+<h4 class="sub-label">Disseminated infection</h4>
+<p class="standard-p">Requires appropriate pregnancy-safe antibiotic treatment and partner notification.</p>
+
+                <div class="topic-row" id="topic-t-8-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">36</span>
+                        <h3 class="topic-heading">Syphilis in pregnancy ⭐⭐⭐⭐⭐</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-6" onchange="toggleMastery('t-8-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This becomes an obstetric + infectious disease problem, but is essential in a gynaecological pregnancy atlas.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Immediate appropriate penicillin therapy.</p>
+<p class="standard-p">Stage disease.</p>
+<p class="standard-p">Treat partner(s).</p>
+<p class="standard-p">Maternal serological follow-up.</p>
+<p class="standard-p">Fetal assessment.</p>
+
+                <div class="topic-row" id="topic-t-8-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">37</span>
+                        <h3 class="topic-heading">Genital herpes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-7" onchange="toggleMastery('t-8-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Primary infection late in pregnancy is particularly important.</p>
+<h4 class="sub-label">Management depends on:</h4>
+<h4 class="sub-label">Primary vs recurrent infection</h4>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Lesions/prodrome at labour</h4>
+<p class="standard-p">Antiviral treatment may be indicated.</p>
+<p class="standard-p">Delivery planning depends on active lesions/prodrome and clinical circumstances.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">PART IX — URINARY/GYNAECOLOGICAL PROBLEMS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-9-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">38</span>
+                        <h3 class="topic-heading">Stress urinary incontinence in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-1" onchange="toggleMastery('t-9-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Usually conservative:</h4>
+<h4 class="sub-label">Pelvic-floor muscle training</h4>
+<h4 class="sub-label">Lifestyle measures</h4>
+<h4 class="sub-label">Treat constipation</h4>
+<h4 class="sub-label">Avoid unnecessary surgery</h4>
+
+                <div class="topic-row" id="topic-t-9-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">39</span>
+                        <h3 class="topic-heading">Overactive bladder</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-2" onchange="toggleMastery('t-9-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Behavioural modification</h4>
+<h4 class="sub-label">Bladder training</h4>
+<h4 class="sub-label">Fluid/caffeine advice</h4>
+<h4 class="sub-label">Pelvic-floor therapy</h4>
+<p class="standard-p">Drug treatment is generally avoided unless specialist assessment indicates benefit.</p>
+
+                <div class="topic-row" id="topic-t-9-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">40</span>
+                        <h3 class="topic-heading">Urinary retention due to prolapse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-3" onchange="toggleMastery('t-9-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is an important emergency complication.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Bladder scan</h4>
+<h4 class="sub-label">Catheterization if necessary</h4>
+<h4 class="sub-label">Reduce prolapse</h4>
+<h4 class="sub-label">Treat precipitating factors</h4>
+<h4 class="sub-label">Pessary if appropriate</h4>
+<p class="standard-p">Monitor renal function if prolonged obstruction.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">PART X — GYNAECOLOGICAL CONDITIONS RELATED TO PREVIOUS SURGERY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-10-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">41</span>
+                        <h3 class="topic-heading">Previous cervical surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-1" onchange="toggleMastery('t-10-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">LLETZ/LEEP</h4>
+<h4 class="sub-label">Cone biopsy</h4>
+<h4 class="sub-label">Multiple cervical procedures</h4>
+<h4 class="sub-label">Pregnancy implications:</h4>
+<h4 class="sub-label">Cervical shortening</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Cervical stenosis</h4>
+<h4 class="sub-label">Cervical incompetence in selected patients</h4>
+<p class="standard-p">Management involves appropriate cervical assessment and preterm-birth prevention strategy based on individual history.</p>
+
+                <div class="topic-row" id="topic-t-10-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">42</span>
+                        <h3 class="topic-heading">Previous endometriosis surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-2" onchange="toggleMastery('t-10-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Distorted pelvic anatomy</h4>
+<h4 class="sub-label">Previous bowel/bladder surgery</h4>
+<h4 class="sub-label">Caesarean surgical complexity</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important during abdominal surgery.</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-10-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">43</span>
+                        <h3 class="topic-heading">Previous ovarian surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-3" onchange="toggleMastery('t-10-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Possible:</h4>
+<h4 class="sub-label">Reduced ovarian reserve</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Altered anatomy</h4>
+<h4 class="sub-label">Increased risk of surgical injury</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important when planning Caesarean or other pelvic surgery.</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-10-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">44</span>
+                        <h3 class="topic-heading">Previous extensive pelvic surgery</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-4" onchange="toggleMastery('t-10-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">May result in:</h4>
+<h4 class="sub-label">Adhesions</h4>
+<h4 class="sub-label">Bowel injury</h4>
+<h4 class="sub-label">Bladder injury</h4>
+<h4 class="sub-label">Ureteric injury</h4>
+<h4 class="sub-label">Difficult Caesarean</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Review operative history.</p>
+<p class="standard-p">Consider senior surgeon involvement.</p>
+<p class="standard-p">Urology/general surgery backup if major adhesions or organ involvement is anticipated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">PART XI — OTHER IMPORTANT GYNAECOLOGICAL CONDITIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-11-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">45</span>
+                        <h3 class="topic-heading">PCOS in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-1" onchange="toggleMastery('t-11-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Risks include:</h4>
+<h4 class="sub-label">GDM</h4>
+<h4 class="sub-label">hypertensive disorders</h4>
+<h4 class="sub-label">miscarriage</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">metabolic complications</h4>
+<p class="standard-p">Management becomes primarily obstetric/metabolic.</p>
+
+                <div class="topic-row" id="topic-t-11-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">46</span>
+                        <h3 class="topic-heading">Endometriosis-associated pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-2" onchange="toggleMastery('t-11-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">preterm birth</h4>
+<h4 class="sub-label">placenta praevia</h4>
+<h4 class="sub-label">hypertensive disorders</h4>
+<p class="standard-p">rare spontaneous haemoperitoneum.</p>
+
+                <div class="topic-row" id="topic-t-11-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">47</span>
+                        <h3 class="topic-heading">Severe pelvic adhesions</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-3" onchange="toggleMastery('t-11-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important particularly with</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">previous Caesarean</h4>
+<h4 class="sub-label">endometriosis</h4>
+<h4 class="sub-label">previous PID</h4>
+<p class="standard-p">previous laparotomy.</p>
+<p class="standard-p">Main concern = operative difficulty and visceral injury.</p>
+
+                <div class="topic-row" id="topic-t-11-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">48</span>
+                        <h3 class="topic-heading">Pelvic inflammatory disease discovered in pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-4" onchange="toggleMastery('t-11-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">True PID is uncommon once pregnancy is established.</p>
+<h4 class="sub-label">If pelvic pain/fever occurs, consider:</h4>
+<h4 class="sub-label">appendicitis</h4>
+<h4 class="sub-label">UTI/pyelonephritis</h4>
+<h4 class="sub-label">chorioamnionitis</h4>
+<h4 class="sub-label">ovarian torsion</h4>
+<h4 class="sub-label">ectopic/heterotopic pregnancy in early pregnancy</h4>
+<p class="standard-p">tubo-ovarian abscess.</p>
+
+                <div class="topic-row" id="topic-t-11-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">49</span>
+                        <h3 class="topic-heading">Tubo-ovarian abscess</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-5" onchange="toggleMastery('t-11-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Rare but potentially serious.</p>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Antibiotics appropriate for pregnancy.</p>
+<p class="standard-p">MDT involvement.</p>
+<p class="standard-p">Drainage/surgery if abscess is large, ruptured, refractory or causing sepsis.</p>
+
+                <div class="topic-row" id="topic-t-11-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">50</span>
+                        <h3 class="topic-heading">Genital tract congenital anomalies</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-6" onchange="toggleMastery('t-11-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Vaginal septum</h4>
+<h4 class="sub-label">Transverse vaginal septum</h4>
+<h4 class="sub-label">Cervical agenesis/abnormality</h4>
+<h4 class="sub-label">Uterine anomalies</h4>
+<h4 class="sub-label">Mullerian anomalies</h4>
+<p class="standard-p">Management is individualized according to anatomy and obstruction.</p>
+<h4 class="sub-label">THE HIGH-YIELD MRCOG MASTER CLASSIFICATION</h4>
+<p class="standard-p">For examination purposes, remember pregnancy-related gynaecological disease under 10 headings:</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Category</th>
+<th>Conditions</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>1. Uterus</strong></td>
+<td>Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia</td>
+</tr>
+<tr>
+<td><strong>2. Cervix</strong></td>
+<td>Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone</td>
+</tr>
+<tr>
+<td><strong>3. Ovary</strong></td>
+<td>Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer</td>
+</tr>
+<tr>
+<td><strong>4. Endometriosis</strong></td>
+<td>Pelvic, ovarian, bowel, bladder disease</td>
+</tr>
+<tr>
+<td><strong>5. Prolapse</strong></td>
+<td>Uterine prolapse, cystocele, rectocele, enterocele</td>
+</tr>
+<tr>
+<td><strong>6. Vulva/vagina</strong></td>
+<td>Bartholin disease, vulval varicosities, lichen sclerosus, VIN, vaginal lesions</td>
+</tr>
+<tr>
+<td><strong>7. Cancer</strong></td>
+<td>Cervical, ovarian, endometrial, vulval, vaginal</td>
+</tr>
+<tr>
+<td><strong>8. Infection</strong></td>
+<td>BV, candidiasis, trichomoniasis, chlamydia, gonorrhoea, syphilis, herpes</td>
+</tr>
+<tr>
+<td><strong>9. Urogynaecology</strong></td>
+<td>SUI, OAB, urinary retention, prolapse-related obstruction</td>
+</tr>
+<tr>
+<td><strong>10. Previous surgery/adhesions</strong></td>
+<td>Myomectomy, LLETZ, cone, ovarian surgery, endometriosis surgery, laparotomy</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">UNIVERSAL RCOG APPROACH TO ANY GYNAECOLOGICAL CONDITION IN PREGNANCY</p>
+<h4 class="sub-label">For every case, use this sequence:</h4>
+<h4 class="sub-label">STEP 1 — Is mother stable?</h4>
+<h4 class="sub-label">ABC</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">pulse</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">temperature</h4>
+<h4 class="sub-label">oxygen saturation</h4>
+<h4 class="sub-label">pain</h4>
+<h4 class="sub-label">bleeding</h4>
+<h4 class="sub-label">sepsis</h4>
+<h4 class="sub-label">STEP 2 — Is fetus well?</h4>
+<h4 class="sub-label">Depending on gestation:</h4>
+<h4 class="sub-label">fetal heart</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">ultrasound</h4>
+<h4 class="sub-label">growth</h4>
+<h4 class="sub-label">liquor</h4>
+<h4 class="sub-label">placenta</h4>
+<p class="standard-p">Dopplers where indicated.</p>
+<h4 class="sub-label">STEP 3 — Identify the gynaecological pathology</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>History → examination → ultrasound → appropriate MRI/biopsy/laboratory testing.</span></div>
+<h4 class="sub-label">STEP 4 — Decide whether it is:</h4>
+
+                <div class="topic-row" id="topic-t-11-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Incidental and benign</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-7" onchange="toggleMastery('t-11-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ observe.</span></div>
+
+                <div class="topic-row" id="topic-t-11-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Symptomatic but stable</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-8" onchange="toggleMastery('t-11-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ conservative/specialist management.</span></div>
+
+                <div class="topic-row" id="topic-t-11-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">Acute surgical condition</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-9" onchange="toggleMastery('t-11-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ urgent surgery.</span></div>
+
+                <div class="topic-row" id="topic-t-11-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">D</span>
+                        <h3 class="topic-heading">Suspicious for malignancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-10" onchange="toggleMastery('t-11-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ gynaecological oncology MDT.</span></div>
+
+                <div class="topic-row" id="topic-t-11-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">Infection/sepsis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-11" onchange="toggleMastery('t-11-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ cultures + pregnancy-safe antimicrobial treatment + source control.</span></div>
+<h4 class="sub-label">STEP 5 — Ask the five pregnancy questions</h4>
+<h4 class="sub-label">Does it threaten the mother?</h4>
+<h4 class="sub-label">Does it threaten the fetus?</h4>
+<h4 class="sub-label">Does it obstruct labour?</h4>
+<h4 class="sub-label">Does it require surgery now or can surgery wait?</h4>
+<h4 class="sub-label">Does it change timing/mode of delivery?</h4>
+<h4 class="sub-label">STEP 6 — MDT when appropriate</h4>
+<h4 class="sub-label">Particularly:</h4>
+<p class="standard-p">Gynaecologist + obstetrician + maternal-fetal medicine + gynaecological oncologist + radiologist + pathologist + anaesthetist + neonatologist, with other specialties according to the organ involved.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ Conditions you should know especially well for MRCOG/FCPS</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Tier 1 — Must know</h4>
+<h4 class="sub-label">Fibroids in pregnancy</h4>
+<h4 class="sub-label">Ovarian cyst/mass</h4>
+<h4 class="sub-label">Ovarian torsion</h4>
+<h4 class="sub-label">Ovarian malignancy</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<h4 class="sub-label">Cervical polyp</h4>
+<h4 class="sub-label">Previous LLETZ/cone</h4>
+<h4 class="sub-label">Cervical insufficiency</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">Uterovaginal prolapse</h4>
+<h4 class="sub-label">Bartholin abscess</h4>
+<h4 class="sub-label">Vulval malignancy</h4>
+<h4 class="sub-label">STIs in pregnancy</h4>
+<h4 class="sub-label">Tier 2</h4>
+<h4 class="sub-label">Adenomyosis</h4>
+<h4 class="sub-label">Endometrioma</h4>
+<h4 class="sub-label">Dermoid</h4>
+<h4 class="sub-label">Previous myomectomy</h4>
+<h4 class="sub-label">Uterine anomalies</h4>
+<h4 class="sub-label">VIN</h4>
+<h4 class="sub-label">Lichen sclerosus</h4>
+<h4 class="sub-label">Cystocele/rectocele</h4>
+<h4 class="sub-label">Urinary retention</h4>
+<h4 class="sub-label">Pelvic adhesions</h4>
+<h4 class="sub-label">Tier 3</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Vaginal cancer</h4>
+<h4 class="sub-label">Tubo-ovarian abscess</h4>
+<h4 class="sub-label">Rare ovarian tumours</h4>
+<p class="standard-p">Rare vulvovaginal conditions.</p>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 17</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 PART XI — OTHER IMPORTANT GYNAECOLOGICAL</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Category: Conditions</li>
+<li class="surg-item">● 1. Uterus: Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia</li>
+<li class="surg-item">● 2. Cervix: Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone</li>
+<li class="surg-item">● 3. Ovary: Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer</li>
+<li class="surg-item">● 4. Endometriosis: Pelvic, ovarian, bowel, bladder disease</li>
+<li class="surg-item">● 5. Prolapse: Uterine prolapse, cystocele, rectocele, enterocele</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 54;
+    const flashcards = [{"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Category</strong>?", "a": "<strong>Conditions</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>1. Uterus</strong>?", "a": "<strong>Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>2. Cervix</strong>?", "a": "<strong>Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>3. Ovary</strong>?", "a": "<strong>Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>4. Endometriosis</strong>?", "a": "<strong>Pelvic, ovarian, bowel, bladder disease</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>5. Prolapse</strong>?", "a": "<strong>Uterine prolapse, cystocele, rectocele, enterocele</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>6. Vulva/vagina</strong>?", "a": "<strong>Bartholin disease, vulval varicosities, lichen sclerosus, VIN, vaginal lesions</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>7. Cancer</strong>?", "a": "<strong>Cervical, ovarian, endometrial, vulval, vaginal</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>8. Infection</strong>?", "a": "<strong>BV, candidiasis, trichomoniasis, chlamydia, gonorrhoea, syphilis, herpes</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>9. Urogynaecology</strong>?", "a": "<strong>SUI, OAB, urinary retention, prolapse-related obstruction</strong>"}, {"category": "OTHER IMPORTANT GYNAECOLOGICAL", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>10. Previous surgery/adhesions</strong>?", "a": "<strong>Myomectomy, LLETZ, cone, ovarian surgery, endometriosis surgery, laparotomy</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART II \u2014 CERVICAL CONDITIONS</strong>", "a": "<strong>Small, asymptomatic, apparently benign polyp \u2192 usually observe.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART III \u2014 OVARIAN CONDITIONS</strong>", "a": "<strong>\u2192 expectant management.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART V \u2014 PELVIC ORGAN PROLAPSE</strong>", "a": "<strong>\u2192 observation.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART VI \u2014 VULVAL &amp; VAGINAL CONDITIONS</strong>", "a": "<strong>\u2192 conservative if asymptomatic.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART VII \u2014 GYNAECOLOGICAL CANCER IN PREGNANCY</strong>", "a": "<strong>Suspicious adnexal mass \u2192 specialist ultrasound \u2192 MDT.</strong>"}, {"category": "Clinical Sequence", "q": "Describe the key sequence or progression in: <strong>PART XI \u2014 OTHER IMPORTANT GYNAECOLOGICAL CONDITIONS</strong>", "a": "<strong>History \u2192 examination \u2192 ultrasound \u2192 appropriate MRI/biopsy/laboratory testing.</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Category ?", "options": ["Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone", "Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer"], "correct": 0, "explanation": "Key Guideline / Fact: Conditions (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  1. Uterus ?", "options": ["Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone", "Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer"], "correct": 1, "explanation": "Key Guideline / Fact: Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  2. Cervix ?", "options": ["Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Conditions", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone", "Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer"], "correct": 2, "explanation": "Key Guideline / Fact: Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  3. Ovary ?", "options": ["Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone", "Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer"], "correct": 3, "explanation": "Key Guideline / Fact: Simple cyst, dermoid, endometrioma, cystadenoma, torsion, rupture, ovarian cancer (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  4. Endometriosis ?", "options": ["Pelvic, ovarian, bowel, bladder disease", "Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone"], "correct": 0, "explanation": "Key Guideline / Fact: Pelvic, ovarian, bowel, bladder disease (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  5. Prolapse ?", "options": ["Conditions", "Uterine prolapse, cystocele, rectocele, enterocele", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone"], "correct": 1, "explanation": "Key Guideline / Fact: Uterine prolapse, cystocele, rectocele, enterocele (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  6. Vulva/vagina ?", "options": ["Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Conditions", "Bartholin disease, vulval varicosities, lichen sclerosus, VIN, vaginal lesions", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone"], "correct": 2, "explanation": "Key Guideline / Fact: Bartholin disease, vulval varicosities, lichen sclerosus, VIN, vaginal lesions (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  7. Cancer ?", "options": ["Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone", "Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical, ovarian, endometrial, vulval, vaginal"], "correct": 3, "explanation": "Key Guideline / Fact: Cervical, ovarian, endometrial, vulval, vaginal (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  8. Infection ?", "options": ["BV, candidiasis, trichomoniasis, chlamydia, gonorrhoea, syphilis, herpes", "Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone"], "correct": 0, "explanation": "Key Guideline / Fact: BV, candidiasis, trichomoniasis, chlamydia, gonorrhoea, syphilis, herpes (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  9. Urogynaecology ?", "options": ["Conditions", "SUI, OAB, urinary retention, prolapse-related obstruction", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone"], "correct": 1, "explanation": "Key Guideline / Fact: SUI, OAB, urinary retention, prolapse-related obstruction (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  10. Previous surgery/adhesions ?", "options": ["Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Conditions", "Myomectomy, LLETZ, cone, ovarian surgery, endometriosis surgery, laparotomy", "Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone"], "correct": 2, "explanation": "Key Guideline / Fact: Myomectomy, LLETZ, cone, ovarian surgery, endometriosis surgery, laparotomy (OTHER IMPORTANT GYNAECOLOGICAL)."}, {"q": "Describe the key sequence or progression in:  PART II \u2014 CERVICAL CONDITIONS", "options": ["Cervical polyp, ectropion, cervical insufficiency, previous LLETZ/cone", "Conditions", "Fibroid, adenomyosis, uterine anomaly, previous myomectomy, endometrial polyp/hyperplasia", "Small, asymptomatic, apparently benign polyp \u2192 usually observe."], "correct": 3, "explanation": "Key Guideline / Fact: Small, asymptomatic, apparently benign polyp \u2192 usually observe. (Clinical Sequence)."}];
+    const storageKey = 'obgyn_mastered_master_atlas___gynaecological_problems_in_pregnancy';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

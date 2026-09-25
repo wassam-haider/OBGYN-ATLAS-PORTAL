@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER LIST: LABOUR-ROOM TRIAGE CASES AFTER 24 WEEKS — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MASTER LIST: LABOUR-ROOM TRIAGE CASES </div>
+                <div class="brand-subtitle-text">1. 🌸 Abdominal pain / uterine contractions</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 44 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 6 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (6 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="🚨 PE">🚨 PE</a></li><li><a href="#part-3" class="part-nav-link" title="🧠 THE UNIVERSAL TRIAGE ALGORITHM">🧠 THE UNIVERSAL TRIAGE ALGORITHM</a></li><li><a href="#part-4" class="part-nav-link" title="🟢 GREEN — LOW RISK / STABLE">🟢 GREEN — LOW RISK / STABLE</a></li><li><a href="#part-5" class="part-nav-link" title="🟡 AMBER — POTENTIAL OBSTETRIC RISK">🟡 AMBER — POTENTIAL OBSTETRIC RISK</a></li><li><a href="#part-6" class="part-nav-link" title="🔴 RED — EMERGENCY">🔴 RED — EMERGENCY</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MASTER LIST: LABOUR-ROOM TRIAGE CASES AFTER 24 WEEKS</h1>
+                    <div class="reader-hero-sub">⭐ 1. 🌸 Abdominal pain / uterine contractions</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Common cases</h4>
+<h4 class="sub-label">Suspected preterm labour</h4>
+<h4 class="sub-label">Established preterm labour</h4>
+<h4 class="sub-label">Threatened preterm labour</h4>
+<h4 class="sub-label">Braxton Hicks contractions</h4>
+<h4 class="sub-label">Term labour</h4>
+<h4 class="sub-label">False labour</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Chorioamnionitis</h4>
+<h4 class="sub-label">Urinary tract infection/pyelonephritis</h4>
+<h4 class="sub-label">Renal colic</h4>
+<h4 class="sub-label">Appendicitis</h4>
+<h4 class="sub-label">Gastrointestinal pathology</h4>
+<h4 class="sub-label">Round-ligament/musculoskeletal pain</h4>
+<h4 class="sub-label">First assessment</h4>
+<h4 class="sub-label">Maternal ABC</h4>
+<h4 class="sub-label">Pulse, BP, RR, temperature, SpO₂</h4>
+<h4 class="sub-label">Pain characteristics</h4>
+<h4 class="sub-label">Contraction frequency/duration</h4>
+<h4 class="sub-label">Vaginal bleeding</h4>
+<h4 class="sub-label">Liquor loss</h4>
+<h4 class="sub-label">Fetal movements</h4>
+<h4 class="sub-label">Continuous or intermittent abdominal pain</h4>
+<h4 class="sub-label">Previous Caesarean/uterine surgery</h4>
+<p class="standard-p">Fetal heart rate/CTG according to gestation and clinical circumstances</p>
+<h4 class="sub-label">If preterm labour suspected</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">contractions</h4>
+<h4 class="sub-label">cervical change</h4>
+<h4 class="sub-label">membrane status</h4>
+<h4 class="sub-label">fetal wellbeing</h4>
+<h4 class="sub-label">infection</h4>
+<h4 class="sub-label">gestational age</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key distinction</span></div>
+                <div class="callout-body">contractions alone ≠ established preterm labour; cervical change is important.</div>
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-1-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">💧 Suspected rupture of membranes</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-1" onchange="toggleMastery('t-1-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Cases</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">Term PROM</h4>
+<h4 class="sub-label">Preterm labour with ruptured membranes</h4>
+<h4 class="sub-label">High leak</h4>
+<h4 class="sub-label">Urinary incontinence mistaken for liquor</h4>
+<h4 class="sub-label">Physiological vaginal discharge</h4>
+<p class="standard-p">PPROM = rupture of membranes before<span class="val-pill"> 37+0 weeks</span> and before onset of labour.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG GTG 73 specifically covers suspected PPROM from 24+0 to 36+6 weeks.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">First-line assessment</h4>
+<h4 class="sub-label">History</h4>
+<h4 class="sub-label">When did leaking start?</h4>
+<h4 class="sub-label">Continuous/intermittent?</h4>
+<h4 class="sub-label">Colour?</h4>
+<h4 class="sub-label">Odour?</h4>
+<h4 class="sub-label">Amount?</h4>
+<h4 class="sub-label">Blood/meconium?</h4>
+<h4 class="sub-label">Contractions?</h4>
+<h4 class="sub-label">Fever/rigors?</h4>
+<h4 class="sub-label">Fetal movements?</h4>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Maternal observations</h4>
+<h4 class="sub-label">Fetal assessment</h4>
+<h4 class="sub-label">Sterile speculum examination</h4>
+<p class="standard-p">Avoid unnecessary digital vaginal examination when PPROM is suspected.</p>
+<h4 class="sub-label">Diagnosis</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>If fluid is seen at speculum → supports diagnosis.</span></div>
+<p class="standard-p">If no fluid is seen, RCOG recommends considering IGFBP-1 or PAMG-1 vaginal-fluid testing to aid diagnosis.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important complications</span></div>
+                <div class="callout-body">Chorioamnionitis</div>
+            </div>
+            
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Cord prolapse</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Pulmonary hypoplasia in very early PPROM</h4>
+
+                <div class="topic-row" id="topic-t-1-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">🩸 Antepartum haemorrhage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-2" onchange="toggleMastery('t-1-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Very important: RCOG defines APH as bleeding from/in the genital tract from<span class="val-pill"> 24+0 weeks</span> until birth.</p>
+<h4 class="sub-label">Differential diagnosis</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition</th>
+<th>Typical clues</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Placenta praevia</strong></td>
+<td>Usually painless bright-red bleeding</td>
+</tr>
+<tr>
+<td><strong>Placental abruption</strong></td>
+<td>Painful bleeding, uterine tenderness/rigidity</td>
+</tr>
+<tr>
+<td><strong>Vasa praevia</strong></td>
+<td>Bleeding after ROM + acute fetal compromise</td>
+</tr>
+<tr>
+<td><strong>Bloody show</strong></td>
+<td>Small amount with labour</td>
+</tr>
+<tr>
+<td><strong>Cervical ectropion</strong></td>
+<td>Contact bleeding</td>
+</tr>
+<tr>
+<td><strong>Cervical polyp</strong></td>
+<td>Contact bleeding</td>
+</tr>
+<tr>
+<td><strong>Cervical malignancy</strong></td>
+<td>Persistent/irregular bleeding</td>
+</tr>
+<tr>
+<td><strong>Vaginal trauma</strong></td>
+<td>History of intercourse/trauma</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Pain, shock, fetal compromise, previous uterine scar</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">APH immediate approach</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ABC → maternal resuscitation → fetal assessment → identify source → prepare blood products if significant.</span></div>
+<h4 class="sub-label">Check:</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Group and save/crossmatch</h4>
+<h4 class="sub-label">Coagulation profile if significant bleeding/abruption</h4>
+<h4 class="sub-label">RhD status</h4>
+<h4 class="sub-label">Kleihauer where indicated</h4>
+<h4 class="sub-label">Ultrasound for placental location/fetal assessment</h4>
+<h4 class="sub-label">🚨 Never forget</h4>
+<p class="standard-p">Do NOT perform a digital vaginal examination until placenta praevia has been excluded if placenta location is unknown and significant APH is present.</p>
+
+                <div class="topic-row" id="topic-t-1-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">👶 Reduced fetal movements</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-3" onchange="toggleMastery('t-1-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">One of the highest-yield triage presentations.</p>
+<h4 class="sub-label">24–28 weeks</h4>
+<h4 class="sub-label">Confirm fetal heartbeat with Doppler</h4>
+<h4 class="sub-label">Maternal assessment</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Urinalysis</h4>
+<h4 class="sub-label">Fundal-height assessment</h4>
+<p class="standard-p">Further ultrasound if indicated.</p>
+<h4 class="sub-label">&gt;28 weeks</h4>
+<h4 class="sub-label">Immediate maternity assessment</h4>
+<h4 class="sub-label">Maternal assessment</h4>
+<h4 class="sub-label">Fetal heart assessment</h4>
+<h4 class="sub-label">Usually CTG</h4>
+<p class="standard-p">Ultrasound if indicated, particularly where growth, liquor or other risk factors are concerning.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not rely on a fixed kick-count number as the primary diagnostic test.</p>
+<p class="standard-p">The important issue is a change/reduction from the baby&#x27;s usual pattern.</p>
+<h4 class="sub-label">Causes</h4>
+<h4 class="sub-label">Placental insufficiency/FGR</h4>
+<h4 class="sub-label">Fetal hypoxia</h4>
+<h4 class="sub-label">Maternal medication/sedation</h4>
+<h4 class="sub-label">Maternal illness</h4>
+<h4 class="sub-label">Fetal sleep cycle</h4>
+<h4 class="sub-label">Fetal demise</h4>
+
+                <div class="topic-row" id="topic-t-1-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">❤️ Abnormal CTG / suspected fetal compromise</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-4" onchange="toggleMastery('t-1-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Patient may present because of:</h4>
+<h4 class="sub-label">Reduced fetal movements</h4>
+<h4 class="sub-label">Abnormal CTG from antenatal clinic</h4>
+<h4 class="sub-label">Abnormal Doppler</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Labour complications</h4>
+<h4 class="sub-label">Meconium</h4>
+<h4 class="sub-label">Maternal hypotension</h4>
+<h4 class="sub-label">Fever/sepsis</h4>
+<h4 class="sub-label">Immediate approach</h4>
+<h4 class="sub-label">CALL FOR HELP</h4>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">Maternal ABC</h4>
+<h4 class="sub-label">Check maternal pulse/BP/temperature/SpO₂</h4>
+<h4 class="sub-label">Confirm fetal heart rate</h4>
+<h4 class="sub-label">Review CTG</h4>
+<h4 class="sub-label">Identify reversible causes</h4>
+<h4 class="sub-label">Left/right lateral positioning as appropriate</h4>
+<p class="standard-p">Stop/reduce uterotonic infusion if excessive contractions</p>
+<h4 class="sub-label">Treat maternal hypotension</h4>
+<p class="standard-p">Consider urgent birth if persistent pathological CTG despite corrective measures</p>
+
+                <div class="topic-row" id="topic-t-1-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">🌡️ Maternal fever / suspected sepsis</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-5" onchange="toggleMastery('t-1-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentations</h4>
+<h4 class="sub-label">Fever</h4>
+<h4 class="sub-label">Rigors</h4>
+<h4 class="sub-label">Offensive liquor</h4>
+<h4 class="sub-label">Abdominal tenderness</h4>
+<h4 class="sub-label">Maternal tachycardia</h4>
+<h4 class="sub-label">Fetal tachycardia</h4>
+<h4 class="sub-label">PROM/PPROM</h4>
+<h4 class="sub-label">Suspected chorioamnionitis</h4>
+<h4 class="sub-label">UTI/pyelonephritis</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Other systemic infection</h4>
+<h4 class="sub-label">First approach</h4>
+<p class="standard-p">Suspected maternal sepsis = emergency.</p>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Temperature</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">RR</h4>
+<h4 class="sub-label">SpO₂</h4>
+<h4 class="sub-label">Mental state</h4>
+<h4 class="sub-label">Urine output</h4>
+<h4 class="sub-label">Fetal status</h4>
+<h4 class="sub-label">Investigations may include:</h4>
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">CRP</h4>
+<h4 class="sub-label">Blood cultures</h4>
+<h4 class="sub-label">Urine culture</h4>
+<h4 class="sub-label">Lactate</h4>
+<h4 class="sub-label">Other cultures according to suspected source</h4>
+<p class="standard-p">In PPROM, RCOG emphasizes that clinical assessment, maternal blood tests including CRP/WCC, and fetal heart rate should be considered together rather than relying on one parameter alone to diagnose chorioamnionitis.</p>
+
+                <div class="topic-row" id="topic-t-1-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">🤰 Hypertension / pre-eclampsia presentation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-6" onchange="toggleMastery('t-1-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Common triage presentations</h4>
+<h4 class="sub-label">High BP</h4>
+<h4 class="sub-label">Headache</h4>
+<h4 class="sub-label">Visual disturbance</h4>
+<h4 class="sub-label">RUQ/epigastric pain</h4>
+<h4 class="sub-label">Nausea/vomiting</h4>
+<h4 class="sub-label">Sudden swelling</h4>
+<h4 class="sub-label">Reduced fetal movements</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Seizure → eclampsia</span></div>
+<h4 class="sub-label">First assessment</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Urine protein</h4>
+<h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">Reflexes/clonus if indicated</h4>
+<h4 class="sub-label">Fetal assessment</h4>
+<h4 class="sub-label">Investigations</h4>
+<h4 class="sub-label">FBC/platelets</h4>
+<h4 class="sub-label">LFT</h4>
+<h4 class="sub-label">Renal function</h4>
+<h4 class="sub-label">Urine protein assessment</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Ultrasound/growth/Dopplers when indicated</h4>
+<h4 class="sub-label">🚨 Emergency</h4>
+<p class="standard-p">Eclampsia = seizure in pregnancy/postpartum associated with pre-eclampsia until proven otherwise.</p>
+<h4 class="sub-label">Immediate priority:</h4>
+<p class="standard-p">ABC + magnesium sulfate + control severe hypertension + assess fetus + plan delivery after maternal stabilization.</p>
+
+                <div class="topic-row" id="topic-t-1-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">⚡ Eclampsia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-7" onchange="toggleMastery('t-1-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Generalized tonic-clonic seizure</h4>
+<h4 class="sub-label">Hypertension may be present</h4>
+<h4 class="sub-label">Headache</h4>
+<h4 class="sub-label">Visual symptoms</h4>
+<h4 class="sub-label">RUQ pain</h4>
+<h4 class="sub-label">Altered consciousness</h4>
+<h4 class="sub-label">First step</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Call for help → ABC → prevent injury → left lateral position → oxygen if required → magnesium sulfate.</span></div>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">Control severe hypertension</h4>
+<h4 class="sub-label">Check glucose</h4>
+<h4 class="sub-label">Blood investigations</h4>
+<h4 class="sub-label">CTG/fetal assessment</h4>
+<h4 class="sub-label">Determine timing/mode of birth after stabilization</h4>
+
+                <div class="topic-row" id="topic-t-1-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">🫁 Shortness of breath / chest pain</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-8" onchange="toggleMastery('t-1-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important diagnoses</span></div>
+                <div class="callout-body">Pulmonary embolism</div>
+            </div>
+            
+<h4 class="sub-label">Pulmonary oedema</h4>
+<h4 class="sub-label">Pneumonia</h4>
+<h4 class="sub-label">Asthma exacerbation</h4>
+<h4 class="sub-label">Anaemia</h4>
+<h4 class="sub-label">Cardiac disease</h4>
+<h4 class="sub-label">Amniotic fluid embolism in appropriate setting</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">🚨 PE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Consider with:</h4>
+<h4 class="sub-label">Sudden dyspnoea</h4>
+<h4 class="sub-label">Chest pain</h4>
+<h4 class="sub-label">Tachycardia</h4>
+<h4 class="sub-label">Hypoxia</h4>
+<h4 class="sub-label">Haemoptysis</h4>
+<h4 class="sub-label">Collapse</h4>
+<p class="standard-p">Do not dismiss as normal pregnancy breathlessness.</p>
+
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">🧠 Neurological symptoms</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentations</h4>
+<h4 class="sub-label">Severe headache</h4>
+<h4 class="sub-label">Visual disturbance</h4>
+<h4 class="sub-label">Seizure</h4>
+<h4 class="sub-label">Weakness</h4>
+<h4 class="sub-label">Altered consciousness</h4>
+<h4 class="sub-label">Focal neurological deficit</h4>
+<h4 class="sub-label">Differential</h4>
+<h4 class="sub-label">Pre-eclampsia/eclampsia</h4>
+<h4 class="sub-label">Cerebral venous thrombosis</h4>
+<h4 class="sub-label">Stroke</h4>
+<h4 class="sub-label">Migraine</h4>
+<h4 class="sub-label">Intracranial haemorrhage</h4>
+<h4 class="sub-label">Epilepsy</h4>
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">🚽 Urinary symptoms</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentations</h4>
+<h4 class="sub-label">Dysuria</h4>
+<h4 class="sub-label">Frequency</h4>
+<h4 class="sub-label">Fever</h4>
+<h4 class="sub-label">Flank pain</h4>
+<h4 class="sub-label">Haematuria</h4>
+<h4 class="sub-label">Renal colic</h4>
+<h4 class="sub-label">Conditions</h4>
+<h4 class="sub-label">Cystitis</h4>
+<h4 class="sub-label">Pyelonephritis</h4>
+<h4 class="sub-label">Urolithiasis</h4>
+<h4 class="sub-label">Sepsis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Pyelonephritis + pregnancy = maternal sepsis risk + preterm labour risk.</p>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">🤢 Nausea/vomiting</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">After 24 weeks, consider:</h4>
+<h4 class="sub-label">Gastroenteritis</h4>
+<h4 class="sub-label">UTI/pyelonephritis</h4>
+<h4 class="sub-label">Pre-eclampsia/HELLP</h4>
+<h4 class="sub-label">Appendicitis</h4>
+<h4 class="sub-label">Bowel obstruction</h4>
+<h4 class="sub-label">Gallbladder disease</h4>
+<h4 class="sub-label">DKA</h4>
+<h4 class="sub-label">Hepatic disease</h4>
+<p class="standard-p">Don&#x27;t automatically label late-pregnancy vomiting as hyperemesis.</p>
+
+                <div class="topic-row" id="topic-t-2-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">🚨 Suspected uterine rupture</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-4" onchange="toggleMastery('t-2-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Particularly important with:</h4>
+<h4 class="sub-label">Previous Caesarean</h4>
+<h4 class="sub-label">Previous classical incision</h4>
+<h4 class="sub-label">Previous myomectomy</h4>
+<h4 class="sub-label">Trial of labour after Caesarean</h4>
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Sudden severe abdominal pain</h4>
+<h4 class="sub-label">Abnormal CTG/bradycardia</h4>
+<h4 class="sub-label">Vaginal bleeding</h4>
+<h4 class="sub-label">Maternal tachycardia/hypotension</h4>
+<h4 class="sub-label">Loss of fetal station</h4>
+<h4 class="sub-label">Cessation of contractions may occur</h4>
+<h4 class="sub-label">Haemoperitoneum</h4>
+
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Management</span></div>
+                
+            </div>
+            
+<p class="standard-p">Immediate category-1 emergency Caesarean/laparotomy.</p>
+
+                <div class="topic-row" id="topic-t-2-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">🧷 Cord prolapse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-5" onchange="toggleMastery('t-2-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">ROM followed by fetal bradycardia</h4>
+<h4 class="sub-label">Cord felt/seen vaginally</h4>
+<h4 class="sub-label">Sudden abnormal CTG</h4>
+<h4 class="sub-label">Immediate management</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Call for help → relieve cord compression → urgent birth.</span></div>
+<h4 class="sub-label">Measures may include:</h4>
+<h4 class="sub-label">Manual elevation of presenting part</h4>
+<h4 class="sub-label">Maternal knee-chest/left lateral exaggerated position</h4>
+<h4 class="sub-label">Avoid handling the cord unnecessarily</h4>
+<h4 class="sub-label">Immediate preparation for emergency birth</h4>
+
+                <div class="topic-row" id="topic-t-2-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">🟢 Meconium-stained liquor</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-6" onchange="toggleMastery('t-2-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Patient presents with:</h4>
+<h4 class="sub-label">ROM</h4>
+<h4 class="sub-label">Green/brown liquor</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Fetal heart/CTG</h4>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Labour status</h4>
+<h4 class="sub-label">Other risk factors</h4>
+<p class="standard-p">Significant meconium is an important intrapartum risk factor requiring appropriate fetal surveillance and obstetric assessment.</p>
+
+                <div class="topic-row" id="topic-t-2-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">👶 Malpresentation / malposition</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-7" onchange="toggleMastery('t-2-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Cases</h4>
+<h4 class="sub-label">Breech</h4>
+<h4 class="sub-label">Transverse lie</h4>
+<h4 class="sub-label">Oblique lie</h4>
+<h4 class="sub-label">Unstable lie</h4>
+<h4 class="sub-label">Face presentation</h4>
+<h4 class="sub-label">Brow presentation</h4>
+<h4 class="sub-label">Occipito-posterior position</h4>
+<h4 class="sub-label">Triage assessment</h4>
+<h4 class="sub-label">Abdominal examination</h4>
+<h4 class="sub-label">Leopold manoeuvres</h4>
+<h4 class="sub-label">Fetal presentation</h4>
+<h4 class="sub-label">Engagement</h4>
+<h4 class="sub-label">Ultrasound confirmation where required</h4>
+<h4 class="sub-label">CTG if clinically indicated</h4>
+<p class="standard-p">Transverse/oblique lie + labour/ROM = cord prolapse risk.</p>
+
+                <div class="topic-row" id="topic-t-2-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">🩺 Suspected fetal growth restriction</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-8" onchange="toggleMastery('t-2-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Patient may be sent to triage because of:</h4>
+<h4 class="sub-label">Small-for-dates uterus</h4>
+<h4 class="sub-label">Abnormal fundal height</h4>
+<h4 class="sub-label">Abnormal ultrasound</h4>
+<h4 class="sub-label">Abnormal umbilical artery Doppler</h4>
+<h4 class="sub-label">Reduced movements</h4>
+<h4 class="sub-label">Abnormal CTG</h4>
+<h4 class="sub-label">Assessment:</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Ultrasound</h4>
+<h4 class="sub-label">EFW</h4>
+<h4 class="sub-label">Liquor</h4>
+<h4 class="sub-label">Umbilical artery Doppler</h4>
+<h4 class="sub-label">MCA/CPR when clinically indicated</h4>
+
+                <div class="topic-row" id="topic-t-2-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">💦 Polyhydramnios / oligohydramnios</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-9" onchange="toggleMastery('t-2-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Polyhydramnios</h4>
+<h4 class="sub-label">Can present with:</h4>
+<h4 class="sub-label">Breathlessness</h4>
+<h4 class="sub-label">Abdominal distension</h4>
+<h4 class="sub-label">Preterm contractions</h4>
+<h4 class="sub-label">ROM</h4>
+<h4 class="sub-label">Malpresentation</h4>
+<h4 class="sub-label">Risks:</h4>
+<h4 class="sub-label">Cord prolapse</h4>
+<h4 class="sub-label">Malpresentation</h4>
+<h4 class="sub-label">PPH</h4>
+<h4 class="sub-label">Preterm birth</h4>
+<h4 class="sub-label">Oligohydramnios</h4>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">PPROM</h4>
+<h4 class="sub-label">Placental insufficiency/FGR</h4>
+<h4 class="sub-label">Post-term pregnancy</h4>
+<h4 class="sub-label">Fetal renal abnormalities</h4>
+
+                <div class="topic-row" id="topic-t-2-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">19</span>
+                        <h3 class="topic-heading">💉 Diabetes-related triage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-10" onchange="toggleMastery('t-2-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentations</h4>
+<h4 class="sub-label">Hyperglycaemia</h4>
+<h4 class="sub-label">Hypoglycaemia</h4>
+<h4 class="sub-label">Reduced fetal movements</h4>
+<h4 class="sub-label">Polyhydramnios</h4>
+<h4 class="sub-label">Suspected macrosomia</h4>
+<h4 class="sub-label">Hypertension</h4>
+<h4 class="sub-label">DKA</h4>
+<h4 class="sub-label">DKA in pregnancy</h4>
+<p class="standard-p">Can occur at relatively lower glucose concentrations than expected.</p>
+<h4 class="sub-label">Think:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>vomiting + abdominal pain + dehydration + tachypnoea + diabetes → DKA until excluded.</span></div>
+
+                <div class="topic-row" id="topic-t-2-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">20</span>
+                        <h3 class="topic-heading">🩸 Severe anaemia / bleeding disorder</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-11" onchange="toggleMastery('t-2-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentations:</h4>
+<h4 class="sub-label">Fatigue</h4>
+<h4 class="sub-label">Dyspnoea</h4>
+<h4 class="sub-label">Tachycardia</h4>
+<h4 class="sub-label">Syncope</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Especially important in:</h4>
+<h4 class="sub-label">APH</h4>
+<h4 class="sub-label">Placenta praevia</h4>
+<h4 class="sub-label">Placenta accreta spectrum</h4>
+<h4 class="sub-label">Previous PPH</h4>
+<h4 class="sub-label">Multiple pregnancy</h4>
+
+                <div class="topic-row" id="topic-t-2-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">21</span>
+                        <h3 class="topic-heading">🧪 RhD-negative woman with bleeding/trauma</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-12" onchange="toggleMastery('t-2-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Any significant antenatal bleeding/appropriate sensitising event should trigger assessment for:</p>
+<h4 class="sub-label">RhD status</h4>
+<h4 class="sub-label">Need for anti-D prophylaxis</h4>
+<h4 class="sub-label">Fetomaternal haemorrhage assessment where indicated</h4>
+
+                <div class="topic-row" id="topic-t-2-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">22</span>
+                        <h3 class="topic-heading">🤕 Trauma</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-13" onchange="toggleMastery('t-2-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Examples</h4>
+<h4 class="sub-label">Road traffic accident</h4>
+<h4 class="sub-label">Fall</h4>
+<h4 class="sub-label">Domestic trauma</h4>
+<h4 class="sub-label">Abdominal trauma</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Maternal ABC</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Fetal wellbeing</h4>
+<h4 class="sub-label">RhD status</h4>
+<h4 class="sub-label">Fetomaternal haemorrhage where indicated</h4>
+<p class="standard-p">A seemingly minor trauma can still cause placental abruption.</p>
+
+                <div class="topic-row" id="topic-t-2-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">23</span>
+                        <h3 class="topic-heading">🦵 Suspected DVT</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-14" onchange="toggleMastery('t-2-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">Unilateral leg swelling</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Warmth</h4>
+<h4 class="sub-label">Calf/thigh tenderness</h4>
+<h4 class="sub-label">First-line investigation</h4>
+<p class="standard-p">Compression duplex ultrasound.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>If PE symptoms are present → evaluate as suspected PE rather than isolated DVT.</span></div>
+
+                <div class="topic-row" id="topic-t-2-15">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">🧠 Syncope / collapse</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-15" onchange="toggleMastery('t-2-15')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Differentials:</h4>
+<h4 class="sub-label">Hypotension</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">Arrhythmia</h4>
+<h4 class="sub-label">Hypoglycaemia</h4>
+<h4 class="sub-label">Anaemia</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">Sepsis</h4>
+<h4 class="sub-label">Vasovagal episode</h4>
+
+                <div class="topic-row" id="topic-t-2-16">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">👶 Fetal demise</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-16" onchange="toggleMastery('t-2-16')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Possible presentation:</h4>
+<h4 class="sub-label">Absent fetal movements</h4>
+<h4 class="sub-label">No fetal heart detected</h4>
+<h4 class="sub-label">Maternal concern</h4>
+<h4 class="sub-label">Confirmation</h4>
+<p class="standard-p">Ultrasound demonstrating absence of fetal cardiac activity.</p>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">Maternal assessment</h4>
+<h4 class="sub-label">Cause/risk-factor assessment</h4>
+<h4 class="sub-label">Blood investigations where appropriate</h4>
+<h4 class="sub-label">Sensitive counselling</h4>
+<p class="standard-p">Discuss management options according to gestation and clinical circumstances.</p>
+
+                <div class="topic-row" id="topic-t-2-17">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">26</span>
+                        <h3 class="topic-heading">🔥 Itching / cholestasis presentation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-17" onchange="toggleMastery('t-2-17')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical</h4>
+<h4 class="sub-label">Generalized pruritus</h4>
+<h4 class="sub-label">Often palms/soles</h4>
+<h4 class="sub-label">Usually no primary rash</h4>
+<h4 class="sub-label">Investigations:</h4>
+<h4 class="sub-label">Serum bile acids</h4>
+<h4 class="sub-label">LFTs</h4>
+<p class="standard-p">Important because intrahepatic cholestasis of pregnancy is associated with fetal risks and management depends substantially on bile-acid level and gestational age.</p>
+
+                <div class="topic-row" id="topic-t-2-18">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">27</span>
+                        <h3 class="topic-heading">💊 Medication / substance exposure</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-18" onchange="toggleMastery('t-2-18')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Triage may see:</h4>
+<h4 class="sub-label">Accidental overdose</h4>
+<h4 class="sub-label">Drug reaction</h4>
+<h4 class="sub-label">Opioid exposure</h4>
+<h4 class="sub-label">Antihypertensive overdose</h4>
+<h4 class="sub-label">Insulin overdose</h4>
+<h4 class="sub-label">Anticoagulant use/bleeding</h4>
+<h4 class="sub-label">Recreational drug exposure</h4>
+<h4 class="sub-label">Assess both:</h4>
+<p class="standard-p">maternal toxicity + fetal effects.</p>
+
+                <div class="topic-row" id="topic-t-2-19">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">28</span>
+                        <h3 class="topic-heading">🩺 Post-procedure/post-intervention presentations</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-19" onchange="toggleMastery('t-2-19')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">After amniocentesis</h4>
+<h4 class="sub-label">After CVS</h4>
+<h4 class="sub-label">After cerclage</h4>
+<h4 class="sub-label">After ECV</h4>
+<h4 class="sub-label">After cervical procedures</h4>
+<h4 class="sub-label">After antenatal invasive procedures</h4>
+<h4 class="sub-label">Presentations:</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">ROM</h4>
+<h4 class="sub-label">contractions</h4>
+<h4 class="sub-label">abdominal pain</h4>
+<h4 class="sub-label">reduced fetal movements</h4>
+<h4 class="sub-label">fetal compromise</h4>
+
+                <div class="topic-row" id="topic-t-2-20">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">29</span>
+                        <h3 class="topic-heading">🟣 Cerclage patient with contractions/ROM</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-20" onchange="toggleMastery('t-2-20')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important questions</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Gestation</h4>
+<h4 class="sub-label">Contractions?</h4>
+<h4 class="sub-label">Bleeding?</h4>
+<h4 class="sub-label">ROM?</h4>
+<h4 class="sub-label">Infection?</h4>
+<h4 class="sub-label">Cervical dilatation?</h4>
+<p class="standard-p">If labour/ROM occurs with a cervical stitch in situ, urgent obstetric assessment and consideration of stitch removal is required to avoid cervical trauma.</p>
+
+                <div class="topic-row" id="topic-t-2-21">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">30</span>
+                        <h3 class="topic-heading">👩‍🍼 Term labour</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-21" onchange="toggleMastery('t-2-21')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Regular painful contractions</h4>
+<h4 class="sub-label">Show</h4>
+<h4 class="sub-label">ROM</h4>
+<h4 class="sub-label">Backache</h4>
+<h4 class="sub-label">Pelvic pressure</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Gestational age</h4>
+<h4 class="sub-label">Parity</h4>
+<h4 class="sub-label">Previous CS</h4>
+<h4 class="sub-label">Contraction pattern</h4>
+<h4 class="sub-label">Cervical dilatation</h4>
+<h4 class="sub-label">Presentation/position</h4>
+<h4 class="sub-label">Fetal wellbeing</h4>
+<h4 class="sub-label">Maternal observations</h4>
+<h4 class="sub-label">Membranes/liquor</h4>
+<h4 class="sub-label">Then determine:</h4>
+<p class="standard-p">latent phase vs established labour vs false labour.</p>
+
+                <div class="topic-row" id="topic-t-2-22">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">31</span>
+                        <h3 class="topic-heading">🩸 Vaginal bleeding + previous Caesarean</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-22" onchange="toggleMastery('t-2-22')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">High-yield combination.</p>
+<h4 class="sub-label">Think:</h4>
+<p class="standard-p">Placenta praevia / accreta spectrum / abruption / uterine rupture.</p>
+<h4 class="sub-label">Especially:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Previous CS + anterior low-lying placenta/placenta praevia → assess for placenta accreta spectrum.</span></div>
+
+                <div class="topic-row" id="topic-t-2-23">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">32</span>
+                        <h3 class="topic-heading">🚨 Collapse in labour triage</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-23" onchange="toggleMastery('t-2-23')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Potential diagnoses:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Diagnosis</th>
+<th>Key clue</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Massive APH</strong></td>
+<td>Bleeding/shock</td>
+</tr>
+<tr>
+<td><strong>Abruption</strong></td>
+<td>Pain + shock ± concealed bleeding</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Previous uterine scar + fetal compromise</td>
+</tr>
+<tr>
+<td><strong>PE</strong></td>
+<td>Sudden dyspnoea/chest pain</td>
+</tr>
+<tr>
+<td><strong>Eclampsia</strong></td>
+<td>Seizure</td>
+</tr>
+<tr>
+<td><strong>Sepsis</strong></td>
+<td>Fever/clinical deterioration</td>
+</tr>
+<tr>
+<td><strong>Amniotic fluid embolism</strong></td>
+<td>Sudden hypoxia + cardiovascular collapse + coagulopathy</td>
+</tr>
+<tr>
+<td><strong>Hypoglycaemia</strong></td>
+<td>Altered consciousness</td>
+</tr>
+<tr>
+<td><strong>Arrhythmia</strong></td>
+<td>Palpitations/syncope</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">ABC and senior help immediately.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">🔥 MRCOG/FCPS “MUST-NOT-MISS” TRIAGE CASES</span></div>
+                
+            </div>
+            
+<p class="standard-p">If you&#x27;re preparing for labour-room duty, memorize these as the emergency presentations:</p>
+<h4 class="sub-label">🩸 Bleeding</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>APH → praevia / abruption / vasa praevia / rupture</span></div>
+<h4 class="sub-label">💧 Leaking</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PPROM/PROM → infection + cord prolapse + prematurity</span></div>
+<h4 class="sub-label">👶 Reduced movements</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>RFM → fetal compromise/FGR/stillbirth</span></div>
+<h4 class="sub-label">🤰 Pain</h4>
+<p class="standard-p">Preterm labour / abruption / rupture / chorioamnionitis</p>
+<h4 class="sub-label">❤️ Abnormal CTG</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fetal compromise → identify reversible cause → expedite birth if necessary</span></div>
+<h4 class="sub-label">🌡️ Fever</h4>
+<h4 class="sub-label">Sepsis / chorioamnionitis</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⚡ Seizure</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Eclampsia until proven otherwise</h4>
+<h4 class="sub-label">🫁 Chest pain/dyspnoea</h4>
+<h4 class="sub-label">PE until excluded</h4>
+<h4 class="sub-label">🧷 Cord felt/seen</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Cord prolapse → emergency delivery</span></div>
+<h4 class="sub-label">🟢 Meconium</h4>
+<p class="standard-p">Fetal assessment + appropriate intrapartum surveillance</p>
+<h4 class="sub-label">👶 Abnormal lie</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Transverse/oblique → cord prolapse risk</span></div>
+<h4 class="sub-label">🩺 Hypertension + symptoms</h4>
+<h4 class="sub-label">Pre-eclampsia/severe pre-eclampsia</h4>
+<h4 class="sub-label">🩸 Previous CS + acute pain/fetal bradycardia</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">🦵 Unilateral leg swelling</h4>
+<h4 class="sub-label">DVT</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">🧠 THE UNIVERSAL TRIAGE ALGORITHM</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">For almost every woman <span class="val-pill">≥24 weeks</span> arriving at labour-room triage:</p>
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Identify gestation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">ABC + immediate maternal observations</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+
+                <div class="topic-row" id="topic-t-3-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Ask the 6 danger questions</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-3" onchange="toggleMastery('t-3-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Bleeding?</h4>
+<h4 class="sub-label">Leaking fluid?</h4>
+<h4 class="sub-label">Pain/contractions?</h4>
+<h4 class="sub-label">Reduced fetal movements?</h4>
+<h4 class="sub-label">Headache/visual symptoms/RUQ pain?</h4>
+<h4 class="sub-label">Fever/unwellness?</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+
+                <div class="topic-row" id="topic-t-3-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Fetal assessment</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-4" onchange="toggleMastery('t-3-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">FHR</h4>
+<h4 class="sub-label">CTG when indicated</h4>
+<h4 class="sub-label">Movements</h4>
+<h4 class="sub-label">Presentation/lie</h4>
+<h4 class="sub-label">Ultrasound when indicated</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+
+                <div class="topic-row" id="topic-t-3-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Maternal examination</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-5" onchange="toggleMastery('t-3-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Pulse</h4>
+<h4 class="sub-label">Temperature</h4>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">Uterine tenderness</h4>
+<h4 class="sub-label">Contractions</h4>
+<h4 class="sub-label">Vaginal examination/speculum only when appropriate</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+
+                <div class="topic-row" id="topic-t-3-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Targeted investigations</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-6" onchange="toggleMastery('t-3-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">FBC</h4>
+<h4 class="sub-label">Group &amp; save/crossmatch</h4>
+<h4 class="sub-label">CRP/cultures</h4>
+<h4 class="sub-label">Urine</h4>
+<h4 class="sub-label">Proteinuria</h4>
+<h4 class="sub-label">CTG</h4>
+<h4 class="sub-label">Ultrasound</h4>
+<h4 class="sub-label">Dopplers</h4>
+<p class="standard-p">Vaginal-fluid testing for suspected PPROM where indicated</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+
+                <div class="topic-row" id="topic-t-3-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Decide disposition</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-7" onchange="toggleMastery('t-3-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">🟢 Reassuring</h4>
+<h4 class="sub-label">Discharge + safety-net + follow-up</h4>
+<h4 class="sub-label">🟡 Needs observation/investigation</h4>
+<h4 class="sub-label">Maternity observation/assessment unit</h4>
+<h4 class="sub-label">🔴 Obstetric emergency</h4>
+<p class="standard-p">Senior obstetrician + anaesthesia + neonatology/blood bank as appropriate + definitive treatment.</p>
+<p class="standard-p">RCOG specifically recommends that maternity triage uses standardized initial assessment within 15 minutes and symptom-specific algorithms to determine urgency and seniority of review.</p>
+<p class="standard-p">This is therefore an excellent framework for building your MRCOG/FCPS Labour Room Triage Case Book: APH, PPROM/PROM, preterm labour, RFM, abnormal CTG, hypertensive emergencies, sepsis, labour, malpresentation, cord prolapse, fetal compromise, trauma, thromboembolism, medical emergencies and collapse.</p>
+<h4 class="sub-label">Sources</h4>
+<h4 class="sub-label">BOX 1 Rapid triage method to assess patient</h4>
+<h4 class="sub-label">status and risk factors at facility arrival</h4>
+<h4 class="sub-label">Patient assessment</h4>
+<ul class="core-list">
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Age</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Stable Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Alert/responsive Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Health good Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Contractions Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Pain/where Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Respiration rate</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Pulse regular Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Fever Y/N</span></li>
+</ul>
+<h4 class="sub-label">Fetal assessment</h4>
+<ul class="core-list">
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Prenatal records Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">&gt;<span class="val-pill">37 weeks</span> Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Baby moving Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Fetal heart rate</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">First pregnancy Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Prior vaginal delivery Y/N (number)</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Prior cesarean delivery Y/N (number)</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Rupture of membranes Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Bleeding Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Infection Y/N</span></li>
+<li class="core-bullet"><span class="bullet-icon">●</span> <span class="bullet-text">Medical therapy Y/N</span></li>
+</ul>
+<p class="standard-p">Absolutely. This can be expanded into a labour-room triage rapid assessment box for women presenting <span class="val-pill">≥24 weeks</span>, while preserving your original structure and adding the key obstetric red flags.</p>
+<h4 class="sub-label">BOX 1 — RAPID TRIAGE METHOD</h4>
+<p class="standard-p">Initial assessment of patient status and risk factors at facility arrival</p>
+<p class="standard-p">Purpose: Rapidly identify women who require immediate resuscitation, urgent obstetric review, emergency delivery, or routine assessment.</p>
+
+                <div class="topic-row" id="topic-t-3-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">PATIENT / MATERNAL ASSESSMENT</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-8" onchange="toggleMastery('t-3-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Assessment</th>
+<th>Record</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Age</strong></td>
+<td>___ years</td>
+</tr>
+<tr>
+<td><strong>Gestational age</strong></td>
+<td>___ weeks + ___ days</td>
+</tr>
+<tr>
+<td><strong>EDD</strong></td>
+<td>___</td>
+</tr>
+<tr>
+<td><strong>Stable?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Alert/responsive?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>General health</strong></td>
+<td>☐ Good ☐ Unwell</td>
+</tr>
+<tr>
+<td><strong>Airway</strong></td>
+<td>☐ Patent ☐ Compromised</td>
+</tr>
+<tr>
+<td><strong>Breathing</strong></td>
+<td>☐ Normal ☐ Abnormal</td>
+</tr>
+<tr>
+<td><strong>Respiratory rate</strong></td>
+<td>___ /min</td>
+</tr>
+<tr>
+<td><strong>SpO₂</strong></td>
+<td>___ %</td>
+</tr>
+<tr>
+<td><strong>Pulse</strong></td>
+<td>___ /min</td>
+</tr>
+<tr>
+<td><strong>Pulse regular?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Blood pressure</strong></td>
+<td>___ / ___ mmHg</td>
+</tr>
+<tr>
+<td><strong>Temperature</strong></td>
+<td>___ °C</td>
+</tr>
+<tr>
+<td><strong>Fever?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Pain?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Site of pain</strong></td>
+<td>__________</td>
+</tr>
+<tr>
+<td><strong>Pain severity</strong></td>
+<td>___/10</td>
+</tr>
+<tr>
+<td><strong>Contractions?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Frequency</strong></td>
+<td>___ in 10 min</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>___ sec</td>
+</tr>
+<tr>
+<td><strong>Vaginal bleeding?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Liquor loss?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Headache?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Visual disturbance?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Epigastric/RUQ pain?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Shortness of breath/chest pain?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Syncope/collapse?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Seizure?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Unilateral leg pain/swelling?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-3-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">OBSTETRIC / FETAL ASSESSMENT</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-9" onchange="toggleMastery('t-3-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Assessment</th>
+<th>Record</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Prenatal records available?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Gestation &gt;<span class="val-pill">37 weeks</span>?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>24–<span class="val-pill">33+6 weeks</span>?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>34–<span class="val-pill">36+6 weeks</span>?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Baby moving normally?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Reduced fetal movements?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Fetal heart detected?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Fetal heart rate</strong></td>
+<td>___ bpm</td>
+</tr>
+<tr>
+<td><strong>CTG required?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>CTG reassuring?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Singleton/multiple</strong></td>
+<td>__________</td>
+</tr>
+<tr>
+<td><strong>First pregnancy?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Previous vaginal delivery?</strong></td>
+<td>☐ No ☐ Yes → number: ___</td>
+</tr>
+<tr>
+<td><strong>Previous Caesarean?</strong></td>
+<td>☐ No ☐ Yes → number: ___</td>
+</tr>
+<tr>
+<td><strong>Previous uterine surgery?</strong></td>
+<td>☐ No ☐ Yes</td>
+</tr>
+<tr>
+<td><strong>Rupture of membranes?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Time of ROM</strong></td>
+<td>__________</td>
+</tr>
+<tr>
+<td><strong>Liquor colour</strong></td>
+<td>☐ Clear ☐ Meconium ☐ Blood-stained ☐ Offensive</td>
+</tr>
+<tr>
+<td><strong>Vaginal bleeding?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Show?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Malpresentation suspected?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Cord prolapse suspected?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Infection suspected?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Medical disease?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Current medications/medical therapy?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>High-risk pregnancy?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Known placenta praevia/low placenta?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Known FGR?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Known abnormal Doppler?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+<tr>
+<td><strong>Previous obstetric complication?</strong></td>
+<td>☐ Yes ☐ No</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-3-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">IMMEDIATE RED-FLAG SCREEN</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-10" onchange="toggleMastery('t-3-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">🔴 ANY ONE OF THESE = URGENT/SENIOR ASSESSMENT</h4>
+<h4 class="sub-label">☐ Maternal collapse/unresponsive</h4>
+<h4 class="sub-label">☐ Airway/breathing compromise</h4>
+<h4 class="sub-label">☐ Shock/hypotension</h4>
+<h4 class="sub-label">☐ Severe hypertension with symptoms</h4>
+<h4 class="sub-label">☐ Eclampsia/seizure</h4>
+<h4 class="sub-label">☐ Significant APH</h4>
+<h4 class="sub-label">☐ Suspected placental abruption</h4>
+<h4 class="sub-label">☐ Suspected uterine rupture</h4>
+<h4 class="sub-label">☐ Cord prolapse</h4>
+<h4 class="sub-label">☐ Persistent fetal bradycardia</h4>
+<h4 class="sub-label">☐ Pathological CTG</h4>
+<h4 class="sub-label">☐ Absent fetal heart rate</h4>
+<h4 class="sub-label">☐ Severe maternal sepsis</h4>
+<h4 class="sub-label">☐ Severe abdominal pain</h4>
+<h4 class="sub-label">☐ Severe chest pain/dyspnoea/suspected PE</h4>
+<h4 class="sub-label">☐ Significant trauma</h4>
+<h4 class="sub-label">☐ Advanced labour</h4>
+<h4 class="sub-label">☐ Prolapsed presenting part</h4>
+<h4 class="sub-label">☐ Suspected vasa praevia with fetal compromise</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">🟢 GREEN — LOW RISK / STABLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Maternal observations normal</h4>
+<h4 class="sub-label">No significant bleeding</h4>
+<h4 class="sub-label">No severe pain</h4>
+<h4 class="sub-label">No suspected sepsis</h4>
+<h4 class="sub-label">Fetal movements normal</h4>
+<h4 class="sub-label">FHR reassuring</h4>
+<h4 class="sub-label">No other major obstetric risk</h4>
+<h4 class="sub-label">➡️ Routine triage assessment</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">🟡 AMBER — POTENTIAL OBSTETRIC RISK</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Suspected preterm labour</h4>
+<h4 class="sub-label">Suspected PPROM</h4>
+<p class="standard-p">Reduced fetal movements but currently reassuring assessment</p>
+<h4 class="sub-label">Mild hypertension</h4>
+<h4 class="sub-label">Minor APH</h4>
+<h4 class="sub-label">Meconium</h4>
+<h4 class="sub-label">Maternal medical disease</h4>
+<h4 class="sub-label">Previous Caesarean</h4>
+<h4 class="sub-label">FGR</h4>
+<h4 class="sub-label">Abnormal lie</h4>
+<h4 class="sub-label">Possible infection</h4>
+<h4 class="sub-label">Persistent contractions without established labour</h4>
+<p class="standard-p">➡️ Prompt obstetric/midwifery assessment + targeted investigations</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">🔴 RED — EMERGENCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Major APH</h4>
+<h4 class="sub-label">Maternal shock</h4>
+<h4 class="sub-label">Eclampsia</h4>
+<h4 class="sub-label">Severe pre-eclampsia with complications</h4>
+<h4 class="sub-label">Suspected uterine rupture</h4>
+<h4 class="sub-label">Cord prolapse</h4>
+<h4 class="sub-label">Persistent fetal bradycardia</h4>
+<h4 class="sub-label">Pathological CTG</h4>
+<h4 class="sub-label">Maternal sepsis with deterioration</h4>
+<h4 class="sub-label">Suspected PE with instability</h4>
+<h4 class="sub-label">Maternal collapse</h4>
+<h4 class="sub-label">Advanced labour with complication</h4>
+<p class="standard-p">➡️ Immediate emergency response + senior obstetric review</p>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 Overview &amp; Core Guidance</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Placenta praevia: Usually painless bright-red bleeding</li>
+<li class="surg-item">● Placental abruption: Painful bleeding, uterine tenderness/rigidity</li>
+<li class="surg-item">● Vasa praevia: Bleeding after ROM + acute fetal compromise</li>
+<li class="surg-item">● Bloody show: Small amount with labour</li>
+<li class="surg-item">● Cervical ectropion: Contact bleeding</li>
+<li class="surg-item">● Cervical polyp: Contact bleeding</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 🚨 PE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Diagnosis: Key clue</li>
+<li class="surg-item">● Massive APH: Bleeding/shock</li>
+<li class="surg-item">● Abruption: Pain + shock ± concealed bleeding</li>
+<li class="surg-item">● Uterine rupture: Previous uterine scar + fetal compromise</li>
+<li class="surg-item">● PE: Sudden dyspnoea/chest pain</li>
+<li class="surg-item">● Eclampsia: Seizure</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 🧠 THE UNIVERSAL TRIAGE ALGORITHM</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Age</li>
+<li class="surg-item">● Stable Y/N</li>
+<li class="surg-item">● Alert/responsive Y/N</li>
+<li class="surg-item">● Health good Y/N</li>
+<li class="surg-item">● Contractions Y/N</li>
+<li class="surg-item">● Pain/where Y/N</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 44;
+    const flashcards = [{"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta praevia</strong>?", "a": "<strong>Usually painless bright-red bleeding</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placental abruption</strong>?", "a": "<strong>Painful bleeding, uterine tenderness/rigidity</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vasa praevia</strong>?", "a": "<strong>Bleeding after ROM + acute fetal compromise</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Bloody show</strong>?", "a": "<strong>Small amount with labour</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervical ectropion</strong>?", "a": "<strong>Contact bleeding</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervical polyp</strong>?", "a": "<strong>Contact bleeding</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cervical malignancy</strong>?", "a": "<strong>Persistent/irregular bleeding</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vaginal trauma</strong>?", "a": "<strong>History of intercourse/trauma</strong>"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterine rupture</strong>?", "a": "<strong>Pain, shock, fetal compromise, previous uterine scar</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Diagnosis</strong>?", "a": "<strong>Key clue</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Massive APH</strong>?", "a": "<strong>Bleeding/shock</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Abruption</strong>?", "a": "<strong>Pain + shock \u00b1 concealed bleeding</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>PE</strong>?", "a": "<strong>Sudden dyspnoea/chest pain</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Eclampsia</strong>?", "a": "<strong>Seizure</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Sepsis</strong>?", "a": "<strong>Fever/clinical deterioration</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Amniotic fluid embolism</strong>?", "a": "<strong>Sudden hypoxia + cardiovascular collapse + coagulopathy</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Hypoglycaemia</strong>?", "a": "<strong>Altered consciousness</strong>"}, {"category": "\ud83d\udea8 PE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Arrhythmia</strong>?", "a": "<strong>Palpitations/syncope</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Assessment</strong>?", "a": "<strong>Record</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Age</strong>?", "a": "<strong>___ years</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gestational age</strong>?", "a": "<strong>___ weeks + ___ days</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>EDD</strong>?", "a": "<strong>___</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Stable?</strong>?", "a": "<strong>\u2610 Yes \u2610 No</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Alert/responsive?</strong>?", "a": "<strong>\u2610 Yes \u2610 No</strong>"}, {"category": "\ud83e\udde0 THE UNIVERSAL TRIAGE ALGORIT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>General health</strong>?", "a": "<strong>\u2610 Good \u2610 Unwell</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Placenta praevia ?", "options": ["Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "Bleeding after ROM + acute fetal compromise", "Small amount with labour"], "correct": 0, "explanation": "Key Guideline / Fact: Usually painless bright-red bleeding (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Placental abruption ?", "options": ["Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "Bleeding after ROM + acute fetal compromise", "Small amount with labour"], "correct": 1, "explanation": "Key Guideline / Fact: Painful bleeding, uterine tenderness/rigidity (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Vasa praevia ?", "options": ["Painful bleeding, uterine tenderness/rigidity", "Usually painless bright-red bleeding", "Bleeding after ROM + acute fetal compromise", "Small amount with labour"], "correct": 2, "explanation": "Key Guideline / Fact: Bleeding after ROM + acute fetal compromise (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Bloody show ?", "options": ["Bleeding after ROM + acute fetal compromise", "Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "Small amount with labour"], "correct": 3, "explanation": "Key Guideline / Fact: Small amount with labour (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervical ectropion ?", "options": ["Contact bleeding", "Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "Bleeding after ROM + acute fetal compromise"], "correct": 0, "explanation": "Key Guideline / Fact: Contact bleeding (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervical polyp ?", "options": ["Usually painless bright-red bleeding", "Contact bleeding", "Painful bleeding, uterine tenderness/rigidity", "Bleeding after ROM + acute fetal compromise"], "correct": 1, "explanation": "Key Guideline / Fact: Contact bleeding (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cervical malignancy ?", "options": ["Painful bleeding, uterine tenderness/rigidity", "Usually painless bright-red bleeding", "Persistent/irregular bleeding", "Bleeding after ROM + acute fetal compromise"], "correct": 2, "explanation": "Key Guideline / Fact: Persistent/irregular bleeding (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Vaginal trauma ?", "options": ["Bleeding after ROM + acute fetal compromise", "Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "History of intercourse/trauma"], "correct": 3, "explanation": "Key Guideline / Fact: History of intercourse/trauma (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Uterine rupture ?", "options": ["Pain, shock, fetal compromise, previous uterine scar", "Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "Bleeding after ROM + acute fetal compromise"], "correct": 0, "explanation": "Key Guideline / Fact: Pain, shock, fetal compromise, previous uterine scar (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Diagnosis ?", "options": ["Usually painless bright-red bleeding", "Key clue", "Painful bleeding, uterine tenderness/rigidity", "Bleeding after ROM + acute fetal compromise"], "correct": 1, "explanation": "Key Guideline / Fact: Key clue (\ud83d\udea8 PE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Massive APH ?", "options": ["Painful bleeding, uterine tenderness/rigidity", "Usually painless bright-red bleeding", "Bleeding/shock", "Bleeding after ROM + acute fetal compromise"], "correct": 2, "explanation": "Key Guideline / Fact: Bleeding/shock (\ud83d\udea8 PE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Abruption ?", "options": ["Bleeding after ROM + acute fetal compromise", "Usually painless bright-red bleeding", "Painful bleeding, uterine tenderness/rigidity", "Pain + shock \u00b1 concealed bleeding"], "correct": 3, "explanation": "Key Guideline / Fact: Pain + shock \u00b1 concealed bleeding (\ud83d\udea8 PE)."}];
+    const storageKey = 'obgyn_mastered_master_list_labour-room_triage_cases_after_24_weeks';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

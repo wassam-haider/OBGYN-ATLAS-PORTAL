@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRCOG Part 3 OSCE — MENOPAUSE / ADOLESCENT GYNAECOLOGY / FGM — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">MRCOG Part 3 OSCE — MENOPAUSE / ADOLES</div>
+                <div class="brand-subtitle-text">This is an exam-oriented clinical atlas rather tha</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 66 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 53 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (53 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="1. MENOPAUSE">1. MENOPAUSE</a></li><li><a href="#part-3" class="part-nav-link" title="2. MENOPAUSE OSCE — HISTORY">2. MENOPAUSE OSCE — HISTORY</a></li><li><a href="#part-4" class="part-nav-link" title="3. MENOPAUSE — EXAMINATION">3. MENOPAUSE — EXAMINATION</a></li><li><a href="#part-5" class="part-nav-link" title="4. MENOPAUSE — INVESTIGATIONS">4. MENOPAUSE — INVESTIGATIONS</a></li><li><a href="#part-6" class="part-nav-link" title="5. MENOPAUSE — MANAGEMENT">5. MENOPAUSE — MANAGEMENT</a></li><li><a href="#part-7" class="part-nav-link" title="6. HRT — THE CORE MRCOG STATION">6. HRT — THE CORE MRCOG STATION</a></li><li><a href="#part-8" class="part-nav-link" title="7. CYCLICAL VS CONTINUOUS HRT">7. CYCLICAL VS CONTINUOUS HRT</a></li><li><a href="#part-9" class="part-nav-link" title="8. HRT — ROUTE">8. HRT — ROUTE</a></li><li><a href="#part-10" class="part-nav-link" title="9. HRT — CONTRAINDICATION/RISK ASSESSMENT">9. HRT — CONTRAINDICATION/RISK ASSESSMENT</a></li><li><a href="#part-11" class="part-nav-link" title="10. HRT RISKS — EXAM TABLE">10. HRT RISKS — EXAM TABLE</a></li><li><a href="#part-12" class="part-nav-link" title="11. HRT FOLLOW-UP">11. HRT FOLLOW-UP</a></li><li><a href="#part-13" class="part-nav-link" title="12. UNSCHEDULED BLEEDING ON HRT">12. UNSCHEDULED BLEEDING ON HRT</a></li><li><a href="#part-14" class="part-nav-link" title="13. VAGINAL ATROPHY / GENITOURINARY SYNDROME OF MENOPAUSE">13. VAGINAL ATROPHY / GENITOURINARY SYNDROME OF MENOPAUSE</a></li><li><a href="#part-15" class="part-nav-link" title="14. VAGINAL ATROPHY — MANAGEMENT">14. VAGINAL ATROPHY — MANAGEMENT</a></li><li><a href="#part-16" class="part-nav-link" title="15. POSTMENOPAUSAL BLEEDING — PMB">15. POSTMENOPAUSAL BLEEDING — PMB</a></li><li><a href="#part-17" class="part-nav-link" title="16. PMB — RISK FACTORS FOR ENDOMETRIAL CANCER">16. PMB — RISK FACTORS FOR ENDOMETRIAL CANCER</a></li><li><a href="#part-18" class="part-nav-link" title="17. PMB — HISTORY">17. PMB — HISTORY</a></li><li><a href="#part-19" class="part-nav-link" title="18. PMB — EXAMINATION">18. PMB — EXAMINATION</a></li><li><a href="#part-20" class="part-nav-link" title="19. PMB — INVESTIGATION ALGORITHM">19. PMB — INVESTIGATION ALGORITHM</a></li><li><a href="#part-21" class="part-nav-link" title="20. PMB — HIGH-YIELD EXAM STATEMENT">20. PMB — HIGH-YIELD EXAM STATEMENT</a></li><li><a href="#part-22" class="part-nav-link" title="21. OSTEOPOROSIS RISK ASSESSMENT">21. OSTEOPOROSIS RISK ASSESSMENT</a></li><li><a href="#part-23" class="part-nav-link" title="22. DXA — NUMBERS">22. DXA — NUMBERS</a></li><li><a href="#part-24" class="part-nav-link" title="23. WHEN TO CONSIDER DXA">23. WHEN TO CONSIDER DXA</a></li><li><a href="#part-25" class="part-nav-link" title="24. ADOLESCENT GYNAECOLOGY OSCE">24. ADOLESCENT GYNAECOLOGY OSCE</a></li><li><a href="#part-26" class="part-nav-link" title="25. ADOLESCENT CONSULTATION — STRUCTURE">25. ADOLESCENT CONSULTATION — STRUCTURE</a></li><li><a href="#part-27" class="part-nav-link" title="26. ADOLESCENT HISTORY">26. ADOLESCENT HISTORY</a></li><li><a href="#part-28" class="part-nav-link" title="27. ADOLESCENT MENSTRUAL NUMBERS">27. ADOLESCENT MENSTRUAL NUMBERS</a></li><li><a href="#part-29" class="part-nav-link" title="28. ADOLESCENT EXAMINATION">28. ADOLESCENT EXAMINATION</a></li><li><a href="#part-30" class="part-nav-link" title="29. TANNER STAGING — FEMALE">29. TANNER STAGING — FEMALE</a></li><li><a href="#part-31" class="part-nav-link" title="30. PRIMARY AMENORRHOEA">30. PRIMARY AMENORRHOEA</a></li><li><a href="#part-32" class="part-nav-link" title="31. PRIMARY AMENORRHOEA — FIRST QUESTION">31. PRIMARY AMENORRHOEA — FIRST QUESTION</a></li><li><a href="#part-33" class="part-nav-link" title="32. PRIMARY AMENORRHOEA — INVESTIGATIONS">32. PRIMARY AMENORRHOEA — INVESTIGATIONS</a></li><li><a href="#part-34" class="part-nav-link" title="33. INTERPRETING PRIMARY AMENORRHOEA">33. INTERPRETING PRIMARY AMENORRHOEA</a></li><li><a href="#part-35" class="part-nav-link" title="35. MRKH — ASSOCIATED ANOMALIES">35. MRKH — ASSOCIATED ANOMALIES</a></li><li><a href="#part-36" class="part-nav-link" title="36. MRKH EXAMINATION">36. MRKH EXAMINATION</a></li><li><a href="#part-37" class="part-nav-link" title="37. MRKH INVESTIGATIONS">37. MRKH INVESTIGATIONS</a></li><li><a href="#part-38" class="part-nav-link" title="38. MRKH MANAGEMENT">38. MRKH MANAGEMENT</a></li><li><a href="#part-39" class="part-nav-link" title="39. IMPERFORATE HYMEN">39. IMPERFORATE HYMEN</a></li><li><a href="#part-40" class="part-nav-link" title="40. IMPERFORATE HYMEN — DIFFERENTIAL">40. IMPERFORATE HYMEN — DIFFERENTIAL</a></li><li><a href="#part-41" class="part-nav-link" title="41. IMPERFORATE HYMEN — EXAM TECHNIQUE">41. IMPERFORATE HYMEN — EXAM TECHNIQUE</a></li><li><a href="#part-42" class="part-nav-link" title="42. TRANSVERSE VAGINAL SEPTUM">42. TRANSVERSE VAGINAL SEPTUM</a></li><li><a href="#part-43" class="part-nav-link" title="43. FEMALE GENITAL MUTILATION — FGM">43. FEMALE GENITAL MUTILATION — FGM</a></li><li><a href="#part-44" class="part-nav-link" title="44. FGM — TYPES">44. FGM — TYPES</a></li><li><a href="#part-45" class="part-nav-link" title="45. FGM HISTORY">45. FGM HISTORY</a></li><li><a href="#part-46" class="part-nav-link" title="46. FGM EXAMINATION">46. FGM EXAMINATION</a></li><li><a href="#part-47" class="part-nav-link" title="47. FGM COMPLICATIONS">47. FGM COMPLICATIONS</a></li><li><a href="#part-48" class="part-nav-link" title="48. DEINFIBULATION">48. DEINFIBULATION</a></li><li><a href="#part-49" class="part-nav-link" title="51. THE MRCOG “TRAUMA-INFORMED” EXAMINATION">51. THE MRCOG “TRAUMA-INFORMED” EXAMINATION</a></li><li><a href="#part-50" class="part-nav-link" title="52. RAPID DIFFERENTIAL: PRIMARY AMENORRHOEA">52. RAPID DIFFERENTIAL: PRIMARY AMENORRHOEA</a></li><li><a href="#part-51" class="part-nav-link" title="53. RAPID MENOPAUSE DIFFERENTIAL">53. RAPID MENOPAUSE DIFFERENTIAL</a></li><li><a href="#part-52" class="part-nav-link" title="54. NUMBERS TO MEMORISE FOR MRCOG">54. NUMBERS TO MEMORISE FOR MRCOG</a></li><li><a href="#part-53" class="part-nav-link" title="55. HIGH-YIELD MRCOG STATION CLOSING">55. HIGH-YIELD MRCOG STATION CLOSING</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">MRCOG Part 3 OSCE — MENOPAUSE / ADOLESCENT GYNAECOLOGY / FGM</h1>
+                    <div class="reader-hero-sub">⭐ This is an exam-oriented clinical atlas rather than just a list. For each station, think:</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Recognise → focused history → examination → investigations → differential → management → safety-net → shared decision-making.</span></div>
+<p class="standard-p">The current RCOG curriculum specifically expects knowledge of menopause/HRT, POI, DEXA indications, amenorrhoea and its causes, and interpretation of amenorrhoea investigations.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                <div class="callout-body">Numerical thresholds below are useful examination figures, but local protocols can differ. In the MRCOG station, always state that you will follow local/NICE/RCOG guidance where appropriate.</div>
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">1. MENOPAUSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                <div class="callout-body">Natural menopause</div>
+            </div>
+            
+<p class="standard-p">Permanent cessation of menstruation due to loss of ovarian follicular activity.</p>
+<p class="standard-p">Retrospectively diagnosed after 12 consecutive months of amenorrhoea with no other cause.</p>
+<h4 class="sub-label">Typical age:</h4>
+<h4 class="sub-label">Most commonly 45–55 years</h4>
+<h4 class="sub-label">UK average ≈ 51 years</h4>
+<p class="standard-p">RCOG notes the average may be lower in some Asian populations, including Pakistan/India.</p>
+<h4 class="sub-label">Perimenopause</h4>
+<p class="standard-p">Transition preceding menopause.</p>
+<h4 class="sub-label">May have:</h4>
+<h4 class="sub-label">Cycle irregularity</h4>
+<h4 class="sub-label">Hot flushes</h4>
+<h4 class="sub-label">Night sweats</h4>
+<h4 class="sub-label">Sleep disturbance</h4>
+<h4 class="sub-label">Mood symptoms</h4>
+<p class="standard-p">Vaginal/sexual symptoms.</p>
+<h4 class="sub-label">Premature ovarian insufficiency — POI</h4>
+<p class="standard-p">Loss of ovarian function before 40 years.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important distinction</span></div>
+                <div class="callout-body">Early menopause: 40–44 years</div>
+            </div>
+            
+<p class="standard-p">POI: &lt;40 years.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">2. MENOPAUSE OSCE — HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Opening</h4>
+<p class="standard-p">“I would like to understand how your symptoms are affecting you, your menstrual pattern, your general health and your individual risk factors before discussing treatment options.”</p>
+
+                <div class="topic-row" id="topic-t-3-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Menstrual history</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-1" onchange="toggleMastery('t-3-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">Cycle frequency</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Flow</h4>
+<h4 class="sub-label">Intermenstrual bleeding</h4>
+<h4 class="sub-label">Postcoital bleeding</h4>
+<h4 class="sub-label">Postmenopausal bleeding</h4>
+<h4 class="sub-label">Previous regularity</h4>
+<h4 class="sub-label">Age at menarche</h4>
+<p class="standard-p">Age at menopause if already menopausal.</p>
+
+                <div class="topic-row" id="topic-t-3-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Vasomotor symptoms</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-2" onchange="toggleMastery('t-3-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">Hot flushes</h4>
+<h4 class="sub-label">Night sweats</h4>
+<h4 class="sub-label">Frequency/day</h4>
+<h4 class="sub-label">Severity</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Triggers</h4>
+<h4 class="sub-label">Sleep disturbance</h4>
+<p class="standard-p">Impact on work/social life.</p>
+
+                <div class="topic-row" id="topic-t-3-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">Psychological/cognitive symptoms</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-3" onchange="toggleMastery('t-3-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Low mood</h4>
+<h4 class="sub-label">Anxiety</h4>
+<h4 class="sub-label">Irritability</h4>
+<h4 class="sub-label">Mood swings</h4>
+<h4 class="sub-label">Brain fog</h4>
+<h4 class="sub-label">Concentration</h4>
+<h4 class="sub-label">Memory</h4>
+<p class="standard-p">Loss of confidence.</p>
+
+                <div class="topic-row" id="topic-t-3-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">D</span>
+                        <h3 class="topic-heading">Genitourinary syndrome</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-4" onchange="toggleMastery('t-3-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask about:</h4>
+<h4 class="sub-label">Vaginal dryness</h4>
+<h4 class="sub-label">Burning</h4>
+<h4 class="sub-label">Itching</h4>
+<h4 class="sub-label">Dyspareunia</h4>
+<h4 class="sub-label">Reduced lubrication</h4>
+<h4 class="sub-label">Urinary urgency</h4>
+<h4 class="sub-label">Frequency</h4>
+<h4 class="sub-label">Dysuria</h4>
+<h4 class="sub-label">Recurrent UTI</h4>
+<p class="standard-p">Postcoital bleeding.</p>
+
+                <div class="topic-row" id="topic-t-3-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">Sexual function</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-5" onchange="toggleMastery('t-3-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Use a sensitive approach:</h4>
+<h4 class="sub-label">Libido</h4>
+<h4 class="sub-label">Arousal</h4>
+<h4 class="sub-label">Lubrication</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Orgasm</h4>
+<h4 class="sub-label">Relationship issues</h4>
+<p class="standard-p">Psychological factors.</p>
+
+                <div class="topic-row" id="topic-t-3-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">F</span>
+                        <h3 class="topic-heading">Bone health</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-6" onchange="toggleMastery('t-3-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Previous fracture</h4>
+<h4 class="sub-label">Fragility fracture</h4>
+<h4 class="sub-label">Back pain</h4>
+<h4 class="sub-label">Height loss</h4>
+<h4 class="sub-label">Osteoporosis</h4>
+<h4 class="sub-label">Family history of hip fracture</h4>
+<h4 class="sub-label">Steroid use</h4>
+<h4 class="sub-label">Low BMI</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Alcohol</h4>
+<h4 class="sub-label">Exercise</h4>
+<p class="standard-p">Calcium/vitamin D intake.</p>
+
+                <div class="topic-row" id="topic-t-3-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">G</span>
+                        <h3 class="topic-heading">Cardiovascular risk</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-7" onchange="toggleMastery('t-3-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Hypertension</h4>
+<h4 class="sub-label">Diabetes</h4>
+<h4 class="sub-label">Dyslipidaemia</h4>
+<h4 class="sub-label">Obesity</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Cardiovascular disease</h4>
+<h4 class="sub-label">Stroke/TIA</h4>
+<p class="standard-p">VTE.</p>
+
+                <div class="topic-row" id="topic-t-3-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">H</span>
+                        <h3 class="topic-heading">Cancer risk</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-3-8" onchange="toggleMastery('t-3-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Breast cancer</h4>
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Ovarian cancer</h4>
+<h4 class="sub-label">Cervical disease</h4>
+<h4 class="sub-label">Family history</h4>
+<p class="standard-p">BRCA/Lynch syndrome.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">3. MENOPAUSE — EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Usually examination is targeted, not automatically a full examination.</p>
+<h4 class="sub-label">General</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Waist circumference</h4>
+<h4 class="sub-label">General health</h4>
+<h4 class="sub-label">Thyroid signs</h4>
+<h4 class="sub-label">Anaemia</h4>
+<p class="standard-p">Cushingoid features if relevant.</p>
+<h4 class="sub-label">Breast</h4>
+<h4 class="sub-label">If indicated:</h4>
+<h4 class="sub-label">Breast examination</h4>
+<h4 class="sub-label">Mass</h4>
+<h4 class="sub-label">Nipple discharge</h4>
+<h4 class="sub-label">Skin/nipple changes</h4>
+<p class="standard-p">Axillary nodes.</p>
+<h4 class="sub-label">Pelvic examination</h4>
+<h4 class="sub-label">If symptoms warrant:</h4>
+<h4 class="sub-label">Vulva</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">Atrophy</h4>
+<h4 class="sub-label">Pallor</h4>
+<h4 class="sub-label">Loss of rugae</h4>
+<h4 class="sub-label">Fissures</h4>
+<h4 class="sub-label">Dermatoses</h4>
+<p class="standard-p">Lesions.</p>
+<h4 class="sub-label">Vagina</h4>
+<h4 class="sub-label">Typical atrophy:</h4>
+<h4 class="sub-label">Pale mucosa</h4>
+<h4 class="sub-label">Dryness</h4>
+<h4 class="sub-label">Loss of rugae</h4>
+<h4 class="sub-label">Petechiae</h4>
+<h4 class="sub-label">Fragility</h4>
+<h4 class="sub-label">Narrowing</h4>
+<p class="standard-p">Reduced elasticity.</p>
+<h4 class="sub-label">Cervix</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Lesions</h4>
+<h4 class="sub-label">Contact bleeding</h4>
+<h4 class="sub-label">Atrophy</h4>
+<p class="standard-p">Prolapse.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">4. MENOPAUSE — INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Woman ≥45 with typical symptoms</h4>
+<h4 class="sub-label">Usually:</h4>
+<p class="standard-p">No routine FSH needed.</p>
+<p class="standard-p">Diagnosis is generally clinical.</p>
+<p class="standard-p">RCOG/NICE state that women over 45 with typical menopausal symptoms usually do not require hormone testing.</p>
+<h4 class="sub-label">Consider FSH when:</h4>
+<h4 class="sub-label">Age 40–45 with menopausal symptoms</h4>
+<h4 class="sub-label">Age &lt;40 with suspected POI</h4>
+<p class="standard-p">Diagnosis is uncertain.</p>
+<h4 class="sub-label">FSH</h4>
+<h4 class="sub-label">Typical ovarian failure pattern:</h4>
+<h4 class="sub-label">↑ FSH</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ estradiol</span></div>
+<p class="standard-p">Do not diagnose POI from a single borderline result alone.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">5. MENOPAUSE — MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Lifestyle</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Exercise</h4>
+<h4 class="sub-label">Resistance training</h4>
+<h4 class="sub-label">Weight-bearing exercise</h4>
+<h4 class="sub-label">Healthy diet</h4>
+<h4 class="sub-label">Smoking cessation</h4>
+<h4 class="sub-label">Reduce alcohol</h4>
+<h4 class="sub-label">Sleep optimisation</h4>
+<h4 class="sub-label">Maintain healthy weight</h4>
+<p class="standard-p">Calcium/vitamin D adequacy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">6. HRT — THE CORE MRCOG STATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">The examiner may give:</h4>
+<p class="standard-p">“A 52-year-old woman with hot flushes asks whether she should start HRT.”</p>
+<h4 class="sub-label">Your framework:</h4>
+
+                <div class="topic-row" id="topic-t-7-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Confirm indication</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-1" onchange="toggleMastery('t-7-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">HRT is particularly effective for:</h4>
+<h4 class="sub-label">Vasomotor symptoms</h4>
+<h4 class="sub-label">Menopausal symptoms</h4>
+<h4 class="sub-label">GSM</h4>
+<p class="standard-p">Prevention of bone loss in appropriate women.</p>
+
+                <div class="topic-row" id="topic-t-7-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Determine uterine status</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-2" onchange="toggleMastery('t-7-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Has she got a uterus?</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Uterus</th>
+<th>HRT</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Uterus present</strong></td>
+<td>Oestrogen + progestogen</td>
+</tr>
+<tr>
+<td><strong>Total hysterectomy</strong></td>
+<td>Usually oestrogen-only</td>
+</tr>
+<tr>
+<td><strong>Hysterectomy + significant endometriosis history</strong></td>
+<td>Consider combined therapy</td>
+</tr>
+<tr>
+<td><strong>LNG-IUS</strong></td>
+<td>Can provide endometrial protection with systemic oestrogen</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">NICE recommends combined HRT for women with a uterus and oestrogen-only HRT after total hysterectomy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">7. CYCLICAL VS CONTINUOUS HRT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-8" onchange="toggleMastery('sec-8')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Sequential/cyclical HRT</h4>
+<h4 class="sub-label">Usually appropriate when:</h4>
+<h4 class="sub-label">Perimenopausal</h4>
+<h4 class="sub-label">Still having periods</h4>
+<p class="standard-p">Within approximately 12 months of last menstrual period.</p>
+<h4 class="sub-label">Expected:</h4>
+<p class="standard-p">Withdrawal bleed.</p>
+<h4 class="sub-label">Continuous combined HRT</h4>
+<h4 class="sub-label">Usually for:</h4>
+<h4 class="sub-label">Postmenopausal woman</h4>
+<p class="standard-p">≥12 months since last period.</p>
+<h4 class="sub-label">Goal:</h4>
+<p class="standard-p">Amenorrhoea/no scheduled bleeding.</p>
+<p class="standard-p">RCOG describes cyclical treatment for women who start combined HRT before menopause or within 12 months of the last period, and continuous combined HRT when started &gt;12 months after the last period.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">8. HRT — ROUTE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-9" onchange="toggleMastery('sec-9')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Oral oestrogen</h4>
+<h4 class="sub-label">Advantages:</h4>
+<h4 class="sub-label">Convenient</h4>
+<h4 class="sub-label">Cheap</h4>
+<p class="standard-p">Effective.</p>
+<h4 class="sub-label">Disadvantages:</h4>
+<p class="standard-p">Increased VTE risk compared with transdermal route.</p>
+<p class="standard-p">First-pass hepatic effect.</p>
+<h4 class="sub-label">Transdermal</h4>
+<p class="standard-p">Patch/gel/spray.</p>
+<h4 class="sub-label">Advantages:</h4>
+<p class="standard-p">Avoids first-pass hepatic metabolism.</p>
+<p class="standard-p">Preferred when VTE risk is increased.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE point</span></div>
+                
+            </div>
+            
+<p class="standard-p">Obesity is a VTE risk factor; consider transdermal rather than oral oestrogen.</p>
+<p class="standard-p">RCOG specifically notes that women with VTE risk factors such as BMI ≥30 should generally be offered transdermal oestrogen.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">9. HRT — CONTRAINDICATION/RISK ASSESSMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-10" onchange="toggleMastery('sec-10')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask specifically about:</h4>
+<h4 class="sub-label">Breast</h4>
+<h4 class="sub-label">Current/past breast cancer</h4>
+<p class="standard-p">High-risk breast disease.</p>
+<h4 class="sub-label">Endometrial</h4>
+<h4 class="sub-label">Unexplained vaginal bleeding</h4>
+<p class="standard-p">Endometrial pathology.</p>
+<h4 class="sub-label">Thromboembolism</h4>
+<h4 class="sub-label">Previous DVT</h4>
+<h4 class="sub-label">PE</h4>
+<h4 class="sub-label">thrombophilia</h4>
+<p class="standard-p">major VTE risk.</p>
+<h4 class="sub-label">Cardiovascular</h4>
+<h4 class="sub-label">Stroke</h4>
+<h4 class="sub-label">MI</h4>
+<p class="standard-p">severe uncontrolled hypertension.</p>
+<h4 class="sub-label">Liver</h4>
+<p class="standard-p">Active liver disease.</p>
+<h4 class="sub-label">Other</h4>
+<h4 class="sub-label">Migraine</h4>
+<h4 class="sub-label">Gallbladder disease</h4>
+<h4 class="sub-label">Endometriosis</h4>
+<h4 class="sub-label">SLE</h4>
+<p class="standard-p">epilepsy.</p>
+<h4 class="sub-label">Examiner phrase</h4>
+<p class="standard-p">“I would distinguish an absolute contraindication from a situation requiring specialist advice and individualised risk assessment.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">10. HRT RISKS — EXAM TABLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-11" onchange="toggleMastery('sec-11')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Issue</th>
+<th>Important point</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Breast cancer</strong></td>
+<td>Risk varies with regimen/duration</td>
+</tr>
+<tr>
+<td><strong>VTE</strong></td>
+<td>Greater with oral than transdermal oestrogen</td>
+</tr>
+<tr>
+<td><strong>Stroke</strong></td>
+<td>Small increased risk particularly with oral therapy</td>
+</tr>
+<tr>
+<td><strong>Endometrium</strong></td>
+<td>Unopposed systemic oestrogen increases hyperplasia/cancer risk</td>
+</tr>
+<tr>
+<td><strong>Gallbladder</strong></td>
+<td>Risk may increase</td>
+</tr>
+<tr>
+<td><strong>Cardiovascular</strong></td>
+<td>Benefit-risk depends strongly on age/timing/baseline risk</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">RCOG notes that combined HRT can increase breast cancer risk, while oestrogen-only therapy has little or no increased breast cancer risk in the evidence summarised in its patient guidance.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">11. HRT FOLLOW-UP</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">3 months</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Symptom control</h4>
+<h4 class="sub-label">Side effects</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">BP</h4>
+<h4 class="sub-label">Adherence</h4>
+<h4 class="sub-label">Dose</h4>
+<h4 class="sub-label">Route</h4>
+<p class="standard-p">Progestogen adequacy.</p>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">Annual review</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Benefits</h4>
+<h4 class="sub-label">Risks</h4>
+<h4 class="sub-label">Bleeding</h4>
+<h4 class="sub-label">Breast screening</h4>
+<h4 class="sub-label">Cardiovascular risk</h4>
+<h4 class="sub-label">Bone health</h4>
+<p class="standard-p">Whether treatment should continue.</p>
+<p class="standard-p">RCOG recommends review at approximately 3 months after starting HRT and then annually if stable.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">12. UNSCHEDULED BLEEDING ON HRT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Very common OSCE trap.</p>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">When HRT started?</h4>
+<h4 class="sub-label">When regimen changed?</h4>
+<h4 class="sub-label">Type of HRT?</h4>
+<h4 class="sub-label">Compliance?</h4>
+<h4 class="sub-label">Missed progesterone?</h4>
+<h4 class="sub-label">Bleeding pattern?</h4>
+<h4 class="sub-label">Amount?</h4>
+<h4 class="sub-label">Postcoital bleeding?</h4>
+<p class="standard-p">NICE states that bleeding can occur during the first 6 months of systemic HRT or within 3 months of changing dose/preparation; bleeding outside these circumstances requires assessment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">13. VAGINAL ATROPHY / GENITOURINARY SYNDROME OF MENOPAUSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-14" onchange="toggleMastery('sec-14')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Symptoms</h4>
+<h4 class="sub-label">Vaginal</h4>
+<h4 class="sub-label">Dryness</h4>
+<h4 class="sub-label">Burning</h4>
+<h4 class="sub-label">Itching</h4>
+<h4 class="sub-label">Dyspareunia</h4>
+<p class="standard-p">Reduced lubrication.</p>
+<h4 class="sub-label">Urinary</h4>
+<h4 class="sub-label">Dysuria</h4>
+<h4 class="sub-label">Frequency</h4>
+<h4 class="sub-label">Urgency</h4>
+<p class="standard-p">Recurrent UTI.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">Pale</h4>
+<h4 class="sub-label">Thin epithelium</h4>
+<h4 class="sub-label">Dry</h4>
+<h4 class="sub-label">Loss of rugae</h4>
+<h4 class="sub-label">Petechiae</h4>
+<h4 class="sub-label">Fragile mucosa</h4>
+<h4 class="sub-label">Narrow introitus</h4>
+<p class="standard-p">Reduced elasticity.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">14. VAGINAL ATROPHY — MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First-line symptomatic measures</h4>
+<h4 class="sub-label">Vaginal moisturiser</h4>
+<h4 class="sub-label">Lubricants during intercourse</h4>
+<p class="standard-p">Avoid irritants.</p>
+<h4 class="sub-label">Local vaginal oestrogen</h4>
+<p class="standard-p">Highly effective.</p>
+<h4 class="sub-label">Available as:</h4>
+<h4 class="sub-label">Cream</h4>
+<h4 class="sub-label">Vaginal tablet/pessary</h4>
+<p class="standard-p">Ring.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important distinction</span></div>
+                
+            </div>
+            
+<p class="standard-p">Local vaginal oestrogen is very different from systemic HRT.</p>
+<p class="standard-p">It provides low systemic exposure and is primarily treating GSM.</p>
+<h4 class="sub-label">If persistent symptoms:</h4>
+<h4 class="sub-label">Review diagnosis</h4>
+<h4 class="sub-label">Check adherence</h4>
+<p class="standard-p">Consider specialist advice.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">15. POSTMENOPAUSAL BLEEDING — PMB</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-info">
+                <div class="callout-header"><span class="callout-tag">Definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Any vaginal bleeding occurring ≥12 months after the final menstrual period.</p>
+<p class="standard-p">Treat as abnormal until investigated.</p>
+<h4 class="sub-label">Differential diagnosis</h4>
+<h4 class="sub-label">Common benign causes</h4>
+<h4 class="sub-label">Vaginal atrophy</h4>
+<h4 class="sub-label">Endometrial atrophy</h4>
+<h4 class="sub-label">Cervical polyp</h4>
+<h4 class="sub-label">Endometrial polyp</h4>
+<p class="standard-p">HRT-related bleeding.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important pathology</span></div>
+                <div class="callout-body">Endometrial hyperplasia</div>
+            </div>
+            
+<h4 class="sub-label">Endometrial cancer</h4>
+<h4 class="sub-label">Cervical cancer</h4>
+<p class="standard-p">Vulval/vaginal malignancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">16. PMB — RISK FACTORS FOR ENDOMETRIAL CANCER</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Remember</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">O — Obesity</h4>
+<h4 class="sub-label">A — Age</h4>
+<h4 class="sub-label">N — Nulliparity</h4>
+<h4 class="sub-label">O — Oestrogen unopposed</h4>
+<h4 class="sub-label">V — Very early menarche</h4>
+<h4 class="sub-label">L — Late menopause</h4>
+<h4 class="sub-label">P — PCOS/anovulation</h4>
+<h4 class="sub-label">T — Tamoxifen</h4>
+<h4 class="sub-label">F — Family history/Lynch</h4>
+<h4 class="sub-label">Also:</h4>
+<h4 class="sub-label">Diabetes</h4>
+<p class="standard-p">Hypertension.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">17. PMB — HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Exact date of menopause</h4>
+<h4 class="sub-label">First bleeding episode</h4>
+<h4 class="sub-label">Amount</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Recurrent?</h4>
+<h4 class="sub-label">Postcoital?</h4>
+<h4 class="sub-label">Pain?</h4>
+<h4 class="sub-label">Discharge?</h4>
+<h4 class="sub-label">HRT?</h4>
+<h4 class="sub-label">Tamoxifen?</h4>
+<h4 class="sub-label">Endometrial hyperplasia?</h4>
+<h4 class="sub-label">PCOS?</h4>
+<h4 class="sub-label">Obesity?</h4>
+<h4 class="sub-label">Diabetes?</h4>
+<h4 class="sub-label">Lynch syndrome?</h4>
+<p class="standard-p">Previous cervical pathology.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">18. PMB — EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">General</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">Pallor</h4>
+<p class="standard-p">Nodes.</p>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">Mass</h4>
+<h4 class="sub-label">Ascites</h4>
+<p class="standard-p">Hepatomegaly.</p>
+<h4 class="sub-label">Pelvic</h4>
+<h4 class="sub-label">Vulva</h4>
+<h4 class="sub-label">Atrophy</h4>
+<h4 class="sub-label">Lesion</h4>
+<p class="standard-p">Cancer.</p>
+<h4 class="sub-label">Speculum</h4>
+<h4 class="sub-label">Vaginal lesion</h4>
+<h4 class="sub-label">Cervical lesion</h4>
+<h4 class="sub-label">Polyp</h4>
+<p class="standard-p">Contact bleeding.</p>
+<h4 class="sub-label">Bimanual</h4>
+<h4 class="sub-label">Uterine size</h4>
+<h4 class="sub-label">Adnexal mass</h4>
+<h4 class="sub-label">Cervical excitation</h4>
+<p class="standard-p">Pelvic fixation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">19. PMB — INVESTIGATION ALGORITHM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First-line</h4>
+<h4 class="sub-label">TVUS</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Endometrial thickness</h4>
+<h4 class="sub-label">Endometrial morphology</h4>
+<h4 class="sub-label">Focal lesions</h4>
+<h4 class="sub-label">Uterus</h4>
+<p class="standard-p">Ovaries.</p>
+<p class="standard-p">A thin endometrium substantially lowers the probability of endometrial cancer.</p>
+<p class="standard-p">A commonly used threshold is around<span class="val-pill"> 4 mm</span>; RCOG guidance notes evidence around 3–<span class="val-pill">4 mm</span> as a threshold for ruling out cancer in PMB.</p>
+<h4 class="sub-label">Thickened/abnormal endometrium</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Endometrial assessment.</span></div>
+<h4 class="sub-label">Possible:</h4>
+<h4 class="sub-label">Pipelle biopsy</h4>
+<p class="standard-p">Hysteroscopy ± biopsy.</p>
+<h4 class="sub-label">Focal lesion</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Hysteroscopy is particularly useful.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">20. PMB — HIGH-YIELD EXAM STATEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">“Postmenopausal bleeding requires assessment to exclude endometrial malignancy, even though atrophy is a common cause.”</p>
+<h4 class="sub-label">If recurrent bleeding:</h4>
+<p class="standard-p">Do not simply reassure because a previous scan was reassuring.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">21. OSTEOPOROSIS RISK ASSESSMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Major risk factors</h4>
+<h4 class="sub-label">Non-modifiable</h4>
+<h4 class="sub-label">Increasing age</h4>
+<h4 class="sub-label">Female sex</h4>
+<h4 class="sub-label">Previous fragility fracture</h4>
+<h4 class="sub-label">Parental hip fracture</h4>
+<h4 class="sub-label">Early menopause/POI</h4>
+<p class="standard-p">Family history.</p>
+<h4 class="sub-label">Modifiable/secondary</h4>
+<h4 class="sub-label">Low BMI</h4>
+<h4 class="sub-label">Smoking</h4>
+<h4 class="sub-label">Excess alcohol</h4>
+<h4 class="sub-label">Physical inactivity</h4>
+<h4 class="sub-label">Low calcium/vitamin D</h4>
+<h4 class="sub-label">Prolonged glucocorticoids</h4>
+<h4 class="sub-label">Hyperthyroidism</h4>
+<h4 class="sub-label">Hyperparathyroidism</h4>
+<h4 class="sub-label">Coeliac disease</h4>
+<h4 class="sub-label">Malabsorption</h4>
+<h4 class="sub-label">CKD</h4>
+<h4 class="sub-label">RA</h4>
+<p class="standard-p">Hypogonadism.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">22. DXA — NUMBERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">T-score</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>T-score</th>
+<th>Interpretation</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>≥ −1.0</strong></td>
+<td>Normal</td>
+</tr>
+<tr>
+<td><strong>−1.0 to −2.5</strong></td>
+<td>Osteopenia</td>
+</tr>
+<tr>
+<td><strong>≤ −2.5</strong></td>
+<td>Osteoporosis</td>
+</tr>
+<tr>
+<td><strong>≤ −2.5 + fragility fracture</strong></td>
+<td>Severe/established osteoporosis</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">These are standard DXA definitions used in NICE guidance.</p>
+<h4 class="sub-label">Z-score</h4>
+<h4 class="sub-label">More useful in:</h4>
+<h4 class="sub-label">Premenopausal women</h4>
+<h4 class="sub-label">Younger patients</h4>
+<p class="standard-p">Adolescents.</p>
+<p class="standard-p">Interpret relative to age-matched controls rather than using postmenopausal T-score criteria indiscriminately.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">23. WHEN TO CONSIDER DXA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Fragility fracture</h4>
+<h4 class="sub-label">POI</h4>
+<h4 class="sub-label">Premature menopause</h4>
+<h4 class="sub-label">Long-term glucocorticoid use</h4>
+<h4 class="sub-label">Major osteoporosis risk</h4>
+<p class="standard-p">Conditions causing secondary osteoporosis.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">24. ADOLESCENT GYNAECOLOGY OSCE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Golden rules</h4>
+<h4 class="sub-label">Adolescent stations test:</h4>
+<h4 class="sub-label">Communication</h4>
+<h4 class="sub-label">Confidentiality</h4>
+<h4 class="sub-label">Consent</h4>
+<h4 class="sub-label">Safeguarding</h4>
+<h4 class="sub-label">Pubertal development</h4>
+<h4 class="sub-label">Menstrual history</h4>
+<h4 class="sub-label">Sexual health</h4>
+<h4 class="sub-label">Eating/exercise</h4>
+<p class="standard-p">Mental health.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">25. ADOLESCENT CONSULTATION — STRUCTURE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-26-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Introduce yourself</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-26-1" onchange="toggleMastery('t-26-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">“I understand this can be difficult to discuss. I would like to talk through your concerns and make sure you are comfortable.”</p>
+
+                <div class="topic-row" id="topic-t-26-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Confidentiality</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-26-2" onchange="toggleMastery('t-26-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Explain:</h4>
+<p class="standard-p">“What you tell me is confidential, unless I am worried that you or someone else is at serious risk of harm.”</p>
+
+                <div class="topic-row" id="topic-t-26-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Ask permission</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-26-3" onchange="toggleMastery('t-26-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Before examination:</h4>
+<h4 class="sub-label">“Would it be okay if I examine you?”</h4>
+
+                <div class="topic-row" id="topic-t-26-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Offer chaperone</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-26-4" onchange="toggleMastery('t-26-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Particularly for intimate examination.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">26. ADOLESCENT HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Menstrual</h4>
+<h4 class="sub-label">Menarche</h4>
+<h4 class="sub-label">LMP</h4>
+<h4 class="sub-label">Cycle length</h4>
+<h4 class="sub-label">Duration</h4>
+<h4 class="sub-label">Flow</h4>
+<h4 class="sub-label">Pain</h4>
+<h4 class="sub-label">Flooding</h4>
+<h4 class="sub-label">Clots</h4>
+<p class="standard-p">Intermenstrual bleeding.</p>
+<h4 class="sub-label">Pregnancy</h4>
+<h4 class="sub-label">If appropriate:</h4>
+<h4 class="sub-label">Pregnancy possibility</h4>
+<h4 class="sub-label">Contraception</h4>
+<p class="standard-p">Sexual activity.</p>
+<h4 class="sub-label">Sexual health</h4>
+<h4 class="sub-label">Ask sensitively:</h4>
+<h4 class="sub-label">Partners</h4>
+<h4 class="sub-label">Condom use</h4>
+<h4 class="sub-label">STI risk</h4>
+<h4 class="sub-label">Consent</h4>
+<p class="standard-p">Coercion.</p>
+<h4 class="sub-label">Eating disorder</h4>
+<h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Restrictive eating</h4>
+<h4 class="sub-label">Bingeing</h4>
+<h4 class="sub-label">Purging</h4>
+<h4 class="sub-label">Weight loss</h4>
+<h4 class="sub-label">Exercise</h4>
+<p class="standard-p">Body image.</p>
+<h4 class="sub-label">Mental health</h4>
+<h4 class="sub-label">Depression</h4>
+<h4 class="sub-label">Anxiety</h4>
+<h4 class="sub-label">Self-harm</h4>
+<p class="standard-p">Suicidal thoughts.</p>
+<h4 class="sub-label">Safeguarding</h4>
+<h4 class="sub-label">Who lives at home?</h4>
+<h4 class="sub-label">Feeling safe?</h4>
+<h4 class="sub-label">Violence?</h4>
+<h4 class="sub-label">Abuse?</h4>
+<h4 class="sub-label">Coercion?</h4>
+<h4 class="sub-label">Forced marriage?</h4>
+<h4 class="sub-label">FGM risk?</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">27. ADOLESCENT MENSTRUAL NUMBERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical adolescent cycle:</h4>
+<h4 class="sub-label">21–45 days</h4>
+<p class="standard-p">Bleeding usually 2–<span class="val-pill">7 days</span>.</p>
+<p class="standard-p">Bleeding needing product changes every 1–<span class="val-pill">2 hours</span>, especially &gt;<span class="val-pill">7 days</span>, suggests heavy menstrual bleeding.</p>
+<h4 class="sub-label">An adolescent should be assessed for amenorrhoea if:</h4>
+<h4 class="sub-label">≥15 years and no menarche, OR</h4>
+<p class="standard-p">≥3 years after breast development without menarche.</p>
+<h4 class="sub-label">Also:</h4>
+<p class="standard-p">&gt;<span class="val-pill">90 days</span> between periods is not considered normal even in adolescence and warrants evaluation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">28. ADOLESCENT EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-29" onchange="toggleMastery('sec-29')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Do not automatically perform an internal vaginal examination.</p>
+<h4 class="sub-label">General</h4>
+<h4 class="sub-label">Height</h4>
+<h4 class="sub-label">Weight</h4>
+<h4 class="sub-label">BMI</h4>
+<h4 class="sub-label">BP</h4>
+<p class="standard-p">Pulse.</p>
+<h4 class="sub-label">Pubertal assessment</h4>
+<h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">Tanner staging</h4>
+<h4 class="sub-label">Breast</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Breast development</h4>
+<h4 class="sub-label">Asymmetry</h4>
+<p class="standard-p">Mass.</p>
+<h4 class="sub-label">Thyroid</h4>
+<h4 class="sub-label">Look for:</h4>
+<h4 class="sub-label">Goitre</h4>
+<p class="standard-p">Hypothyroidism.</p>
+<h4 class="sub-label">Skin</h4>
+<h4 class="sub-label">Acne</h4>
+<h4 class="sub-label">Hirsutism</h4>
+<h4 class="sub-label">Acanthosis nigricans</h4>
+<p class="standard-p">Striae.</p>
+<h4 class="sub-label">Abdomen</h4>
+<h4 class="sub-label">Mass</h4>
+<h4 class="sub-label">Tenderness</h4>
+<p class="standard-p">Hepatosplenomegaly.</p>
+<h4 class="sub-label">External genitalia</h4>
+<p class="standard-p">Only if clinically indicated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">29. TANNER STAGING — FEMALE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-30" onchange="toggleMastery('sec-30')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Breast</h4>
+<h4 class="sub-label">Tanner I</h4>
+<p class="standard-p">Prepubertal.</p>
+<h4 class="sub-label">Tanner II</h4>
+<h4 class="sub-label">Breast bud</h4>
+<p class="standard-p">Areolar enlargement.</p>
+<h4 class="sub-label">Tanner III</h4>
+<h4 class="sub-label">Further enlargement</h4>
+<p class="standard-p">No separation of contour.</p>
+<h4 class="sub-label">Tanner IV</h4>
+<p class="standard-p">Areola/nipple form secondary mound.</p>
+<h4 class="sub-label">Tanner V</h4>
+<h4 class="sub-label">Mature breast</h4>
+<h4 class="sub-label">Areola returns to breast contour</h4>
+<p class="standard-p">Only nipple projects.</p>
+<h4 class="sub-label">Pubic hair</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>I → absent</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>II → sparse, lightly pigmented</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>III → darker/coarser</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>IV → adult-type but not full distribution</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>V → adult distribution.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">30. PRIMARY AMENORRHOEA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-31" onchange="toggleMastery('sec-31')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Definition/exam trigger</h4>
+<h4 class="sub-label">Investigate:</h4>
+<h4 class="sub-label">No menstruation by 15 years, or</h4>
+<p class="standard-p">≥3 years after thelarche without menstruation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">31. PRIMARY AMENORRHOEA — FIRST QUESTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Ask:</h4>
+<h4 class="sub-label">Are secondary sexual characteristics present?</h4>
+<h4 class="sub-label">Then:</h4>
+
+                <div class="topic-row" id="topic-t-32-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Breast development present</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-32-1" onchange="toggleMastery('t-32-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Müllerian agenesis</h4>
+<h4 class="sub-label">Complete androgen insensitivity</h4>
+<h4 class="sub-label">Outflow obstruction</h4>
+<p class="standard-p">Occasionally endocrine causes.</p>
+
+                <div class="topic-row" id="topic-t-32-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Breast development absent</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-32-2" onchange="toggleMastery('t-32-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Hypogonadism</h4>
+<h4 class="sub-label">Turner syndrome</h4>
+<h4 class="sub-label">Hypothalamic/pituitary disease</h4>
+<h4 class="sub-label">POI</h4>
+<h4 class="sub-label">Chronic illness</h4>
+<p class="standard-p">Under-nutrition/excessive exercise.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">32. PRIMARY AMENORRHOEA — INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-33" onchange="toggleMastery('sec-33')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First-line</h4>
+<h4 class="sub-label">Pregnancy test where relevant</h4>
+<h4 class="sub-label">FSH</h4>
+<h4 class="sub-label">LH</h4>
+<h4 class="sub-label">Estradiol</h4>
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">Prolactin</h4>
+<p class="standard-p">Pelvic ultrasound.</p>
+<h4 class="sub-label">Then depending on findings:</h4>
+<h4 class="sub-label">Testosterone</h4>
+<h4 class="sub-label">SHBG</h4>
+<h4 class="sub-label">17-OHP</h4>
+<h4 class="sub-label">DHEAS</h4>
+<h4 class="sub-label">Karyotype</h4>
+<h4 class="sub-label">Renal imaging</h4>
+<h4 class="sub-label">MRI pituitary</h4>
+<p class="standard-p">Further genetic testing.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">33. INTERPRETING PRIMARY AMENORRHOEA</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">High FSH + low estradiol</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Primary ovarian failure</h4>
+<h4 class="sub-label">Examples:</h4>
+<h4 class="sub-label">Turner syndrome</h4>
+<h4 class="sub-label">Gonadal dysgenesis</h4>
+<h4 class="sub-label">POI</h4>
+<p class="standard-p">Chemotherapy/radiotherapy.</p>
+<h4 class="sub-label">Low/normal FSH + low estradiol</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Hypothalamic/pituitary</h4>
+<h4 class="sub-label">Causes:</h4>
+<h4 class="sub-label">Low weight</h4>
+<h4 class="sub-label">Excessive exercise</h4>
+<h4 class="sub-label">Eating disorder</h4>
+<h4 class="sub-label">Stress</h4>
+<h4 class="sub-label">Chronic disease</h4>
+<p class="standard-p">Pituitary disease.</p>
+<h4 class="sub-label">Normal oestrogen + absent uterus</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Müllerian agenesis</h4>
+<h4 class="sub-label">or</h4>
+<p class="standard-p">Complete androgen insensitivity.</p>
+
+                <div class="topic-row" id="topic-t-34-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">34</span>
+                        <h3 class="topic-heading">MÜLLERIAN AGENESIS — MRCOG MUST KNOW</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-34-1" onchange="toggleMastery('t-34-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Also:</h4>
+<h4 class="sub-label">MRKH syndrome</h4>
+<h4 class="sub-label">Typically:</h4>
+<h4 class="sub-label">46,XX</h4>
+<h4 class="sub-label">Normal ovaries</h4>
+<h4 class="sub-label">Normal secondary sexual characteristics</h4>
+<h4 class="sub-label">Normal breast development</h4>
+<h4 class="sub-label">Normal pubic hair</h4>
+<h4 class="sub-label">Absent or underdeveloped uterus</h4>
+<p class="standard-p">Upper vaginal agenesis.</p>
+<h4 class="sub-label">Incidence approximately:</h4>
+<p class="standard-p">1 in 4,500–5,000.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">35. MRKH — ASSOCIATED ANOMALIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">MURCS</h4>
+<h4 class="sub-label">Müllerian</h4>
+<h4 class="sub-label">Renal</h4>
+<p class="standard-p">Cervicothoracic/Skeletal.</p>
+<h4 class="sub-label">Associated:</h4>
+<h4 class="sub-label">Renal agenesis</h4>
+<h4 class="sub-label">Ectopic kidney</h4>
+<h4 class="sub-label">Skeletal abnormalities</h4>
+<h4 class="sub-label">Vertebral abnormalities</h4>
+<p class="standard-p">Hearing abnormalities in some patients.</p>
+<p class="standard-p">Up to<span class="val-pill"> 53%</span> may have associated congenital malformations, particularly urinary tract and skeletal anomalies.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">36. MRKH EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">You may find:</h4>
+<h4 class="sub-label">Normal breasts</h4>
+<h4 class="sub-label">Normal body hair</h4>
+<h4 class="sub-label">Normal external genitalia</h4>
+<h4 class="sub-label">Short/blind-ending vagina</h4>
+<h4 class="sub-label">No cervix</h4>
+<p class="standard-p">No palpable uterus.</p>
+<p class="standard-p">Do not perform an aggressive internal examination in an adolescent.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">37. MRKH INVESTIGATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pelvic ultrasound</h4>
+<h4 class="sub-label">Assess:</h4>
+<h4 class="sub-label">Uterus</h4>
+<h4 class="sub-label">Ovaries</h4>
+<p class="standard-p">Kidneys.</p>
+<h4 class="sub-label">MRI</h4>
+<h4 class="sub-label">Useful for:</h4>
+<h4 class="sub-label">Detailed anatomy</h4>
+<h4 class="sub-label">Müllerian remnants</h4>
+<h4 class="sub-label">Vaginal anatomy</h4>
+<p class="standard-p">Surgical planning.</p>
+<h4 class="sub-label">Karyotype</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">46,XX</h4>
+<h4 class="sub-label">Differentiate from CAIS</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Feature</th>
+<th>MRKH</th>
+<th>CAIS</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Karyotype</strong></td>
+<td>46,XX</td>
+<td>46,XY</td>
+</tr>
+<tr>
+<td><strong>Uterus</strong></td>
+<td>Absent</td>
+<td>Absent</td>
+</tr>
+<tr>
+<td><strong>Ovaries</strong></td>
+<td>Present</td>
+<td>Absent</td>
+</tr>
+<tr>
+<td><strong>Breast</strong></td>
+<td>Normal</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td><strong>Pubic hair</strong></td>
+<td>Normal</td>
+<td>Sparse/absent</td>
+</tr>
+<tr>
+<td><strong>Testosterone</strong></td>
+<td>Female range</td>
+<td>Male range</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">38. MRKH MANAGEMENT</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important OSCE principle</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not rush into surgery.</p>
+<h4 class="sub-label">Psychosocial support</h4>
+<h4 class="sub-label">Explain diagnosis sensitively</h4>
+<h4 class="sub-label">Allow time</h4>
+<h4 class="sub-label">Sexual function discussion</h4>
+<h4 class="sub-label">Fertility counselling</h4>
+<p class="standard-p">Peer support.</p>
+<h4 class="sub-label">Vaginal lengthening</h4>
+<h4 class="sub-label">First-line:</h4>
+<p class="standard-p">Progressive vaginal dilation.</p>
+<p class="standard-p">ACOG reports anatomical/functional success in approximately 90–<span class="val-pill">96%</span> with primary dilation when appropriately selected and supported.</p>
+<h4 class="sub-label">Fertility</h4>
+<h4 class="sub-label">Because ovaries are usually functional:</h4>
+<p class="standard-p">Oocyte retrieval may be possible.</p>
+<h4 class="sub-label">Pregnancy requires:</h4>
+<p class="standard-p">Gestational carrier, where legally/clinically available.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">39. IMPERFORATE HYMEN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Classic MRCOG presentation</span></div>
+                
+            </div>
+            
+<p class="standard-p">Primary amenorrhoea + cyclic pelvic pain.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Bulging hymen</h4>
+<h4 class="sub-label">Bluish/dark appearance</h4>
+<p class="standard-p">Hematocolpos.</p>
+<h4 class="sub-label">May cause:</h4>
+<h4 class="sub-label">Urinary retention</h4>
+<h4 class="sub-label">Dysuria</h4>
+<h4 class="sub-label">Constipation</h4>
+<p class="standard-p">Pelvic mass.</p>
+<p class="standard-p">ACOG describes the characteristic bluish bulging membrane caused by retained menstrual blood.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">40. IMPERFORATE HYMEN — DIFFERENTIAL</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Transverse vaginal septum</h4>
+<h4 class="sub-label">Distal vaginal atresia</h4>
+<h4 class="sub-label">Cervical atresia</h4>
+<h4 class="sub-label">Vaginal agenesis</h4>
+<h4 class="sub-label">Labial adhesions</h4>
+<p class="standard-p">Obstructed uterine horn.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-41" data-part-index="41">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 41</span>
+                    <h2 class="part-title">41. IMPERFORATE HYMEN — EXAM TECHNIQUE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-41" onchange="toggleMastery('sec-41')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-41')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-41')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">Frog-leg position</h4>
+<h4 class="sub-label">or</h4>
+<p class="standard-p">Dorsal lithotomy if appropriate.</p>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">Explain carefully</h4>
+<h4 class="sub-label">Chaperone</h4>
+<h4 class="sub-label">Inspect externally</h4>
+<h4 class="sub-label">Gentle downward labial traction</h4>
+<p class="standard-p">Avoid unnecessary speculum.</p>
+<p class="standard-p">A moist cotton swab can help identify hymenal anatomy.</p>
+<p class="standard-p">A digital rectal examination may sometimes be more appropriate/less uncomfortable in an adolescent than vaginal examination.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-42" data-part-index="42">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 42</span>
+                    <h2 class="part-title">42. TRANSVERSE VAGINAL SEPTUM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-42" onchange="toggleMastery('sec-42')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-42')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-42')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Presentation</h4>
+<h4 class="sub-label">Primary amenorrhoea</h4>
+<h4 class="sub-label">Cyclical pain</h4>
+<h4 class="sub-label">Hematocolpos/hematometra</h4>
+<h4 class="sub-label">Short vagina</h4>
+<p class="standard-p">Difficulty with intercourse later.</p>
+<h4 class="sub-label">Examination</h4>
+<h4 class="sub-label">Normal hymenal appearance</h4>
+<h4 class="sub-label">Proximal vaginal bulge</h4>
+<p class="standard-p">Short vaginal canal.</p>
+<h4 class="sub-label">Investigation</h4>
+<h4 class="sub-label">MRI is useful to define:</h4>
+<h4 class="sub-label">Septum location</h4>
+<h4 class="sub-label">Thickness</h4>
+<h4 class="sub-label">Cervical anatomy</h4>
+<p class="standard-p">Uterus.</p>
+<p class="standard-p">Complex cases should be managed by an experienced specialist centre because of the risk of stenosis and complications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-43" data-part-index="43">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 43</span>
+                    <h2 class="part-title">43. FEMALE GENITAL MUTILATION — FGM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-43" onchange="toggleMastery('sec-43')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-43')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-43')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG definition</span></div>
+                
+            </div>
+            
+<p class="standard-p">Partial or total removal of external female genitalia or other injury to female genital organs for non-medical reasons.</p>
+<h4 class="sub-label">It has:</h4>
+<p class="standard-p">No health benefit.</p>
+<p class="standard-p">It can cause physical, psychological and psychosexual harm.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-44" data-part-index="44">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 44</span>
+                    <h2 class="part-title">44. FGM — TYPES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-44" onchange="toggleMastery('sec-44')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-44')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-44')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Type 1</h4>
+<h4 class="sub-label">Partial/total removal of:</h4>
+<h4 class="sub-label">Clitoral glans</h4>
+<p class="standard-p">± prepuce.</p>
+<h4 class="sub-label">Type 2</h4>
+<h4 class="sub-label">Removal of:</h4>
+<h4 class="sub-label">Clitoral glans</h4>
+<h4 class="sub-label">Labia minora</h4>
+<p class="standard-p">± labia majora.</p>
+<h4 class="sub-label">Type 3 — INFIBULATION</h4>
+<p class="standard-p">Narrowing of vaginal opening by cutting and apposition of labial tissue.</p>
+<h4 class="sub-label">This is the most important type for:</h4>
+<h4 class="sub-label">Difficult examination</h4>
+<h4 class="sub-label">Difficult intercourse</h4>
+<h4 class="sub-label">Obstetric complications</h4>
+<p class="standard-p">Difficulty with cervical screening.</p>
+<h4 class="sub-label">Type 4</h4>
+<h4 class="sub-label">Other non-medical injury, such as:</h4>
+<h4 class="sub-label">Pricking</h4>
+<h4 class="sub-label">Piercing</h4>
+<h4 class="sub-label">Incision</h4>
+<h4 class="sub-label">Scraping</h4>
+<p class="standard-p">Cauterisation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-45" data-part-index="45">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 45</span>
+                    <h2 class="part-title">45. FGM HISTORY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-45" onchange="toggleMastery('sec-45')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-45')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-45')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Do not assume.</p>
+<h4 class="sub-label">Ask:</h4>
+<p class="standard-p">“Some women from certain communities may have undergone a procedure to their genital area during childhood. Is this something that has happened to you?”</p>
+<h4 class="sub-label">Then:</h4>
+<h4 class="sub-label">What was done?</h4>
+<h4 class="sub-label">At what age?</h4>
+<h4 class="sub-label">Where?</h4>
+<h4 class="sub-label">Who performed it?</h4>
+<h4 class="sub-label">Any complications?</h4>
+<h4 class="sub-label">Pain?</h4>
+<h4 class="sub-label">Recurrent UTI?</h4>
+<h4 class="sub-label">Dyspareunia?</h4>
+<h4 class="sub-label">Menstrual difficulty?</h4>
+<h4 class="sub-label">Infertility?</h4>
+<h4 class="sub-label">Sexual dysfunction?</h4>
+<h4 class="sub-label">Psychological trauma?</h4>
+<h4 class="sub-label">Previous deinfibulation?</h4>
+<h4 class="sub-label">Pregnancy complications?</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-46" data-part-index="46">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 46</span>
+                    <h2 class="part-title">46. FGM EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-46" onchange="toggleMastery('sec-46')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-46')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-46')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">First</h4>
+<p class="standard-p">Consent + trauma-informed approach.</p>
+<h4 class="sub-label">Explain:</h4>
+<p class="standard-p">“I would only examine you if you are comfortable, and you can ask me to stop at any time.”</p>
+<h4 class="sub-label">Inspect vulva</h4>
+<h4 class="sub-label">Determine:</h4>
+<h4 class="sub-label">Type of FGM</h4>
+<h4 class="sub-label">Extent</h4>
+<h4 class="sub-label">Introital narrowing</h4>
+<h4 class="sub-label">Scarring</h4>
+<h4 class="sub-label">Cysts</h4>
+<h4 class="sub-label">Neuroma</h4>
+<h4 class="sub-label">Infection</h4>
+<p class="standard-p">Other vulval pathology.</p>
+<p class="standard-p">RCOG recommends inspection to determine the type and whether deinfibulation is indicated.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-47" data-part-index="47">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 47</span>
+                    <h2 class="part-title">47. FGM COMPLICATIONS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-47" onchange="toggleMastery('sec-47')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-47')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-47')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Immediate</h4>
+<h4 class="sub-label">Severe pain</h4>
+<h4 class="sub-label">Haemorrhage</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Shock</h4>
+<h4 class="sub-label">Urinary retention</h4>
+<p class="standard-p">Trauma.</p>
+<h4 class="sub-label">Long-term</h4>
+<h4 class="sub-label">Gynaecological</h4>
+<h4 class="sub-label">Dysmenorrhoea</h4>
+<h4 class="sub-label">Difficulty menstruating</h4>
+<h4 class="sub-label">Recurrent UTI</h4>
+<h4 class="sub-label">Vaginal infections</h4>
+<h4 class="sub-label">Epidermoid cyst</h4>
+<p class="standard-p">Keloid/scarring.</p>
+<h4 class="sub-label">Sexual</h4>
+<h4 class="sub-label">Dyspareunia</h4>
+<h4 class="sub-label">Reduced sexual function</h4>
+<h4 class="sub-label">Reduced libido</h4>
+<p class="standard-p">Difficulty penetration.</p>
+<h4 class="sub-label">Obstetric</h4>
+<h4 class="sub-label">Difficult vaginal examination</h4>
+<h4 class="sub-label">Obstructed labour</h4>
+<h4 class="sub-label">Perineal trauma</h4>
+<p class="standard-p">Increased obstetric complications.</p>
+<h4 class="sub-label">Psychological</h4>
+<h4 class="sub-label">Anxiety</h4>
+<h4 class="sub-label">PTSD-type symptoms</h4>
+<h4 class="sub-label">Depression</h4>
+<h4 class="sub-label">Reduced body image</h4>
+<p class="standard-p">Sexual distress.</p>
+<p class="standard-p">RCOG specifically highlights psychological sequelae and impaired sexual function across FGM types.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-48" data-part-index="48">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 48</span>
+                    <h2 class="part-title">48. DEINFIBULATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-48')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-48')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">What?</h4>
+<p class="standard-p">Surgical opening of scar tissue to restore the vaginal opening.</p>
+<h4 class="sub-label">Consider when:</h4>
+<h4 class="sub-label">Type 3 FGM</h4>
+<h4 class="sub-label">Difficulty passing urine</h4>
+<h4 class="sub-label">Difficulty menstruating</h4>
+<h4 class="sub-label">Difficulty having intercourse</h4>
+<h4 class="sub-label">Difficulty with examination</h4>
+<h4 class="sub-label">Before vaginal delivery when appropriate</h4>
+<p class="standard-p">Before certain gynaecological procedures.</p>
+<p class="standard-p">RCOG states that women likely to benefit should be counselled and offered deinfibulation, ideally before pregnancy and preferably before first intercourse.</p>
+
+                <div class="topic-row" id="topic-t-48-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">49</span>
+                        <h3 class="topic-heading">FGM + PREGNANCY OSCE</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-48-1" onchange="toggleMastery('t-48-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">At booking:</h4>
+<h4 class="sub-label">Ask</h4>
+<h4 class="sub-label">Type of FGM</h4>
+<h4 class="sub-label">Previous complications</h4>
+<h4 class="sub-label">Urination</h4>
+<h4 class="sub-label">Sexual function</h4>
+<h4 class="sub-label">Previous deinfibulation</h4>
+<h4 class="sub-label">Previous delivery</h4>
+<p class="standard-p">Birth plan.</p>
+<h4 class="sub-label">Examine</h4>
+<p class="standard-p">Determine whether vaginal examination is possible.</p>
+<h4 class="sub-label">Plan</h4>
+<h4 class="sub-label">Multidisciplinary:</h4>
+<h4 class="sub-label">Obstetrician</h4>
+<h4 class="sub-label">Midwife</h4>
+<h4 class="sub-label">FGM specialist</h4>
+<h4 class="sub-label">Anaesthetist when needed</h4>
+<p class="standard-p">Safeguarding team.</p>
+<h4 class="sub-label">Deinfibulation</h4>
+<h4 class="sub-label">Discuss:</h4>
+<h4 class="sub-label">Antenatal vs intrapartum</h4>
+<h4 class="sub-label">Patient preference</h4>
+<h4 class="sub-label">Local expertise</h4>
+<p class="standard-p">Delivery plan.</p>
+
+                <div class="topic-row" id="topic-t-48-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">50</span>
+                        <h3 class="topic-heading">FGM + SAFEGUARDING</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-48-2" onchange="toggleMastery('t-48-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is a very high-yield MRCOG station.</p>
+<h4 class="sub-label">You must distinguish:</h4>
+<h4 class="sub-label">Adult woman who has undergone FGM</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Provide compassionate medical care.</span></div>
+<h4 class="sub-label">Child with FGM</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Safeguarding issue.</span></div>
+<h4 class="sub-label">Child at risk of FGM</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Safeguarding assessment and appropriate protective action.</span></div>
+<p class="standard-p">RCOG states that children with FGM or suspected FGM should be seen within child safeguarding services.</p>
+<h4 class="sub-label">Do not:</h4>
+<h4 class="sub-label">Blame family</h4>
+<h4 class="sub-label">Shame patient</h4>
+<h4 class="sub-label">Make assumptions about culture</h4>
+<h4 class="sub-label">Assume parents are perpetrators</h4>
+<p class="standard-p">Promise absolute confidentiality where safeguarding concerns exist.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-49" data-part-index="49">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 49</span>
+                    <h2 class="part-title">51. THE MRCOG “TRAUMA-INFORMED” EXAMINATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-49" onchange="toggleMastery('sec-49')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-49')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-49')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Particularly for:</h4>
+<h4 class="sub-label">Adolescents</h4>
+<h4 class="sub-label">FGM</h4>
+<h4 class="sub-label">Sexual dysfunction</h4>
+<h4 class="sub-label">Vaginal atrophy</h4>
+<p class="standard-p">Previous trauma.</p>
+<h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">C — Consent</h4>
+<h4 class="sub-label">C — Chaperone</h4>
+<h4 class="sub-label">E — Explain</h4>
+<h4 class="sub-label">P — Permission before touch</h4>
+<h4 class="sub-label">S — Stop if uncomfortable</h4>
+<h4 class="sub-label">A good phrase:</h4>
+<p class="standard-p">“I will explain each step before I do it. You are in control of the examination and can ask me to stop at any time.”</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-50" data-part-index="50">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 50</span>
+                    <h2 class="part-title">52. RAPID DIFFERENTIAL: PRIMARY AMENORRHOEA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-50" onchange="toggleMastery('sec-50')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-50')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-50')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Finding</th>
+<th>Think</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>No breasts + high FSH</strong></td>
+<td>Gonadal failure</td>
+</tr>
+<tr>
+<td><strong>No breasts + low/normal FSH</strong></td>
+<td>Hypothalamic/pituitary</td>
+</tr>
+<tr>
+<td><strong>Normal breasts + absent uterus + normal hair</strong></td>
+<td>MRKH</td>
+</tr>
+<tr>
+<td><strong>Normal breasts + absent uterus + scant/absent hair</strong></td>
+<td>CAIS</td>
+</tr>
+<tr>
+<td><strong>Cyclic pain + bluish bulging hymen</strong></td>
+<td>Imperforate hymen</td>
+</tr>
+<tr>
+<td><strong>Cyclic pain + normal hymen + obstruction</strong></td>
+<td>Transverse vaginal septum</td>
+</tr>
+<tr>
+<td><strong>Virilisation</strong></td>
+<td>Androgen excess/DSD</td>
+</tr>
+<tr>
+<td><strong>Short stature + absent puberty</strong></td>
+<td>Turner syndrome</td>
+</tr>
+<tr>
+<td><strong>Headache/visual symptoms + amenorrhoea</strong></td>
+<td>Pituitary pathology</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-51" data-part-index="51">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 51</span>
+                    <h2 class="part-title">53. RAPID MENOPAUSE DIFFERENTIAL</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-51" onchange="toggleMastery('sec-51')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-51')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-51')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Hot flushes</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">Menopause</h4>
+<h4 class="sub-label">Thyrotoxicosis</h4>
+<h4 class="sub-label">Anxiety/panic</h4>
+<h4 class="sub-label">Medication</h4>
+<h4 class="sub-label">Carcinoid</h4>
+<p class="standard-p">Phaeochromocytoma.</p>
+<h4 class="sub-label">Vaginal dryness</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">GSM</h4>
+<h4 class="sub-label">Infection</h4>
+<h4 class="sub-label">Dermatosis</h4>
+<h4 class="sub-label">Medication</h4>
+<p class="standard-p">Low oestrogen states.</p>
+<h4 class="sub-label">PMB</h4>
+<h4 class="sub-label">Think:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Atrophy → polyp → hyperplasia → cancer</span></div>
+<p class="standard-p">but never assume atrophy without appropriate assessment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-52" data-part-index="52">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 52</span>
+                    <h2 class="part-title">54. NUMBERS TO MEMORISE FOR MRCOG</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-52" onchange="toggleMastery('sec-52')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-52')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-52')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Menopause</h4>
+<p class="standard-p">12 months amenorrhoea = menopause retrospectively.</p>
+<h4 class="sub-label">Typical menopause</h4>
+<h4 class="sub-label">45–55 years</h4>
+<h4 class="sub-label">POI</h4>
+<p class="standard-p">&lt;40 years</p>
+<h4 class="sub-label">Early menopause</h4>
+<h4 class="sub-label">40–44 years</h4>
+<h4 class="sub-label">Adolescent menstrual cycle</h4>
+<h4 class="sub-label">21–45 days</h4>
+<h4 class="sub-label">Adolescent bleeding</h4>
+<h4 class="sub-label">Usually 2–7 days</h4>
+<h4 class="sub-label">Adolescent concerning amenorrhoea</h4>
+<h4 class="sub-label">&gt;90 days</h4>
+<h4 class="sub-label">Primary amenorrhoea</h4>
+<h4 class="sub-label">15 years without menarche</h4>
+<h4 class="sub-label">OR</h4>
+<p class="standard-p">3 years after thelarche without menarche.</p>
+<h4 class="sub-label">DXA</h4>
+<h4 class="sub-label">T-score ≥ −1 = normal</h4>
+<h4 class="sub-label">−1 to −2.5 = osteopenia</h4>
+<p class="standard-p">≤ −2.5 = osteoporosis.</p>
+<h4 class="sub-label">PMB</h4>
+<p class="standard-p">Think <span class="val-pill">~4 mm</span> endometrial thickness as the important ultrasound threshold in a symptomatic postmenopausal woman, while recognising that exact pathways depend on the clinical setting/guideline.</p>
+<h4 class="sub-label">MRKH</h4>
+<h4 class="sub-label">≈ 1:4,500–5,000</h4>
+<h4 class="sub-label">MRKH associated anomalies</h4>
+<p class="standard-p">Up to<span class="val-pill"> 53%</span>.</p>
+<h4 class="sub-label">MRKH vaginal dilation success</h4>
+<p class="standard-p">Approximately 90–<span class="val-pill">96%</span> in appropriately selected patients.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-53" data-part-index="53">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 53</span>
+                    <h2 class="part-title">55. HIGH-YIELD MRCOG STATION CLOSING</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-53" onchange="toggleMastery('sec-53')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-53')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-53')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Whatever the station, finish with:</h4>
+<p class="standard-p">“I would explain my findings and differential diagnosis to the patient, discuss the appropriate investigations and management options, involve her in shared decision-making, address psychological and sexual health needs, assess safeguarding where relevant, and arrange appropriate follow-up and safety-netting.”</p>
+<h4 class="sub-label">Especially for FGM</h4>
+<p class="standard-p">“I would provide non-judgemental, trauma-informed care, establish the patient&#x27;s wishes, assess for physical and psychosexual complications, consider deinfibulation where indicated, and follow local safeguarding and legal requirements.”</p>
+<h4 class="sub-label">Especially for adolescent stations</h4>
+<p class="standard-p">“I would maintain confidentiality within safeguarding limits, involve the young person in decisions according to their capacity, and avoid unnecessary intimate examination.”</p>
+<h4 class="sub-label">Especially for PMB</h4>
+<p class="standard-p">“My priority is to exclude endometrial malignancy while also considering benign causes such as atrophy and polyps.”</p>
+<h4 class="sub-label">Especially for HRT</h4>
+<p class="standard-p">“I would individualise the route, dose and regimen according to uterine status, menopausal stage, symptoms, VTE/cardiovascular and breast/endometrial risk, and review treatment regularly.”</p>
+<p class="standard-p">The RCOG&#x27;s current menopause material emphasises individualised HRT decisions, benefits/risks, and alternatives rather than an arbitrary universal treatment duration.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">⭐ ONE-PAGE EXAM MEMORY MAP</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">MENOPAUSE</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ 12 months</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ symptoms</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ risk assessment</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ uterus?</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ HRT regimen</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ oral vs transdermal</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ contraindications</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ 3-month review → annual</span></div>
+<h4 class="sub-label">GSM</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ dryness/dyspareunia/urinary symptoms</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ examine</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ lubricants/moisturiser</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ vaginal oestrogen</span></div>
+<h4 class="sub-label">PMB</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ any bleeding after menopause</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ cancer exclusion</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TVUS</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ <span class="val-pill">~4 mm</span> threshold</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ biopsy/hysteroscopy if indicated</span></div>
+<h4 class="sub-label">BONE</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ fracture risk</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ calcium/vit D/exercise</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FRAX where appropriate</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ DXA</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ −1 / −2.5</span></div>
+<h4 class="sub-label">ADOLESCENT</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ confidentiality</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ safeguarding</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Tanner</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ menstrual history</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ pregnancy/sexual health</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ eating/exercise</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ mental health</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ avoid unnecessary internal examination</span></div>
+<h4 class="sub-label">PRIMARY AMENORRHOEA</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ breasts?</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ uterus?</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ FSH/LH/E2</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ultrasound</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ karyotype when indicated</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ MRKH vs CAIS vs obstruction</span></div>
+<h4 class="sub-label">FGM</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ask sensitively</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ identify type</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ complications</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ trauma-informed examination</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ deinfibulation</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ sexual/psychological care</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ pregnancy planning</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ safeguarding.</span></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 6. HRT — THE CORE MRCOG STATION</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Uterus: HRT</li>
+<li class="surg-item">● Uterus present: Oestrogen + progestogen</li>
+<li class="surg-item">● Total hysterectomy: Usually oestrogen-only</li>
+<li class="surg-item">● Hysterectomy + significant endometriosis history: Consider combined therapy</li>
+<li class="surg-item">● LNG-IUS: Can provide endometrial protection with systemic oestrogen</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 10. HRT RISKS — EXAM TABLE</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Issue: Important point</li>
+<li class="surg-item">● Breast cancer: Risk varies with regimen/duration</li>
+<li class="surg-item">● VTE: Greater with oral than transdermal oestrogen</li>
+<li class="surg-item">● Stroke: Small increased risk particularly with oral therapy</li>
+<li class="surg-item">● Endometrium: Unopposed systemic oestrogen increases hyperplasia/cancer risk</li>
+<li class="surg-item">● Gallbladder: Risk may increase</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 66;
+    const flashcards = [{"category": "THE CORE MRCOG STATION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterus</strong>?", "a": "<strong>HRT</strong>"}, {"category": "THE CORE MRCOG STATION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uterus present</strong>?", "a": "<strong>Oestrogen + progestogen</strong>"}, {"category": "THE CORE MRCOG STATION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Total hysterectomy</strong>?", "a": "<strong>Usually oestrogen-only</strong>"}, {"category": "THE CORE MRCOG STATION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Hysterectomy + significant endometriosis history</strong>?", "a": "<strong>Consider combined therapy</strong>"}, {"category": "THE CORE MRCOG STATION", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>LNG-IUS</strong>?", "a": "<strong>Can provide endometrial protection with systemic oestrogen</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Issue</strong>?", "a": "<strong>Important point</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Breast cancer</strong>?", "a": "<strong>Risk varies with regimen/duration</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>VTE</strong>?", "a": "<strong>Greater with oral than transdermal oestrogen</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Stroke</strong>?", "a": "<strong>Small increased risk particularly with oral therapy</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Endometrium</strong>?", "a": "<strong>Unopposed systemic oestrogen increases hyperplasia/cancer risk</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Gallbladder</strong>?", "a": "<strong>Risk may increase</strong>"}, {"category": "EXAM TABLE", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Cardiovascular</strong>?", "a": "<strong>Benefit-risk depends strongly on age/timing/baseline risk</strong>"}, {"category": "NUMBERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>T-score</strong>?", "a": "<strong>Interpretation</strong>"}, {"category": "NUMBERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>\u2265 \u22121.0</strong>?", "a": "<strong>Normal</strong>"}, {"category": "NUMBERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>\u22121.0 to \u22122.5</strong>?", "a": "<strong>Osteopenia</strong>"}, {"category": "NUMBERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>\u2264 \u22122.5</strong>?", "a": "<strong>Osteoporosis</strong>"}, {"category": "NUMBERS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>\u2264 \u22122.5 + fragility fracture</strong>?", "a": "<strong>Severe/established osteoporosis</strong>"}, {"category": "37. MRKH INVESTIGATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Feature</strong>?", "a": "<strong>MRKH</strong><br>CAIS"}, {"category": "37. MRKH INVESTIGATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Karyotype</strong>?", "a": "<strong>46,XX</strong><br>46,XY"}, {"category": "37. MRKH INVESTIGATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ovaries</strong>?", "a": "<strong>Present</strong><br>Absent"}, {"category": "37. MRKH INVESTIGATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Breast</strong>?", "a": "<strong>Normal</strong><br>Normal"}, {"category": "37. MRKH INVESTIGATIONS", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pubic hair</strong>?", "a": "<strong>Normal</strong><br>Sparse/absent"}, {"category": "52. RAPID DIFFERENTIAL: PRIMAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Finding</strong>?", "a": "<strong>Think</strong>"}, {"category": "52. RAPID DIFFERENTIAL: PRIMAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>No breasts + high FSH</strong>?", "a": "<strong>Gonadal failure</strong>"}, {"category": "52. RAPID DIFFERENTIAL: PRIMAR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>No breasts + low/normal FSH</strong>?", "a": "<strong>Hypothalamic/pituitary</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Uterus present ?", "options": ["Oestrogen + progestogen", "Usually oestrogen-only", "Consider combined therapy", "Can provide endometrial protection with systemic oestrogen"], "correct": 0, "explanation": "Key Guideline / Fact: Oestrogen + progestogen (THE CORE MRCOG STATION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Total hysterectomy ?", "options": ["Oestrogen + progestogen", "Usually oestrogen-only", "Consider combined therapy", "Can provide endometrial protection with systemic oestrogen"], "correct": 1, "explanation": "Key Guideline / Fact: Usually oestrogen-only (THE CORE MRCOG STATION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Hysterectomy + significant endometriosis history ?", "options": ["Usually oestrogen-only", "Oestrogen + progestogen", "Consider combined therapy", "Can provide endometrial protection with systemic oestrogen"], "correct": 2, "explanation": "Key Guideline / Fact: Consider combined therapy (THE CORE MRCOG STATION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  LNG-IUS ?", "options": ["Consider combined therapy", "Oestrogen + progestogen", "Usually oestrogen-only", "Can provide endometrial protection with systemic oestrogen"], "correct": 3, "explanation": "Key Guideline / Fact: Can provide endometrial protection with systemic oestrogen (THE CORE MRCOG STATION)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Issue ?", "options": ["Important point", "Oestrogen + progestogen", "Usually oestrogen-only", "Consider combined therapy"], "correct": 0, "explanation": "Key Guideline / Fact: Important point (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Breast cancer ?", "options": ["Oestrogen + progestogen", "Risk varies with regimen/duration", "Usually oestrogen-only", "Consider combined therapy"], "correct": 1, "explanation": "Key Guideline / Fact: Risk varies with regimen/duration (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  VTE ?", "options": ["Usually oestrogen-only", "Oestrogen + progestogen", "Greater with oral than transdermal oestrogen", "Consider combined therapy"], "correct": 2, "explanation": "Key Guideline / Fact: Greater with oral than transdermal oestrogen (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Stroke ?", "options": ["Consider combined therapy", "Oestrogen + progestogen", "Usually oestrogen-only", "Small increased risk particularly with oral therapy"], "correct": 3, "explanation": "Key Guideline / Fact: Small increased risk particularly with oral therapy (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Endometrium ?", "options": ["Unopposed systemic oestrogen increases hyperplasia/cancer risk", "Oestrogen + progestogen", "Usually oestrogen-only", "Consider combined therapy"], "correct": 0, "explanation": "Key Guideline / Fact: Unopposed systemic oestrogen increases hyperplasia/cancer risk (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Gallbladder ?", "options": ["Oestrogen + progestogen", "Risk may increase", "Usually oestrogen-only", "Consider combined therapy"], "correct": 1, "explanation": "Key Guideline / Fact: Risk may increase (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Cardiovascular ?", "options": ["Usually oestrogen-only", "Oestrogen + progestogen", "Benefit-risk depends strongly on age/timing/baseline risk", "Consider combined therapy"], "correct": 2, "explanation": "Key Guideline / Fact: Benefit-risk depends strongly on age/timing/baseline risk (EXAM TABLE)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  T-score ?", "options": ["Consider combined therapy", "Oestrogen + progestogen", "Usually oestrogen-only", "Interpretation"], "correct": 3, "explanation": "Key Guideline / Fact: Interpretation (NUMBERS)."}];
+    const storageKey = 'obgyn_mastered_mrcog_part_3_osce___menopause__adolescent_gynaecology_fgm';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

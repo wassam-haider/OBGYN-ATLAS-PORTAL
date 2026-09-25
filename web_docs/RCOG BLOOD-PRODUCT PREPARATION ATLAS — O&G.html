@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCOG BLOOD-PRODUCT PREPARATION ATLAS — O&amp;G — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">RCOG BLOOD-PRODUCT PREPARATION ATLAS —</div>
+                <div class="brand-subtitle-text">1. Quick examination table</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 18 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 5 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (5 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="🟢 LOW RISK">🟢 LOW RISK</a></li><li><a href="#part-3" class="part-nav-link" title="🟡 MODERATE RISK">🟡 MODERATE RISK</a></li><li><a href="#part-4" class="part-nav-link" title="🟠 HIGH RISK">🟠 HIGH RISK</a></li><li><a href="#part-5" class="part-nav-link" title="🔴 MAJOR HAEMORRHAGE RISK">🔴 MAJOR HAEMORRHAGE RISK</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">RCOG BLOOD-PRODUCT PREPARATION ATLAS — O&amp;G</h1>
+                    <div class="reader-hero-sub">⭐ 1. Quick examination table</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Condition / procedure</th>
+<th>Blood preparation before procedure</th>
+<th>Risk</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Normal vaginal delivery, low risk</strong></td>
+<td>Group &amp; screen / group &amp; save according to local policy; no routine crossmatched units</td>
+<td>🟢 Low</td>
+</tr>
+<tr>
+<td><strong>Low-risk induction of labour</strong></td>
+<td>Group &amp; screen</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td><strong>Uncomplicated planned caesarean section</strong></td>
+<td>Group &amp; screen; crossmatch according to local policy/risk</td>
+<td>🟢–🟡</td>
+</tr>
+<tr>
+<td><strong>Previous CS, otherwise uncomplicated elective CS</strong></td>
+<td>Group &amp; screen; blood availability according to local protocol</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>VBAC</strong></td>
+<td>Group &amp; screen; immediate access to blood because emergency CS/rupture may occur</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Breech requiring planned CS</strong></td>
+<td>Usually routine CS blood preparation</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Multiple pregnancy</strong></td>
+<td>Group &amp; screen; higher-risk cases require blood availability</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Major placenta praevia</strong></td>
+<td>Blood immediately available; crossmatch/prepare according to local major-haemorrhage protocol</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Anterior placenta praevia over previous CS scar</strong></td>
+<td>High-risk blood preparation + major haemorrhage capability + cell salvage</td>
+<td>🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Placenta accreta spectrum (PAS)</strong></td>
+<td>Major haemorrhage preparation; multiple RBC units + plasma/platelets/cryoprecipitate available according to institutional PAS protocol; cell salvage</td>
+<td>🔴🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Placenta increta/percreta</strong></td>
+<td>Very high-volume blood preparation; massive-transfusion capability immediately available</td>
+<td>🔴🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Placental abruption with major bleeding</strong></td>
+<td>4 units crossmatched initially</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Major antepartum haemorrhage</strong></td>
+<td>4 units crossmatched</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Vasa praevia with suspected fetal/maternal bleeding</strong></td>
+<td>Maternal blood available; neonatal blood-resuscitation capability also required</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Suspected uterine rupture</strong></td>
+<td>Emergency massive-haemorrhage preparation</td>
+<td>🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Previous classical CS / high rupture-risk labour</strong></td>
+<td>Blood readily available; local protocol</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Shoulder dystocia</strong></td>
+<td>No routine pre-crossmatch solely because of shoulder dystocia; prepare for PPH if bleeding occurs</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Retained placenta / placenta accreta suspected after vaginal birth</strong></td>
+<td>Blood immediately available; escalate to major haemorrhage protocol if bleeding</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Massive PPH</strong></td>
+<td>Activate massive obstetric haemorrhage protocol</td>
+<td>🔴🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Secondary PPH with active major bleeding</strong></td>
+<td>Crossmatch and haemorrhage protocol according to severity</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Ectopic pregnancy—stable, uncomplicated laparoscopic surgery</strong></td>
+<td>Group &amp; screen; crossmatch according to haemodynamic status/risk</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Ruptured ectopic / haemoperitoneum</strong></td>
+<td>Emergency blood available; activate major haemorrhage protocol if unstable</td>
+<td>🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Large ovarian tumour surgery</strong></td>
+<td>Group &amp; screen; crossmatch based on size/vascularity/anticipated blood loss</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Huge fibroid / myomectomy</strong></td>
+<td>Crossmatch multiple units according to size/location and anticipated blood loss; cell salvage if major blood loss expected</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Large uterus / complex abdominal hysterectomy</strong></td>
+<td>Crossmatch according to anticipated blood loss</td>
+<td>🟡–🔴</td>
+</tr>
+<tr>
+<td><strong>Endometrial cancer staging</strong></td>
+<td>Usually group &amp; screen; crossmatch according to operative complexity</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Advanced ovarian cancer/debulking</strong></td>
+<td>Multiple-unit crossmatch + major haemorrhage capability</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Cervical cancer radical hysterectomy</strong></td>
+<td>Crossmatch multiple units; significant haemorrhage risk</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><strong>Pelvic malignancy with major vascular involvement</strong></td>
+<td>Major blood-product preparation + cell salvage</td>
+<td>🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Laparoscopic hysterectomy, routine</strong></td>
+<td>Usually group &amp; screen; crossmatch based on patient/procedure risk</td>
+<td>🟢–🟡</td>
+</tr>
+<tr>
+<td><strong>Diagnostic hysteroscopy</strong></td>
+<td>Usually no routine crossmatched blood</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td><strong>D&amp;C for early pregnancy loss</strong></td>
+<td>Usually group &amp; screen; crossmatch if heavy bleeding/ectopic/PAS concern</td>
+<td>🟢–🟡</td>
+</tr>
+<tr>
+<td><strong>Molar pregnancy evacuation</strong></td>
+<td>Group &amp; screen; crossmatch if large/advanced mole or significant bleeding risk</td>
+<td>🟡–🔴</td>
+</tr>
+<tr>
+<td><strong>Cervical pregnancy / caesarean-scar ectopic</strong></td>
+<td>Major blood preparation</td>
+<td>🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Interventional treatment of severe PPH</strong></td>
+<td>Blood products immediately available</td>
+<td>🔴🔴</td>
+</tr>
+<tr>
+<td><strong>Obstetric hysterectomy</strong></td>
+<td>Major haemorrhage setup + multiple blood products</td>
+<td>🔴🔴🔴</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-1-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">The most important RCOG numbers</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-1" onchange="toggleMastery('t-1-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">🩸 Major APH</h4>
+<p class="standard-p">For major or massive antepartum haemorrhage, RCOG recommends:</p>
+<h4 class="sub-label">4 units of blood crossmatched</h4>
+<p class="standard-p">along with FBC and coagulation studies.</p>
+<h4 class="sub-label">So remember:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>APH → 4 units crossmatched</span></div>
+<h4 class="sub-label">Especially:</h4>
+<h4 class="sub-label">placenta praevia with significant bleeding</h4>
+<h4 class="sub-label">placental abruption with major bleeding</h4>
+<h4 class="sub-label">major unexplained APH</h4>
+<h4 class="sub-label">For minor APH:</h4>
+<p class="standard-p">FBC + group and save is generally sufficient rather than automatically crossmatching 4 units.</p>
+
+                <div class="topic-row" id="topic-t-1-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">Placenta praevia</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-2" onchange="toggleMastery('t-1-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Placenta praevia is one of the classic high-risk blood-loss conditions.</p>
+<p class="standard-p">RCOG recommends close liaison with the transfusion laboratory, and for women at high risk of emergency transfusion, such as placenta praevia, group-and-screen samples should be repeated weekly when necessary to ensure blood can be rapidly provided.</p>
+<h4 class="sub-label">Exam approach</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Placenta praevia →</span></div>
+<h4 class="sub-label">group &amp; screen</h4>
+<h4 class="sub-label">recent sample</h4>
+<h4 class="sub-label">blood readily available</h4>
+<h4 class="sub-label">anaemia correction</h4>
+<h4 class="sub-label">consultant obstetrician</h4>
+<h4 class="sub-label">senior anaesthetist</h4>
+<h4 class="sub-label">theatre readiness</h4>
+<h4 class="sub-label">rapid infusion/warming equipment</h4>
+<p class="standard-p">cell salvage when substantial blood loss is anticipated</p>
+<p class="standard-p">The updated 2026 RCOG PAS/placenta praevia guidance continues to emphasise blood-bank coordination and haemorrhage preparedness.</p>
+<h4 class="sub-label">Don&#x27;t write:</h4>
+<h4 class="sub-label">&quot;All placenta praevia = 4 units.&quot;</h4>
+<p class="standard-p">That is too rigid.</p>
+<h4 class="sub-label">Instead write:</h4>
+<p class="standard-p">Placenta praevia: crossmatch/ensure immediate availability of blood according to local major-haemorrhage protocol; more extensive preparation for anterior placenta praevia/PAS.</p>
+
+                <div class="topic-row" id="topic-t-1-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">4</span>
+                        <h3 class="topic-heading">Placenta accreta spectrum — the BIG blood preparation condition</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-3" onchange="toggleMastery('t-1-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">PAS includes:</h4>
+<h4 class="sub-label">Placenta accreta</h4>
+<h4 class="sub-label">Placenta increta</h4>
+<h4 class="sub-label">Placenta percreta</h4>
+<h4 class="sub-label">Risk increases particularly with:</h4>
+<h4 class="sub-label">previous CS + placenta praevia/low placenta</h4>
+<p class="standard-p">but the new RCOG guidance also recognises other uterine surgical trauma as risk factors.</p>
+<h4 class="sub-label">Before planned PAS surgery</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">“Massive haemorrhage theatre.”</h4>
+<h4 class="sub-label">Prepare:</h4>
+<h4 class="sub-label">multiple large-bore IV access</h4>
+<h4 class="sub-label">arterial access as appropriate</h4>
+<h4 class="sub-label">experienced obstetric surgeon</h4>
+<h4 class="sub-label">anaesthesia team</h4>
+<h4 class="sub-label">blood bank alerted</h4>
+<h4 class="sub-label">crossmatched RBCs</h4>
+<h4 class="sub-label">FFP</h4>
+<h4 class="sub-label">platelets</h4>
+<h4 class="sub-label">cryoprecipitate/fibrinogen strategy</h4>
+<h4 class="sub-label">rapid infuser</h4>
+<h4 class="sub-label">warming equipment</h4>
+<h4 class="sub-label">cell salvage</h4>
+<h4 class="sub-label">ICU/HDU capability</h4>
+<h4 class="sub-label">massive transfusion protocol</h4>
+<h4 class="sub-label">neonatal team</h4>
+<p class="standard-p">RCOG recommends cell salvage when anticipated blood loss is sufficient to cause anaemia or exceed approximately<span class="val-pill"> 20%</span> of estimated blood volume.</p>
+<h4 class="sub-label">MRCOG memory:</h4>
+<p class="standard-p">PAS = RBC + FFP + platelets + cryo/fibrinogen + cell salvage + MTP</p>
+<p class="standard-p">Don&#x27;t memorise a single fixed number of RBC units as an RCOG universal rule; hospitals use local PAS protocols based on severity.</p>
+
+                <div class="topic-row" id="topic-t-1-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">5</span>
+                        <h3 class="topic-heading">Major obstetric haemorrhage — blood-product sequence</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-4" onchange="toggleMastery('t-1-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is one of the most important numerical areas.</p>
+<h4 class="sub-label">Red cells</h4>
+<p class="standard-p">There is no fixed RCOG transfusion trigger for RBCs during active major haemorrhage. Clinical condition and laboratory findings determine transfusion.</p>
+<h4 class="sub-label">FFP</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">FFP 12–15 mL/kg for every 6 units RBC</h4>
+<p class="standard-p">during major obstetric haemorrhage.</p>
+<h4 class="sub-label">Then guide subsequent FFP by:</h4>
+<h4 class="sub-label">PT</h4>
+<h4 class="sub-label">APTT</h4>
+<h4 class="sub-label">clinical bleeding</h4>
+<h4 class="sub-label">Target:</h4>
+<p class="standard-p">PT/APTT ratio &lt;1.5 × normal.</p>
+<h4 class="sub-label">Easy memory</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>6 RBC → FFP 12–<span class="val-pill">15 mL</span>/kg</span></div>
+
+                <div class="topic-row" id="topic-t-1-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">6</span>
+                        <h3 class="topic-heading">Cryoprecipitate</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-5" onchange="toggleMastery('t-1-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG recommends</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">2 × 5-unit pools</h4>
+<p class="standard-p">early in major obstetric haemorrhage.</p>
+<p class="standard-p">Then guide further treatment using fibrinogen.</p>
+<h4 class="sub-label">Target:</h4>
+<h4 class="sub-label">Fibrinogen &gt;1.5 g/L</h4>
+<p class="standard-p">during major obstetric haemorrhage.</p>
+
+                <div class="topic-row" id="topic-t-1-6">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">7</span>
+                        <h3 class="topic-heading">Platelets</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-6" onchange="toggleMastery('t-1-6')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">In actively bleeding patients:</h4>
+<h4 class="sub-label">Maintain platelets &gt;50 × 10⁹/L</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG recommends a transfusion trigger of approximately</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">75 × 10⁹/L</h4>
+<p class="standard-p">to provide a safety margin.</p>
+
+                <div class="topic-row" id="topic-t-1-7">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">8</span>
+                        <h3 class="topic-heading">Massive PPH — practical blood-product table</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-7" onchange="toggleMastery('t-1-7')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Product</th>
+<th>RCOG principle</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>RBC</strong></td>
+<td>Clinical + haematological indication</td>
+</tr>
+<tr>
+<td><strong>FFP</strong></td>
+<td>12–<span class="val-pill">15 mL</span>/kg per 6 RBC</td>
+</tr>
+<tr>
+<td><strong>Cryoprecipitate</strong></td>
+<td>2 × 5-unit pools early</td>
+</tr>
+<tr>
+<td><strong>Platelets</strong></td>
+<td>Maintain &gt;50 ×10⁹/L; consider transfusion around 75 ×10⁹/L</td>
+</tr>
+<tr>
+<td><strong>Fibrinogen</strong></td>
+<td>Maintain &gt;<span class="val-pill">1.5 g</span>/L</td>
+</tr>
+<tr>
+<td><strong>Cell salvage</strong></td>
+<td>If anticipated blood loss &gt;<span class="val-pill">20%</span> estimated blood volume / sufficient to cause anaemia</td>
+</tr>
+<tr>
+<td><strong>O-negative RBC</strong></td>
+<td>Emergency option if blood group unavailable; don&#x27;t delay life-saving transfusion</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-1-8">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Uterine rupture</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-8" onchange="toggleMastery('t-1-8')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Suspected uterine rupture</h4>
+<h4 class="sub-label">Treat as:</h4>
+<p class="standard-p">Major obstetric haemorrhage until proven otherwise.</p>
+<h4 class="sub-label">Preparation:</h4>
+<h4 class="sub-label">immediate theatre</h4>
+<h4 class="sub-label">senior obstetrician</h4>
+<h4 class="sub-label">anaesthetist</h4>
+<h4 class="sub-label">2 large-bore IVs</h4>
+<h4 class="sub-label">crossmatched blood</h4>
+<h4 class="sub-label">massive haemorrhage protocol if bleeding</h4>
+<p class="standard-p">RBC + FFP + platelets + cryoprecipitate/fibrinogen as indicated</p>
+<h4 class="sub-label">cell salvage where available/appropriate</h4>
+<h4 class="sub-label">Potential procedures:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>repair → uterine artery/internal iliac interventions in selected cases → hysterectomy</span></div>
+<p class="standard-p">depending on bleeding, rupture characteristics and fertility considerations.</p>
+
+                <div class="topic-row" id="topic-t-1-9">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Ruptured ectopic pregnancy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-9" onchange="toggleMastery('t-1-9')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Stable, unruptured ectopic</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Group &amp; screen</h4>
+<p class="standard-p">rather than automatically crossmatching several units.</p>
+<h4 class="sub-label">Ruptured/unstable ectopic</h4>
+<h4 class="sub-label">Think:</h4>
+<p class="standard-p">Emergency haemorrhage.</p>
+<h4 class="sub-label">Prepare:</h4>
+<h4 class="sub-label">urgent crossmatch</h4>
+<h4 class="sub-label">RBC immediately available</h4>
+<h4 class="sub-label">massive haemorrhage protocol if significant blood loss</h4>
+<h4 class="sub-label">FFP/platelets/cryo according to bleeding/coagulation</h4>
+<p class="standard-p">If life-threatening bleeding occurs before compatible blood is available, emergency uncrossmatched/group-specific blood may be required; RCOG states that transfusion should not be delayed in life-threatening haemorrhage.</p>
+
+                <div class="topic-row" id="topic-t-1-10">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Caesarean section — blood requirement</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-10" onchange="toggleMastery('t-1-10')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Routine elective CS</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Group &amp; screen</h4>
+<p class="standard-p">No universal requirement for several crossmatched units.</p>
+<h4 class="sub-label">Emergency CS</h4>
+<h4 class="sub-label">Blood preparation depends on:</h4>
+<h4 class="sub-label">indication</h4>
+<h4 class="sub-label">maternal Hb</h4>
+<h4 class="sub-label">placenta location</h4>
+<h4 class="sub-label">bleeding</h4>
+<h4 class="sub-label">coagulopathy</h4>
+<h4 class="sub-label">previous CS</h4>
+<h4 class="sub-label">suspected rupture</h4>
+<h4 class="sub-label">PAS</h4>
+<h4 class="sub-label">Examples</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>CS indication</th>
+<th>Blood concern</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Breech</strong></td>
+<td>Routine CS preparation</td>
+</tr>
+<tr>
+<td><strong>Previous uncomplicated CS</strong></td>
+<td>Routine/risk-based</td>
+</tr>
+<tr>
+<td><strong>Fetal distress</strong></td>
+<td>Usually routine emergency CS preparation</td>
+</tr>
+<tr>
+<td><strong>Failed induction</strong></td>
+<td>Routine/risk-based</td>
+</tr>
+<tr>
+<td><strong>Placenta praevia</strong></td>
+<td>High risk</td>
+</tr>
+<tr>
+<td><strong>PAS</strong></td>
+<td>Very high risk</td>
+</tr>
+<tr>
+<td><strong>Abruption</strong></td>
+<td>High risk</td>
+</tr>
+<tr>
+<td><strong>Uterine rupture</strong></td>
+<td>Very high risk</td>
+</tr>
+<tr>
+<td><strong>Massive APH</strong></td>
+<td>Major haemorrhage</td>
+</tr>
+</tbody></table></div>
+
+                <div class="topic-row" id="topic-t-1-11">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Myomectomy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-11" onchange="toggleMastery('t-1-11')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">This is a particularly important gynaecological procedure.</p>
+<h4 class="sub-label">Low-risk small fibroid</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Group &amp; screen</h4>
+<h4 class="sub-label">Large intramural/submucosal fibroid</h4>
+<h4 class="sub-label">Consider:</h4>
+<p class="standard-p">Crossmatch multiple units according to expected blood loss</p>
+<h4 class="sub-label">and:</h4>
+<h4 class="sub-label">preoperative Hb optimisation</h4>
+<h4 class="sub-label">anaesthetic planning</h4>
+<h4 class="sub-label">cell salvage if major blood loss anticipated</h4>
+<h4 class="sub-label">haemorrhage-control strategy</h4>
+<p class="standard-p">There is no RCOG universal “myomectomy = X units” rule.</p>
+
+                <div class="topic-row" id="topic-t-1-12">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Hysterectomy</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-12" onchange="toggleMastery('t-1-12')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Simple laparoscopic hysterectomy</h4>
+<h4 class="sub-label">Usually:</h4>
+<h4 class="sub-label">Group &amp; screen / risk-based crossmatch</h4>
+<h4 class="sub-label">Large uterus / difficult abdominal hysterectomy</h4>
+<h4 class="sub-label">Consider:</h4>
+<h4 class="sub-label">crossmatched RBCs</h4>
+<h4 class="sub-label">Radical hysterectomy / advanced pelvic malignancy</h4>
+<h4 class="sub-label">Higher blood-loss risk:</h4>
+<p class="standard-p">multiple RBC units + blood-product availability + major haemorrhage capability</p>
+<h4 class="sub-label">Ovarian cancer debulking</h4>
+<p class="standard-p">Because extensive upper-abdominal/pelvic surgery may be required:</p>
+<p class="standard-p">multiple-unit blood preparation + FFP/platelet availability according to institutional protocol.</p>
+
+                <div class="topic-row" id="topic-t-1-13">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Conditions that should immediately make you think &quot;BLOOD READY&quot;</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-13" onchange="toggleMastery('t-1-13')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Obstetric 🔴</h4>
+<h4 class="sub-label">Placenta accreta spectrum</h4>
+<h4 class="sub-label">Placenta praevia</h4>
+<h4 class="sub-label">Major APH</h4>
+<h4 class="sub-label">Placental abruption</h4>
+<h4 class="sub-label">Uterine rupture</h4>
+<h4 class="sub-label">Ruptured ectopic</h4>
+<h4 class="sub-label">Caesarean-scar ectopic</h4>
+<h4 class="sub-label">Major PPH</h4>
+<h4 class="sub-label">Retained placenta with severe haemorrhage</h4>
+<h4 class="sub-label">Obstetric hysterectomy</h4>
+<h4 class="sub-label">Severe vasa praevia-associated bleeding</h4>
+<h4 class="sub-label">Gynaecology 🔴</h4>
+<h4 class="sub-label">Large fibroid myomectomy</h4>
+<h4 class="sub-label">Radical hysterectomy</h4>
+<h4 class="sub-label">Advanced ovarian cancer debulking</h4>
+<h4 class="sub-label">Large vascular pelvic tumour</h4>
+<h4 class="sub-label">Major pelvic surgery involving large vessels</h4>
+<h4 class="sub-label">Massive pelvic haemorrhage</h4>
+
+                <div class="topic-row" id="topic-t-1-14">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">15</span>
+                        <h3 class="topic-heading">The blood-product hierarchy for exams</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-1-14" onchange="toggleMastery('t-1-14')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Learn this sequence:</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">🟢 LOW RISK</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-2" onchange="toggleMastery('sec-2')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Group &amp; screen</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">🟡 MODERATE RISK</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Group &amp; screen + consider crossmatch</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">🟠 HIGH RISK</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Crossmatched RBC immediately available</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">🔴 MAJOR HAEMORRHAGE RISK</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Multiple RBC + FFP + platelets + cryoprecipitate/fibrinogen strategy</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">🔴🔴 MASSIVE HAEMORRHAGE</h4>
+<p class="standard-p">Activate MTP + rapid infuser + warming + cell salvage + serial FBC/coagulation/fibrinogen</p>
+
+                <div class="topic-row" id="topic-t-5-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">One-line MRCOG memory map</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-5-1" onchange="toggleMastery('t-5-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Placenta praevia → blood available</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Major APH → 4 units crossmatched</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PAS → major haemorrhage preparation + cell salvage</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Major PPH → MTP</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>6 RBC → FFP 12–<span class="val-pill">15 mL</span>/kg</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Cryo → 2 × 5-unit pools early</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Platelets → maintain &gt;50; trigger ~75 ×10⁹/L</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Fibrinogen → &gt;<span class="val-pill">1.5 g</span>/L</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Expected blood loss &gt;<span class="val-pill">20%</span> EBV → consider cell salvage</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Life-threatening bleeding → do NOT delay transfusion waiting for crossmatch</span></div>
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 Overview &amp; Core Guidance</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Normal vaginal delivery, low risk: Group &amp; screen / group &amp; save according to local policy; no routine crossmatched units</li>
+<li class="surg-item">● Low-risk induction of labour: Group &amp; screen</li>
+<li class="surg-item">● Uncomplicated planned caesarean section: Group &amp; screen; crossmatch according to local policy/risk</li>
+<li class="surg-item">● Previous CS, otherwise uncomplicated elective CS: Group &amp; screen; blood availability according to local protocol</li>
+<li class="surg-item">● VBAC: Group &amp; screen; immediate access to blood because emergency CS/rupture may occur</li>
+<li class="surg-item">● Breech requiring planned CS: Usually routine CS blood preparation</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 18;
+    const flashcards = [{"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal vaginal delivery, low risk</strong>?", "a": "<strong>Group & screen / group & save according to local policy; no routine crossmatched units</strong><br>\ud83d\udfe2 Low"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Low-risk induction of labour</strong>?", "a": "<strong>Group & screen</strong><br>\ud83d\udfe2"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Uncomplicated planned caesarean section</strong>?", "a": "<strong>Group & screen; crossmatch according to local policy/risk</strong><br>\ud83d\udfe2\u2013\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Previous CS, otherwise uncomplicated elective CS</strong>?", "a": "<strong>Group & screen; blood availability according to local protocol</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>VBAC</strong>?", "a": "<strong>Group & screen; immediate access to blood because emergency CS/rupture may occur</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Breech requiring planned CS</strong>?", "a": "<strong>Usually routine CS blood preparation</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Multiple pregnancy</strong>?", "a": "<strong>Group & screen; higher-risk cases require blood availability</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Major placenta praevia</strong>?", "a": "<strong>Blood immediately available; crossmatch/prepare according to local major-haemorrhage protocol</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Anterior placenta praevia over previous CS scar</strong>?", "a": "<strong>High-risk blood preparation + major haemorrhage capability + cell salvage</strong><br>\ud83d\udd34\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta accreta spectrum (PAS)</strong>?", "a": "<strong>Major haemorrhage preparation; multiple RBC units + plasma/platelets/cryoprecipitate available according to institutional PAS protocol; cell salvage</strong><br>\ud83d\udd34\ud83d\udd34\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placenta increta/percreta</strong>?", "a": "<strong>Very high-volume blood preparation; massive-transfusion capability immediately available</strong><br>\ud83d\udd34\ud83d\udd34\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Placental abruption with major bleeding</strong>?", "a": "<strong>4 units crossmatched initially</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Major antepartum haemorrhage</strong>?", "a": "<strong>4 units crossmatched</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Vasa praevia with suspected fetal/maternal bleeding</strong>?", "a": "<strong>Maternal blood available; neonatal blood-resuscitation capability also required</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Suspected uterine rupture</strong>?", "a": "<strong>Emergency massive-haemorrhage preparation</strong><br>\ud83d\udd34\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Previous classical CS / high rupture-risk labour</strong>?", "a": "<strong>Blood readily available; local protocol</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Shoulder dystocia</strong>?", "a": "<strong>No routine pre-crossmatch solely because of shoulder dystocia; prepare for PPH if bleeding occurs</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Retained placenta / placenta accreta suspected after vaginal birth</strong>?", "a": "<strong>Blood immediately available; escalate to major haemorrhage protocol if bleeding</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Massive PPH</strong>?", "a": "<strong>Activate massive obstetric haemorrhage protocol</strong><br>\ud83d\udd34\ud83d\udd34\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Secondary PPH with active major bleeding</strong>?", "a": "<strong>Crossmatch and haemorrhage protocol according to severity</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ectopic pregnancy\u2014stable, uncomplicated laparoscopic surgery</strong>?", "a": "<strong>Group & screen; crossmatch according to haemodynamic status/risk</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ruptured ectopic / haemoperitoneum</strong>?", "a": "<strong>Emergency blood available; activate major haemorrhage protocol if unstable</strong><br>\ud83d\udd34\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Large ovarian tumour surgery</strong>?", "a": "<strong>Group & screen; crossmatch based on size/vascularity/anticipated blood loss</strong><br>\ud83d\udfe1"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Huge fibroid / myomectomy</strong>?", "a": "<strong>Crossmatch multiple units according to size/location and anticipated blood loss; cell salvage if major blood loss expected</strong><br>\ud83d\udd34"}, {"category": "Overview & Core Guidance", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Large uterus / complex abdominal hysterectomy</strong>?", "a": "<strong>Crossmatch according to anticipated blood loss</strong><br>\ud83d\udfe1\u2013\ud83d\udd34"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Normal vaginal delivery, low risk ?", "options": ["Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1", "Group & screen; blood availability according to local protocol  \ud83d\udfe1"], "correct": 0, "explanation": "Key Guideline / Fact: Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Low-risk induction of labour ?", "options": ["Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1", "Group & screen; blood availability according to local protocol  \ud83d\udfe1"], "correct": 1, "explanation": "Key Guideline / Fact: Group & screen  \ud83d\udfe2 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Uncomplicated planned caesarean section ?", "options": ["Group & screen  \ud83d\udfe2", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1", "Group & screen; blood availability according to local protocol  \ud83d\udfe1"], "correct": 2, "explanation": "Key Guideline / Fact: Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Previous CS, otherwise uncomplicated elective CS ?", "options": ["Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "Group & screen; blood availability according to local protocol  \ud83d\udfe1"], "correct": 3, "explanation": "Key Guideline / Fact: Group & screen; blood availability according to local protocol  \ud83d\udfe1 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  VBAC ?", "options": ["Group & screen; immediate access to blood because emergency CS/rupture may occur  \ud83d\udfe1", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1"], "correct": 0, "explanation": "Key Guideline / Fact: Group & screen; immediate access to blood because emergency CS/rupture may occur  \ud83d\udfe1 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Breech requiring planned CS ?", "options": ["Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Usually routine CS blood preparation  \ud83d\udfe1", "Group & screen  \ud83d\udfe2", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1"], "correct": 1, "explanation": "Key Guideline / Fact: Usually routine CS blood preparation  \ud83d\udfe1 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Multiple pregnancy ?", "options": ["Group & screen  \ud83d\udfe2", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen; higher-risk cases require blood availability  \ud83d\udfe1", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1"], "correct": 2, "explanation": "Key Guideline / Fact: Group & screen; higher-risk cases require blood availability  \ud83d\udfe1 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Major placenta praevia ?", "options": ["Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "Blood immediately available; crossmatch/prepare according to local major-haemorrhage protocol  \ud83d\udd34"], "correct": 3, "explanation": "Key Guideline / Fact: Blood immediately available; crossmatch/prepare according to local major-haemorrhage protocol  \ud83d\udd34 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Anterior placenta praevia over previous CS scar ?", "options": ["High-risk blood preparation + major haemorrhage capability + cell salvage  \ud83d\udd34\ud83d\udd34", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1"], "correct": 0, "explanation": "Key Guideline / Fact: High-risk blood preparation + major haemorrhage capability + cell salvage  \ud83d\udd34\ud83d\udd34 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Placenta increta/percreta ?", "options": ["Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Very high-volume blood preparation; massive-transfusion capability immediately available  \ud83d\udd34\ud83d\udd34\ud83d\udd34", "Group & screen  \ud83d\udfe2", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1"], "correct": 1, "explanation": "Key Guideline / Fact: Very high-volume blood preparation; massive-transfusion capability immediately available  \ud83d\udd34\ud83d\udd34\ud83d\udd34 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Placental abruption with major bleeding ?", "options": ["Group & screen  \ud83d\udfe2", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "4 units crossmatched initially  \ud83d\udd34", "Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1"], "correct": 2, "explanation": "Key Guideline / Fact: 4 units crossmatched initially  \ud83d\udd34 (Overview & Core Guidance)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Major antepartum haemorrhage ?", "options": ["Group & screen; crossmatch according to local policy/risk  \ud83d\udfe2\u2013\ud83d\udfe1", "Group & screen / group & save according to local policy; no routine crossmatched units  \ud83d\udfe2 Low", "Group & screen  \ud83d\udfe2", "4 units crossmatched  \ud83d\udd34"], "correct": 3, "explanation": "Key Guideline / Fact: 4 units crossmatched  \ud83d\udd34 (Overview & Core Guidance)."}];
+    const storageKey = 'obgyn_mastered_rcog_blood-product_preparation_atlas___o_g';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>

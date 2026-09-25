@@ -1,0 +1,3520 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For MRCOG/FCPS OBGYN, laboratory interpretation is best learned as a combination of: — Interactive Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- APP NAVBAR -->
+    <nav class="app-nav">
+        <div class="brand-block">
+            <div class="brand-logo">⚕</div>
+            <div>
+                <div class="brand-title-text">For MRCOG/FCPS OBGYN, laboratory inter</div>
+                <div class="brand-subtitle-text">Normal non-pregnant reference values</div>
+            </div>
+        </div>
+
+        <div class="nav-mode-tabs">
+            <button class="tab-btn active" id="tab-reader" onclick="switchMode('reader')">📖 Atlas Reader</button>
+            <button class="tab-btn" id="tab-flashcards" onclick="switchMode('flashcards')">🗂️ Flashcards (25)</button>
+            <button class="tab-btn" id="tab-quiz" onclick="switchMode('quiz')">✍️ Board Quiz</button>
+            <button class="tab-btn" id="tab-surgical" onclick="switchMode('surgical')">⚡ High-Yield Drill</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="index.html" class="btn-header" style="text-decoration:none;" title="Back to Portal">🏠 Portal</a>
+            <button class="btn-header" onclick="toggleTheme()" title="Switch Light/Dark mode">🌓 Theme</button>
+            <button class="btn-header" onclick="copyAllAtlasText()" title="Copy all text">📋 Copy All</button>
+            <button class="btn-header" onclick="window.print()" title="Print complete Atlas">🖨️ Print</button>
+        </div>
+    </nav>
+
+    <!-- PROGRESS & SEARCH SUBNAV -->
+    <div class="progress-subnav">
+        <div class="progress-track-wrapper">
+            <span class="progress-count-text" id="progress-text">0 / 71 Mastered (0%)</span>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="atlas-search" placeholder="Search 57 sections & keywords..." oninput="handleSearch(this.value)">
+            </div>
+            <button class="btn-header" style="background:var(--bg-primary); color:var(--text-main); border:1px solid var(--border-strong);" onclick="filterMasteredOnly(this)" id="btn-filter-mastered">Unchecked Only</button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="app-sidebar" id="sidebar-nav">
+            <div class="sidebar-heading">Navigation Syllabus (57 Sections)</div>
+            <ul class="part-nav-list">
+                <li><a href="#part-1" class="part-nav-link" title="Overview &amp; Core Guidance">Overview &amp; Core Guidance</a></li><li><a href="#part-2" class="part-nav-link" title="PART I — COMPLETE BLOOD COUNT">PART I — COMPLETE BLOOD COUNT</a></li><li><a href="#part-3" class="part-nav-link" title="4. MCV">4. MCV</a></li><li><a href="#part-4" class="part-nav-link" title="5. MCH">5. MCH</a></li><li><a href="#part-5" class="part-nav-link" title="6. MCHC">6. MCHC</a></li><li><a href="#part-6" class="part-nav-link" title="7. RDW">7. RDW</a></li><li><a href="#part-7" class="part-nav-link" title="8. WBC">8. WBC</a></li><li><a href="#part-8" class="part-nav-link" title="PART II — IRON STUDIES">PART II — IRON STUDIES</a></li><li><a href="#part-9" class="part-nav-link" title="PART III — COAGULATION">PART III — COAGULATION</a></li><li><a href="#part-10" class="part-nav-link" title="15. PT">15. PT</a></li><li><a href="#part-11" class="part-nav-link" title="PART IV — RENAL FUNCTION">PART IV — RENAL FUNCTION</a></li><li><a href="#part-12" class="part-nav-link" title="PART V — ELECTROLYTES">PART V — ELECTROLYTES</a></li><li><a href="#part-13" class="part-nav-link" title="21. ALT / AST">21. ALT / AST</a></li><li><a href="#part-14" class="part-nav-link" title="22. ALP">22. ALP</a></li><li><a href="#part-15" class="part-nav-link" title="PART VII — INTRAHEPATIC CHOLESTASIS OF PREGNANCY">PART VII — INTRAHEPATIC CHOLESTASIS OF PREGNANCY</a></li><li><a href="#part-16" class="part-nav-link" title="PART VIII — PRE-ECLAMPSIA LABORATORY VALUES">PART VIII — PRE-ECLAMPSIA LABORATORY VALUES</a></li><li><a href="#part-17" class="part-nav-link" title="PART IX — DIABETES IN PREGNANCY">PART IX — DIABETES IN PREGNANCY</a></li><li><a href="#part-18" class="part-nav-link" title="PART X — HbA1c">PART X — HbA1c</a></li><li><a href="#part-19" class="part-nav-link" title="PART XI — THYROID FUNCTION">PART XI — THYROID FUNCTION</a></li><li><a href="#part-20" class="part-nav-link" title="PART XII — PROLACTIN">PART XII — PROLACTIN</a></li><li><a href="#part-21" class="part-nav-link" title="PART XIII — FERTILITY / OVULATION TESTS">PART XIII — FERTILITY / OVULATION TESTS</a></li><li><a href="#part-22" class="part-nav-link" title="PART XIV — FSH / LH">PART XIV — FSH / LH</a></li><li><a href="#part-23" class="part-nav-link" title="PART XV — AMH">PART XV — AMH</a></li><li><a href="#part-24" class="part-nav-link" title="PART XVI — hCG">PART XVI — hCG</a></li><li><a href="#part-25" class="part-nav-link" title="PART XVII — ANTENATAL INFECTION LABORATORY TESTS">PART XVII — ANTENATAL INFECTION LABORATORY TESTS</a></li><li><a href="#part-26" class="part-nav-link" title="PART XVIII — RUBELLA">PART XVIII — RUBELLA</a></li><li><a href="#part-27" class="part-nav-link" title="PART XIX — TOXOPLASMA">PART XIX — TOXOPLASMA</a></li><li><a href="#part-28" class="part-nav-link" title="PART XX — GROUP B STREPTOCOCCUS">PART XX — GROUP B STREPTOCOCCUS</a></li><li><a href="#part-29" class="part-nav-link" title="PART XXI — URINE / PROTEIN">PART XXI — URINE / PROTEIN</a></li><li><a href="#part-30" class="part-nav-link" title="PART XXII — URINE CULTURE">PART XXII — URINE CULTURE</a></li><li><a href="#part-31" class="part-nav-link" title="PART XXIII — INFLAMMATORY MARKERS">PART XXIII — INFLAMMATORY MARKERS</a></li><li><a href="#part-32" class="part-nav-link" title="PART XXIV — BLOOD GAS">PART XXIV — BLOOD GAS</a></li><li><a href="#part-33" class="part-nav-link" title="PART XXV — MAGNESIUM">PART XXV — MAGNESIUM</a></li><li><a href="#part-34" class="part-nav-link" title="PART XXVI — CALCIUM">PART XXVI — CALCIUM</a></li><li><a href="#part-35" class="part-nav-link" title="PART XXVII — VITAMIN D">PART XXVII — VITAMIN D</a></li><li><a href="#part-36" class="part-nav-link" title="PART XXVIII — VITAMIN B12">PART XXVIII — VITAMIN B12</a></li><li><a href="#part-37" class="part-nav-link" title="PART XXIX — HYPEREMESIS GRAVIDARUM LABORATORY PATTERN">PART XXIX — HYPEREMESIS GRAVIDARUM LABORATORY PATTERN</a></li><li><a href="#part-38" class="part-nav-link" title="PART XXX — HELLP SYNDROME">PART XXX — HELLP SYNDROME</a></li><li><a href="#part-39" class="part-nav-link" title="PART XXXI — DIC IN OBSTETRICS">PART XXXI — DIC IN OBSTETRICS</a></li><li><a href="#part-40" class="part-nav-link" title="PART XXXII — OBSTETRIC HAEMORRHAGE">PART XXXII — OBSTETRIC HAEMORRHAGE</a></li><li><a href="#part-41" class="part-nav-link" title="PART XXXIII — FETAL-MATERNAL HAEMORRHAGE">PART XXXIII — FETAL-MATERNAL HAEMORRHAGE</a></li><li><a href="#part-42" class="part-nav-link" title="PART XXXIV — RED-CELL ANTIBODIES">PART XXXIV — RED-CELL ANTIBODIES</a></li><li><a href="#part-43" class="part-nav-link" title="PART XXXV — FETAL ANAEMIA">PART XXXV — FETAL ANAEMIA</a></li><li><a href="#part-44" class="part-nav-link" title="PART XXXVI — FETAL GROWTH">PART XXXVI — FETAL GROWTH</a></li><li><a href="#part-45" class="part-nav-link" title="PART XXXVII — ANTENATAL SCREENING NUMBERS">PART XXXVII — ANTENATAL SCREENING NUMBERS</a></li><li><a href="#part-46" class="part-nav-link" title="PART XXXVIII — NUCHAL TRANSLUCENCY">PART XXXVIII — NUCHAL TRANSLUCENCY</a></li><li><a href="#part-47" class="part-nav-link" title="PART XXXIX — AFP / QUADRUPLE TEST">PART XXXIX — AFP / QUADRUPLE TEST</a></li><li><a href="#part-48" class="part-nav-link" title="PART XL — GYNAECOLOGY: CA-125">PART XL — GYNAECOLOGY: CA-125</a></li><li><a href="#part-49" class="part-nav-link" title="PART XLI — OVARIAN CANCER RMI">PART XLI — OVARIAN CANCER RMI</a></li><li><a href="#part-50" class="part-nav-link" title="PART XLII — OVARIAN TUMOUR MARKERS">PART XLII — OVARIAN TUMOUR MARKERS</a></li><li><a href="#part-51" class="part-nav-link" title="PART XLIII — MENOPAUSE">PART XLIII — MENOPAUSE</a></li><li><a href="#part-52" class="part-nav-link" title="PART XLIV — PCOS LABORATORY PATTERN">PART XLIV — PCOS LABORATORY PATTERN</a></li><li><a href="#part-53" class="part-nav-link" title="PART XLV — ANDROGENS">PART XLV — ANDROGENS</a></li><li><a href="#part-54" class="part-nav-link" title="PART XLVI — INFERTILITY: IMPORTANT NUMERICAL TESTS">PART XLVI — INFERTILITY: IMPORTANT NUMERICAL TESTS</a></li><li><a href="#part-55" class="part-nav-link" title="PART XLVII — IMPORTANT NORMAL PREGNANCY PHYSIOLOGICAL LABORATORY CHANGES">PART XLVII — IMPORTANT NORMAL PREGNANCY PHYSIOLOGICAL LABORATORY CHANGES</a></li><li><a href="#part-56" class="part-nav-link" title="PART XLVIII — HIGH-YIELD OBSTETRIC NUMBERS">PART XLVIII — HIGH-YIELD OBSTETRIC NUMBERS</a></li><li><a href="#part-57" class="part-nav-link" title="PART XLIX — “NUMBER THAT CHANGES MANAGEMENT” TABLE">PART XLIX — “NUMBER THAT CHANGES MANAGEMENT” TABLE</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="main-view-area">
+
+            <!-- MODE 1: ATLAS READER -->
+            <section id="view-reader">
+                <div class="reader-hero">
+                    <h1 class="reader-hero-title">For MRCOG/FCPS OBGYN, laboratory interpretation is best learned as a combination of:</h1>
+                    <div class="reader-hero-sub">⭐ Normal non-pregnant reference values</div>
+                    <div class="reader-hero-meta">
+                        <span>✓ Full Master Syllabus</span>
+                        <span>✓ High-Yield Exam Colored Callouts</span>
+                        <span>✓ Active Recall Mastery Checkpoints</span>
+                        <span>✓ Built-in Audio Speech Synthesis</span>
+                    </div>
+                </div>
+
+                
+        <article class="part-card" id="part-1" data-part-index="1">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 1</span>
+                    <h2 class="part-title">Overview &amp; Core Guidance</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-1" onchange="toggleMastery('sec-1')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-1')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-1')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Normal physiological changes of pregnancy</h4>
+<h4 class="sub-label">NICE/RCOG diagnostic thresholds</h4>
+<h4 class="sub-label">Disease-specific pathological cut-offs</h4>
+<h4 class="sub-label">Screening thresholds and numerical criteria</h4>
+<p class="standard-p">MASTER OBSTETRIC &amp; GYNAECOLOGICAL LABORATORY VALUE ATLAS</p>
+<p class="standard-p">RCOG-first + NICE | MRCOG/FCPS high-yield numerical reference</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-2" data-part-index="2">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 2</span>
+                    <h2 class="part-title">PART I — COMPLETE BLOOD COUNT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-2')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-2')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-2-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">1</span>
+                        <h3 class="topic-heading">Haemoglobin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-1" onchange="toggleMastery('t-2-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Situation</th>
+<th>Important value</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Non-pregnant woman</strong></td>
+<td>~120–<span class="val-pill">160 g</span>/L</td>
+</tr>
+<tr>
+<td><strong>1st trimester anaemia</strong></td>
+<td>Hb &lt;<span class="val-pill">110 g</span>/L</td>
+</tr>
+<tr>
+<td><strong>2nd/3rd trimester anaemia</strong></td>
+<td>Hb &lt;<span class="val-pill">105 g</span>/L</td>
+</tr>
+<tr>
+<td><strong>Postpartum anaemia commonly used threshold</strong></td>
+<td>&lt;<span class="val-pill">100 g</span>/L</td>
+</tr>
+<tr>
+<td><strong>Hb &lt;<span class="val-pill">85 g</span>/L at onset of labour</strong></td>
+<td>Important NICE intrapartum risk threshold</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG specifically notes</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Hb &lt;110 g/L in 1st trimester</h4>
+<h4 class="sub-label">Hb &lt;105 g/L in 2nd/3rd trimester</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ investigate for haematinic deficiency after excluding haemoglobinopathy.</span></div>
+<p class="standard-p">NICE also identifies Hb &lt;<span class="val-pill">85 g</span>/L at onset of labour as a factor requiring individualised planning of place of birth.</p>
+<h4 class="sub-label">Exam memory</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>110 → 105 → 85</span></div>
+<h4 class="sub-label">110 = 1st trimester</h4>
+<h4 class="sub-label">105 = 2nd/3rd trimester</h4>
+<h4 class="sub-label">85 = significant intrapartum anaemia</h4>
+
+                <div class="topic-row" id="topic-t-2-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">2</span>
+                        <h3 class="topic-heading">Haematocrit / PCV</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-2" onchange="toggleMastery('t-2-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>State</th>
+<th>Hct</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Non-pregnant</strong></td>
+<td>~0.36–0.46</td>
+</tr>
+<tr>
+<td><strong>Pregnancy</strong></td>
+<td>~0.31–0.41</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">Physiological pregnancy change</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Plasma volume increases more than red-cell mass → haemodilution.</span></div>
+<h4 class="sub-label">Therefore:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Hb ↓</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Hct ↓</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>RBC concentration ↓</span></div>
+<p class="standard-p">This is physiological unless below trimester-specific anaemia thresholds.</p>
+
+                <div class="topic-row" id="topic-t-2-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">3</span>
+                        <h3 class="topic-heading">RBC count</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-2-3" onchange="toggleMastery('t-2-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~3.8–5.2 ×10¹²/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ because of haemodilution</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-3" data-part-index="3">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 3</span>
+                    <h2 class="part-title">4. MCV</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-3" onchange="toggleMastery('sec-3')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-3')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-3')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">80–100 fL</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">Usually remains approximately normal or may increase slightly.</p>
+<h4 class="sub-label">Microcytosis</h4>
+<h4 class="sub-label">MCV &lt;80 fL</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">iron deficiency</h4>
+<h4 class="sub-label">thalassaemia</h4>
+<h4 class="sub-label">other haemoglobinopathy</h4>
+<h4 class="sub-label">Macrocytosis</h4>
+<h4 class="sub-label">MCV &gt;100 fL</h4>
+<h4 class="sub-label">Think:</h4>
+<h4 class="sub-label">folate deficiency</h4>
+<h4 class="sub-label">B12 deficiency</h4>
+<h4 class="sub-label">liver disease</h4>
+<h4 class="sub-label">hypothyroidism</h4>
+<h4 class="sub-label">drugs</h4>
+<h4 class="sub-label">reticulocytosis</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-4" data-part-index="4">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 4</span>
+                    <h2 class="part-title">5. MCH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-4" onchange="toggleMastery('sec-4')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-4')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-4')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">27–33 pg</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Low MCH → hypochromia, commonly iron deficiency.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-5" data-part-index="5">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 5</span>
+                    <h2 class="part-title">6. MCHC</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-5" onchange="toggleMastery('sec-5')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-5')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-5')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">320–360 g/L</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>Low MCHC → hypochromia.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-6" data-part-index="6">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 6</span>
+                    <h2 class="part-title">7. RDW</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-6" onchange="toggleMastery('sec-6')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-6')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-6')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~11.5–14.5%</h4>
+<h4 class="sub-label">↑ RDW:</h4>
+<h4 class="sub-label">iron deficiency</h4>
+<h4 class="sub-label">mixed deficiency</h4>
+<h4 class="sub-label">evolving nutritional anaemia</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-7" data-part-index="7">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 7</span>
+                    <h2 class="part-title">8. WBC</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-7')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-7')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical non-pregnant:</h4>
+<h4 class="sub-label">4–11 ×10⁹/L</h4>
+<h4 class="sub-label">Normal pregnancy</h4>
+<p class="standard-p">Leukocytosis is physiological.</p>
+<h4 class="sub-label">Typical pregnancy WBC:</h4>
+<h4 class="sub-label">~6–16 ×10⁹/L</h4>
+<p class="standard-p">Neutrophilia is particularly common.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important exam point</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not diagnose infection simply because WBC is elevated in pregnancy.</p>
+<h4 class="sub-label">Interpret alongside:</h4>
+<h4 class="sub-label">temperature</h4>
+<h4 class="sub-label">heart rate</h4>
+<h4 class="sub-label">clinical findings</h4>
+<h4 class="sub-label">CRP</h4>
+<h4 class="sub-label">cultures</h4>
+<h4 class="sub-label">lactate where appropriate</h4>
+
+                <div class="topic-row" id="topic-t-7-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">9</span>
+                        <h3 class="topic-heading">Neutrophils</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-1" onchange="toggleMastery('t-7-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">↑ physiologically</h4>
+<p class="standard-p">Predominantly neutrophilic leukocytosis.</p>
+
+                <div class="topic-row" id="topic-t-7-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">10</span>
+                        <h3 class="topic-heading">Platelets</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-7-2" onchange="toggleMastery('t-7-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">150–400 ×10⁹/L</h4>
+<h4 class="sub-label">Pregnancy may cause a mild fall:</h4>
+<h4 class="sub-label">gestational thrombocytopenia</h4>
+<p class="standard-p">usually remaining ≥100 ×10⁹/L.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important pathological thresholds</span></div>
+                <div class="callout-body">Platelets	Interpretation</div>
+            </div>
+            
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>&lt;150 ×10⁹/L</th>
+<th>thrombocytopenia</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>&lt;100 ×10⁹/L</strong></td>
+<td>significant thrombocytopenia</td>
+</tr>
+<tr>
+<td><strong>&lt;50 ×10⁹/L</strong></td>
+<td>severe</td>
+</tr>
+<tr>
+<td><strong>&lt;20–30 ×10⁹/L</strong></td>
+<td>major bleeding risk may occur</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">For pre-eclampsia, NICE considers platelets &lt;150 ×10⁹/L evidence of haematological involvement.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-8" data-part-index="8">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 8</span>
+                    <h2 class="part-title">PART II — IRON STUDIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-8')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-8')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+                <div class="topic-row" id="topic-t-8-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">11</span>
+                        <h3 class="topic-heading">Ferritin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-1" onchange="toggleMastery('t-8-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">Ferritin is the most useful laboratory marker of iron stores, but it is an acute-phase reactant. RCOG specifically highlights this limitation.</p>
+<h4 class="sub-label">Typical non-pregnant:</h4>
+<h4 class="sub-label">~15–150 µg/L</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important practical interpretation</span></div>
+                
+            </div>
+            
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Ferritin</th>
+<th>Interpretation</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>&lt;15 µg/L</strong></td>
+<td>iron deficiency strongly supported</td>
+</tr>
+<tr>
+<td><strong>&lt;30 µg/L</strong></td>
+<td>depleted/low iron stores</td>
+</tr>
+<tr>
+<td><strong>&lt;30–50 µg/L</strong></td>
+<td>clinically important in many obstetric settings</td>
+</tr>
+<tr>
+<td><strong>Normal/high ferritin + inflammation</strong></td>
+<td>does NOT exclude iron deficiency</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">MRCOG pearl</h4>
+<p class="standard-p">Low ferritin = iron deficiency until proven otherwise.</p>
+<h4 class="sub-label">But:</h4>
+<h4 class="sub-label">Normal ferritin ≠ necessarily adequate iron</h4>
+<p class="standard-p">if inflammation is present.</p>
+
+                <div class="topic-row" id="topic-t-8-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">12</span>
+                        <h3 class="topic-heading">Transferrin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-2" onchange="toggleMastery('t-8-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~2.0–3.6 g/L</h4>
+<h4 class="sub-label">Iron deficiency:</h4>
+<h4 class="sub-label">↑ transferrin</h4>
+
+                <div class="topic-row" id="topic-t-8-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">13</span>
+                        <h3 class="topic-heading">Transferrin saturation</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-8-3" onchange="toggleMastery('t-8-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">20–45%</h4>
+<h4 class="sub-label">Iron deficiency:</h4>
+<p class="standard-p">&lt;<span class="val-pill">20%</span></p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-9" data-part-index="9">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 9</span>
+                    <h2 class="part-title">PART III — COAGULATION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-9')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-9')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Pregnancy is a physiological hypercoagulable state.</p>
+
+                <div class="topic-row" id="topic-t-9-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">14</span>
+                        <h3 class="topic-heading">Fibrinogen</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-9-1" onchange="toggleMastery('t-9-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">~2–4 g/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">~4–6 g/L</h4>
+<h4 class="sub-label">Can reach approximately:</h4>
+<h4 class="sub-label">6–7 g/L near term</h4>
+<h4 class="sub-label">Critical obstetric point</h4>
+<h4 class="sub-label">In major obstetric haemorrhage:</h4>
+<p class="standard-p">fibrinogen &lt;<span class="val-pill">2 g</span>/L is abnormal and concerning for severe haemostatic impairment.</p>
+<p class="standard-p">Unlike the non-pregnant patient, a low/“normal” fibrinogen in a bleeding pregnant patient can represent serious depletion.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-10" data-part-index="10">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 10</span>
+                    <h2 class="part-title">15. PT</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-10')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-10')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~10–14 seconds</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">Usually normal or slightly shortened.</p>
+
+                <div class="topic-row" id="topic-t-10-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">16</span>
+                        <h3 class="topic-heading">aPTT</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-1" onchange="toggleMastery('t-10-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~25–35 seconds</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">Normal or slightly shortened.</p>
+
+                <div class="topic-row" id="topic-t-10-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">17</span>
+                        <h3 class="topic-heading">D-dimer</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-10-2" onchange="toggleMastery('t-10-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">Usually &lt;0.5 mg/L FEU</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">physiologically increases, particularly in the 2nd and 3rd trimesters.</p>
+<h4 class="sub-label">Exam pearl</h4>
+<p class="standard-p">Do not interpret D-dimer using the standard non-pregnant<span class="val-pill"> 0.5 mg</span>/L cut-off in pregnancy.</p>
+<p class="standard-p">RCOG&#x27;s suspected VTE pathway relies on clinical assessment and appropriate imaging rather than using a pregnancy D-dimer value as a stand-alone exclusion test.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-11" data-part-index="11">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 11</span>
+                    <h2 class="part-title">PART IV — RENAL FUNCTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-11')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-11')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pregnancy causes:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↑ GFR → ↓ serum creatinine and urea</span></div>
+
+                <div class="topic-row" id="topic-t-11-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">18</span>
+                        <h3 class="topic-heading">Serum creatinine</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-1" onchange="toggleMastery('t-11-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">~45–90 µmol/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">approximately:</h4>
+<h4 class="sub-label">~35–70 µmol/L</h4>
+<h4 class="sub-label">Major obstetric threshold</h4>
+<h4 class="sub-label">Creatinine ≥90 µmol/L</h4>
+<p class="standard-p">is considered renal insufficiency/organ dysfunction in the NICE definition of pre-eclampsia.</p>
+<h4 class="sub-label">Equivalent:</h4>
+<h4 class="sub-label">≈1.0 mg/dL</h4>
+
+                <div class="topic-row" id="topic-t-11-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">19</span>
+                        <h3 class="topic-heading">Urea</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-2" onchange="toggleMastery('t-11-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">~2.5–7.5 mmol/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">usually lower:</h4>
+<h4 class="sub-label">~1.5–4.5 mmol/L</h4>
+<p class="standard-p">because of increased GFR and altered metabolism.</p>
+
+                <div class="topic-row" id="topic-t-11-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">20</span>
+                        <h3 class="topic-heading">eGFR</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-11-3" onchange="toggleMastery('t-11-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<p class="standard-p">eGFR calculations are not routinely used/interpreted in the same way during pregnancy, because pregnancy physiology makes standard equations less reliable.</p>
+<h4 class="sub-label">Exam pearl</h4>
+<h4 class="sub-label">For pregnancy renal assessment:</h4>
+<h4 class="sub-label">serum creatinine &gt; eGFR</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-12" data-part-index="12">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 12</span>
+                    <h2 class="part-title">PART V — ELECTROLYTES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-12" onchange="toggleMastery('sec-12')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-12')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-12')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Sodium</h4>
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">135–145 mmol/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">slightly lower:</h4>
+<h4 class="sub-label">~130–140 mmol/L</h4>
+<p class="standard-p">Mild physiological reduction is common.</p>
+<h4 class="sub-label">Potassium</h4>
+<h4 class="sub-label">~3.5–5.0 mmol/L</h4>
+<p class="standard-p">Usually remains relatively stable.</p>
+<h4 class="sub-label">Bicarbonate</h4>
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">22–29 mmol/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">~18–24 mmol/L</h4>
+<p class="standard-p">because of chronic respiratory alkalosis.</p>
+<h4 class="sub-label">Chloride</h4>
+<h4 class="sub-label">~98–106 mmol/L</h4>
+<p class="standard-p">Usually relatively stable.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-13" data-part-index="13">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 13</span>
+                    <h2 class="part-title">21. ALT / AST</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-13" onchange="toggleMastery('sec-13')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-13')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-13')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~5–40 IU/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">Usually normal or slightly lower.</p>
+<h4 class="sub-label">Pre-eclampsia</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE defines liver involvement as</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">ALT or AST &gt;40 IU/L</h4>
+<p class="standard-p">in the diagnostic definition of pre-eclampsia.</p>
+<h4 class="sub-label">For concern requiring admission/surveillance:</h4>
+<p class="standard-p">ALT &gt;<span class="val-pill">70 IU</span>/L or &gt;2× ULN is specifically listed by NICE.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Remember</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">40 = liver involvement</h4>
+<h4 class="sub-label">70 = concerning deterioration</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-14" data-part-index="14">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 14</span>
+                    <h2 class="part-title">22. ALP</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-14')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-14')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">~30–120 IU/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">↑ substantially</h4>
+<p class="standard-p">because of placental ALP.</p>
+<h4 class="sub-label">May reach approximately:</h4>
+<h4 class="sub-label">2× non-pregnant upper limit</h4>
+<p class="standard-p">near term.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Raised ALP alone in late pregnancy is often physiological.</p>
+
+                <div class="topic-row" id="topic-t-14-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">23</span>
+                        <h3 class="topic-heading">Bilirubin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-1" onchange="toggleMastery('t-14-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Typical:</h4>
+<p class="standard-p">&lt;<span class="val-pill">20 µmol/L</span></p>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">usually normal or slightly reduced.</p>
+<p class="standard-p">Marked elevation is pathological.</p>
+
+                <div class="topic-row" id="topic-t-14-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">24</span>
+                        <h3 class="topic-heading">Albumin</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-2" onchange="toggleMastery('t-14-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">35–50 g/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+<h4 class="sub-label">approximately:</h4>
+<h4 class="sub-label">25–35 g/L</h4>
+<p class="standard-p">because of haemodilution.</p>
+<h4 class="sub-label">Exam trap</h4>
+<p class="standard-p">Low albumin in pregnancy does not automatically mean liver failure.</p>
+
+                <div class="topic-row" id="topic-t-14-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">25</span>
+                        <h3 class="topic-heading">Total protein</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-14-3" onchange="toggleMastery('t-14-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Non-pregnant:</h4>
+<h4 class="sub-label">60–80 g/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-15" data-part-index="15">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 15</span>
+                    <h2 class="part-title">PART VII — INTRAHEPATIC CHOLESTASIS OF PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-15" onchange="toggleMastery('sec-15')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-15')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-15')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is one of the most important RCOG numerical areas.</p>
+<h4 class="sub-label">Bile acids</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Peak bile acids</th>
+<th>RCOG classification</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>19–<span class="val-pill">39 µmol/L</span></strong></td>
+<td>Mild ICP</td>
+</tr>
+<tr>
+<td><strong>40–<span class="val-pill">99 µmol/L</span></strong></td>
+<td>Moderate ICP</td>
+</tr>
+<tr>
+<td><strong><span class="val-pill">≥100 µmol/L</span></strong></td>
+<td>Severe ICP</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">These are the current RCOG categories.</p>
+<h4 class="sub-label">Major fetal-risk number</h4>
+<h4 class="sub-label">≥100 µmol/L</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ severe ICP and substantially increased stillbirth risk.</span></div>
+<p class="standard-p">RCOG reports approximately 3 in 100 stillbirth risk after<span class="val-pill"> 36 weeks</span> in severe ICP.</p>
+<h4 class="sub-label">Memory</h4>
+<h4 class="sub-label">19 / 40 / 100</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-16" data-part-index="16">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 16</span>
+                    <h2 class="part-title">PART VIII — PRE-ECLAMPSIA LABORATORY VALUES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-16" onchange="toggleMastery('sec-16')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-16')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-16')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is an extremely high-yield table.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE diagnostic framework</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">New hypertension after 20 weeks:</h4>
+<h4 class="sub-label">≥140/90 mmHg</h4>
+<h4 class="sub-label">PLUS one or more of:</h4>
+<h4 class="sub-label">Proteinuria</h4>
+<h4 class="sub-label">PCR ≥30 mg/mmol</h4>
+<h4 class="sub-label">OR</h4>
+<h4 class="sub-label">ACR ≥8 mg/mmol</h4>
+<h4 class="sub-label">OR</h4>
+<h4 class="sub-label">dipstick ≥2+ / approximately ≥1 g/L</h4>
+<h4 class="sub-label">Renal</h4>
+<h4 class="sub-label">Creatinine ≥90 µmol/L</h4>
+<h4 class="sub-label">Liver</h4>
+<h4 class="sub-label">ALT/AST &gt;40 IU/L</h4>
+<h4 class="sub-label">For concerning deterioration:</h4>
+<h4 class="sub-label">ALT &gt;70 IU/L or &gt;2× ULN</h4>
+<h4 class="sub-label">Platelets</h4>
+<p class="standard-p">&lt;150 ×10⁹/L</p>
+<h4 class="sub-label">Severe hypertension</h4>
+<h4 class="sub-label">≥160 systolic</h4>
+<h4 class="sub-label">or</h4>
+<h4 class="sub-label">≥110 diastolic</h4>
+<h4 class="sub-label">PRE-ECLAMPSIA — ONE-LINE MEMORY</h4>
+<h4 class="sub-label">140/90 + 30/8 + 90 + 40 + 150</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>140/90 → hypertension</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>PCR 30 → proteinuria</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>ACR 8 → proteinuria</span></div>
+<h4 class="sub-label">Creatinine 90</h4>
+<h4 class="sub-label">ALT/AST &gt;40</h4>
+<h4 class="sub-label">Platelets &lt;150</h4>
+<h4 class="sub-label">Severe hypertension</h4>
+<h4 class="sub-label">160/110</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-17" data-part-index="17">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 17</span>
+                    <h2 class="part-title">PART IX — DIABETES IN PREGNANCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-17" onchange="toggleMastery('sec-17')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-17')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-17')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE uses the</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">75-g 2-hour OGTT</h4>
+<h4 class="sub-label">Diagnosis of GDM if:</h4>
+<h4 class="sub-label">fasting plasma glucose ≥5.6 mmol/L</h4>
+<h4 class="sub-label">OR</h4>
+<p class="standard-p">2-hour plasma glucose <span class="val-pill">≥7.8 mm</span>ol/L.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE CAPILLARY GLUCOSE TARGETS IN PREGNANCY</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">For women with diabetes:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Time</th>
+<th>NICE target</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Fasting</strong></td>
+<td>&lt;<span class="val-pill">5.3 mm</span>ol/L</td>
+</tr>
+<tr>
+<td><strong>1 h after meals</strong></td>
+<td>&lt;<span class="val-pill">7.8 mm</span>ol/L</td>
+</tr>
+<tr>
+<td><strong>2 h after meals</strong></td>
+<td>&lt;<span class="val-pill">6.4 mm</span>ol/L</td>
+</tr>
+<tr>
+<td><strong>On insulin: glucose should generally remain</strong></td>
+<td>&gt;<span class="val-pill">4.0 mm</span>ol/L</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important glucose conversion</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Approximate:</h4>
+<h4 class="sub-label">mmol/L ×18 = mg/dL</h4>
+<h4 class="sub-label">Therefore:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>mmol/L</th>
+<th>mg/dL</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>4.0</strong></td>
+<td>72</td>
+</tr>
+<tr>
+<td><strong>5.3</strong></td>
+<td>95</td>
+</tr>
+<tr>
+<td><strong>5.6</strong></td>
+<td>101</td>
+</tr>
+<tr>
+<td><strong>6.4</strong></td>
+<td>115</td>
+</tr>
+<tr>
+<td><strong>7.8</strong></td>
+<td>140</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-18" data-part-index="18">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 18</span>
+                    <h2 class="part-title">PART X — HbA1c</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-18" onchange="toggleMastery('sec-18')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-18')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-18')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">For pre-existing diabetes, HbA1c is used for risk assessment.</p>
+<h4 class="sub-label">A commonly used preconception/antenatal target is:</h4>
+<h4 class="sub-label">HbA1c &lt;48 mmol/mol (6.5%)</h4>
+<p class="standard-p">if achievable without problematic hypoglycaemia.</p>
+<h4 class="sub-label">Very high-risk level</h4>
+<h4 class="sub-label">HbA1c ≥86 mmol/mol (10%)</h4>
+<p class="standard-p">is associated with very high pregnancy risk and should prompt specialist management/conception counselling.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important NICE distinction</span></div>
+                
+            </div>
+            
+<p class="standard-p">HbA1c is not used to diagnose gestational diabetes in routine pregnancy testing. NICE recommends the 75-g OGTT for GDM.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-19" data-part-index="19">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 19</span>
+                    <h2 class="part-title">PART XI — THYROID FUNCTION</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-19" onchange="toggleMastery('sec-19')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-19')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-19')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">Pregnancy alters thyroid physiology considerably.</p>
+<h4 class="sub-label">TSH</h4>
+<h4 class="sub-label">Typical non-pregnant:</h4>
+<h4 class="sub-label">~0.4–4.0 mIU/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ especially in first trimester</span></div>
+<h4 class="sub-label">may rise again later</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not automatically apply a generic non-pregnant TSH range to pregnancy.</p>
+<p class="standard-p">Use pregnancy/trimester-specific laboratory reference intervals where available.</p>
+<p class="standard-p">NICE recommends TSH-based testing and then FT4 depending on whether TSH is high or low; it does not prescribe one universal pregnancy TSH reference interval.</p>
+<h4 class="sub-label">FT4</h4>
+<h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~10–22 pmol/L</h4>
+<p class="standard-p">But assay-specific and pregnancy-specific ranges should be used.</p>
+<h4 class="sub-label">TPO antibodies</h4>
+<h4 class="sub-label">Positive:</h4>
+<p class="standard-p">usually defined by the laboratory&#x27;s assay cut-off.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important for</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Hashimoto disease</h4>
+<h4 class="sub-label">pregnancy thyroid dysfunction risk</h4>
+<h4 class="sub-label">postpartum thyroiditis risk</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-20" data-part-index="20">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 20</span>
+                    <h2 class="part-title">PART XII — PROLACTIN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-20" onchange="toggleMastery('sec-20')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-20')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-20')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Prolactin:</h4>
+<p class="standard-p">~100–500 mIU/L in a non-pregnant woman, depending on assay.</p>
+<h4 class="sub-label">Pregnancy:</h4>
+<h4 class="sub-label">markedly increases</h4>
+<h4 class="sub-label">and may reach:</h4>
+<h4 class="sub-label">several thousand mIU/L</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE fertility pearl</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do not routinely measure prolactin in every woman presenting with infertility.</p>
+<h4 class="sub-label">Measure it when there is:</h4>
+<h4 class="sub-label">ovulatory disorder</h4>
+<h4 class="sub-label">galactorrhoea</h4>
+<p class="standard-p">suspected pituitary tumour.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-21" data-part-index="21">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 21</span>
+                    <h2 class="part-title">PART XIII — FERTILITY / OVULATION TESTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-21" onchange="toggleMastery('sec-21')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-21')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-21')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Progesterone</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE recommends</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">mid-luteal progesterone</h4>
+<p class="standard-p">for confirmation of ovulation.</p>
+<h4 class="sub-label">For a 28-day cycle:</h4>
+<h4 class="sub-label">Day 21</h4>
+<h4 class="sub-label">For longer/irregular cycles:</h4>
+<p class="standard-p">approximately<span class="val-pill"> 7 days</span> before expected menstruation, e.g.:</p>
+<p class="standard-p">day 28 in a 35-day cycle.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE recommends repeating weekly if necessary in prolonged irregular cycles.</span></div>
+                
+            </div>
+            
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important exam threshold</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Traditionally:</h4>
+<h4 class="sub-label">&gt;30 nmol/L</h4>
+<p class="standard-p">is strongly supportive of ovulation.</p>
+<p class="standard-p">However, modern interpretation should consider timing and laboratory assay; a single lower value does not necessarily prove anovulation.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-22" data-part-index="22">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 22</span>
+                    <h2 class="part-title">PART XIV — FSH / LH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-22" onchange="toggleMastery('sec-22')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-22')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-22')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical early follicular phase:</h4>
+<h4 class="sub-label">FSH</h4>
+<h4 class="sub-label">~3–10 IU/L</h4>
+<h4 class="sub-label">LH</h4>
+<h4 class="sub-label">~2–10 IU/L</h4>
+<h4 class="sub-label">Ovulatory LH surge:</h4>
+<h4 class="sub-label">approximately:</h4>
+<h4 class="sub-label">15–75 IU/L</h4>
+<p class="standard-p">depending on assay.</p>
+<h4 class="sub-label">Menopause</h4>
+<h4 class="sub-label">FSH generally:</h4>
+<h4 class="sub-label">&gt;25–30 IU/L</h4>
+<h4 class="sub-label">and often:</h4>
+<h4 class="sub-label">&gt;40 IU/L</h4>
+<p class="standard-p">in established menopause.</p>
+<p class="standard-p">But NICE diagnosis of menopause in typical women ≥45 years is primarily clinical, not based on routinely measuring FSH.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-23" data-part-index="23">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 23</span>
+                    <h2 class="part-title">PART XV — AMH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-23" onchange="toggleMastery('sec-23')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-23')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-23')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">AMH has no universal RCOG/NICE numerical “normal” cut-off.</p>
+<h4 class="sub-label">Current NICE 2026 guidance is especially important:</h4>
+<p class="standard-p">Do not use AMH to predict spontaneous pregnancy.</p>
+<p class="standard-p">AMH can be used to predict ovarian response in assisted conception.</p>
+<p class="standard-p">AFC and AMH are useful for ovarian response counselling.</p>
+<p class="standard-p">FSH should not be used as an ovarian-response predictor.</p>
+<h4 class="sub-label">Exam categories often used clinically</h4>
+<h4 class="sub-label">Approximate:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>AMH</th>
+<th>Interpretation</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>&lt;0.5 ng/mL</strong></td>
+<td>very low</td>
+</tr>
+<tr>
+<td><strong>0.5–1.0</strong></td>
+<td>low</td>
+</tr>
+<tr>
+<td><strong>1–3.5</strong></td>
+<td>commonly considered satisfactory</td>
+</tr>
+<tr>
+<td><strong>&gt;3.5–4</strong></td>
+<td>high; consider PCOS depending on context</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">But these are not NICE diagnostic cut-offs.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-24" data-part-index="24">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 24</span>
+                    <h2 class="part-title">PART XVI — hCG</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-24" onchange="toggleMastery('sec-24')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-24')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-24')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">β-hCG</h4>
+<h4 class="sub-label">Approximate early pregnancy pattern:</h4>
+<h4 class="sub-label">detectable approximately 8–11 days after conception</h4>
+<h4 class="sub-label">rises rapidly in early pregnancy</h4>
+<p class="standard-p">approximately doubles every 48–72 h in early viable pregnancies, although this is not a rigid diagnostic rule.</p>
+<h4 class="sub-label">Discriminatory-zone concept</h4>
+<h4 class="sub-label">Historically:</h4>
+<h4 class="sub-label">~1500–3500 IU/L</h4>
+<p class="standard-p">may be used with transvaginal ultrasound as a contextual threshold for visualisation of an intrauterine pregnancy.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">A single hCG value cannot diagnose viability or location.</p>
+<p class="standard-p">Serial hCG + ultrasound + clinical picture are required.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-25" data-part-index="25">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 25</span>
+                    <h2 class="part-title">PART XVII — ANTENATAL INFECTION LABORATORY TESTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-25" onchange="toggleMastery('sec-25')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-25')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-25')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">At booking NICE recommends screening for:</h4>
+<h4 class="sub-label">HIV</h4>
+<h4 class="sub-label">syphilis</h4>
+<h4 class="sub-label">hepatitis B</h4>
+<h4 class="sub-label">sickle cell/thalassaemia</h4>
+<h4 class="sub-label">blood group/RhD</h4>
+<h4 class="sub-label">atypical red-cell antibodies</h4>
+<h4 class="sub-label">HIV</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important interpretation</span></div>
+                
+            </div>
+            
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>HIV Ag/Ab negative → no laboratory evidence of infection</span></div>
+<h4 class="sub-label">Positive screening test:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ confirmatory testing required.</span></div>
+<h4 class="sub-label">Hepatitis B</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key tests</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">HBsAg</h4>
+<h4 class="sub-label">Positive:</h4>
+<h4 class="sub-label">current HBV infection/carriage</h4>
+<h4 class="sub-label">HBeAg</h4>
+<p class="standard-p">Suggests higher infectivity.</p>
+<h4 class="sub-label">HBV DNA</h4>
+<p class="standard-p">Used for viral-load assessment and treatment decision-making.</p>
+<h4 class="sub-label">Syphilis</h4>
+<h4 class="sub-label">Screening:</h4>
+<h4 class="sub-label">treponemal tests</h4>
+<h4 class="sub-label">non-treponemal titre such as RPR/VDRL</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important numerical concept</span></div>
+                
+            </div>
+            
+<p class="standard-p">A falling titre is used to assess treatment response, often a:</p>
+<h4 class="sub-label">fourfold decline</h4>
+<p class="standard-p">e.g.</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>1:32 → 1:8</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-26" data-part-index="26">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 26</span>
+                    <h2 class="part-title">PART XVIII — RUBELLA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-26" onchange="toggleMastery('sec-26')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-26')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-26')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Rubella IgG:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>positive → immunity</span></div>
+<h4 class="sub-label">IgM:</h4>
+<p class="standard-p">suggests recent infection but requires careful confirmation because false positives occur.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-27" data-part-index="27">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 27</span>
+                    <h2 class="part-title">PART XIX — TOXOPLASMA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-27" onchange="toggleMastery('sec-27')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-27')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-27')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">IgG:</h4>
+<p class="standard-p">past exposure/immunity.</p>
+<h4 class="sub-label">IgM:</h4>
+<p class="standard-p">possible recent infection, but persistence and false positivity mean that IgM alone does not establish acute infection.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-28" data-part-index="28">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 28</span>
+                    <h2 class="part-title">PART XX — GROUP B STREPTOCOCCUS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-28" onchange="toggleMastery('sec-28')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-28')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-28')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">GBS screening is generally culture-based where a screening programme is used.</p>
+<h4 class="sub-label">A positive vaginal/rectal culture:</h4>
+<h4 class="sub-label">GBS colonisation</h4>
+<p class="standard-p">rather than maternal infection.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Do not confuse:</h4>
+<h4 class="sub-label">GBS colonisation</h4>
+<h4 class="sub-label">with:</h4>
+<h4 class="sub-label">GBS disease</h4>
+<h4 class="sub-label">or:</h4>
+<h4 class="sub-label">GBS bacteriuria</h4>
+<p class="standard-p">which has separate clinical implications.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-29" data-part-index="29">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 29</span>
+                    <h2 class="part-title">PART XXI — URINE / PROTEIN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-29" onchange="toggleMastery('sec-29')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-29')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-29')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Urinalysis</h4>
+<h4 class="sub-label">Protein</h4>
+<h4 class="sub-label">Dipstick:</h4>
+<h4 class="sub-label">negative</h4>
+<h4 class="sub-label">trace</h4>
+<h4 class="sub-label">1+</h4>
+<h4 class="sub-label">2+</h4>
+<h4 class="sub-label">3+</h4>
+<h4 class="sub-label">4+</h4>
+<p class="standard-p">For suspected pre-eclampsia, NICE recommends quantitative assessment if dipstick is 1+ or more.</p>
+<h4 class="sub-label">PCR</h4>
+<h4 class="sub-label">Protein:creatinine ratio</h4>
+<h4 class="sub-label">≥30 mg/mmol</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ significant proteinuria for pre-eclampsia assessment.</span></div>
+<h4 class="sub-label">ACR</h4>
+<h4 class="sub-label">Albumin:creatinine ratio</h4>
+<h4 class="sub-label">≥8 mg/mmol</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ diagnostic threshold for significant proteinuria in the NICE pre-eclampsia framework.</span></div>
+<h4 class="sub-label">24-HOUR URINE</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE</span></div>
+                
+            </div>
+            
+<p class="standard-p">Do NOT routinely use 24-hour urine collection for quantification of proteinuria in hypertensive pregnancy.</p>
+<h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">PCR or ACR</h4>
+<p class="standard-p">instead.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-30" data-part-index="30">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 30</span>
+                    <h2 class="part-title">PART XXII — URINE CULTURE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-30')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-30')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Significant bacteriuria is commonly:</h4>
+<h4 class="sub-label">≥10⁵ CFU/mL</h4>
+<p class="standard-p">of a single organism in a properly collected urine sample.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important obstetric organisms</span></div>
+                
+            </div>
+            
+
+                <div class="topic-row" id="topic-t-30-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">coli</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-30-1" onchange="toggleMastery('t-30-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<h4 class="sub-label">Klebsiella</h4>
+<h4 class="sub-label">Proteus</h4>
+<h4 class="sub-label">GBS</h4>
+<h4 class="sub-label">GBS bacteriuria</h4>
+<p class="standard-p">Any significant GBS bacteriuria in pregnancy is clinically important because it indicates heavy colonisation and affects intrapartum management.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-31" data-part-index="31">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 31</span>
+                    <h2 class="part-title">PART XXIII — INFLAMMATORY MARKERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-31" onchange="toggleMastery('sec-31')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-31')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-31')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">CRP</h4>
+<h4 class="sub-label">Typical:</h4>
+<p class="standard-p">&lt;<span class="val-pill">5 mg</span>/L</p>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">may be mildly increased.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">There is no single NICE/RCOG CRP threshold that independently diagnoses chorioamnionitis or maternal sepsis.</p>
+<h4 class="sub-label">Interpret with:</h4>
+<h4 class="sub-label">temperature</h4>
+<h4 class="sub-label">pulse</h4>
+<h4 class="sub-label">WBC</h4>
+<h4 class="sub-label">fetal tachycardia</h4>
+<h4 class="sub-label">uterine tenderness</h4>
+<h4 class="sub-label">liquor characteristics</h4>
+<h4 class="sub-label">cultures</h4>
+<p class="standard-p">clinical condition.</p>
+<h4 class="sub-label">Procalcitonin</h4>
+<p class="standard-p">Not routinely used as a stand-alone obstetric diagnostic test.</p>
+<h4 class="sub-label">Lactate</h4>
+<h4 class="sub-label">Normal:</h4>
+<p class="standard-p">&lt;<span class="val-pill">2 mm</span>ol/L</p>
+<h4 class="sub-label">Obstetric sepsis</h4>
+<p class="standard-p">Raised lactate is concerning for tissue hypoperfusion.</p>
+<p class="standard-p"><span class="val-pill">≥2 mm</span>ol/L is clinically significant.</p>
+<p class="standard-p"><span class="val-pill">≥4 mm</span>ol/L indicates severe physiological derangement/high-risk sepsis.</p>
+<p class="standard-p">But lactate must be interpreted with the complete clinical picture.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-32" data-part-index="32">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 32</span>
+                    <h2 class="part-title">PART XXIV — BLOOD GAS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-32" onchange="toggleMastery('sec-32')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-32')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-32')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Pregnancy produces:</h4>
+<h4 class="sub-label">chronic compensated respiratory alkalosis</h4>
+<h4 class="sub-label">Typical maternal arterial blood gas:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>Pregnancy</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>pH</strong></td>
+<td>~7.40–7.45</td>
+</tr>
+<tr>
+<td><strong>PaCO₂</strong></td>
+<td>~28–<span class="val-pill">32 mm</span>Hg</td>
+</tr>
+<tr>
+<td><strong>PaO₂</strong></td>
+<td>~100–<span class="val-pill">110 mm</span>Hg</td>
+</tr>
+<tr>
+<td><strong>HCO₃⁻</strong></td>
+<td>~18–<span class="val-pill">22 mm</span>ol/L</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Key physiological mechanism</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Progesterone:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↑ minute ventilation</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↓ PaCO₂</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ renal bicarbonate loss</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ mild compensated respiratory alkalosis.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-33" data-part-index="33">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 33</span>
+                    <h2 class="part-title">PART XXV — MAGNESIUM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-33" onchange="toggleMastery('sec-33')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-33')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-33')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Serum Mg:</h4>
+<h4 class="sub-label">approximately:</h4>
+<h4 class="sub-label">0.7–1.0 mmol/L</h4>
+<p class="standard-p">In magnesium sulfate therapy, monitoring is primarily clinical:</p>
+<h4 class="sub-label">respiratory rate</h4>
+<h4 class="sub-label">reflexes</h4>
+<h4 class="sub-label">urine output</h4>
+<h4 class="sub-label">consciousness</h4>
+<p class="standard-p">rather than targeting a routine serum level in every woman.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-34" data-part-index="34">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 34</span>
+                    <h2 class="part-title">PART XXVI — CALCIUM</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-34" onchange="toggleMastery('sec-34')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-34')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-34')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Total calcium:</h4>
+<h4 class="sub-label">~2.2–2.6 mmol/L</h4>
+<h4 class="sub-label">Pregnancy:</h4>
+<p class="standard-p">total calcium can decrease because albumin decreases.</p>
+<h4 class="sub-label">Ionised calcium</h4>
+<p class="standard-p">Remains much more stable.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-35" data-part-index="35">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 35</span>
+                    <h2 class="part-title">PART XXVII — VITAMIN D</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-35" onchange="toggleMastery('sec-35')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-35')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-35')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">25-OH vitamin D:</h4>
+<h4 class="sub-label">Common clinical classification:</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Level</th>
+<th>Interpretation</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>&lt;25 nmol/L</strong></td>
+<td>deficiency</td>
+</tr>
+<tr>
+<td><strong>25–50 nmol/L</strong></td>
+<td>insufficiency</td>
+</tr>
+<tr>
+<td><strong>≥50 nmol/L</strong></td>
+<td>generally adequate</td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">These are clinical reference categories rather than a specific NICE/RCOG pregnancy diagnostic threshold.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-36" data-part-index="36">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 36</span>
+                    <h2 class="part-title">PART XXVIII — VITAMIN B12</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-36" onchange="toggleMastery('sec-36')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-36')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-36')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Typical:</h4>
+<h4 class="sub-label">~150–700 pmol/L</h4>
+<h4 class="sub-label">Low B12:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ macrocytic/megaloblastic anaemia</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ neurological complications.</span></div>
+<h4 class="sub-label">FOLATE</h4>
+<h4 class="sub-label">Typical:</h4>
+<p class="standard-p">&gt;10 nmol/L generally adequate, depending on assay.</p>
+<h4 class="sub-label">Low folate:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ macrocytosis</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ neural tube defect risk.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-37" data-part-index="37">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 37</span>
+                    <h2 class="part-title">PART XXIX — HYPEREMESIS GRAVIDARUM LABORATORY PATTERN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-37" onchange="toggleMastery('sec-37')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-37')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-37')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important findings</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Electrolytes</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ Na</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ K</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ Cl</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ bicarbonate</span></div>
+<h4 class="sub-label">Renal</h4>
+<h4 class="sub-label">↑ urea</h4>
+<h4 class="sub-label">↑ creatinine if severe dehydration</h4>
+<h4 class="sub-label">Liver</h4>
+<h4 class="sub-label">mild ↑ ALT/AST</h4>
+<h4 class="sub-label">sometimes bilirubin ↑</h4>
+<h4 class="sub-label">Urine</h4>
+<h4 class="sub-label">ketonuria</h4>
+<p class="standard-p">may occur with starvation, but ketones alone do not determine severity.</p>
+<h4 class="sub-label">Thyroid</h4>
+<p class="standard-p">Transient gestational thyrotoxicosis may occur because:</p>
+<h4 class="sub-label">β-hCG stimulates TSH receptors</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ↓ TSH.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-38" data-part-index="38">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 38</span>
+                    <h2 class="part-title">PART XXX — HELLP SYNDROME</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-38" onchange="toggleMastery('sec-38')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-38')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-38')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">H — Haemolysis</h4>
+<h4 class="sub-label">Possible:</h4>
+<h4 class="sub-label">↑ LDH</h4>
+<h4 class="sub-label">↑ bilirubin</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>↓ haptoglobin</span></div>
+<h4 class="sub-label">schistocytes</h4>
+<h4 class="sub-label">EL — Elevated liver enzymes</h4>
+<h4 class="sub-label">Typically:</h4>
+<h4 class="sub-label">AST/ALT ↑</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE pre-eclampsia organ dysfunction threshold</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">&gt;40 IU/L</h4>
+<h4 class="sub-label">LP — Low platelets</h4>
+<p class="standard-p">&lt;150 ×10⁹/L</p>
+<p class="standard-p">is the NICE thrombocytopenia threshold for maternal organ dysfunction.</p>
+<h4 class="sub-label">More severe HELLP commonly has:</h4>
+<p class="standard-p">&lt;100 ×10⁹/L</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-39" data-part-index="39">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 39</span>
+                    <h2 class="part-title">PART XXXI — DIC IN OBSTETRICS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-39" onchange="toggleMastery('sec-39')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-39')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-39')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important pattern</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">PT ↑</h4>
+<h4 class="sub-label">aPTT ↑</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>fibrinogen ↓</span></div>
+<h4 class="sub-label">D-dimer/FDP ↑</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>platelets ↓</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>antithrombin ↓</span></div>
+<h4 class="sub-label">Critical obstetric clue</h4>
+<p class="standard-p">A fibrinogen level that is “normal” for a non-pregnant adult may actually be inappropriately low in pregnancy.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-40" data-part-index="40">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 40</span>
+                    <h2 class="part-title">PART XXXII — OBSTETRIC HAEMORRHAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-40" onchange="toggleMastery('sec-40')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-40')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-40')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">In major PPH, monitor serially:</h4>
+<h4 class="sub-label">Hb</h4>
+<h4 class="sub-label">platelets</h4>
+<h4 class="sub-label">PT</h4>
+<h4 class="sub-label">aPTT</h4>
+<h4 class="sub-label">fibrinogen</h4>
+<h4 class="sub-label">calcium</h4>
+<h4 class="sub-label">lactate</h4>
+<h4 class="sub-label">blood gas</h4>
+<h4 class="sub-label">High-yield fibrinogen</h4>
+<p class="standard-p">&lt;<span class="val-pill">2 g</span>/L</p>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ major concern for obstetric haemorrhage-associated coagulopathy.</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-41" data-part-index="41">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 41</span>
+                    <h2 class="part-title">PART XXXIII — FETAL-MATERNAL HAEMORRHAGE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-41" onchange="toggleMastery('sec-41')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-41')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-41')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Tests include:</h4>
+<h4 class="sub-label">Kleihauer test</h4>
+<h4 class="sub-label">flow cytometry for fetal cells</h4>
+<h4 class="sub-label">maternal blood group/RhD</h4>
+<h4 class="sub-label">antibody screen</h4>
+<p class="standard-p">Used particularly for determining additional anti-D requirements in RhD-negative women after potentially sensitising events.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-42" data-part-index="42">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 42</span>
+                    <h2 class="part-title">PART XXXIV — RED-CELL ANTIBODIES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-42" onchange="toggleMastery('sec-42')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-42')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-42')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important antibodies</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Major clinically significant antibodies</h4>
+<h4 class="sub-label">anti-D</h4>
+<h4 class="sub-label">anti-c</h4>
+<h4 class="sub-label">anti-K</h4>
+<p class="standard-p">Others may also cause HDFN.</p>
+<h4 class="sub-label">Anti-D titre</h4>
+<p class="standard-p">Do not rely on one universal titre across all laboratories.</p>
+<h4 class="sub-label">For MRCOG:</h4>
+<p class="standard-p">anti-D and anti-c are quantitatively monitored in IU/mL, while anti-K requires particular caution because severe fetal anaemia can occur even at relatively low titres.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-43" data-part-index="43">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 43</span>
+                    <h2 class="part-title">PART XXXV — FETAL ANAEMIA</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-43" onchange="toggleMastery('sec-43')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-43')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-43')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Middle cerebral artery Doppler:</h4>
+<h4 class="sub-label">MCA-PSV</h4>
+<h4 class="sub-label">&gt;1.5 MoM</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ significant risk of moderate/severe fetal anaemia.</span></div>
+<p class="standard-p">This is an extremely important numerical obstetric value.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-44" data-part-index="44">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 44</span>
+                    <h2 class="part-title">PART XXXVI — FETAL GROWTH</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-44" onchange="toggleMastery('sec-44')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-44')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-44')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important percentile values</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">Small for gestational age</h4>
+<h4 class="sub-label">EFW &lt;10th centile</h4>
+<h4 class="sub-label">Severe SGA</h4>
+<p class="standard-p">&lt;3rd centile</p>
+<h4 class="sub-label">Fetal growth restriction</h4>
+<p class="standard-p">Not synonymous with SGA.</p>
+<h4 class="sub-label">May involve:</h4>
+<h4 class="sub-label">low EFW/AC</h4>
+<h4 class="sub-label">reduced growth velocity</h4>
+<h4 class="sub-label">abnormal Doppler</h4>
+<p class="standard-p">placental dysfunction.</p>
+<p class="standard-p">NICE uses &lt;3rd centile as an important threshold in intrapartum risk assessment.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-45" data-part-index="45">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 45</span>
+                    <h2 class="part-title">PART XXXVII — ANTENATAL SCREENING NUMBERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-45" onchange="toggleMastery('sec-45')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-45')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-45')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Combined screening</h4>
+<h4 class="sub-label">The UK NHS fetal anomaly screening programme uses:</h4>
+<h4 class="sub-label">Higher-chance cut-off</h4>
+<h4 class="sub-label">≥1 in 150</h4>
+<p class="standard-p">for the combined/quadruple screening pathway.</p>
+<h4 class="sub-label">So:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>1:100 → higher chance</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>1:150 → higher chance</span></div>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>1:500 → lower chance</span></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-46" data-part-index="46">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 46</span>
+                    <h2 class="part-title">PART XXXVIII — NUCHAL TRANSLUCENCY</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-46" onchange="toggleMastery('sec-46')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-46')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-46')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important practical value</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">≥3.5 mm</h4>
+<p class="standard-p">is generally considered increased NT and triggers specialist assessment pathways.</p>
+<p class="standard-p">This is primarily an ultrasound measurement, not a laboratory value, but it belongs in your numerical obstetric atlas.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-47" data-part-index="47">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 47</span>
+                    <h2 class="part-title">PART XXXIX — AFP / QUADRUPLE TEST</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-47" onchange="toggleMastery('sec-47')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-47')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-47')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">AFP is interpreted as:</h4>
+<h4 class="sub-label">MoM — multiples of median</h4>
+<p class="standard-p">rather than using one absolute concentration.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important concept</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">≥2.5 MoM</h4>
+<p class="standard-p">maternal serum AFP is classically considered elevated and prompts assessment for:</p>
+<h4 class="sub-label">open neural tube defect</h4>
+<h4 class="sub-label">abdominal wall defect</h4>
+<h4 class="sub-label">incorrect gestational age</h4>
+<h4 class="sub-label">multiple pregnancy</h4>
+<p class="standard-p">other causes.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-48" data-part-index="48">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 48</span>
+                    <h2 class="part-title">PART XL — GYNAECOLOGY: CA-125</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-48" onchange="toggleMastery('sec-48')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-48')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-48')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">CA-125 is not a screening test for ovarian cancer in asymptomatic women.</p>
+<p class="standard-p">For women ≥40 with persistent symptoms suggestive of ovarian cancer, NICE 2026 uses age-specific thresholds:</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Age</th>
+<th>CA-125 threshold</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>40–49</strong></td>
+<td><span class="val-pill">≥35 IU</span>/mL</td>
+</tr>
+<tr>
+<td><strong>50–59</strong></td>
+<td><span class="val-pill">≥31 IU</span>/mL</td>
+</tr>
+<tr>
+<td><strong>60–69</strong></td>
+<td><span class="val-pill">≥24 IU</span>/mL</td>
+</tr>
+<tr>
+<td><strong>70–79</strong></td>
+<td><span class="val-pill">≥25 IU</span>/mL</td>
+</tr>
+<tr>
+<td><strong>≥80</strong></td>
+<td><span class="val-pill">≥31 IU</span>/mL</td>
+</tr>
+</tbody></table></div>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">Important</span></div>
+                
+            </div>
+            
+<p class="standard-p">A raised CA-125 does not equal ovarian cancer.</p>
+<h4 class="sub-label">It may rise with:</h4>
+<h4 class="sub-label">endometriosis</h4>
+<h4 class="sub-label">menstruation</h4>
+<h4 class="sub-label">pregnancy</h4>
+<h4 class="sub-label">fibroids</h4>
+<h4 class="sub-label">PID</h4>
+<h4 class="sub-label">liver disease</h4>
+<p class="standard-p">heart failure.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE specifically says CA-125 should not be used to diagnose endometriosis.</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-49" data-part-index="49">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 49</span>
+                    <h2 class="part-title">PART XLI — OVARIAN CANCER RMI</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-49" onchange="toggleMastery('sec-49')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-49')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-49')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">RMI-I</h4>
+<h4 class="sub-label">RMI ≥250</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ referral to specialist MDT pathway under the NICE ovarian-cancer guideline.</span></div>
+<h4 class="sub-label">Formula:</h4>
+<h4 class="sub-label">RMI = U × M × CA125</h4>
+<h4 class="sub-label">where:</h4>
+<h4 class="sub-label">U = ultrasound score</h4>
+<h4 class="sub-label">M = menopausal score</h4>
+<h4 class="sub-label">CA125 = IU/mL</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-50" data-part-index="50">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 50</span>
+                    <h2 class="part-title">PART XLII — OVARIAN TUMOUR MARKERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-50" onchange="toggleMastery('sec-50')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-50')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-50')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Premenopausal woman with suspected ovarian malignancy</h4>
+<h4 class="sub-label">Depending on clinical/imaging findings:</h4>
+<h4 class="sub-label">CA-125</h4>
+<h4 class="sub-label">AFP</h4>
+<h4 class="sub-label">β-hCG</h4>
+<h4 class="sub-label">LDH</h4>
+<h4 class="sub-label">inhibin</h4>
+<h4 class="sub-label">CEA</h4>
+<h4 class="sub-label">CA19-9</h4>
+<p class="standard-p">NICE specifically recommends AFP + β-hCG + CA125 in women under 40 with suspected ovarian cancer to identify non-epithelial ovarian tumours.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-51" data-part-index="51">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 51</span>
+                    <h2 class="part-title">PART XLIII — MENOPAUSE</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-51" onchange="toggleMastery('sec-51')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-51')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-51')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">FSH</h4>
+<h4 class="sub-label">Often:</h4>
+<h4 class="sub-label">&gt;25–30 IU/L</h4>
+<h4 class="sub-label">and commonly:</h4>
+<h4 class="sub-label">&gt;40 IU/L</h4>
+<p class="standard-p">in established menopause.</p>
+<h4 class="sub-label">But:</h4>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE principle</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">For women ≥45 years with typical menopausal symptoms:</h4>
+<h4 class="sub-label">diagnosis is clinical</h4>
+<p class="standard-p">and routine FSH testing is generally unnecessary.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-52" data-part-index="52">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 52</span>
+                    <h2 class="part-title">PART XLIV — PCOS LABORATORY PATTERN</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-52" onchange="toggleMastery('sec-52')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-52')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-52')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">There is no single diagnostic laboratory value for PCOS.</p>
+<p class="standard-p">Diagnosis is based on Rotterdam-type clinical/biochemical/imaging criteria after excluding mimics.</p>
+<h4 class="sub-label">Possible biochemical findings:</h4>
+<h4 class="sub-label">LH</h4>
+<p class="standard-p">may be elevated.</p>
+<h4 class="sub-label">FSH</h4>
+<p class="standard-p">normal/low-normal.</p>
+<h4 class="sub-label">LH:FSH ratio</h4>
+<h4 class="sub-label">May be:</h4>
+<h4 class="sub-label">&gt;2:1 or &gt;3:1</h4>
+<h4 class="sub-label">but:</h4>
+<h4 class="sub-label">EXAM WARNING</h4>
+<p class="standard-p">LH:FSH ratio is NOT a diagnostic criterion for PCOS.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-53" data-part-index="53">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 53</span>
+                    <h2 class="part-title">PART XLV — ANDROGENS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-53" onchange="toggleMastery('sec-53')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-53')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-53')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <h4 class="sub-label">Total testosterone</h4>
+<p class="standard-p">Interpret according to laboratory female reference range.</p>
+<h4 class="sub-label">Raised testosterone:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ biochemical hyperandrogenism.</span></div>
+<h4 class="sub-label">Markedly elevated testosterone</h4>
+<p class="standard-p">A very high testosterone level should prompt investigation for:</p>
+<h4 class="sub-label">androgen-secreting ovarian tumour</h4>
+<h4 class="sub-label">adrenal tumour</h4>
+<p class="standard-p">severe hyperandrogenism.</p>
+<h4 class="sub-label">DHEAS</h4>
+<p class="standard-p">Predominantly adrenal androgen.</p>
+<h4 class="sub-label">Marked elevation:</h4>
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ consider adrenal source.</span></div>
+<h4 class="sub-label">17-OHP</h4>
+<h4 class="sub-label">Used to exclude:</h4>
+<h4 class="sub-label">non-classical congenital adrenal hyperplasia</h4>
+<p class="standard-p">particularly when hyperandrogenism is present.</p>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-54" data-part-index="54">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 54</span>
+                    <h2 class="part-title">PART XLVI — INFERTILITY: IMPORTANT NUMERICAL TESTS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-54" onchange="toggleMastery('sec-54')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-54')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-54')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE 2026 has changed some traditional teaching.</span></div>
+                
+            </div>
+            
+<h4 class="sub-label">AMH</h4>
+<p class="standard-p">Do not use to predict spontaneous conception.</p>
+<h4 class="sub-label">Use:</h4>
+<h4 class="sub-label">AMH or AFC</h4>
+<p class="standard-p">to predict ovarian response in assisted conception.</p>
+<h4 class="sub-label">Progesterone</h4>
+<h4 class="sub-label">Mid-luteal:</h4>
+<h4 class="sub-label">day 21 in a 28-day cycle</h4>
+<p class="standard-p">to confirm ovulation.</p>
+<h4 class="sub-label">Semen analysis — NICE/WHO 2026 reference values</h4>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>Lower reference</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Volume</strong></td>
+<td><span class="val-pill">≥1.4 mL</span></td>
+</tr>
+<tr>
+<td><strong>pH</strong></td>
+<td>≥7.2</td>
+</tr>
+<tr>
+<td><strong>Concentration</strong></td>
+<td>≥16 million/mL</td>
+</tr>
+<tr>
+<td><strong>Total sperm number</strong></td>
+<td>≥39 million/ejaculate</td>
+</tr>
+<tr>
+<td><strong>Total motility</strong></td>
+<td><span class="val-pill">≥42%</span></td>
+</tr>
+<tr>
+<td><strong>Progressive motility</strong></td>
+<td><span class="val-pill">≥30%</span></td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td><span class="val-pill">≥54%</span></td>
+</tr>
+<tr>
+<td><strong>Normal morphology</strong></td>
+<td><span class="val-pill">≥4%</span></td>
+</tr>
+</tbody></table></div>
+<p class="standard-p">These are the current WHO reference values adopted by NICE 2026.</p>
+<h4 class="sub-label">MRCOG memory</h4>
+<h4 class="sub-label">1.4 – 7.2 – 16 – 39 – 42 – 30 – 54 – 4</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-55" data-part-index="55">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 55</span>
+                    <h2 class="part-title">PART XLVII — IMPORTANT NORMAL PREGNANCY PHYSIOLOGICAL LABORATORY CHANGES</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-55" onchange="toggleMastery('sec-55')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-55')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-55')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">This is one of the best tables to memorise.</p>
+<div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Parameter</th>
+<th>Pregnancy change</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Hb</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>Hct</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>RBC</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>WBC</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Neutrophils</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Platelets</strong></td>
+<td>slight ↓</td>
+</tr>
+<tr>
+<td><strong>ESR</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Fibrinogen</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>D-dimer</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Factor VII</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Factor VIII</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Factor X</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Protein S</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>Antithrombin</strong></td>
+<td>relatively unchanged</td>
+</tr>
+<tr>
+<td><strong>PT</strong></td>
+<td>slight ↓/normal</td>
+</tr>
+<tr>
+<td><strong>aPTT</strong></td>
+<td>slight ↓/normal</td>
+</tr>
+<tr>
+<td><strong>Creatinine</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>Urea</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>GFR</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Sodium</strong></td>
+<td>slightly ↓</td>
+</tr>
+<tr>
+<td><strong>Bicarbonate</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>Albumin</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>Total protein</strong></td>
+<td>↓</td>
+</tr>
+<tr>
+<td><strong>ALP</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>ALT</strong></td>
+<td>normal/slightly ↓</td>
+</tr>
+<tr>
+<td><strong>AST</strong></td>
+<td>normal/slightly ↓</td>
+</tr>
+<tr>
+<td><strong>Bilirubin</strong></td>
+<td>normal/slightly ↓</td>
+</tr>
+<tr>
+<td><strong>Cholesterol</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>Triglycerides</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>TSH</strong></td>
+<td>↓ especially 1st trimester</td>
+</tr>
+<tr>
+<td><strong>Total T4/T3</strong></td>
+<td>↑</td>
+</tr>
+<tr>
+<td><strong>FT4</strong></td>
+<td>variable/slight ↓</td>
+</tr>
+<tr>
+<td><strong>Prolactin</strong></td>
+<td>↑ markedly</td>
+</tr>
+<tr>
+<td><strong>β-hCG</strong></td>
+<td>↑ dramatically</td>
+</tr>
+<tr>
+<td><strong>Fibrinogen</strong></td>
+<td>↑</td>
+</tr>
+</tbody></table></div>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-56" data-part-index="56">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 56</span>
+                    <h2 class="part-title">PART XLVIII — HIGH-YIELD OBSTETRIC NUMBERS</h2>
+                </div>
+                <div class="part-actions">
+                    
+            <label class="mastery-check-label" title="Mark Section as Mastered">
+                <input type="checkbox" class="topic-checkbox" data-id="sec-56" onchange="toggleMastery('sec-56')">
+                <span class="check-custom"></span>
+                <span class="check-text">Mastered</span>
+            </label>
+            
+                    <button class="btn-icon" onclick="readAloudSection('part-56')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-56')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <p class="standard-p">If you&#x27;re preparing for MRCOG/FCPS, these are the values I would memorise first:</p>
+<h4 class="sub-label">Anaemia</h4>
+<h4 class="sub-label">Hb &lt;110 / &lt;105 g/L</h4>
+<h4 class="sub-label">Hypertension</h4>
+<h4 class="sub-label">≥140/90</h4>
+<h4 class="sub-label">Severe hypertension</h4>
+<h4 class="sub-label">≥160/110</h4>
+<h4 class="sub-label">Proteinuria</h4>
+<h4 class="sub-label">PCR ≥30 mg/mmol</h4>
+<h4 class="sub-label">ACR ≥8 mg/mmol</h4>
+<h4 class="sub-label">Creatinine</h4>
+<h4 class="sub-label">≥90 µmol/L</h4>
+<h4 class="sub-label">Transaminases</h4>
+<h4 class="sub-label">&gt;40 IU/L</h4>
+<h4 class="sub-label">Severe/concerning ALT</h4>
+<h4 class="sub-label">&gt;70 IU/L or &gt;2× ULN</h4>
+<h4 class="sub-label">Platelets</h4>
+<p class="standard-p">&lt;150 ×10⁹/L</p>
+<h4 class="sub-label">GDM</h4>
+<h4 class="sub-label">FPG ≥5.6 mmol/L</h4>
+<h4 class="sub-label">or</h4>
+<h4 class="sub-label">2-h ≥7.8 mmol/L</h4>
+<h4 class="sub-label">Diabetes pregnancy glucose targets</h4>
+<h4 class="sub-label">5.3 / 7.8 / 6.4 mmol/L</h4>
+<h4 class="sub-label">ICP</h4>
+<h4 class="sub-label">19 / 40 / 100 µmol/L</h4>
+<h4 class="sub-label">Fetal anaemia</h4>
+<h4 class="sub-label">MCA-PSV &gt;1.5 MoM</h4>
+<h4 class="sub-label">Fetal growth</h4>
+<p class="standard-p">&lt;10th centile = SGA</p>
+<p class="standard-p">&lt;3rd centile = severe SGA</p>
+<h4 class="sub-label">Aneuploidy screening</h4>
+<h4 class="sub-label">≥1:150 = higher chance</h4>
+<h4 class="sub-label">RMI</h4>
+<h4 class="sub-label">≥250</h4>
+<h4 class="sub-label">CA-125</h4>
+<p class="standard-p"><span class="val-pill">35 IU</span>/mL remains an important classic value, although NICE 2026 now uses age-specific thresholds from age 40 upward.</p>
+<h4 class="sub-label">Semen analysis</h4>
+<h4 class="sub-label">1.4 / 7.2 / 16 / 39 / 42 / 30 / 54 / 4</h4>
+            </div>
+        </article>
+        
+        <article class="part-card" id="part-57" data-part-index="57">
+            <div class="part-top-bar">
+                <div class="part-title-wrapper">
+                    <span class="part-pill">SECTION 57</span>
+                    <h2 class="part-title">PART XLIX — “NUMBER THAT CHANGES MANAGEMENT” TABLE</h2>
+                </div>
+                <div class="part-actions">
+                    
+                    <button class="btn-icon" onclick="readAloudSection('part-57')" title="Read this section aloud">🔊 Listen</button>
+                    <button class="btn-icon" onclick="copySectionText('part-57')" title="Copy section text">📋 Copy</button>
+                </div>
+            </div>
+            <div class="part-body">
+                <div class="table-wrap"><table class="styled-table">
+<thead><tr>
+<th>Finding</th>
+<th>Number to remember</th>
+<th>Meaning</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>Hb 1st trimester</strong></td>
+<td>&lt;<span class="val-pill">110 g</span>/L</td>
+<td>Anaemia</td>
+</tr>
+<tr>
+<td><strong>Hb 2nd/3rd</strong></td>
+<td>&lt;<span class="val-pill">105 g</span>/L</td>
+<td>Anaemia</td>
+</tr>
+<tr>
+<td><strong>Hb at labour</strong></td>
+<td>&lt;<span class="val-pill">85 g</span>/L</td>
+<td>Important intrapartum risk</td>
+</tr>
+<tr>
+<td><strong>Platelets</strong></td>
+<td>&lt;150 ×10⁹/L</td>
+<td>Thrombocytopenia/PE organ dysfunction</td>
+</tr>
+<tr>
+<td><strong>Creatinine</strong></td>
+<td><span class="val-pill">≥90 µmol/L</span></td>
+<td>PE renal dysfunction</td>
+</tr>
+<tr>
+<td><strong>ALT/AST</strong></td>
+<td>&gt;<span class="val-pill">40 IU</span>/L</td>
+<td>PE liver involvement</td>
+</tr>
+<tr>
+<td><strong>ALT</strong></td>
+<td>&gt;<span class="val-pill">70 IU</span>/L</td>
+<td>Concerning deterioration</td>
+</tr>
+<tr>
+<td><strong>BP</strong></td>
+<td>≥140/90</td>
+<td>Hypertension</td>
+</tr>
+<tr>
+<td><strong>BP</strong></td>
+<td>≥160/110</td>
+<td>Severe hypertension</td>
+</tr>
+<tr>
+<td><strong>PCR</strong></td>
+<td><span class="val-pill">≥30 mg</span>/mmol</td>
+<td>Significant proteinuria</td>
+</tr>
+<tr>
+<td><strong>ACR</strong></td>
+<td><span class="val-pill">≥8 mg</span>/mmol</td>
+<td>Significant proteinuria</td>
+</tr>
+<tr>
+<td><strong>GDM fasting</strong></td>
+<td><span class="val-pill">≥5.6 mm</span>ol/L</td>
+<td>GDM</td>
+</tr>
+<tr>
+<td><strong>GDM 2-h</strong></td>
+<td><span class="val-pill">≥7.8 mm</span>ol/L</td>
+<td>GDM</td>
+</tr>
+<tr>
+<td><strong>GDM fasting target</strong></td>
+<td>&lt;<span class="val-pill">5.3 mm</span>ol/L</td>
+<td>NICE target</td>
+</tr>
+<tr>
+<td><strong>1-h glucose</strong></td>
+<td>&lt;<span class="val-pill">7.8 mm</span>ol/L</td>
+<td>NICE target</td>
+</tr>
+<tr>
+<td><strong>2-h glucose</strong></td>
+<td>&lt;<span class="val-pill">6.4 mm</span>ol/L</td>
+<td>NICE target</td>
+</tr>
+<tr>
+<td><strong>ICP mild</strong></td>
+<td>19–39</td>
+<td>µmol/L</td>
+</tr>
+<tr>
+<td><strong>ICP moderate</strong></td>
+<td>40–99</td>
+<td>µmol/L</td>
+</tr>
+<tr>
+<td><strong>ICP severe</strong></td>
+<td>≥100</td>
+<td>µmol/L</td>
+</tr>
+<tr>
+<td><strong>MCA-PSV</strong></td>
+<td>&gt;1.5 MoM</td>
+<td>Fetal anaemia risk</td>
+</tr>
+<tr>
+<td><strong>SGA</strong></td>
+<td>&lt;10th centile</td>
+<td>Small</td>
+</tr>
+<tr>
+<td><strong>Severe SGA</strong></td>
+<td>&lt;3rd centile</td>
+<td>Severe</td>
+</tr>
+<tr>
+<td><strong>Screening</strong></td>
+<td>≥1:150</td>
+<td>Higher chance</td>
+</tr>
+<tr>
+<td><strong>RMI-I</strong></td>
+<td>≥250</td>
+<td>Specialist ovarian cancer referral</td>
+</tr>
+<tr>
+<td><strong>CA125 age 40–49</strong></td>
+<td><span class="val-pill">≥35 IU</span>/mL</td>
+<td>Further assessment</td>
+</tr>
+<tr>
+<td><strong>Semen volume</strong></td>
+<td><span class="val-pill">≥1.4 mL</span></td>
+<td>WHO lower reference</td>
+</tr>
+<tr>
+<td><strong>Sperm concentration</strong></td>
+<td>≥16m/mL</td>
+<td>WHO lower reference</td>
+</tr>
+<tr>
+<td><strong>Total sperm</strong></td>
+<td>≥39m</td>
+<td>WHO lower reference</td>
+</tr>
+<tr>
+<td><strong>Total motility</strong></td>
+<td><span class="val-pill">≥42%</span></td>
+<td>WHO lower reference</td>
+</tr>
+<tr>
+<td><strong>Progressive motility</strong></td>
+<td><span class="val-pill">≥30%</span></td>
+<td>WHO lower reference</td>
+</tr>
+<tr>
+<td><strong>Vitality</strong></td>
+<td><span class="val-pill">≥54%</span></td>
+<td>WHO lower reference</td>
+</tr>
+<tr>
+<td><strong>Morphology</strong></td>
+<td><span class="val-pill">≥4%</span></td>
+<td>WHO lower reference</td>
+</tr>
+</tbody></table></div>
+<h4 class="sub-label">The most important RCOG/NICE distinction</h4>
+<p class="standard-p">Don&#x27;t memorise every laboratory value as a rigid “normal/abnormal” cut-off.</p>
+<h4 class="sub-label">For exams and clinical practice, divide values into:</h4>
+
+                <div class="topic-row" id="topic-t-57-1">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">A</span>
+                        <h3 class="topic-heading">Physiological pregnancy ranges</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-57-1" onchange="toggleMastery('t-57-1')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ Hb ↓, WBC ↑, creatinine ↓, ALP ↑, fibrinogen ↑, D-dimer ↑, albumin ↓.</span></div>
+
+                <div class="topic-row" id="topic-t-57-2">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">B</span>
+                        <h3 class="topic-heading">Formal diagnostic thresholds</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-57-2" onchange="toggleMastery('t-57-2')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ 140/90, 160/110, PCR 30, ACR 8, creatinine 90, ALT 40, platelets 150.</span></div>
+
+                <div class="topic-row" id="topic-t-57-3">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">C</span>
+                        <h3 class="topic-heading">Disease-severity thresholds</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-57-3" onchange="toggleMastery('t-57-3')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ ALT 70, bile acids 100, MCA-PSV 1.5 MoM, Hb 85, fibrinogen<span class="val-pill"> 2 g</span>/L.</span></div>
+
+                <div class="topic-row" id="topic-t-57-4">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">D</span>
+                        <h3 class="topic-heading">Screening thresholds</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-57-4" onchange="toggleMastery('t-57-4')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ aneuploidy ≥1:150, RMI ≥250.</span></div>
+
+                <div class="topic-row" id="topic-t-57-5">
+                    <div class="topic-title-box">
+                        <span class="topic-badge">E</span>
+                        <h3 class="topic-heading">Assay-dependent reference values</h3>
+                    </div>
+                    <label class="mastery-check-label" title="Mark as Mastered">
+                        <input type="checkbox" class="topic-checkbox" data-id="t-57-5" onchange="toggleMastery('t-57-5')">
+                        <span class="check-custom"></span>
+                        <span class="check-text">Mastered</span>
+                    </label>
+                </div>
+                
+<div class="sequence-pill"><span class="flow-arrow">➔</span> <span>→ TSH, FT4, ferritin, AMH, testosterone, prolactin, vitamin levels, etc. should be interpreted using the relevant laboratory/assay and clinical context.</span></div>
+<p class="standard-p">NICE&#x27;s current antenatal framework recommends booking FBC, blood group/RhD and infectious-disease/haemoglobinopathy screening, with repeat FBC and antibody testing at<span class="val-pill"> 28 weeks</span>. NICE&#x27;s current fertility guideline was updated in March 2026, so older MRCOG notes containing older AMH/FSH or semen reference values should be checked against the new recommendations.</p>
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE Antenatal Care guideline NG201</span></div>
+                <div class="callout-body">NICE Hypertension in Pregnancy NG133</div>
+            </div>
+            
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">NICE Diabetes in Pregnancy NG3</span></div>
+                <div class="callout-body">NICE Fertility Problems NG257 — 2026 update</div>
+            </div>
+            
+
+            <div class="atlas-callout callout-highyield">
+                <div class="callout-header"><span class="callout-tag">RCOG Green-top Guidelines</span></div>
+                
+            </div>
+            
+            </div>
+        </article>
+        
+            </section>
+
+            <!-- MODE 2: ACTIVE RECALL FLASHCARDS -->
+            <section id="view-flashcards" class="flashcard-arena">
+                <div class="flashcard-header">
+                    <div>
+                        <h2 style="font-family:var(--font-head); font-size:18px;">Active Recall Flashcards</h2>
+                        <p style="font-size:12px; color:var(--text-light);">Click the card or press Space to flip. Test your spontaneous recall.</p>
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:var(--brand-cobalt);" id="fc-counter">Card 1 of 25</div>
+                </div>
+
+                <div class="card-perspective" onclick="flipCurrentCard()">
+                    <div class="fcard-inner" id="flashcard-inner">
+                        <div class="fcard-front">
+                            <span class="fcard-category" id="fc-category">Clinical Category</span>
+                            <div class="fcard-question" id="fc-question">Loading question...</div>
+                            <span class="fcard-hint">Tap / Click card to reveal answer ↺</span>
+                        </div>
+                        <div class="fcard-back">
+                            <span class="fcard-category">Verified Answer</span>
+                            <div class="fcard-answer" id="fc-answer">Loading answer...</div>
+                            <span class="fcard-hint">Click card again to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button class="btn-fc" onclick="prevCard()">← Previous</button>
+                    <button class="btn-fc" style="background:#10b981; color:#fff; border-color:#10b981;" onclick="flipCurrentCard()">Flip Card</button>
+                    <button class="btn-fc" onclick="shuffleCards()">🔀 Shuffle</button>
+                    <button class="btn-fc" onclick="nextCard()">Next →</button>
+                </div>
+            </section>
+
+            <!-- MODE 3: BOARD QUIZ -->
+            <section id="view-quiz" class="quiz-arena">
+                <div class="quiz-card">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" id="quiz-prog-fill"></div>
+                    </div>
+                    <div class="quiz-q-num" id="quiz-num">QUESTION 1 OF 12</div>
+                    <div class="quiz-q-text" id="quiz-text">Loading question...</div>
+                    <div class="quiz-options-list" id="quiz-options"></div>
+                    <div class="quiz-feedback-box" id="quiz-feedback"></div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-fc" id="btn-quiz-next" style="display:none; background:var(--brand-cobalt); color:#fff;" onclick="nextQuizQuestion()">Next Question →</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODE 4: HIGH-YIELD DRILL ARENA -->
+            <section id="view-surgical" class="surgical-drill-arena">
+                <div class="surgical-hero">
+                    <span style="font-size:11px; font-weight:800; letter-spacing:1px; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:12px;">EXAM HIGH-YIELD DRILL</span>
+                    <h2 style="font-family:var(--font-head); font-size:22px; margin-top:8px;">High-Yield Drill</h2>
+                    <p style="font-size:13px; opacity:0.9; margin-top:4px;">Core associations, key diagnostic parameters, and rapid exam differentiation:</p>
+                </div>
+
+                <div class="grid-surgical">
+                    
+        <div class="surg-box">
+            <div class="surg-box-title">📌 PART I — COMPLETE BLOOD COUNT</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Situation: Important value</li>
+<li class="surg-item">● Non-pregnant woman: ~120–160 g/L</li>
+<li class="surg-item">● 1st trimester anaemia: Hb &lt;110 g/L</li>
+<li class="surg-item">● 2nd/3rd trimester anaemia: Hb &lt;105 g/L</li>
+<li class="surg-item">● Postpartum anaemia commonly used threshold: &lt;100 g/L</li>
+<li class="surg-item">● Hb &lt;85 g/L at onset of labour: Important NICE intrapartum risk threshold</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 8. WBC</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Platelets: Interpretation</li>
+<li class="surg-item">● &lt;150 ×10⁹/L: thrombocytopenia</li>
+<li class="surg-item">● &lt;100 ×10⁹/L: significant thrombocytopenia</li>
+<li class="surg-item">● &lt;50 ×10⁹/L: severe</li>
+<li class="surg-item">● &lt;20–30 ×10⁹/L: major bleeding risk may occur</li>
+            </ul>
+        </div>
+        
+        <div class="surg-box">
+            <div class="surg-box-title">📌 PART II — IRON STUDIES</div>
+            <ul class="surg-items-list">
+                <li class="surg-item">● Ferritin: Interpretation</li>
+<li class="surg-item">● &lt;15 µg/L: iron deficiency strongly supported</li>
+<li class="surg-item">● &lt;30 µg/L: depleted/low iron stores</li>
+<li class="surg-item">● &lt;30–50 µg/L: clinically important in many obstetric settings</li>
+<li class="surg-item">● Normal/high ferritin + inflammation: does NOT exclude iron deficiency</li>
+            </ul>
+        </div>
+        
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+
+    const totalTopics = 71;
+    const flashcards = [{"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Non-pregnant woman</strong>?", "a": "<strong>~120\u2013160 g/L</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>1st trimester anaemia</strong>?", "a": "<strong>Hb <110 g/L</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>2nd/3rd trimester anaemia</strong>?", "a": "<strong>Hb <105 g/L</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Postpartum anaemia commonly used threshold</strong>?", "a": "<strong><100 g/L</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Hb &lt;85 g/L at onset of labour</strong>?", "a": "<strong>Important NICE intrapartum risk threshold</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>State</strong>?", "a": "<strong>Hct</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Non-pregnant</strong>?", "a": "<strong>~0.36\u20130.46</strong>"}, {"category": "COMPLETE BLOOD COUNT", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Pregnancy</strong>?", "a": "<strong>~0.31\u20130.41</strong>"}, {"category": "8. WBC", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Platelets</strong>?", "a": "<strong>Interpretation</strong>"}, {"category": "8. WBC", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;150 \u00d710\u2079/L</strong>?", "a": "<strong>thrombocytopenia</strong>"}, {"category": "8. WBC", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;100 \u00d710\u2079/L</strong>?", "a": "<strong>significant thrombocytopenia</strong>"}, {"category": "8. WBC", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;50 \u00d710\u2079/L</strong>?", "a": "<strong>severe</strong>"}, {"category": "8. WBC", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;20\u201330 \u00d710\u2079/L</strong>?", "a": "<strong>major bleeding risk may occur</strong>"}, {"category": "IRON STUDIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Ferritin</strong>?", "a": "<strong>Interpretation</strong>"}, {"category": "IRON STUDIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;15 \u00b5g/L</strong>?", "a": "<strong>iron deficiency strongly supported</strong>"}, {"category": "IRON STUDIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;30 \u00b5g/L</strong>?", "a": "<strong>depleted/low iron stores</strong>"}, {"category": "IRON STUDIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>&lt;30\u201350 \u00b5g/L</strong>?", "a": "<strong>clinically important in many obstetric settings</strong>"}, {"category": "IRON STUDIES", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Normal/high ferritin + inflammation</strong>?", "a": "<strong>does NOT exclude iron deficiency</strong>"}, {"category": "INTRAHEPATIC CHOLESTASIS OF PR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Peak bile acids</strong>?", "a": "<strong>RCOG classification</strong>"}, {"category": "INTRAHEPATIC CHOLESTASIS OF PR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>19\u201339 \u00b5mol/L</strong>?", "a": "<strong>Mild ICP</strong>"}, {"category": "INTRAHEPATIC CHOLESTASIS OF PR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>40\u201399 \u00b5mol/L</strong>?", "a": "<strong>Moderate ICP</strong>"}, {"category": "INTRAHEPATIC CHOLESTASIS OF PR", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>\u2265100 \u00b5mol/L</strong>?", "a": "<strong>Severe ICP</strong>"}, {"category": "DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Time</strong>?", "a": "<strong>NICE target</strong>"}, {"category": "DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>Fasting</strong>?", "a": "<strong><5.3 mmol/L</strong>"}, {"category": "DIABETES IN PREGNANCY", "q": "What are the diagnostic features, cut-offs or clinical guidelines for <strong>1 h after meals</strong>?", "a": "<strong><7.8 mmol/L</strong>"}];
+    const quizQuestions = [{"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Non-pregnant woman ?", "options": ["~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "~0.36\u20130.46", "~0.31\u20130.41"], "correct": 0, "explanation": "Key Guideline / Fact: ~120\u2013160 g/L (COMPLETE BLOOD COUNT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Hb &lt;85 g/L at onset of labour ?", "options": ["~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "~0.36\u20130.46", "~0.31\u20130.41"], "correct": 1, "explanation": "Key Guideline / Fact: Important NICE intrapartum risk threshold (COMPLETE BLOOD COUNT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Non-pregnant ?", "options": ["Important NICE intrapartum risk threshold", "~120\u2013160 g/L", "~0.36\u20130.46", "~0.31\u20130.41"], "correct": 2, "explanation": "Key Guideline / Fact: ~0.36\u20130.46 (COMPLETE BLOOD COUNT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Pregnancy ?", "options": ["~0.36\u20130.46", "~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "~0.31\u20130.41"], "correct": 3, "explanation": "Key Guideline / Fact: ~0.31\u20130.41 (COMPLETE BLOOD COUNT)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Platelets ?", "options": ["Interpretation", "~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "~0.36\u20130.46"], "correct": 0, "explanation": "Key Guideline / Fact: Interpretation (8. WBC)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;150 \u00d710\u2079/L ?", "options": ["~120\u2013160 g/L", "thrombocytopenia", "Important NICE intrapartum risk threshold", "~0.36\u20130.46"], "correct": 1, "explanation": "Key Guideline / Fact: thrombocytopenia (8. WBC)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;100 \u00d710\u2079/L ?", "options": ["Important NICE intrapartum risk threshold", "~120\u2013160 g/L", "significant thrombocytopenia", "~0.36\u20130.46"], "correct": 2, "explanation": "Key Guideline / Fact: significant thrombocytopenia (8. WBC)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;50 \u00d710\u2079/L ?", "options": ["~0.36\u20130.46", "~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "severe"], "correct": 3, "explanation": "Key Guideline / Fact: severe (8. WBC)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;20\u201330 \u00d710\u2079/L ?", "options": ["major bleeding risk may occur", "~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "~0.36\u20130.46"], "correct": 0, "explanation": "Key Guideline / Fact: major bleeding risk may occur (8. WBC)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  Ferritin ?", "options": ["~120\u2013160 g/L", "Interpretation", "Important NICE intrapartum risk threshold", "~0.36\u20130.46"], "correct": 1, "explanation": "Key Guideline / Fact: Interpretation (IRON STUDIES)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;15 \u00b5g/L ?", "options": ["Important NICE intrapartum risk threshold", "~120\u2013160 g/L", "iron deficiency strongly supported", "~0.36\u20130.46"], "correct": 2, "explanation": "Key Guideline / Fact: iron deficiency strongly supported (IRON STUDIES)."}, {"q": "What are the diagnostic features, cut-offs or clinical guidelines for  &lt;30 \u00b5g/L ?", "options": ["~0.36\u20130.46", "~120\u2013160 g/L", "Important NICE intrapartum risk threshold", "depleted/low iron stores"], "correct": 3, "explanation": "Key Guideline / Fact: depleted/low iron stores (IRON STUDIES)."}];
+    const storageKey = 'obgyn_mastered_master_obstetric___gynaecological_laboratory_value_atlas';
+
+    let currentFcIndex = 0;
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let filterOnlyUnmastered = false;
+
+    let masteredSet = new Set(JSON.parse(localStorage.getItem(storageKey) || '[]'));
+
+    function initApp() {
+        updateMasteryProgress();
+        document.querySelectorAll('.topic-checkbox').forEach(cb => {
+            const id = cb.getAttribute('data-id');
+            if (masteredSet.has(id)) {
+                cb.checked = true;
+                const row = document.getElementById('topic-' + id);
+                if (row) row.classList.add('mastered-badge-active');
+                if (id.startsWith('sec-')) {
+                    const card = document.getElementById('part-' + id.replace('sec-', ''));
+                    if (card) card.classList.add('section-mastered');
+                }
+            }
+        });
+        if (flashcards.length > 0) loadFlashcard(0);
+        if (quizQuestions.length > 0) loadQuizQuestion(0);
+    }
+
+    function toggleMastery(id) {
+        const row = document.getElementById('topic-' + id);
+        const cb = document.querySelector(`.topic-checkbox[data-id="${id}"]`);
+        if (cb && cb.checked) {
+            masteredSet.add(id);
+            if (row) row.classList.add('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.add('section-mastered');
+            }
+        } else {
+            masteredSet.delete(id);
+            if (row) row.classList.remove('mastered-badge-active');
+            if (id.startsWith('sec-')) {
+                const card = document.getElementById('part-' + id.replace('sec-', ''));
+                if (card) card.classList.remove('section-mastered');
+            }
+        }
+        localStorage.setItem(storageKey, JSON.stringify(Array.from(masteredSet)));
+        updateMasteryProgress();
+    }
+
+    function updateMasteryProgress() {
+        const count = masteredSet.size;
+        const pct = totalTopics > 0 ? Math.round((count / totalTopics) * 100) : 0;
+        const textEl = document.getElementById('progress-text');
+        const fillEl = document.getElementById('progress-bar');
+        if (textEl) textEl.innerText = `${count} / ${totalTopics} Mastered (${pct}%)`;
+        if (fillEl) fillEl.style.width = pct + '%';
+    }
+
+    function filterMasteredOnly(btn) {
+        filterOnlyUnmastered = !filterOnlyUnmastered;
+        btn.innerText = filterOnlyUnmastered ? "Showing: Unchecked" : "Unchecked Only";
+        
+        // Filter topic rows
+        document.querySelectorAll('.topic-row').forEach(row => {
+            const cb = row.querySelector('.topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = 'flex';
+            }
+        });
+
+        // Filter section cards where section itself is the topic
+        document.querySelectorAll('.part-card').forEach(card => {
+            const cb = card.querySelector('.part-top-bar .topic-checkbox');
+            if (!cb) return;
+            const id = cb.getAttribute('data-id');
+            if (filterOnlyUnmastered && masteredSet.has(id)) {
+                card.style.display = 'none';
+            } else {
+                card.style.display = 'block';
+            }
+        });
+    }
+
+    function switchMode(mode) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const activeTab = document.getElementById('tab-' + mode);
+        if (activeTab) activeTab.classList.add('active');
+
+        document.getElementById('view-reader').style.display = (mode === 'reader') ? 'block' : 'none';
+        document.getElementById('view-flashcards').style.display = (mode === 'flashcards') ? 'block' : 'none';
+        document.getElementById('view-quiz').style.display = (mode === 'quiz') ? 'block' : 'none';
+        document.getElementById('view-surgical').style.display = (mode === 'surgical') ? 'block' : 'none';
+
+        const sidebar = document.getElementById('sidebar-nav');
+        if (sidebar) {
+            sidebar.style.display = (mode === 'reader') ? 'block' : 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('obgyn_theme', next);
+    }
+
+    function loadFlashcard(index) {
+        if (!flashcards.length) return;
+        currentFcIndex = index;
+        const card = flashcards[currentFcIndex];
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.remove('flipped');
+        document.getElementById('fc-category').innerText = card.category;
+        document.getElementById('fc-question').innerHTML = card.q;
+        document.getElementById('fc-answer').innerHTML = card.a;
+        document.getElementById('fc-counter').innerText = `Card ${currentFcIndex + 1} of ${flashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+        const inner = document.getElementById('flashcard-inner');
+        if (inner) inner.classList.toggle('flipped');
+    }
+
+    function nextCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex + 1) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function prevCard() {
+        if (!flashcards.length) return;
+        currentFcIndex = (currentFcIndex - 1 + flashcards.length) % flashcards.length;
+        loadFlashcard(currentFcIndex);
+    }
+
+    function shuffleCards() {
+        for (let i = flashcards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+        }
+        loadFlashcard(0);
+    }
+
+    function loadQuizQuestion(index) {
+        if (!quizQuestions.length) return;
+        currentQuizIndex = index;
+        const qData = quizQuestions[index];
+        document.getElementById('quiz-num').innerText = `QUESTION ${index + 1} OF ${quizQuestions.length}`;
+        document.getElementById('quiz-prog-fill').style.width = `${((index) / quizQuestions.length) * 100}%`;
+        document.getElementById('quiz-text').innerHTML = qData.q;
+        
+        const optContainer = document.getElementById('quiz-options');
+        optContainer.innerHTML = '';
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'none';
+        feedback.innerHTML = '';
+        document.getElementById('btn-quiz-next').style.display = 'none';
+
+        qData.options.forEach((optText, optIdx) => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerHTML = `<span style="font-weight:700; width:22px;">${String.fromCharCode(65 + optIdx)}.</span> <span>${optText}</span>`;
+            btn.onclick = () => checkQuizAnswer(optIdx, qData);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function checkQuizAnswer(selectedIdx, qData) {
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === qData.correct) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        if (selectedIdx === qData.correct) {
+            quizScore++;
+        }
+
+        const feedback = document.getElementById('quiz-feedback');
+        feedback.style.display = 'block';
+        feedback.innerHTML = `<strong>${selectedIdx === qData.correct ? "✓ Correct!" : "✗ Incorrect."}</strong> ${qData.explanation}`;
+
+        const nextBtn = document.getElementById('btn-quiz-next');
+        nextBtn.style.display = 'block';
+        if (currentQuizIndex === quizQuestions.length - 1) {
+            nextBtn.innerText = "View Final Score";
+        } else {
+            nextBtn.innerText = "Next Question →";
+        }
+    }
+
+    function nextQuizQuestion() {
+        if (currentQuizIndex < quizQuestions.length - 1) {
+            loadQuizQuestion(currentQuizIndex + 1);
+        } else {
+            const pct = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('quiz-text').innerText = `Quiz Complete! You scored ${quizScore} / ${quizQuestions.length} (${pct}%)`;
+            document.getElementById('quiz-options').innerHTML = `<p style="font-size:15px; color:var(--text-muted); margin-bottom:16px;">Review key clinical points to ensure maximum exam recall.</p><button class="btn-fc" onclick="restartQuiz()">↺ Retake Quiz</button>`;
+            document.getElementById('quiz-feedback').style.display = 'none';
+            document.getElementById('btn-quiz-next').style.display = 'none';
+        }
+    }
+
+    function restartQuiz() {
+        quizScore = 0;
+        loadQuizQuestion(0);
+    }
+
+    function handleSearch(query) {
+        const q = query.toLowerCase().trim();
+        const cards = document.querySelectorAll('.part-card');
+        cards.forEach(card => {
+            if (!q) {
+                card.style.display = 'block';
+                return;
+            }
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(q) ? 'block' : 'none';
+        });
+    }
+
+    function readAloudSection(sectionId) {
+        if (!('speechSynthesis' in window)) {
+            alert('Speech synthesis is not supported by your browser.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const section = document.getElementById(sectionId);
+        const textToRead = section.innerText;
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    function copySectionText(sectionId) {
+        const section = document.getElementById(sectionId);
+        navigator.clipboard.writeText(section.innerText).then(() => {
+            alert('Section text copied to clipboard!');
+        });
+    }
+
+    function copyAllAtlasText() {
+        const reader = document.getElementById('view-reader');
+        navigator.clipboard.writeText(reader.innerText).then(() => {
+            alert('Entire Atlas text copied to clipboard!');
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('view-flashcards').style.display === 'block') {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                flipCurrentCard();
+            } else if (e.code === 'ArrowRight') {
+                nextCard();
+            } else if (e.code === 'ArrowLeft') {
+                prevCard();
+            }
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('obgyn_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        initApp();
+    });
+    
+    </script>
+</body>
+</html>
