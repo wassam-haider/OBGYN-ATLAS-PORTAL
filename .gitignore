@@ -5,7 +5,12 @@
 # Python cache
 __pycache__/
 *.py[cod]
+rag_env/
 
 # System files
 Thumbs.db
 .DS_Store
+
+
+# enviorments
+.env

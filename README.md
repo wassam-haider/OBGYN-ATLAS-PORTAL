@@ -1,10 +1,12 @@
-# OBGYN-ATLAS-PORTAL
+# ⚕️ OBGYN Master Clinical Suite & Atlas Portal
 
-Interactive Clinical Study & Revision Suite for MRCOG & FCPS Candidates.
+Interactive Clinical Study, Examination Revision, and AI Knowledge Suite for MRCOG & FCPS Candidates.
+
+---
 
 ## 🌐 Live Hosted Portal (GitHub Pages)
-Once GitHub Pages is enabled on this repository:
 - **Hosted Portal URL**: [https://wassam-haider.github.io/OBGYN-ATLAS-PORTAL/](https://wassam-haider.github.io/OBGYN-ATLAS-PORTAL/)
+- **Local Access**: Open [index.html](file:///c:/bhabhi%20mcpc/mcps/index.html) or [obgyn_portal/web_docs/index.html](file:///c:/bhabhi%20mcpc/mcps/obgyn_portal/web_docs/index.html) in any web browser.
 
 ### 🔐 Clinical Access Credentials
 - **Candidate Username**: `batool_zehra`
@@ -12,33 +14,56 @@ Once GitHub Pages is enabled on this repository:
 
 ---
 
-## 📚 Included Interactive Atlases
+## 🗂️ Clean Project Architecture
 
-1. **Master OBGYN Anatomy, Histology, Embryology & Physiology** (`anatomy_interactive_atlas.html`)
-2. **Master Classification of Gynecological Bugs** (`MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS.html`)
-3. **Master Gynaecology Signs, Eponyms, Triads & Diagnostic Criteria** (`MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES & DIAGNOSTIC CRITERIA.html`)
-4. **Master Obstetric Investigations & Diagnostic Cut-Offs** (`MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.html`)
-5. **Master Consolidated Obstetric Signs, Eponyms & Diagnostic Criteria** (`MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS2.html`)
-6. **Master Obstetric “Bugs” Catalogue** (`MASTER OBSTETRIC “BUGS” CATALOGUE.html`)
-7. **Master Radiological Signs in Obstetrics & Gynaecology** (`MASTER RADIOLOGICAL SIGNS IN OBSTETRICS & GYNAECOLOGY.html`)
-8. **Master Investigation of Choice in Gynaecology** (`MASTER — INVESTIGATION OF CHOICE IN GYNAECOLOGY.html`)
-9. **RCOG Master Table — Ideal Time of Delivery** (`rcog master table.html`)
+The repository is organized into four clean, dedicated subsystems:
 
----
-
-## ⚡ Features
-- **Interactive Checklists**: Topic-by-topic checkboxes with persistent `localStorage` progress tracking.
-- **Active Recall Flashcards**: 3D perspective flip cards with category badges and keyboard navigation.
-- **Board Quiz**: Multiple-choice questions with answer feedback and clinical explanations.
-- **High-Yield Drill Matrix**: Rapid exam revision tables.
-- **Audio TTS**: Listen to any section with built-in text-to-speech.
-- **Dark/Light Mode**: Full theme customization.
-
----
-
-## 🛠️ Automated Note Conversion
-To compile new `.md` study notes into interactive HTML atlases:
-```powershell
-python build_atlas.py "all docs/NEW_NOTE.md"
+```text
+mcps/
+├── 🌐 obgyn_portal/       # OBGYN PORTAL STUFF
+│   ├── web_docs/          # 48 interactive HTML study modules, portal dashboard, & media
+│   ├── update_portal.py   # Regenerate & update portal cards catalog
+│   ├── add_portal_nav.py  # Inject navigation headers into study modules
+│   ├── fix_css.py         # Ensure inline styles & responsive theme support
+│   └── verify.py          # Portal verification & health-check runner
+│
+├── 📚 obgyn_data/         # OBGYN DATA STUFF
+│   ├── all docs/          # 48 markdown clinical study notes & reference tables
+│   │   ├── *.md           # Clinical study notes
+│   │   └── images for */  # Clinical images, ultrasound scans, & operative photographs
+│   └── allchats.xlsx      # Clinical transcript & dialogue reference spreadsheet
+│
+├── ⚡ workflow_agents/    # WORKFLOW AGENT STUFF
+│   ├── build_atlas.py     # Automated engine converting notes into interactive HTML
+│   └── inject_images.py   # Automated image gallery & lightbox injector
+│
+├── 🤖 rag_chatbot/        # RAG CHATBOT STUFF
+│   ├── rag_pipeline.py    # Text normalizer, TSV converter, & context-enriched chunker
+│   ├── analyze_corpus.py  # Structural analysis & pattern scanner
+│   ├── detailed_stats.py  # Statistical distributions (lines, words, tokens)
+│   └── corpus_report_clean_utf8.md # Empirical corpus report
+│
+├── .agents/               # IDE Workspace Customizations & Skills (Atlas Builder)
+├── index.html             # Production redirect entrypoint to obgyn_portal/web_docs/index.html
+└── .nojekyll              # GitHub Pages static asset routing configuration
 ```
-Output is automatically written to `web_docs/`.
+
+---
+
+## ⚡ Core Workflows
+
+### 1. Build / Update Interactive Atlases
+To convert any raw note into an interactive HTML application:
+```powershell
+python workflow_agents/build_atlas.py "obgyn_data/all docs/YOUR_NOTE.md"
+```
+Or to batch convert all notes:
+```powershell
+python workflow_agents/build_atlas.py
+```
+
+### 2. Verify Portal Modules
+To check all 48 modules, galleries, and portal navigation:
+```powershell
+python obgyn_portal/verify.py
+```

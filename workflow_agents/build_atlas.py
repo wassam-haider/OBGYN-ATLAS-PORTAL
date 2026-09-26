@@ -1822,7 +1822,9 @@ def convert_md_to_interactive_atlas(input_md_path, output_html_path=None):
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+{CSS_TEMPLATE}
+    </style>
 </head>
 <body>
 
@@ -1978,8 +1980,18 @@ def convert_md_to_interactive_atlas(input_md_path, output_html_path=None):
 def main():
     parser = argparse.ArgumentParser(description="Convert Markdown / Plaintext study notes into Interactive Atlas HTML apps.")
     parser.add_argument("inputs", nargs="*", help="One or more markdown files to convert. If omitted, converts all .md files in 'all docs'.")
-    default_out_dir = os.path.join(os.path.dirname(__file__), "web_docs")
-    parser.add_argument("--output-dir", "-o", default=default_out_dir, help="Directory to save output HTML files (defaults to web_docs).")
+    base = os.path.dirname(os.path.abspath(__file__))
+    parent = os.path.dirname(base)
+    
+    # Auto-resolve web_docs directory
+    default_out_dir = os.path.join(parent, "obgyn_portal", "web_docs")
+    if not os.path.exists(default_out_dir):
+        for cand in [os.path.join(base, "web_docs"), os.path.join(parent, "web_docs"), "obgyn_portal/web_docs", "web_docs"]:
+            if os.path.exists(cand):
+                default_out_dir = cand
+                break
+                
+    parser.add_argument("--output-dir", "-o", default=default_out_dir, help="Directory to save output HTML files (defaults to obgyn_portal/web_docs).")
     parser.add_argument("--force", "-f", action="store_true", help="Force rebuild even if HTML already exists.")
     
     args = parser.parse_args()
@@ -1994,14 +2006,20 @@ def main():
             elif os.path.isfile(inp):
                 target_files.append(inp)
     else:
-        default_dir = os.path.join(os.path.dirname(__file__), "all docs")
+        # Auto-resolve all docs directory
+        default_dir = os.path.join(parent, "obgyn_data", "all docs")
+        if not os.path.exists(default_dir):
+            for cand in [os.path.join(base, "all docs"), os.path.join(parent, "all docs"), "obgyn_data/all docs", "all docs"]:
+                if os.path.exists(cand):
+                    default_dir = cand
+                    break
         if os.path.exists(default_dir):
             for f in sorted(os.listdir(default_dir)):
                 if f.endswith('.md'):
                     target_files.append(os.path.join(default_dir, f))
                     
     if not target_files:
-        print("No .md files found to convert.")
+        print(f"No .md files found to convert. Checked default input: '{default_dir}'")
         sys.exit(1)
         
     print(f"Interactive Atlas Converter: Processing {len(target_files)} file(s)...")

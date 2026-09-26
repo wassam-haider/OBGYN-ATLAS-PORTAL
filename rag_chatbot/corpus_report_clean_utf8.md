@@ -1,0 +1,782 @@
+﻿Total files found: 47
+
+================================================================================
+  CORPUS STRUCTURAL ANALYSIS REPORT
+  FCPS / MRCOG O&G Markdown Notes ΓÇö RAG Pipeline Planning
+================================================================================
+
+## 0. FILE INVENTORY
+
+   1. [(all docs)] COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMENT  DISPOSITION.md
+       Lines= 1223 | Words=  2634 | ~Tokens=   3424 | Headings=   0 | Type=table-heavy reference
+   2. [(all docs)] COMPLETE OBGYN OPD MANAGEMENT LIST.md
+       Lines= 2791 | Words=  5181 | ~Tokens=   6735 | Headings=   0 | Type=mixed/prose
+   3. [(all docs)] CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+       Lines= 1409 | Words=  3284 | ~Tokens=   4269 | Headings=   0 | Type=table-heavy reference
+   4. [(all docs)] EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+       Lines= 1268 | Words=  3096 | ~Tokens=   4024 | Headings=   0 | Type=table-heavy reference
+   5. [(all docs)] GYNAECOLOGICAL SURGERYPreoperative assessment prerequisites and prepar
+       Lines= 1204 | Words=  2765 | ~Tokens=   3594 | Headings=   0 | Type=table-heavy reference
+   6. [(all docs)] GYNAECOLOGY DISCHARGE & FOLLOW-UP MASTER LIST.md
+       Lines= 1589 | Words=  3271 | ~Tokens=   4252 | Headings=   0 | Type=table-heavy reference
+   7. [(all docs)] Important Biochemistry, Immunopathology & Anatomical Landmarks in Gyna
+       Lines= 1197 | Words=  2189 | ~Tokens=   2845 | Headings=   0 | Type=table-heavy reference
+   8. [(all docs)] Important Biochemistry, Immunopathology & Anatomical Landmarks in Obst
+       Lines= 1378 | Words=  2716 | ~Tokens=   3530 | Headings=   0 | Type=table-heavy reference
+   9. [(all docs)] L&D TRIAGe clinical pathway.md
+       Lines= 1189 | Words=  3012 | ~Tokens=   3915 | Headings=   0 | Type=table-heavy reference
+  10. [(all docs)] MASTER ATLAS ΓÇö GYNAECOLOGICAL PROBLEMS IN PREGNANCY.md
+       Lines=  957 | Words=  2540 | ~Tokens=   3302 | Headings=   0 | Type=table-heavy reference
+  11. [(all docs)] MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS.md
+       Lines=  588 | Words=  1714 | ~Tokens=   2228 | Headings=   0 | Type=table-heavy reference
+  12. [(all docs)] MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES & DIAGNOSTIC CRIT
+       Lines= 1208 | Words=  2900 | ~Tokens=   3770 | Headings=   0 | Type=table-heavy reference
+  13. [(all docs)] MASTER GYNECOLOGY PROCEDURES & OPERATIVE MANOEUVRES.md
+       Lines= 2088 | Words=  5037 | ~Tokens=   6548 | Headings=   0 | Type=table-heavy reference
+  14. [(all docs)] MASTER LIST LABOUR-ROOM TRIAGE CASES AFTER 24 WEEKS.md
+       Lines=  967 | Words=  2683 | ~Tokens=   3487 | Headings=   0 | Type=table-heavy reference
+  15. [(all docs)] MASTER MRCOG FCPS OG ATLAS.md
+       Lines= 3598 | Words=  7587 | ~Tokens=   9863 | Headings=   0 | Type=table-heavy reference
+  16. [(all docs)] MASTER OBGYN DIFFERENTIAL & DEFINITIVE DIAGNOSIS ATLAS.md
+       Lines= 1410 | Words=  3974 | ~Tokens=   5166 | Headings=   0 | Type=table-heavy reference
+  17. [(all docs)] MASTER OBGYN PROGNOSIS ATLAS ΓÇö RCOG-FOCUSED.md
+       Lines=  731 | Words=  1877 | ~Tokens=   2440 | Headings=   0 | Type=table-heavy reference
+  18. [(all docs)] MASTER OBSTETRIC & GYNAECOLOGICAL DIAGNOSTIC CRITERIA.md
+       Lines= 1796 | Words=  3892 | ~Tokens=   5059 | Headings=   0 | Type=table-heavy reference
+  19. [(all docs)] MASTER OBSTETRIC & GYNAECOLOGICAL LABORATORY VALUE ATLAS.md
+       Lines= 1660 | Words=  3761 | ~Tokens=   4889 | Headings=   0 | Type=table-heavy reference
+  20. [(all docs)] MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.md
+       Lines= 1290 | Words=  6670 | ~Tokens=   8671 | Headings=   0 | Type=table-heavy reference
+  21. [(all docs)] MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS2.md
+       Lines= 1516 | Words=  4275 | ~Tokens=   5557 | Headings=   0 | Type=table-heavy reference
+  22. [(all docs)] MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md
+       Lines= 2264 | Words=  5441 | ~Tokens=   7073 | Headings=   0 | Type=table-heavy reference
+  23. [(all docs)] MASTER OBSTETRIC ΓÇ£BUGSΓÇ¥ CATALOGUE.md
+       Lines=  776 | Words=  1746 | ~Tokens=   2269 | Headings=   0 | Type=table-heavy reference
+  24. [(all docs)] MASTER RADIOLOGICAL SIGNS IN OBSTETRICS & GYNAECOLOGY.md
+       Lines= 1490 | Words=  3118 | ~Tokens=   4053 | Headings=   0 | Type=table-heavy reference
+  25. [(all docs)] MASTER RCOG OBSTETRIC DELIVERY ATLAS.md
+       Lines=  542 | Words=  2212 | ~Tokens=   2875 | Headings=   0 | Type=table-heavy reference
+  26. [(all docs)] MASTER RCOG OBSTETRIC DRUG REGIMENS.md
+       Lines= 2321 | Words=  5149 | ~Tokens=   6693 | Headings=   0 | Type=table-heavy reference
+  27. [(all docs)] MASTER ΓÇö INVESTIGATION OF CHOICE IN GYNAECOLOGY.md
+       Lines= 2750 | Words= 11155 | ~Tokens=  14501 | Headings=   0 | Type=table-heavy reference
+  28. [(all docs)] MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+       Lines= 1377 | Words=  3071 | ~Tokens=   3992 | Headings=   0 | Type=table-heavy reference
+  29. [(all docs)] MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+       Lines= 1487 | Words=  3437 | ~Tokens=   4468 | Headings=   0 | Type=table-heavy reference
+  30. [(all docs)] MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+       Lines= 1961 | Words=  4135 | ~Tokens=   5375 | Headings=   0 | Type=table-heavy reference
+  31. [(all docs)] MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atl
+       Lines= 1078 | Words=  2425 | ~Tokens=   3152 | Headings=   0 | Type=table-heavy reference
+  32. [(all docs)] MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+       Lines= 1720 | Words=  4205 | ~Tokens=   5466 | Headings=   0 | Type=table-heavy reference
+  33. [(all docs)] MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+       Lines= 1727 | Words=  4452 | ~Tokens=   5787 | Headings=   0 | Type=table-heavy reference
+  34. [(all docs)] MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+       Lines= 1284 | Words=  2898 | ~Tokens=   3767 | Headings=   0 | Type=table-heavy reference
+  35. [(all docs)] MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+       Lines= 1663 | Words=  3652 | ~Tokens=   4747 | Headings=   0 | Type=table-heavy reference
+  36. [(all docs)] NON-OBSTETRIC GYNAECOLOGICAL EMERGENCIES.md
+       Lines= 1236 | Words=  2653 | ~Tokens=   3448 | Headings=   0 | Type=mixed/prose
+  37. [(all docs)] O&G CONDITIONS REQUIRING MDT INVOLVEMENT.md
+       Lines=  491 | Words=  1615 | ~Tokens=   2099 | Headings=   0 | Type=table-heavy reference
+  38. [(all docs)] OBGYN BIOPSIES ΓÇö COMPLETE MRCOGFCPSOSCE MASTER LIST.md
+       Lines= 1092 | Words=  2920 | ~Tokens=   3796 | Headings=   0 | Type=table-heavy reference
+  39. [(all docs)] OBGYN OPD PROCEDURES ΓÇö COMPLETE LIST.md
+       Lines= 1015 | Words=  2400 | ~Tokens=   3120 | Headings=   0 | Type=table-heavy reference
+  40. [(all docs)] Obstetric discharge & follow-up ΓÇö RCOG-style comprehensive checklist.m
+       Lines= 1227 | Words=  2948 | ~Tokens=   3832 | Headings=   0 | Type=table-heavy reference
+  41. [(all docs)] Postoperative assessment monitoring investigations examination Gynaeco
+       Lines= 1295 | Words=  2785 | ~Tokens=   3620 | Headings=   0 | Type=table-heavy reference
+  42. [(all docs)] Pre-operative assessment, prerequisites & preparation for obstetric.md
+       Lines= 1380 | Words=  3446 | ~Tokens=   4479 | Headings=   0 | Type=table-heavy reference
+  43. [(all docs)] RCOG BLOOD-PRODUCT PREPARATION ATLAS ΓÇö O&G.md
+       Lines=  427 | Words=  1547 | ~Tokens=   2011 | Headings=   0 | Type=table-heavy reference
+  44. [(all docs)] RCOG POST-OPERATIVE OBSTETRIC ASSESSMENT ΓÇö MASTER CHECKLIST.md
+       Lines= 1397 | Words=  2523 | ~Tokens=   3279 | Headings=   0 | Type=mixed/prose
+  45. [(all docs)] REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+       Lines= 1489 | Words=  3272 | ~Tokens=   4253 | Headings=   0 | Type=table-heavy reference
+  46. [(all docs)] gestational-age cut-off  timing-of-delivery table.md
+       Lines=  780 | Words=  2089 | ~Tokens=   2715 | Headings=   0 | Type=table-heavy reference
+  47. [(all docs)] rcog master table.md
+       Lines= 1325 | Words=  6298 | ~Tokens=   8187 | Headings=   1 | Type=table-heavy reference
+
+
+## 1. HEADING STRUCTURE
+
+Heading levels across corpus:
+  H1 (#): 1 total occurrences
+
+Per-file heading breakdown:
+  COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMENT  DI  | NO HEADINGS
+  COMPLETE OBGYN OPD MANAGEMENT LIST.md                    | NO HEADINGS
+  CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md        | NO HEADINGS
+  EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.m  | NO HEADINGS
+  GYNAECOLOGICAL SURGERYPreoperative assessment prerequis  | NO HEADINGS
+  GYNAECOLOGY DISCHARGE & FOLLOW-UP MASTER LIST.md         | NO HEADINGS
+  Important Biochemistry, Immunopathology & Anatomical La  | NO HEADINGS
+  Important Biochemistry, Immunopathology & Anatomical La  | NO HEADINGS
+  L&D TRIAGe clinical pathway.md                           | NO HEADINGS
+  MASTER ATLAS ΓÇö GYNAECOLOGICAL PROBLEMS IN PREGNANCY.md   | NO HEADINGS
+  MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS.md           | NO HEADINGS
+  MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES &   | NO HEADINGS
+  MASTER GYNECOLOGY PROCEDURES & OPERATIVE MANOEUVRES.md   | NO HEADINGS
+  MASTER LIST LABOUR-ROOM TRIAGE CASES AFTER 24 WEEKS.md   | NO HEADINGS
+  MASTER MRCOG FCPS OG ATLAS.md                            | NO HEADINGS
+  MASTER OBGYN DIFFERENTIAL & DEFINITIVE DIAGNOSIS ATLAS.  | NO HEADINGS
+  MASTER OBGYN PROGNOSIS ATLAS ΓÇö RCOG-FOCUSED.md           | NO HEADINGS
+  MASTER OBSTETRIC & GYNAECOLOGICAL DIAGNOSTIC CRITERIA.m  | NO HEADINGS
+  MASTER OBSTETRIC & GYNAECOLOGICAL LABORATORY VALUE ATLA  | NO HEADINGS
+  MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.md            | NO HEADINGS
+  MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS2.md           | NO HEADINGS
+  MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md        | NO HEADINGS
+  MASTER OBSTETRIC ΓÇ£BUGSΓÇ¥ CATALOGUE.md                     | NO HEADINGS
+  MASTER RADIOLOGICAL SIGNS IN OBSTETRICS & GYNAECOLOGY.m  | NO HEADINGS
+  MASTER RCOG OBSTETRIC DELIVERY ATLAS.md                  | NO HEADINGS
+  MASTER RCOG OBSTETRIC DRUG REGIMENS.md                   | NO HEADINGS
+  MASTER ΓÇö INVESTIGATION OF CHOICE IN GYNAECOLOGY.md       | NO HEADINGS
+  MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md             | NO HEADINGS
+  MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY F  | NO HEADINGS
+  MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md     | NO HEADINGS
+  MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvi  | NO HEADINGS
+  MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md     | NO HEADINGS
+  MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER   | NO HEADINGS
+  MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md        | NO HEADINGS
+  MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md              | NO HEADINGS
+  NON-OBSTETRIC GYNAECOLOGICAL EMERGENCIES.md              | NO HEADINGS
+  O&G CONDITIONS REQUIRING MDT INVOLVEMENT.md              | NO HEADINGS
+  OBGYN BIOPSIES ΓÇö COMPLETE MRCOGFCPSOSCE MASTER LIST.md   | NO HEADINGS
+  OBGYN OPD PROCEDURES ΓÇö COMPLETE LIST.md                  | NO HEADINGS
+  Obstetric discharge & follow-up ΓÇö RCOG-style comprehens  | NO HEADINGS
+  Postoperative assessment monitoring investigations exam  | NO HEADINGS
+  Pre-operative assessment, prerequisites & preparation f  | NO HEADINGS
+  RCOG BLOOD-PRODUCT PREPARATION ATLAS ΓÇö O&G.md            | NO HEADINGS
+  RCOG POST-OPERATIVE OBSTETRIC ASSESSMENT ΓÇö MASTER CHECK  | NO HEADINGS
+  REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md       | NO HEADINGS
+  gestational-age cut-off  timing-of-delivery table.md     | NO HEADINGS
+  rcog master table.md                                     | H1=1
+
+Sample heading texts (first 6 per file, first 10 files):
+
+  [COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMEN]
+
+  [COMPLETE OBGYN OPD MANAGEMENT LIST.md]
+
+  [CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md]
+
+  [EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER AT]
+
+  [GYNAECOLOGICAL SURGERYPreoperative assessment prer]
+
+  [GYNAECOLOGY DISCHARGE & FOLLOW-UP MASTER LIST.md]
+
+  [Important Biochemistry, Immunopathology & Anatomic]
+
+  [Important Biochemistry, Immunopathology & Anatomic]
+
+  [L&D TRIAGe clinical pathway.md]
+
+  [MASTER ATLAS ΓÇö GYNAECOLOGICAL PROBLEMS IN PREGNANC]
+
+
+## 2. CONTENT FORMATTING PATTERNS
+
+File                                                     | Bullets | NumList | TblPipe | TblTSV | Bold | Italic | Q&A | Img | Code
+------------------------------------------------------------------------------------------------------------------------
+COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMENT  DI  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+COMPLETE OBGYN OPD MANAGEMENT LIST.md                    |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md        |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù  
+EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.m  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+GYNAECOLOGICAL SURGERYPreoperative assessment prerequis  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+GYNAECOLOGY DISCHARGE & FOLLOW-UP MASTER LIST.md         |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+Important Biochemistry, Immunopathology & Anatomical La  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+Important Biochemistry, Immunopathology & Anatomical La  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+L&D TRIAGe clinical pathway.md                           |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER ATLAS ΓÇö GYNAECOLOGICAL PROBLEMS IN PREGNANCY.md   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS.md           |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES &   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER GYNECOLOGY PROCEDURES & OPERATIVE MANOEUVRES.md   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER LIST LABOUR-ROOM TRIAGE CASES AFTER 24 WEEKS.md   |   Γ£ô   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER MRCOG FCPS OG ATLAS.md                            |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBGYN DIFFERENTIAL & DEFINITIVE DIAGNOSIS ATLAS.  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBGYN PROGNOSIS ATLAS ΓÇö RCOG-FOCUSED.md           |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBSTETRIC & GYNAECOLOGICAL DIAGNOSTIC CRITERIA.m  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBSTETRIC & GYNAECOLOGICAL LABORATORY VALUE ATLA  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.md            |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS2.md           |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md        |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER OBSTETRIC ΓÇ£BUGSΓÇ¥ CATALOGUE.md                     |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER RADIOLOGICAL SIGNS IN OBSTETRICS & GYNAECOLOGY.m  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER RCOG OBSTETRIC DELIVERY ATLAS.md                  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER RCOG OBSTETRIC DRUG REGIMENS.md                   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MASTER ΓÇö INVESTIGATION OF CHOICE IN GYNAECOLOGY.md       |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md             |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY F  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md     |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvi  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md     |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md        |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md              |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+NON-OBSTETRIC GYNAECOLOGICAL EMERGENCIES.md              |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+O&G CONDITIONS REQUIRING MDT INVOLVEMENT.md              |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+OBGYN BIOPSIES ΓÇö COMPLETE MRCOGFCPSOSCE MASTER LIST.md   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+OBGYN OPD PROCEDURES ΓÇö COMPLETE LIST.md                  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+Obstetric discharge & follow-up ΓÇö RCOG-style comprehens  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+Postoperative assessment monitoring investigations exam  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+Pre-operative assessment, prerequisites & preparation f  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+RCOG BLOOD-PRODUCT PREPARATION ATLAS ΓÇö O&G.md            |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+RCOG POST-OPERATIVE OBSTETRIC ASSESSMENT ΓÇö MASTER CHECK  |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md       |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+gestational-age cut-off  timing-of-delivery table.md     |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+rcog master table.md                                     |   Γ£ù   |   Γ£ô   |   Γ£ô   |   Γ£ô   |   Γ£ô   |   Γ£ù   |   Γ£ù   |   Γ£ù   |   Γ£ù  
+
+
+## 3. STRUCTURAL CONSISTENCY
+
+Structure type distribution:
+  table-heavy reference: 44 files
+  mixed/prose: 3 files
+
+
+### 3a. REPRESENTATIVE FILE SNIPPETS (first 80 lines each)
+
+
+============================================================
+FILE: COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMENT  DISPOSITION.md
+TYPE: table-heavy reference | Lines=1223 | Words=2634
+============================================================
+COMPLETE L&D TRIAGE: ARRIVAL ΓåÆ ASSESSMENT ΓåÆ MANAGEMENT ΓåÆ DISPOSITION
+1. PATIENT ARRIVAL
+Step 1 ΓÇö Reception
+
+Immediately establish:
+
+Name/identity
+Age
+Gestational age
+Gravida/para
+Reason for attendance
+Whether she is booked at the hospital
+Any obvious emergency
+Receptionist must immediately identify obvious danger signs
+
+Do not leave a visibly unstable patient waiting.
+
+Examples:
+
+Heavy vaginal bleeding
+Convulsion
+Collapse/unconsciousness
+Severe respiratory distress
+Severe abdominal pain
+Cord prolapse
+Imminent delivery
+Severe hypertension symptoms
+Major trauma
+Severe maternal deterioration
+
+Γ₧í∩╕Å Call triage/labour ward team immediately.
+
+2. INITIAL TRIAGE ΓÇö TARGET WITHIN 15 MINUTES
+
+RCOG recommends that women attending maternity triage receive an initial midwife assessment within 15 minutes and then be prioritised using symptom-specific algorithms.
+
+The initial triage is not the complete medical assessment.
+
+Its purpose is:
+
+Identify who cannot safely wait.
+
+3. FIRST 60-SECOND SAFETY SCREEN
+
+Think:
+
+A ΓÇö Airway
+Patent?
+Speaking normally?
+Stridor?
+Facial/tongue swelling?
+B ΓÇö Breathing
+Respiratory rate
+SpOΓéé
+Work of breathing
+Chest pain
+Cyanosis
+C ΓÇö Circulation
+Pulse
+BP
+Capillary refill
+Skin colour
+Vaginal blood loss
+IV access if unstable
+D ΓÇö Disability
+Conscious level
+GCS
+Seizure
+Severe headache
+Visual disturbance
+Confusion
+E ΓÇö Exposure/obstetric assessment
+Vaginal bleeding
+Liquor loss
+Contractions
+Abdominal pain
+Fetal movements
+Trauma
+Temperature
+4. INITIAL MATERNAL OBSERVATIONS
+
+
+============================================================
+FILE: COMPLETE OBGYN OPD MANAGEMENT LIST.md
+TYPE: mixed/prose | Lines=2791 | Words=5181
+============================================================
+COMPLETE OBGYN OPD MANAGEMENT LIST
+I. GYNECOLOGY OPD
+1. Puberty, Menarche & Adolescent Gynecology
+Normal puberty
+Delayed puberty
+Precocious puberty
+Normal menarche
+Primary amenorrhea
+Adolescent irregular cycles
+Adolescent heavy menstrual bleeding
+Dysmenorrhea in adolescents
+PMS/PMDD
+Vulvovaginal symptoms in adolescents
+Sexual health counselling
+Contraception in adolescents
+STI screening
+HPV vaccination
+Eating/exercise-related menstrual disturbance
+M├╝llerian anomalies
+Imperforate hymen
+Transverse vaginal septum
+
+OPD work-up
+
+Tanner staging
+Growth/BMI
+Menstrual history
+Pregnancy test when appropriate
+CBC/ferritin
+TSH ┬▒ prolactin
+FSH/LH/estradiol when indicated
+Androgens when hyperandrogenism suspected
+Pelvic US
+Further endocrine/genetic evaluation where indicated
+2. MENSTRUAL DISORDERS
+Amenorrhea
+Primary amenorrhea
+
+Consider:
+
+Pregnancy
+Constitutional delay
+PCOS
+Hypothalamic/pituitary disorders
+Hyperprolactinemia
+POI
+Turner syndrome
+M├╝llerian agenesis
+Androgen insensitivity
+Outflow obstruction
+Secondary amenorrhea
+
+Approach:
+
+Pregnancy test
+Menstrual/weight/exercise/stress/drug history
+BMI and examination
+TSH
+Prolactin
+FSH ┬▒ estradiol
+Androgen assessment if indicated
+Pelvic ultrasound
+Pituitary MRI if indicated
+Management
+Treat underlying cause
+PCOS management
+Nutritional rehabilitation
+Hyperprolactinemia treatment
+Thyroid treatment
+Hormone replacement for POI when appropriate
+Endometrial protection when chronic anovulation is present
+Fertility referral where pregnancy desired
+3. OLIGOMENORRHEA / IRREGULAR CYCLES
+
+Evaluate:
+
+Pregnancy
+PCOS
+Thyroid disease
+Hyperprolactinemia
+
+
+
+## 4. NOISE AND CLEANUP CANDIDATES
+
+
+  [EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.m] ΓÇö boilerplate hits:
+    Line  12: ΓÇ£This is an obstetric emergency. I would call for senior obstetric, anaesthetic, midwifery and neona
+
+  [MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES & ] ΓÇö boilerplate hits:
+    Line   6: Important: RCOG/ACOG do not have one official document containing ΓÇ£all gynecological signs.ΓÇ¥ This is
+
+  [MASTER MRCOG FCPS OG ATLAS.md] ΓÇö boilerplate hits:
+    Line   6: Because the source material is very large, the most useful way to build it is as a single structured
+    Line  10: I will also distinguish approximate anatomical/textbook values from guideline-dependent clinical thr
+
+  [MASTER OBGYN DIFFERENTIAL & DEFINITIVE DIAGNOSIS ATLAS.] ΓÇö boilerplate hits:
+    Line   8: Important: In many OBGYN conditions, there is no single ΓÇ£definitive test.ΓÇ¥ The diagnosis is establis
+
+  [MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md] ΓÇö boilerplate hits:
+    Line   6: Guideline note: RCOG's ectopic guideline is currently being updated; the current RCOG page lists the
+
+  [MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY F] ΓÇö boilerplate hits:
+    Line   3: This is an exam-oriented clinical atlas rather than just a list. For each station, think:
+
+  [MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md] ΓÇö boilerplate hits:
+    Line   3: This is an OSCE-focused oncology guide, designed around what you should say, examine, measure, inter
+
+  [Pre-operative assessment, prerequisites & preparation f] ΓÇö boilerplate hits:
+    Line   3: This is a practical MRCOG/obstetric theatre checklist covering the major obstetric procedures you ma
+
+Potentially duplicate/overlapping files:
+  Possible overlap (4 shared words):
+    ΓåÆ COMPLETE OBGYN OPD MANAGEMENT LIST.md
+    ΓåÆ OBGYN OPD PROCEDURES ΓÇö COMPLETE LIST.md
+    Shared: {'complete', 'list', 'obgyn', 'opd'}
+  Possible overlap (6 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (7 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce', 'guide'}
+  Possible overlap (7 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce', 'guide'}
+  Possible overlap (7 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce', 'guide'}
+  Possible overlap (5 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ Important Biochemistry, Immunopathology & Anatomical Landmarks in Gynaecology.md
+    ΓåÆ Important Biochemistry, Immunopathology & Anatomical Landmarks in Obstetrics.md
+    Shared: {'biochemistry,', 'landmarks', 'anatomical', 'important', '&', 'immunopathology'}
+  Possible overlap (4 shared words):
+    ΓåÆ MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES & DIAGNOSTIC CRITERIA.md
+    ΓåÆ MASTER OBSTETRIC & GYNAECOLOGICAL DIAGNOSTIC CRITERIA.md
+    Shared: {'&', 'diagnostic', 'criteria', 'master'}
+  Possible overlap (4 shared words):
+    ΓåÆ MASTER GYNECOLOGY PROCEDURES & OPERATIVE MANOEUVRES.md
+    ΓåÆ MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md
+    Shared: {'&', 'manoeuvres', 'procedures', 'master'}
+  Possible overlap (4 shared words):
+    ΓåÆ MASTER OBSTETRIC & GYNAECOLOGICAL DIAGNOSTIC CRITERIA.md
+    ΓåÆ MASTER OBSTETRIC & GYNAECOLOGICAL LABORATORY VALUE ATLAS.md
+    Shared: {'gynaecological', 'obstetric', 'master', '&'}
+  Possible overlap (4 shared words):
+    ΓåÆ MASTER OBSTETRIC & GYNAECOLOGICAL LABORATORY VALUE ATLAS.md
+    ΓåÆ MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md
+    Shared: {'&', 'obstetric', 'atlas', 'master'}
+  Possible overlap (4 shared words):
+    ΓåÆ MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.md
+    ΓåÆ MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS2.md
+    Shared: {'investigations', '&', 'obstetric', 'master'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'gynaecology', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '&', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mass OSCE Atlas.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (7 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce', 'guide'}
+  Possible overlap (7 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce', 'guide'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (7 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    Shared: {'mrcog', 'ΓÇö', 'part', 'master', '3', 'osce', 'guide'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (5 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'osce'}
+  Possible overlap (6 shared words):
+    ΓåÆ MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    ΓåÆ REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    Shared: {'mrcog', 'ΓÇö', 'part', '3', 'atlas', 'osce'}
+  Possible overlap (4 shared words):
+    ΓåÆ OBGYN BIOPSIES ΓÇö COMPLETE MRCOGFCPSOSCE MASTER LIST.md
+    ΓåÆ OBGYN OPD PROCEDURES ΓÇö COMPLETE LIST.md
+    Shared: {'complete', 'ΓÇö', 'list', 'obgyn'}
+
+
+## 5. SIZE AND DENSITY STATS
+
+  Lines       : min=    427 | max=  3,598 | median=  1,325 | avg=  1,418
+  Words       : min=  1,547 | max= 11,155 | median=  3,071 | avg=  3,545
+  ~Tokens     : min=  2,011 | max= 14,501 | median=  3,992 | avg=  4,609
+
+Top 5 largest files (by words):
+   11,155 words |  2750 lines | MASTER ΓÇö INVESTIGATION OF CHOICE IN GYNAECOLOGY.md
+    7,587 words |  3598 lines | MASTER MRCOG FCPS OG ATLAS.md
+    6,670 words |  1290 lines | MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.md
+    6,298 words |  1325 lines | rcog master table.md
+    5,441 words |  2264 lines | MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md
+
+Top 5 smallest files (by words):
+    1,547 words |   427 lines | RCOG BLOOD-PRODUCT PREPARATION ATLAS ΓÇö O&G.md
+    1,615 words |   491 lines | O&G CONDITIONS REQUIRING MDT INVOLVEMENT.md
+    1,714 words |   588 lines | MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS.md
+    1,746 words |   776 lines | MASTER OBSTETRIC ΓÇ£BUGSΓÇ¥ CATALOGUE.md
+    1,877 words |   731 lines | MASTER OBGYN PROGNOSIS ATLAS ΓÇö RCOG-FOCUSED.md
+
+
+## 6. SEMANTIC UNIT HINTS
+
+Heading density (headings per 100 lines):
+    0.1 h/100L |    1 headings |  1325 lines | rcog master table.md
+    0.0 h/100L |    0 headings |  1223 lines | COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMENT  DISPOSI
+    0.0 h/100L |    0 headings |  2791 lines | COMPLETE OBGYN OPD MANAGEMENT LIST.md
+    0.0 h/100L |    0 headings |  1409 lines | CONTRACEPTION ΓÇö MRCOG PART 3 OSCE MASTER GUIDE.md
+    0.0 h/100L |    0 headings |  1268 lines | EMERGENCY OBSTETRICS ΓÇö MRCOG PART 3 OSCE MASTER ATLAS.md
+    0.0 h/100L |    0 headings |  1204 lines | GYNAECOLOGICAL SURGERYPreoperative assessment prerequisites 
+    0.0 h/100L |    0 headings |  1589 lines | GYNAECOLOGY DISCHARGE & FOLLOW-UP MASTER LIST.md
+    0.0 h/100L |    0 headings |  1197 lines | Important Biochemistry, Immunopathology & Anatomical Landmar
+    0.0 h/100L |    0 headings |  1378 lines | Important Biochemistry, Immunopathology & Anatomical Landmar
+    0.0 h/100L |    0 headings |  1189 lines | L&D TRIAGe clinical pathway.md
+    0.0 h/100L |    0 headings |   957 lines | MASTER ATLAS ΓÇö GYNAECOLOGICAL PROBLEMS IN PREGNANCY.md
+    0.0 h/100L |    0 headings |   588 lines | MASTER CLASSIFICATION OF GYNECOLOGICAL BUGS.md
+    0.0 h/100L |    0 headings |  1208 lines | MASTER GYNAECOLOGY SIGNS, EponYMS, TRIADS, SYNDROMES & DIAGN
+    0.0 h/100L |    0 headings |  2088 lines | MASTER GYNECOLOGY PROCEDURES & OPERATIVE MANOEUVRES.md
+    0.0 h/100L |    0 headings |   967 lines | MASTER LIST LABOUR-ROOM TRIAGE CASES AFTER 24 WEEKS.md
+    0.0 h/100L |    0 headings |  3598 lines | MASTER MRCOG FCPS OG ATLAS.md
+    0.0 h/100L |    0 headings |  1410 lines | MASTER OBGYN DIFFERENTIAL & DEFINITIVE DIAGNOSIS ATLAS.md
+    0.0 h/100L |    0 headings |   731 lines | MASTER OBGYN PROGNOSIS ATLAS ΓÇö RCOG-FOCUSED.md
+    0.0 h/100L |    0 headings |  1796 lines | MASTER OBSTETRIC & GYNAECOLOGICAL DIAGNOSTIC CRITERIA.md
+    0.0 h/100L |    0 headings |  1660 lines | MASTER OBSTETRIC & GYNAECOLOGICAL LABORATORY VALUE ATLAS.md
+    0.0 h/100L |    0 headings |  1290 lines | MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS.md
+    0.0 h/100L |    0 headings |  1516 lines | MASTER OBSTETRIC INVESTIGATIONS & CUT-OFFS2.md
+    0.0 h/100L |    0 headings |  2264 lines | MASTER OBSTETRIC PROCEDURES & MANOEUVRES ATLAS.md
+    0.0 h/100L |    0 headings |   776 lines | MASTER OBSTETRIC ΓÇ£BUGSΓÇ¥ CATALOGUE.md
+    0.0 h/100L |    0 headings |  1490 lines | MASTER RADIOLOGICAL SIGNS IN OBSTETRICS & GYNAECOLOGY.md
+    0.0 h/100L |    0 headings |   542 lines | MASTER RCOG OBSTETRIC DELIVERY ATLAS.md
+    0.0 h/100L |    0 headings |  2321 lines | MASTER RCOG OBSTETRIC DRUG REGIMENS.md
+    0.0 h/100L |    0 headings |  2750 lines | MASTER ΓÇö INVESTIGATION OF CHOICE IN GYNAECOLOGY.md
+    0.0 h/100L |    0 headings |  1377 lines | MRCOG Part 3 OSCE ΓÇö EARLY PREGNANCY ATLAS.md
+    0.0 h/100L |    0 headings |  1487 lines | MRCOG Part 3 OSCE ΓÇö MENOPAUSE  ADOLESCENT GYNAECOLOGY FGM.md
+    0.0 h/100L |    0 headings |  1961 lines | MRCOG Part 3 ΓÇö Gynaecological Oncology OSCE Atlas.md
+    0.0 h/100L |    0 headings |  1078 lines | MRCOG Part 3 ΓÇö Gynaecology Clinical Examination & Pelvic Mas
+    0.0 h/100L |    0 headings |  1720 lines | MRCOG Part 3 ΓÇö OPERATIVE  TOACS OSCE MASTER GUIDE.md
+    0.0 h/100L |    0 headings |  1727 lines | MRCOG Part 3 ΓÇö PERFORMANCE & COMMUNICATION OSCE MASTER GUIDE
+    0.0 h/100L |    0 headings |  1284 lines | MRCOG Part 3 ΓÇö SEXUAL HEALTH OSCE MASTER GUIDE.md
+    0.0 h/100L |    0 headings |  1663 lines | MRCOG Part 3 ΓÇö UROGYNAECOLOGY OSCE ATLAS.md
+    0.0 h/100L |    0 headings |  1236 lines | NON-OBSTETRIC GYNAECOLOGICAL EMERGENCIES.md
+    0.0 h/100L |    0 headings |   491 lines | O&G CONDITIONS REQUIRING MDT INVOLVEMENT.md
+    0.0 h/100L |    0 headings |  1092 lines | OBGYN BIOPSIES ΓÇö COMPLETE MRCOGFCPSOSCE MASTER LIST.md
+    0.0 h/100L |    0 headings |  1015 lines | OBGYN OPD PROCEDURES ΓÇö COMPLETE LIST.md
+    0.0 h/100L |    0 headings |  1227 lines | Obstetric discharge & follow-up ΓÇö RCOG-style comprehensive c
+    0.0 h/100L |    0 headings |  1295 lines | Postoperative assessment monitoring investigations examinati
+    0.0 h/100L |    0 headings |  1380 lines | Pre-operative assessment, prerequisites & preparation for ob
+    0.0 h/100L |    0 headings |   427 lines | RCOG BLOOD-PRODUCT PREPARATION ATLAS ΓÇö O&G.md
+    0.0 h/100L |    0 headings |  1397 lines | RCOG POST-OPERATIVE OBSTETRIC ASSESSMENT ΓÇö MASTER CHECKLIST.
+    0.0 h/100L |    0 headings |  1489 lines | REPRODUCTIVE MEDICINE ΓÇö MRCOG PART 3 OSCE ATLAS.md
+    0.0 h/100L |    0 headings |   780 lines | gestational-age cut-off  timing-of-delivery table.md
+
+### Example 'atomic knowledge units' from 3 representative files:
+
+
+--- COMPLETE L&D TRIAGE ARRIVAL  ASSESSMENT  MANAGEMENT  DISPOSITION.md ---
+
+--- COMPLETE OBGYN OPD MANAGEMENT LIST.md ---
+
+
+## END OF REPORT
